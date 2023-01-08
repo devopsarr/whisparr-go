@@ -560,7 +560,7 @@ paths:
       - Credit
   /api/v3/customfilter:
     get:
-      operationId: ListCustomfilter
+      operationId: ListCustomFilter
       responses:
         "200":
           content:
@@ -583,7 +583,7 @@ paths:
       tags:
       - CustomFilter
     post:
-      operationId: CreateCustomfilter
+      operationId: CreateCustomFilter
       requestBody:
         content:
           application/json:
@@ -612,7 +612,7 @@ paths:
       - CustomFilter
   /api/v3/customfilter/{id}:
     delete:
-      operationId: DeleteCustomfilter
+      operationId: DeleteCustomFilter
       parameters:
       - explode: false
         in: path
@@ -628,7 +628,7 @@ paths:
       tags:
       - CustomFilter
     get:
-      operationId: GetCustomfilterById
+      operationId: GetCustomFilterById
       parameters:
       - explode: false
         in: path
@@ -654,7 +654,7 @@ paths:
       tags:
       - CustomFilter
     put:
-      operationId: UpdateCustomfilter
+      operationId: UpdateCustomFilter
       parameters:
       - explode: false
         in: path
@@ -691,7 +691,7 @@ paths:
       - CustomFilter
   /api/v3/customformat:
     get:
-      operationId: ListCustomformat
+      operationId: ListCustomFormat
       responses:
         "200":
           content:
@@ -714,7 +714,7 @@ paths:
       tags:
       - CustomFormat
     post:
-      operationId: CreateCustomformat
+      operationId: CreateCustomFormat
       requestBody:
         content:
           application/json:
@@ -743,7 +743,7 @@ paths:
       - CustomFormat
   /api/v3/customformat/{id}:
     delete:
-      operationId: DeleteCustomformat
+      operationId: DeleteCustomFormat
       parameters:
       - explode: false
         in: path
@@ -759,7 +759,7 @@ paths:
       tags:
       - CustomFormat
     get:
-      operationId: GetCustomformatById
+      operationId: GetCustomFormatById
       parameters:
       - explode: false
         in: path
@@ -785,7 +785,7 @@ paths:
       tags:
       - CustomFormat
     put:
-      operationId: UpdateCustomformat
+      operationId: UpdateCustomFormat
       parameters:
       - explode: false
         in: path
@@ -822,7 +822,7 @@ paths:
       - CustomFormat
   /api/v3/customformat/schema:
     get:
-      operationId: GetCustomformatSchema
+      operationId: GetCustomFormatSchema
       responses:
         "200":
           description: Success
@@ -830,7 +830,7 @@ paths:
       - CustomFormat
   /api/v3/delayprofile:
     get:
-      operationId: ListDelayprofile
+      operationId: ListDelayProfile
       responses:
         "200":
           content:
@@ -853,7 +853,7 @@ paths:
       tags:
       - DelayProfile
     post:
-      operationId: CreateDelayprofile
+      operationId: CreateDelayProfile
       requestBody:
         content:
           application/json:
@@ -882,7 +882,7 @@ paths:
       - DelayProfile
   /api/v3/delayprofile/{id}:
     delete:
-      operationId: DeleteDelayprofile
+      operationId: DeleteDelayProfile
       parameters:
       - explode: false
         in: path
@@ -898,7 +898,7 @@ paths:
       tags:
       - DelayProfile
     get:
-      operationId: GetDelayprofileById
+      operationId: GetDelayProfileById
       parameters:
       - explode: false
         in: path
@@ -924,7 +924,7 @@ paths:
       tags:
       - DelayProfile
     put:
-      operationId: UpdateDelayprofile
+      operationId: UpdateDelayProfile
       parameters:
       - explode: false
         in: path
@@ -961,7 +961,7 @@ paths:
       - DelayProfile
   /api/v3/diskspace:
     get:
-      operationId: ListDiskspace
+      operationId: ListDiskSpace
       responses:
         "200":
           content:
@@ -985,7 +985,7 @@ paths:
       - DiskSpace
   /api/v3/downloadclient:
     get:
-      operationId: ListDownloadclient
+      operationId: ListDownloadClient
       responses:
         "200":
           content:
@@ -1008,7 +1008,7 @@ paths:
       tags:
       - DownloadClient
     post:
-      operationId: CreateDownloadclient
+      operationId: CreateDownloadClient
       requestBody:
         content:
           application/json:
@@ -1037,7 +1037,7 @@ paths:
       - DownloadClient
   /api/v3/downloadclient/{id}:
     delete:
-      operationId: DeleteDownloadclient
+      operationId: DeleteDownloadClient
       parameters:
       - explode: false
         in: path
@@ -1053,7 +1053,7 @@ paths:
       tags:
       - DownloadClient
     get:
-      operationId: GetDownloadclientById
+      operationId: GetDownloadClientById
       parameters:
       - explode: false
         in: path
@@ -1079,7 +1079,7 @@ paths:
       tags:
       - DownloadClient
     put:
-      operationId: UpdateDownloadclient
+      operationId: UpdateDownloadClient
       parameters:
       - explode: false
         in: path
@@ -1116,7 +1116,7 @@ paths:
       - DownloadClient
   /api/v3/downloadclient/schema:
     get:
-      operationId: ListDownloadclientSchema
+      operationId: ListDownloadClientSchema
       responses:
         "200":
           content:
@@ -1140,7 +1140,7 @@ paths:
       - DownloadClient
   /api/v3/downloadclient/test:
     post:
-      operationId: TestDownloadclient
+      operationId: TestDownloadClient
       requestBody:
         content:
           application/json:
@@ -1159,7 +1159,7 @@ paths:
       - DownloadClient
   /api/v3/downloadclient/testall:
     post:
-      operationId: TestallDownloadclient
+      operationId: TestallDownloadClient
       responses:
         "200":
           description: Success
@@ -1167,7 +1167,7 @@ paths:
       - DownloadClient
   /api/v3/downloadclient/action/{name}:
     post:
-      operationId: CreateDownloadclientActionByName
+      operationId: CreateDownloadClientActionByName
       parameters:
       - explode: false
         in: path
@@ -1194,7 +1194,7 @@ paths:
       - DownloadClient
   /api/v3/config/downloadclient:
     get:
-      operationId: GetConfigDownloadclient
+      operationId: GetDownloadClientConfig
       responses:
         "200":
           content:
@@ -1212,7 +1212,7 @@ paths:
       - DownloadClientConfig
   /api/v3/config/downloadclient/{id}:
     get:
-      operationId: GetConfigDownloadclientById
+      operationId: GetDownloadClientConfigById
       parameters:
       - explode: false
         in: path
@@ -1238,7 +1238,7 @@ paths:
       tags:
       - DownloadClientConfig
     put:
-      operationId: UpdateConfigDownloadclient
+      operationId: UpdateDownloadClientConfig
       parameters:
       - explode: false
         in: path
@@ -1275,7 +1275,7 @@ paths:
       - DownloadClientConfig
   /api/v3/extrafile:
     get:
-      operationId: ListExtrafile
+      operationId: ListExtraFile
       parameters:
       - explode: true
         in: query
@@ -1308,7 +1308,7 @@ paths:
       - ExtraFile
   /api/v3/filesystem:
     get:
-      operationId: GetFilesystem
+      operationId: GetFileSystem
       parameters:
       - explode: true
         in: query
@@ -1340,7 +1340,7 @@ paths:
       - FileSystem
   /api/v3/filesystem/type:
     get:
-      operationId: GetFilesystemType
+      operationId: GetFileSystemType
       parameters:
       - explode: true
         in: query
@@ -1356,7 +1356,7 @@ paths:
       - FileSystem
   /api/v3/filesystem/mediafiles:
     get:
-      operationId: GetFilesystemMediafiles
+      operationId: GetFileSystemMediafiles
       parameters:
       - explode: true
         in: query
@@ -1562,7 +1562,7 @@ paths:
       - History
   /api/v3/config/host:
     get:
-      operationId: GetConfigHost
+      operationId: GetHostConfig
       responses:
         "200":
           content:
@@ -1580,7 +1580,7 @@ paths:
       - HostConfig
   /api/v3/config/host/{id}:
     get:
-      operationId: GetConfigHostById
+      operationId: GetHostConfigById
       parameters:
       - explode: false
         in: path
@@ -1606,7 +1606,7 @@ paths:
       tags:
       - HostConfig
     put:
-      operationId: UpdateConfigHost
+      operationId: UpdateHostConfig
       parameters:
       - explode: false
         in: path
@@ -1799,7 +1799,7 @@ paths:
       - ImportExclusions
   /api/v3/importlist:
     get:
-      operationId: ListImportlist
+      operationId: ListImportList
       responses:
         "200":
           content:
@@ -1822,7 +1822,7 @@ paths:
       tags:
       - ImportList
     post:
-      operationId: CreateImportlist
+      operationId: CreateImportList
       requestBody:
         content:
           application/json:
@@ -1851,7 +1851,7 @@ paths:
       - ImportList
   /api/v3/importlist/{id}:
     delete:
-      operationId: DeleteImportlist
+      operationId: DeleteImportList
       parameters:
       - explode: false
         in: path
@@ -1867,7 +1867,7 @@ paths:
       tags:
       - ImportList
     get:
-      operationId: GetImportlistById
+      operationId: GetImportListById
       parameters:
       - explode: false
         in: path
@@ -1893,7 +1893,7 @@ paths:
       tags:
       - ImportList
     put:
-      operationId: UpdateImportlist
+      operationId: UpdateImportList
       parameters:
       - explode: false
         in: path
@@ -1930,7 +1930,7 @@ paths:
       - ImportList
   /api/v3/importlist/schema:
     get:
-      operationId: ListImportlistSchema
+      operationId: ListImportListSchema
       responses:
         "200":
           content:
@@ -1954,7 +1954,7 @@ paths:
       - ImportList
   /api/v3/importlist/test:
     post:
-      operationId: TestImportlist
+      operationId: TestImportList
       requestBody:
         content:
           application/json:
@@ -1973,7 +1973,7 @@ paths:
       - ImportList
   /api/v3/importlist/testall:
     post:
-      operationId: TestallImportlist
+      operationId: TestallImportList
       responses:
         "200":
           description: Success
@@ -1981,7 +1981,7 @@ paths:
       - ImportList
   /api/v3/importlist/action/{name}:
     post:
-      operationId: CreateImportlistActionByName
+      operationId: CreateImportListActionByName
       parameters:
       - explode: false
         in: path
@@ -2008,7 +2008,7 @@ paths:
       - ImportList
   /api/v3/config/importlist:
     get:
-      operationId: GetConfigImportlist
+      operationId: GetImportListConfig
       responses:
         "200":
           content:
@@ -2026,7 +2026,7 @@ paths:
       - ImportListConfig
   /api/v3/config/importlist/{id}:
     get:
-      operationId: GetConfigImportlistById
+      operationId: GetImportListConfigById
       parameters:
       - explode: false
         in: path
@@ -2052,7 +2052,7 @@ paths:
       tags:
       - ImportListConfig
     put:
-      operationId: UpdateConfigImportlist
+      operationId: UpdateImportListConfig
       parameters:
       - explode: false
         in: path
@@ -2315,7 +2315,7 @@ paths:
       - Indexer
   /api/v3/config/indexer:
     get:
-      operationId: GetConfigIndexer
+      operationId: GetIndexerConfig
       responses:
         "200":
           content:
@@ -2333,7 +2333,7 @@ paths:
       - IndexerConfig
   /api/v3/config/indexer/{id}:
     get:
-      operationId: GetConfigIndexerById
+      operationId: GetIndexerConfigById
       parameters:
       - explode: false
         in: path
@@ -2359,7 +2359,7 @@ paths:
       tags:
       - IndexerConfig
     put:
-      operationId: UpdateConfigIndexer
+      operationId: UpdateIndexerConfig
       parameters:
       - explode: false
         in: path
@@ -2396,7 +2396,7 @@ paths:
       - IndexerConfig
   /api/v3/indexerflag:
     get:
-      operationId: ListIndexerflag
+      operationId: ListIndexerFlag
       responses:
         "200":
           content:
@@ -2556,7 +2556,7 @@ paths:
       - LogFile
   /api/v3/manualimport:
     get:
-      operationId: ListManualimport
+      operationId: ListManualImport
       parameters:
       - explode: true
         in: query
@@ -2610,7 +2610,7 @@ paths:
       tags:
       - ManualImport
     post:
-      operationId: CreateManualimport
+      operationId: CreateManualImport
       requestBody:
         content:
           application/json:
@@ -2635,7 +2635,7 @@ paths:
       - ManualImport
   /api/v3/mediacover/{movieId}/{filename}:
     get:
-      operationId: "GetMediacover{movieid}ByFilename"
+      operationId: "GetMediaCover{movieId}ByFilename"
       parameters:
       - explode: false
         in: path
@@ -2660,7 +2660,7 @@ paths:
       - MediaCover
   /api/v3/config/mediamanagement:
     get:
-      operationId: GetConfigMediamanagement
+      operationId: GetMediaManagementConfig
       responses:
         "200":
           content:
@@ -2678,7 +2678,7 @@ paths:
       - MediaManagementConfig
   /api/v3/config/mediamanagement/{id}:
     get:
-      operationId: GetConfigMediamanagementById
+      operationId: GetMediaManagementConfigById
       parameters:
       - explode: false
         in: path
@@ -2704,7 +2704,7 @@ paths:
       tags:
       - MediaManagementConfig
     put:
-      operationId: UpdateConfigMediamanagement
+      operationId: UpdateMediaManagementConfig
       parameters:
       - explode: false
         in: path
@@ -2950,7 +2950,7 @@ paths:
       - Metadata
   /api/v3/config/metadata:
     get:
-      operationId: GetConfigMetadata
+      operationId: GetMetadataConfig
       responses:
         "200":
           content:
@@ -2968,7 +2968,7 @@ paths:
       - MetadataConfig
   /api/v3/config/metadata/{id}:
     get:
-      operationId: GetConfigMetadataById
+      operationId: GetMetadataConfigById
       parameters:
       - explode: false
         in: path
@@ -2994,7 +2994,7 @@ paths:
       tags:
       - MetadataConfig
     put:
-      operationId: UpdateConfigMetadata
+      operationId: UpdateMetadataConfig
       parameters:
       - explode: false
         in: path
@@ -3208,7 +3208,7 @@ paths:
       - MovieEditor
   /api/v3/moviefile:
     get:
-      operationId: ListMoviefile
+      operationId: ListMovieFile
       parameters:
       - explode: true
         in: query
@@ -3251,7 +3251,7 @@ paths:
       - MovieFile
   /api/v3/moviefile/{id}:
     delete:
-      operationId: DeleteMoviefile
+      operationId: DeleteMovieFile
       parameters:
       - explode: false
         in: path
@@ -3267,7 +3267,7 @@ paths:
       tags:
       - MovieFile
     get:
-      operationId: GetMoviefileById
+      operationId: GetMovieFileById
       parameters:
       - explode: false
         in: path
@@ -3293,7 +3293,7 @@ paths:
       tags:
       - MovieFile
     put:
-      operationId: UpdateMoviefile
+      operationId: UpdateMovieFile
       parameters:
       - explode: false
         in: path
@@ -3330,7 +3330,7 @@ paths:
       - MovieFile
   /api/v3/moviefile/editor:
     put:
-      operationId: PutMoviefileEditor
+      operationId: PutMovieFileEditor
       requestBody:
         content:
           application/json:
@@ -3349,7 +3349,7 @@ paths:
       - MovieFile
   /api/v3/moviefile/bulk:
     delete:
-      operationId: DeleteMoviefileBulk
+      operationId: DeleteMovieFileBulk
       requestBody:
         content:
           application/json:
@@ -3496,7 +3496,7 @@ paths:
       - MovieLookup
   /api/v3/config/naming:
     get:
-      operationId: GetConfigNaming
+      operationId: GetNamingConfig
       responses:
         "200":
           content:
@@ -3514,7 +3514,7 @@ paths:
       - NamingConfig
   /api/v3/config/naming/{id}:
     get:
-      operationId: GetConfigNamingById
+      operationId: GetNamingConfigById
       parameters:
       - explode: false
         in: path
@@ -3540,7 +3540,7 @@ paths:
       tags:
       - NamingConfig
     put:
-      operationId: UpdateConfigNaming
+      operationId: UpdateNamingConfig
       parameters:
       - explode: false
         in: path
@@ -3577,7 +3577,7 @@ paths:
       - NamingConfig
   /api/v3/config/naming/examples:
     get:
-      operationId: GetConfigNamingExamples
+      operationId: GetNamingConfigExamples
       parameters:
       - explode: true
         in: query
@@ -3899,7 +3899,7 @@ paths:
       - Parse
   /api/v3/qualitydefinition/{id}:
     get:
-      operationId: GetQualitydefinitionById
+      operationId: GetQualityDefinitionById
       parameters:
       - explode: false
         in: path
@@ -3925,7 +3925,7 @@ paths:
       tags:
       - QualityDefinition
     put:
-      operationId: UpdateQualitydefinition
+      operationId: UpdateQualityDefinition
       parameters:
       - explode: false
         in: path
@@ -3962,7 +3962,7 @@ paths:
       - QualityDefinition
   /api/v3/qualitydefinition:
     get:
-      operationId: ListQualitydefinition
+      operationId: ListQualityDefinition
       responses:
         "200":
           content:
@@ -3986,7 +3986,7 @@ paths:
       - QualityDefinition
   /api/v3/qualitydefinition/update:
     put:
-      operationId: PutQualitydefinitionUpdate
+      operationId: PutQualityDefinitionUpdate
       requestBody:
         content:
           application/json:
@@ -4011,7 +4011,7 @@ paths:
       - QualityDefinition
   /api/v3/qualityprofile:
     get:
-      operationId: ListQualityprofile
+      operationId: ListQualityProfile
       responses:
         "200":
           content:
@@ -4034,7 +4034,7 @@ paths:
       tags:
       - QualityProfile
     post:
-      operationId: CreateQualityprofile
+      operationId: CreateQualityProfile
       requestBody:
         content:
           application/json:
@@ -4063,7 +4063,7 @@ paths:
       - QualityProfile
   /api/v3/qualityprofile/{id}:
     delete:
-      operationId: DeleteQualityprofile
+      operationId: DeleteQualityProfile
       parameters:
       - explode: false
         in: path
@@ -4079,7 +4079,7 @@ paths:
       tags:
       - QualityProfile
     get:
-      operationId: GetQualityprofileById
+      operationId: GetQualityProfileById
       parameters:
       - explode: false
         in: path
@@ -4105,7 +4105,7 @@ paths:
       tags:
       - QualityProfile
     put:
-      operationId: UpdateQualityprofile
+      operationId: UpdateQualityProfile
       parameters:
       - explode: false
         in: path
@@ -4579,7 +4579,7 @@ paths:
       - ReleasePush
   /api/v3/remotepathmapping:
     get:
-      operationId: ListRemotepathmapping
+      operationId: ListRemotePathMapping
       responses:
         "200":
           content:
@@ -4602,7 +4602,7 @@ paths:
       tags:
       - RemotePathMapping
     post:
-      operationId: CreateRemotepathmapping
+      operationId: CreateRemotePathMapping
       requestBody:
         content:
           application/json:
@@ -4631,7 +4631,7 @@ paths:
       - RemotePathMapping
   /api/v3/remotepathmapping/{id}:
     delete:
-      operationId: DeleteRemotepathmapping
+      operationId: DeleteRemotePathMapping
       parameters:
       - explode: false
         in: path
@@ -4647,7 +4647,7 @@ paths:
       tags:
       - RemotePathMapping
     get:
-      operationId: GetRemotepathmappingById
+      operationId: GetRemotePathMappingById
       parameters:
       - explode: false
         in: path
@@ -4673,7 +4673,7 @@ paths:
       tags:
       - RemotePathMapping
     put:
-      operationId: UpdateRemotepathmapping
+      operationId: UpdateRemotePathMapping
       parameters:
       - explode: false
         in: path
@@ -4874,7 +4874,7 @@ paths:
       - Restriction
   /api/v3/rootfolder:
     get:
-      operationId: ListRootfolder
+      operationId: ListRootFolder
       responses:
         "200":
           content:
@@ -4897,7 +4897,7 @@ paths:
       tags:
       - RootFolder
     post:
-      operationId: CreateRootfolder
+      operationId: CreateRootFolder
       requestBody:
         content:
           application/json:
@@ -4926,7 +4926,7 @@ paths:
       - RootFolder
   /api/v3/rootfolder/{id}:
     delete:
-      operationId: DeleteRootfolder
+      operationId: DeleteRootFolder
       parameters:
       - explode: false
         in: path
@@ -4942,7 +4942,7 @@ paths:
       tags:
       - RootFolder
     get:
-      operationId: GetRootfolderById
+      operationId: GetRootFolderById
       parameters:
       - explode: false
         in: path
@@ -5292,7 +5292,7 @@ paths:
       - Task
   /api/v3/config/ui:
     get:
-      operationId: GetConfigUi
+      operationId: GetUiConfig
       responses:
         "200":
           content:
@@ -5310,7 +5310,7 @@ paths:
       - UiConfig
   /api/v3/config/ui/{id}:
     get:
-      operationId: GetConfigUiById
+      operationId: GetUiConfigById
       parameters:
       - explode: false
         in: path
@@ -5336,7 +5336,7 @@ paths:
       tags:
       - UiConfig
     put:
-      operationId: UpdateConfigUi
+      operationId: UpdateUiConfig
       parameters:
       - explode: false
         in: path
