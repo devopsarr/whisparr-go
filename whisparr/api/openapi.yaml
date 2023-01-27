@@ -11032,6 +11032,7 @@ components:
       - trakt
       - other
       - advanced
+      - plex
       type: string
     IndexerConfigResource:
       additionalProperties: false
