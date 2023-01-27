@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.1](https://github.com/devopsarr/whisparr-go/compare/v0.1.0...v0.1.1) (2023-01-27)
+
+
+### Bug Fixes
+
+* add plex to import list type ([69467e3](https://github.com/devopsarr/whisparr-go/commit/69467e3df5b82a1d82cba0dc4e5cf206fc24c3ad))
+
 ## 0.1.0 (2023-01-24)
 
 
