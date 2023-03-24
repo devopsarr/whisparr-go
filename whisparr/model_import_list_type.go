@@ -1,7 +1,7 @@
 /*
-Whisparr
+Radarr
 
-Whisparr API docs
+Radarr API docs
 
 API version: 3.0.0
 */
@@ -21,8 +21,9 @@ type ImportListType string
 // List of ImportListType
 const (
 	IMPORTLISTTYPE_PROGRAM ImportListType = "program"
-	IMPORTLISTTYPE_PLEX ImportListType = "plex"
+	IMPORTLISTTYPE_TMDB ImportListType = "tmdb"
 	IMPORTLISTTYPE_TRAKT ImportListType = "trakt"
+	IMPORTLISTTYPE_PLEX ImportListType = "plex"
 	IMPORTLISTTYPE_OTHER ImportListType = "other"
 	IMPORTLISTTYPE_ADVANCED ImportListType = "advanced"
 )
@@ -30,8 +31,9 @@ const (
 // All allowed values of ImportListType enum
 var AllowedImportListTypeEnumValues = []ImportListType{
 	"program",
-	"plex",
+	"tmdb",
 	"trakt",
+	"plex",
 	"other",
 	"advanced",
 }

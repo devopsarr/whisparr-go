@@ -1,7 +1,7 @@
 /*
-Whisparr
+Radarr
 
-Whisparr API docs
+Radarr API docs
 
 API version: 3.0.0
 */
@@ -299,23 +299,17 @@ func (a *QueueApiService) DeleteQueueBulkExecute(r ApiDeleteQueueBulkRequest) (*
 type ApiGetQueueRequest struct {
 	ctx context.Context
 	ApiService *QueueApiService
-	includeUnknownSeriesItems *bool
-	includeSeries *bool
-	includeEpisode *bool
+	includeUnknownMovieItems *bool
+	includeMovie *bool
 }
 
-func (r ApiGetQueueRequest) IncludeUnknownSeriesItems(includeUnknownSeriesItems bool) ApiGetQueueRequest {
-	r.includeUnknownSeriesItems = &includeUnknownSeriesItems
+func (r ApiGetQueueRequest) IncludeUnknownMovieItems(includeUnknownMovieItems bool) ApiGetQueueRequest {
+	r.includeUnknownMovieItems = &includeUnknownMovieItems
 	return r
 }
 
-func (r ApiGetQueueRequest) IncludeSeries(includeSeries bool) ApiGetQueueRequest {
-	r.includeSeries = &includeSeries
-	return r
-}
-
-func (r ApiGetQueueRequest) IncludeEpisode(includeEpisode bool) ApiGetQueueRequest {
-	r.includeEpisode = &includeEpisode
+func (r ApiGetQueueRequest) IncludeMovie(includeMovie bool) ApiGetQueueRequest {
+	r.includeMovie = &includeMovie
 	return r
 }
 
@@ -357,14 +351,11 @@ func (a *QueueApiService) GetQueueExecute(r ApiGetQueueRequest) (*QueueResourceP
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if r.includeUnknownSeriesItems != nil {
-		localVarQueryParams.Add("includeUnknownSeriesItems", parameterToString(*r.includeUnknownSeriesItems, ""))
+	if r.includeUnknownMovieItems != nil {
+		localVarQueryParams.Add("includeUnknownMovieItems", parameterToString(*r.includeUnknownMovieItems, ""))
 	}
-	if r.includeSeries != nil {
-		localVarQueryParams.Add("includeSeries", parameterToString(*r.includeSeries, ""))
-	}
-	if r.includeEpisode != nil {
-		localVarQueryParams.Add("includeEpisode", parameterToString(*r.includeEpisode, ""))
+	if r.includeMovie != nil {
+		localVarQueryParams.Add("includeMovie", parameterToString(*r.includeMovie, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -376,7 +367,7 @@ func (a *QueueApiService) GetQueueExecute(r ApiGetQueueRequest) (*QueueResourceP
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"text/plain", "application/json", "text/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -504,7 +495,7 @@ func (a *QueueApiService) GetQueueByIdExecute(r ApiGetQueueByIdRequest) (*QueueR
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"text/plain", "application/json", "text/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)

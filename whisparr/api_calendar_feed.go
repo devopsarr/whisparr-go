@@ -1,7 +1,7 @@
 /*
-Whisparr
+Radarr
 
-Whisparr API docs
+Radarr API docs
 
 API version: 3.0.0
 */
@@ -21,78 +21,66 @@ import (
 
 // CalendarFeedApiService CalendarFeedApi service
 type CalendarFeedApiService service
-type ApiGetFeedV3CalendarWhisparrIcsRequest struct {
+type ApiGetFeedV3CalendarRadarrIcsRequest struct {
 	ctx context.Context
 	ApiService *CalendarFeedApiService
 	pastDays *int32
 	futureDays *int32
 	tagList *string
 	unmonitored *bool
-	premieresOnly *bool
-	asAllDay *bool
 }
 
-func (r ApiGetFeedV3CalendarWhisparrIcsRequest) PastDays(pastDays int32) ApiGetFeedV3CalendarWhisparrIcsRequest {
+func (r ApiGetFeedV3CalendarRadarrIcsRequest) PastDays(pastDays int32) ApiGetFeedV3CalendarRadarrIcsRequest {
 	r.pastDays = &pastDays
 	return r
 }
 
-func (r ApiGetFeedV3CalendarWhisparrIcsRequest) FutureDays(futureDays int32) ApiGetFeedV3CalendarWhisparrIcsRequest {
+func (r ApiGetFeedV3CalendarRadarrIcsRequest) FutureDays(futureDays int32) ApiGetFeedV3CalendarRadarrIcsRequest {
 	r.futureDays = &futureDays
 	return r
 }
 
-func (r ApiGetFeedV3CalendarWhisparrIcsRequest) TagList(tagList string) ApiGetFeedV3CalendarWhisparrIcsRequest {
+func (r ApiGetFeedV3CalendarRadarrIcsRequest) TagList(tagList string) ApiGetFeedV3CalendarRadarrIcsRequest {
 	r.tagList = &tagList
 	return r
 }
 
-func (r ApiGetFeedV3CalendarWhisparrIcsRequest) Unmonitored(unmonitored bool) ApiGetFeedV3CalendarWhisparrIcsRequest {
+func (r ApiGetFeedV3CalendarRadarrIcsRequest) Unmonitored(unmonitored bool) ApiGetFeedV3CalendarRadarrIcsRequest {
 	r.unmonitored = &unmonitored
 	return r
 }
 
-func (r ApiGetFeedV3CalendarWhisparrIcsRequest) PremieresOnly(premieresOnly bool) ApiGetFeedV3CalendarWhisparrIcsRequest {
-	r.premieresOnly = &premieresOnly
-	return r
-}
-
-func (r ApiGetFeedV3CalendarWhisparrIcsRequest) AsAllDay(asAllDay bool) ApiGetFeedV3CalendarWhisparrIcsRequest {
-	r.asAllDay = &asAllDay
-	return r
-}
-
-func (r ApiGetFeedV3CalendarWhisparrIcsRequest) Execute() (*http.Response, error) {
-	return r.ApiService.GetFeedV3CalendarWhisparrIcsExecute(r)
+func (r ApiGetFeedV3CalendarRadarrIcsRequest) Execute() (*http.Response, error) {
+	return r.ApiService.GetFeedV3CalendarRadarrIcsExecute(r)
 }
 
 /*
-GetFeedV3CalendarWhisparrIcs Method for GetFeedV3CalendarWhisparrIcs
+GetFeedV3CalendarRadarrIcs Method for GetFeedV3CalendarRadarrIcs
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetFeedV3CalendarWhisparrIcsRequest
+ @return ApiGetFeedV3CalendarRadarrIcsRequest
 */
-func (a *CalendarFeedApiService) GetFeedV3CalendarWhisparrIcs(ctx context.Context) ApiGetFeedV3CalendarWhisparrIcsRequest {
-	return ApiGetFeedV3CalendarWhisparrIcsRequest{
+func (a *CalendarFeedApiService) GetFeedV3CalendarRadarrIcs(ctx context.Context) ApiGetFeedV3CalendarRadarrIcsRequest {
+	return ApiGetFeedV3CalendarRadarrIcsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-func (a *CalendarFeedApiService) GetFeedV3CalendarWhisparrIcsExecute(r ApiGetFeedV3CalendarWhisparrIcsRequest) (*http.Response, error) {
+func (a *CalendarFeedApiService) GetFeedV3CalendarRadarrIcsExecute(r ApiGetFeedV3CalendarRadarrIcsRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CalendarFeedApiService.GetFeedV3CalendarWhisparrIcs")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CalendarFeedApiService.GetFeedV3CalendarRadarrIcs")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/feed/v3/calendar/whisparr.ics"
+	localVarPath := localBasePath + "/feed/v3/calendar/radarr.ics"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -109,12 +97,6 @@ func (a *CalendarFeedApiService) GetFeedV3CalendarWhisparrIcsExecute(r ApiGetFee
 	}
 	if r.unmonitored != nil {
 		localVarQueryParams.Add("unmonitored", parameterToString(*r.unmonitored, ""))
-	}
-	if r.premieresOnly != nil {
-		localVarQueryParams.Add("premieresOnly", parameterToString(*r.premieresOnly, ""))
-	}
-	if r.asAllDay != nil {
-		localVarQueryParams.Add("asAllDay", parameterToString(*r.asAllDay, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

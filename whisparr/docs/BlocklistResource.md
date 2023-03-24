@@ -5,8 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **int32** |  | [optional] 
-**SeriesId** | Pointer to **int32** |  | [optional] 
-**EpisodeIds** | Pointer to **[]int32** |  | [optional] 
+**MovieId** | Pointer to **int32** |  | [optional] 
 **SourceTitle** | Pointer to **NullableString** |  | [optional] 
 **Languages** | Pointer to [**[]Language**](Language.md) |  | [optional] 
 **Quality** | Pointer to [**QualityModel**](QualityModel.md) |  | [optional] 
@@ -15,7 +14,7 @@ Name | Type | Description | Notes
 **Protocol** | Pointer to [**DownloadProtocol**](DownloadProtocol.md) |  | [optional] 
 **Indexer** | Pointer to **NullableString** |  | [optional] 
 **Message** | Pointer to **NullableString** |  | [optional] 
-**Series** | Pointer to [**SeriesResource**](SeriesResource.md) |  | [optional] 
+**Movie** | Pointer to [**MovieResource**](MovieResource.md) |  | [optional] 
 
 ## Methods
 
@@ -61,66 +60,31 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
-### GetSeriesId
+### GetMovieId
 
-`func (o *BlocklistResource) GetSeriesId() int32`
+`func (o *BlocklistResource) GetMovieId() int32`
 
-GetSeriesId returns the SeriesId field if non-nil, zero value otherwise.
+GetMovieId returns the MovieId field if non-nil, zero value otherwise.
 
-### GetSeriesIdOk
+### GetMovieIdOk
 
-`func (o *BlocklistResource) GetSeriesIdOk() (*int32, bool)`
+`func (o *BlocklistResource) GetMovieIdOk() (*int32, bool)`
 
-GetSeriesIdOk returns a tuple with the SeriesId field if it's non-nil, zero value otherwise
+GetMovieIdOk returns a tuple with the MovieId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSeriesId
+### SetMovieId
 
-`func (o *BlocklistResource) SetSeriesId(v int32)`
+`func (o *BlocklistResource) SetMovieId(v int32)`
 
-SetSeriesId sets SeriesId field to given value.
+SetMovieId sets MovieId field to given value.
 
-### HasSeriesId
+### HasMovieId
 
-`func (o *BlocklistResource) HasSeriesId() bool`
+`func (o *BlocklistResource) HasMovieId() bool`
 
-HasSeriesId returns a boolean if a field has been set.
+HasMovieId returns a boolean if a field has been set.
 
-### GetEpisodeIds
-
-`func (o *BlocklistResource) GetEpisodeIds() []int32`
-
-GetEpisodeIds returns the EpisodeIds field if non-nil, zero value otherwise.
-
-### GetEpisodeIdsOk
-
-`func (o *BlocklistResource) GetEpisodeIdsOk() (*[]int32, bool)`
-
-GetEpisodeIdsOk returns a tuple with the EpisodeIds field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetEpisodeIds
-
-`func (o *BlocklistResource) SetEpisodeIds(v []int32)`
-
-SetEpisodeIds sets EpisodeIds field to given value.
-
-### HasEpisodeIds
-
-`func (o *BlocklistResource) HasEpisodeIds() bool`
-
-HasEpisodeIds returns a boolean if a field has been set.
-
-### SetEpisodeIdsNil
-
-`func (o *BlocklistResource) SetEpisodeIdsNil(b bool)`
-
- SetEpisodeIdsNil sets the value for EpisodeIds to be an explicit nil
-
-### UnsetEpisodeIds
-`func (o *BlocklistResource) UnsetEpisodeIds()`
-
-UnsetEpisodeIds ensures that no value is present for EpisodeIds, not even an explicit nil
 ### GetSourceTitle
 
 `func (o *BlocklistResource) GetSourceTitle() string`
@@ -371,30 +335,30 @@ HasMessage returns a boolean if a field has been set.
 `func (o *BlocklistResource) UnsetMessage()`
 
 UnsetMessage ensures that no value is present for Message, not even an explicit nil
-### GetSeries
+### GetMovie
 
-`func (o *BlocklistResource) GetSeries() SeriesResource`
+`func (o *BlocklistResource) GetMovie() MovieResource`
 
-GetSeries returns the Series field if non-nil, zero value otherwise.
+GetMovie returns the Movie field if non-nil, zero value otherwise.
 
-### GetSeriesOk
+### GetMovieOk
 
-`func (o *BlocklistResource) GetSeriesOk() (*SeriesResource, bool)`
+`func (o *BlocklistResource) GetMovieOk() (*MovieResource, bool)`
 
-GetSeriesOk returns a tuple with the Series field if it's non-nil, zero value otherwise
+GetMovieOk returns a tuple with the Movie field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSeries
+### SetMovie
 
-`func (o *BlocklistResource) SetSeries(v SeriesResource)`
+`func (o *BlocklistResource) SetMovie(v MovieResource)`
 
-SetSeries sets Series field to given value.
+SetMovie sets Movie field to given value.
 
-### HasSeries
+### HasMovie
 
-`func (o *BlocklistResource) HasSeries() bool`
+`func (o *BlocklistResource) HasMovie() bool`
 
-HasSeries returns a boolean if a field has been set.
+HasMovie returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

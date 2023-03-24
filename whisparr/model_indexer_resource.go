@@ -1,7 +1,7 @@
 /*
-Whisparr
+Radarr
 
-Whisparr API docs
+Radarr API docs
 
 API version: 3.0.0
 */
@@ -33,7 +33,6 @@ type IndexerResource struct {
 	SupportsSearch *bool `json:"supportsSearch,omitempty"`
 	Protocol *DownloadProtocol `json:"protocol,omitempty"`
 	Priority *int32 `json:"priority,omitempty"`
-	SeasonSearchMaximumSingleEpisodeAge *int32 `json:"seasonSearchMaximumSingleEpisodeAge,omitempty"`
 	DownloadClientId *int32 `json:"downloadClientId,omitempty"`
 }
 
@@ -651,38 +650,6 @@ func (o *IndexerResource) SetPriority(v int32) {
 	o.Priority = &v
 }
 
-// GetSeasonSearchMaximumSingleEpisodeAge returns the SeasonSearchMaximumSingleEpisodeAge field value if set, zero value otherwise.
-func (o *IndexerResource) GetSeasonSearchMaximumSingleEpisodeAge() int32 {
-	if o == nil || isNil(o.SeasonSearchMaximumSingleEpisodeAge) {
-		var ret int32
-		return ret
-	}
-	return *o.SeasonSearchMaximumSingleEpisodeAge
-}
-
-// GetSeasonSearchMaximumSingleEpisodeAgeOk returns a tuple with the SeasonSearchMaximumSingleEpisodeAge field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *IndexerResource) GetSeasonSearchMaximumSingleEpisodeAgeOk() (*int32, bool) {
-	if o == nil || isNil(o.SeasonSearchMaximumSingleEpisodeAge) {
-    return nil, false
-	}
-	return o.SeasonSearchMaximumSingleEpisodeAge, true
-}
-
-// HasSeasonSearchMaximumSingleEpisodeAge returns a boolean if a field has been set.
-func (o *IndexerResource) HasSeasonSearchMaximumSingleEpisodeAge() bool {
-	if o != nil && !isNil(o.SeasonSearchMaximumSingleEpisodeAge) {
-		return true
-	}
-
-	return false
-}
-
-// SetSeasonSearchMaximumSingleEpisodeAge gets a reference to the given int32 and assigns it to the SeasonSearchMaximumSingleEpisodeAge field.
-func (o *IndexerResource) SetSeasonSearchMaximumSingleEpisodeAge(v int32) {
-	o.SeasonSearchMaximumSingleEpisodeAge = &v
-}
-
 // GetDownloadClientId returns the DownloadClientId field value if set, zero value otherwise.
 func (o *IndexerResource) GetDownloadClientId() int32 {
 	if o == nil || isNil(o.DownloadClientId) {
@@ -767,9 +734,6 @@ func (o IndexerResource) MarshalJSON() ([]byte, error) {
 	}
 	if !isNil(o.Priority) {
 		toSerialize["priority"] = o.Priority
-	}
-	if !isNil(o.SeasonSearchMaximumSingleEpisodeAge) {
-		toSerialize["seasonSearchMaximumSingleEpisodeAge"] = o.SeasonSearchMaximumSingleEpisodeAge
 	}
 	if !isNil(o.DownloadClientId) {
 		toSerialize["downloadClientId"] = o.DownloadClientId

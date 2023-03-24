@@ -1,7 +1,7 @@
 /*
-Whisparr
+Radarr
 
-Whisparr API docs
+Radarr API docs
 
 API version: 3.0.0
 */
@@ -29,7 +29,7 @@ type ApiGetCalendarByIdRequest struct {
 	id int32
 }
 
-func (r ApiGetCalendarByIdRequest) Execute() (*EpisodeResource, *http.Response, error) {
+func (r ApiGetCalendarByIdRequest) Execute() (*MovieResource, *http.Response, error) {
 	return r.ApiService.GetCalendarByIdExecute(r)
 }
 
@@ -49,13 +49,13 @@ func (a *CalendarApiService) GetCalendarById(ctx context.Context, id int32) ApiG
 }
 
 // Execute executes the request
-//  @return EpisodeResource
-func (a *CalendarApiService) GetCalendarByIdExecute(r ApiGetCalendarByIdRequest) (*EpisodeResource, *http.Response, error) {
+//  @return MovieResource
+func (a *CalendarApiService) GetCalendarByIdExecute(r ApiGetCalendarByIdRequest) (*MovieResource, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *EpisodeResource
+		localVarReturnValue  *MovieResource
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CalendarApiService.GetCalendarById")
@@ -80,7 +80,7 @@ func (a *CalendarApiService) GetCalendarByIdExecute(r ApiGetCalendarByIdRequest)
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"text/plain", "application/json", "text/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -157,9 +157,6 @@ type ApiListCalendarRequest struct {
 	start *time.Time
 	end *time.Time
 	unmonitored *bool
-	includeSeries *bool
-	includeEpisodeFile *bool
-	includeEpisodeImages *bool
 }
 
 func (r ApiListCalendarRequest) Start(start time.Time) ApiListCalendarRequest {
@@ -177,22 +174,7 @@ func (r ApiListCalendarRequest) Unmonitored(unmonitored bool) ApiListCalendarReq
 	return r
 }
 
-func (r ApiListCalendarRequest) IncludeSeries(includeSeries bool) ApiListCalendarRequest {
-	r.includeSeries = &includeSeries
-	return r
-}
-
-func (r ApiListCalendarRequest) IncludeEpisodeFile(includeEpisodeFile bool) ApiListCalendarRequest {
-	r.includeEpisodeFile = &includeEpisodeFile
-	return r
-}
-
-func (r ApiListCalendarRequest) IncludeEpisodeImages(includeEpisodeImages bool) ApiListCalendarRequest {
-	r.includeEpisodeImages = &includeEpisodeImages
-	return r
-}
-
-func (r ApiListCalendarRequest) Execute() ([]*EpisodeResource, *http.Response, error) {
+func (r ApiListCalendarRequest) Execute() ([]*MovieResource, *http.Response, error) {
 	return r.ApiService.ListCalendarExecute(r)
 }
 
@@ -210,13 +192,13 @@ func (a *CalendarApiService) ListCalendar(ctx context.Context) ApiListCalendarRe
 }
 
 // Execute executes the request
-//  @return []EpisodeResource
-func (a *CalendarApiService) ListCalendarExecute(r ApiListCalendarRequest) ([]*EpisodeResource, *http.Response, error) {
+//  @return []MovieResource
+func (a *CalendarApiService) ListCalendarExecute(r ApiListCalendarRequest) ([]*MovieResource, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []*EpisodeResource
+		localVarReturnValue  []*MovieResource
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CalendarApiService.ListCalendar")
@@ -239,15 +221,6 @@ func (a *CalendarApiService) ListCalendarExecute(r ApiListCalendarRequest) ([]*E
 	if r.unmonitored != nil {
 		localVarQueryParams.Add("unmonitored", parameterToString(*r.unmonitored, ""))
 	}
-	if r.includeSeries != nil {
-		localVarQueryParams.Add("includeSeries", parameterToString(*r.includeSeries, ""))
-	}
-	if r.includeEpisodeFile != nil {
-		localVarQueryParams.Add("includeEpisodeFile", parameterToString(*r.includeEpisodeFile, ""))
-	}
-	if r.includeEpisodeImages != nil {
-		localVarQueryParams.Add("includeEpisodeImages", parameterToString(*r.includeEpisodeImages, ""))
-	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -258,7 +231,7 @@ func (a *CalendarApiService) ListCalendarExecute(r ApiListCalendarRequest) ([]*E
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"text/plain", "application/json", "text/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)

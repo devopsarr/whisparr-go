@@ -1,6 +1,6 @@
 # \ParseApi
 
-All URIs are relative to *http://localhost:6969*
+All URIs are relative to *http://localhost:7878*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## GetParse
 
-> ParseResource GetParse(ctx).Title(title).Path(path).Execute()
+> ParseResource GetParse(ctx).Title(title).Execute()
 
 
 
@@ -28,11 +28,10 @@ import (
 
 func main() {
     title := "title_example" // string |  (optional)
-    path := "path_example" // string |  (optional)
 
     configuration := whisparrClient.NewConfiguration()
     apiClient := whisparrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ParseApi.GetParse(context.Background()).Title(title).Path(path).Execute()
+    resp, r, err := apiClient.ParseApi.GetParse(context.Background()).Title(title).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ParseApi.GetParse``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -54,7 +53,6 @@ Other parameters are passed through a pointer to a apiGetParseRequest struct via
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **title** | **string** |  | 
- **path** | **string** |  | 
 
 ### Return type
 
@@ -67,7 +65,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

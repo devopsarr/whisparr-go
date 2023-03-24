@@ -1,7 +1,7 @@
 /*
-Whisparr
+Radarr
 
-Whisparr API docs
+Radarr API docs
 
 API version: 3.0.0
 */
@@ -26,12 +26,13 @@ type ImportListResource struct {
 	Message *ProviderMessage `json:"message,omitempty"`
 	Tags []*int32 `json:"tags,omitempty"`
 	Presets []*ImportListResource `json:"presets,omitempty"`
-	EnableAutomaticAdd *bool `json:"enableAutomaticAdd,omitempty"`
-	ShouldMonitor *MonitorTypes `json:"shouldMonitor,omitempty"`
+	Enabled *bool `json:"enabled,omitempty"`
+	EnableAuto *bool `json:"enableAuto,omitempty"`
+	Monitor *MonitorTypes `json:"monitor,omitempty"`
 	RootFolderPath NullableString `json:"rootFolderPath,omitempty"`
 	QualityProfileId *int32 `json:"qualityProfileId,omitempty"`
-	SeriesType *SeriesTypes `json:"seriesType,omitempty"`
-	SeasonFolder *bool `json:"seasonFolder,omitempty"`
+	SearchOnAdd *bool `json:"searchOnAdd,omitempty"`
+	MinimumAvailability *MovieStatusType `json:"minimumAvailability,omitempty"`
 	ListType *ImportListType `json:"listType,omitempty"`
 	ListOrder *int32 `json:"listOrder,omitempty"`
 }
@@ -426,68 +427,100 @@ func (o *ImportListResource) SetPresets(v []*ImportListResource) {
 	o.Presets = v
 }
 
-// GetEnableAutomaticAdd returns the EnableAutomaticAdd field value if set, zero value otherwise.
-func (o *ImportListResource) GetEnableAutomaticAdd() bool {
-	if o == nil || isNil(o.EnableAutomaticAdd) {
+// GetEnabled returns the Enabled field value if set, zero value otherwise.
+func (o *ImportListResource) GetEnabled() bool {
+	if o == nil || isNil(o.Enabled) {
 		var ret bool
 		return ret
 	}
-	return *o.EnableAutomaticAdd
+	return *o.Enabled
 }
 
-// GetEnableAutomaticAddOk returns a tuple with the EnableAutomaticAdd field value if set, nil otherwise
+// GetEnabledOk returns a tuple with the Enabled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ImportListResource) GetEnableAutomaticAddOk() (*bool, bool) {
-	if o == nil || isNil(o.EnableAutomaticAdd) {
+func (o *ImportListResource) GetEnabledOk() (*bool, bool) {
+	if o == nil || isNil(o.Enabled) {
     return nil, false
 	}
-	return o.EnableAutomaticAdd, true
+	return o.Enabled, true
 }
 
-// HasEnableAutomaticAdd returns a boolean if a field has been set.
-func (o *ImportListResource) HasEnableAutomaticAdd() bool {
-	if o != nil && !isNil(o.EnableAutomaticAdd) {
+// HasEnabled returns a boolean if a field has been set.
+func (o *ImportListResource) HasEnabled() bool {
+	if o != nil && !isNil(o.Enabled) {
 		return true
 	}
 
 	return false
 }
 
-// SetEnableAutomaticAdd gets a reference to the given bool and assigns it to the EnableAutomaticAdd field.
-func (o *ImportListResource) SetEnableAutomaticAdd(v bool) {
-	o.EnableAutomaticAdd = &v
+// SetEnabled gets a reference to the given bool and assigns it to the Enabled field.
+func (o *ImportListResource) SetEnabled(v bool) {
+	o.Enabled = &v
 }
 
-// GetShouldMonitor returns the ShouldMonitor field value if set, zero value otherwise.
-func (o *ImportListResource) GetShouldMonitor() MonitorTypes {
-	if o == nil || isNil(o.ShouldMonitor) {
+// GetEnableAuto returns the EnableAuto field value if set, zero value otherwise.
+func (o *ImportListResource) GetEnableAuto() bool {
+	if o == nil || isNil(o.EnableAuto) {
+		var ret bool
+		return ret
+	}
+	return *o.EnableAuto
+}
+
+// GetEnableAutoOk returns a tuple with the EnableAuto field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ImportListResource) GetEnableAutoOk() (*bool, bool) {
+	if o == nil || isNil(o.EnableAuto) {
+    return nil, false
+	}
+	return o.EnableAuto, true
+}
+
+// HasEnableAuto returns a boolean if a field has been set.
+func (o *ImportListResource) HasEnableAuto() bool {
+	if o != nil && !isNil(o.EnableAuto) {
+		return true
+	}
+
+	return false
+}
+
+// SetEnableAuto gets a reference to the given bool and assigns it to the EnableAuto field.
+func (o *ImportListResource) SetEnableAuto(v bool) {
+	o.EnableAuto = &v
+}
+
+// GetMonitor returns the Monitor field value if set, zero value otherwise.
+func (o *ImportListResource) GetMonitor() MonitorTypes {
+	if o == nil || isNil(o.Monitor) {
 		var ret MonitorTypes
 		return ret
 	}
-	return *o.ShouldMonitor
+	return *o.Monitor
 }
 
-// GetShouldMonitorOk returns a tuple with the ShouldMonitor field value if set, nil otherwise
+// GetMonitorOk returns a tuple with the Monitor field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ImportListResource) GetShouldMonitorOk() (*MonitorTypes, bool) {
-	if o == nil || isNil(o.ShouldMonitor) {
+func (o *ImportListResource) GetMonitorOk() (*MonitorTypes, bool) {
+	if o == nil || isNil(o.Monitor) {
     return nil, false
 	}
-	return o.ShouldMonitor, true
+	return o.Monitor, true
 }
 
-// HasShouldMonitor returns a boolean if a field has been set.
-func (o *ImportListResource) HasShouldMonitor() bool {
-	if o != nil && !isNil(o.ShouldMonitor) {
+// HasMonitor returns a boolean if a field has been set.
+func (o *ImportListResource) HasMonitor() bool {
+	if o != nil && !isNil(o.Monitor) {
 		return true
 	}
 
 	return false
 }
 
-// SetShouldMonitor gets a reference to the given MonitorTypes and assigns it to the ShouldMonitor field.
-func (o *ImportListResource) SetShouldMonitor(v MonitorTypes) {
-	o.ShouldMonitor = &v
+// SetMonitor gets a reference to the given MonitorTypes and assigns it to the Monitor field.
+func (o *ImportListResource) SetMonitor(v MonitorTypes) {
+	o.Monitor = &v
 }
 
 // GetRootFolderPath returns the RootFolderPath field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -564,68 +597,68 @@ func (o *ImportListResource) SetQualityProfileId(v int32) {
 	o.QualityProfileId = &v
 }
 
-// GetSeriesType returns the SeriesType field value if set, zero value otherwise.
-func (o *ImportListResource) GetSeriesType() SeriesTypes {
-	if o == nil || isNil(o.SeriesType) {
-		var ret SeriesTypes
-		return ret
-	}
-	return *o.SeriesType
-}
-
-// GetSeriesTypeOk returns a tuple with the SeriesType field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ImportListResource) GetSeriesTypeOk() (*SeriesTypes, bool) {
-	if o == nil || isNil(o.SeriesType) {
-    return nil, false
-	}
-	return o.SeriesType, true
-}
-
-// HasSeriesType returns a boolean if a field has been set.
-func (o *ImportListResource) HasSeriesType() bool {
-	if o != nil && !isNil(o.SeriesType) {
-		return true
-	}
-
-	return false
-}
-
-// SetSeriesType gets a reference to the given SeriesTypes and assigns it to the SeriesType field.
-func (o *ImportListResource) SetSeriesType(v SeriesTypes) {
-	o.SeriesType = &v
-}
-
-// GetSeasonFolder returns the SeasonFolder field value if set, zero value otherwise.
-func (o *ImportListResource) GetSeasonFolder() bool {
-	if o == nil || isNil(o.SeasonFolder) {
+// GetSearchOnAdd returns the SearchOnAdd field value if set, zero value otherwise.
+func (o *ImportListResource) GetSearchOnAdd() bool {
+	if o == nil || isNil(o.SearchOnAdd) {
 		var ret bool
 		return ret
 	}
-	return *o.SeasonFolder
+	return *o.SearchOnAdd
 }
 
-// GetSeasonFolderOk returns a tuple with the SeasonFolder field value if set, nil otherwise
+// GetSearchOnAddOk returns a tuple with the SearchOnAdd field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ImportListResource) GetSeasonFolderOk() (*bool, bool) {
-	if o == nil || isNil(o.SeasonFolder) {
+func (o *ImportListResource) GetSearchOnAddOk() (*bool, bool) {
+	if o == nil || isNil(o.SearchOnAdd) {
     return nil, false
 	}
-	return o.SeasonFolder, true
+	return o.SearchOnAdd, true
 }
 
-// HasSeasonFolder returns a boolean if a field has been set.
-func (o *ImportListResource) HasSeasonFolder() bool {
-	if o != nil && !isNil(o.SeasonFolder) {
+// HasSearchOnAdd returns a boolean if a field has been set.
+func (o *ImportListResource) HasSearchOnAdd() bool {
+	if o != nil && !isNil(o.SearchOnAdd) {
 		return true
 	}
 
 	return false
 }
 
-// SetSeasonFolder gets a reference to the given bool and assigns it to the SeasonFolder field.
-func (o *ImportListResource) SetSeasonFolder(v bool) {
-	o.SeasonFolder = &v
+// SetSearchOnAdd gets a reference to the given bool and assigns it to the SearchOnAdd field.
+func (o *ImportListResource) SetSearchOnAdd(v bool) {
+	o.SearchOnAdd = &v
+}
+
+// GetMinimumAvailability returns the MinimumAvailability field value if set, zero value otherwise.
+func (o *ImportListResource) GetMinimumAvailability() MovieStatusType {
+	if o == nil || isNil(o.MinimumAvailability) {
+		var ret MovieStatusType
+		return ret
+	}
+	return *o.MinimumAvailability
+}
+
+// GetMinimumAvailabilityOk returns a tuple with the MinimumAvailability field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ImportListResource) GetMinimumAvailabilityOk() (*MovieStatusType, bool) {
+	if o == nil || isNil(o.MinimumAvailability) {
+    return nil, false
+	}
+	return o.MinimumAvailability, true
+}
+
+// HasMinimumAvailability returns a boolean if a field has been set.
+func (o *ImportListResource) HasMinimumAvailability() bool {
+	if o != nil && !isNil(o.MinimumAvailability) {
+		return true
+	}
+
+	return false
+}
+
+// SetMinimumAvailability gets a reference to the given MovieStatusType and assigns it to the MinimumAvailability field.
+func (o *ImportListResource) SetMinimumAvailability(v MovieStatusType) {
+	o.MinimumAvailability = &v
 }
 
 // GetListType returns the ListType field value if set, zero value otherwise.
@@ -724,11 +757,14 @@ func (o ImportListResource) MarshalJSON() ([]byte, error) {
 	if o.Presets != nil {
 		toSerialize["presets"] = o.Presets
 	}
-	if !isNil(o.EnableAutomaticAdd) {
-		toSerialize["enableAutomaticAdd"] = o.EnableAutomaticAdd
+	if !isNil(o.Enabled) {
+		toSerialize["enabled"] = o.Enabled
 	}
-	if !isNil(o.ShouldMonitor) {
-		toSerialize["shouldMonitor"] = o.ShouldMonitor
+	if !isNil(o.EnableAuto) {
+		toSerialize["enableAuto"] = o.EnableAuto
+	}
+	if !isNil(o.Monitor) {
+		toSerialize["monitor"] = o.Monitor
 	}
 	if o.RootFolderPath.IsSet() {
 		toSerialize["rootFolderPath"] = o.RootFolderPath.Get()
@@ -736,11 +772,11 @@ func (o ImportListResource) MarshalJSON() ([]byte, error) {
 	if !isNil(o.QualityProfileId) {
 		toSerialize["qualityProfileId"] = o.QualityProfileId
 	}
-	if !isNil(o.SeriesType) {
-		toSerialize["seriesType"] = o.SeriesType
+	if !isNil(o.SearchOnAdd) {
+		toSerialize["searchOnAdd"] = o.SearchOnAdd
 	}
-	if !isNil(o.SeasonFolder) {
-		toSerialize["seasonFolder"] = o.SeasonFolder
+	if !isNil(o.MinimumAvailability) {
+		toSerialize["minimumAvailability"] = o.MinimumAvailability
 	}
 	if !isNil(o.ListType) {
 		toSerialize["listType"] = o.ListType

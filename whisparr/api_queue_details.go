@@ -1,7 +1,7 @@
 /*
-Whisparr
+Radarr
 
-Whisparr API docs
+Radarr API docs
 
 API version: 3.0.0
 */
@@ -17,7 +17,6 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
-	"reflect"
 )
 
 
@@ -80,7 +79,7 @@ func (a *QueueDetailsApiService) GetQueueDetailsByIdExecute(r ApiGetQueueDetails
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"text/plain", "application/json", "text/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -154,29 +153,17 @@ func (a *QueueDetailsApiService) GetQueueDetailsByIdExecute(r ApiGetQueueDetails
 type ApiListQueueDetailsRequest struct {
 	ctx context.Context
 	ApiService *QueueDetailsApiService
-	seriesId *int32
-	episodeIds *[]int32
-	includeSeries *bool
-	includeEpisode *bool
+	movieId *int32
+	includeMovie *bool
 }
 
-func (r ApiListQueueDetailsRequest) SeriesId(seriesId int32) ApiListQueueDetailsRequest {
-	r.seriesId = &seriesId
+func (r ApiListQueueDetailsRequest) MovieId(movieId int32) ApiListQueueDetailsRequest {
+	r.movieId = &movieId
 	return r
 }
 
-func (r ApiListQueueDetailsRequest) EpisodeIds(episodeIds []int32) ApiListQueueDetailsRequest {
-	r.episodeIds = &episodeIds
-	return r
-}
-
-func (r ApiListQueueDetailsRequest) IncludeSeries(includeSeries bool) ApiListQueueDetailsRequest {
-	r.includeSeries = &includeSeries
-	return r
-}
-
-func (r ApiListQueueDetailsRequest) IncludeEpisode(includeEpisode bool) ApiListQueueDetailsRequest {
-	r.includeEpisode = &includeEpisode
+func (r ApiListQueueDetailsRequest) IncludeMovie(includeMovie bool) ApiListQueueDetailsRequest {
+	r.includeMovie = &includeMovie
 	return r
 }
 
@@ -218,25 +205,11 @@ func (a *QueueDetailsApiService) ListQueueDetailsExecute(r ApiListQueueDetailsRe
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if r.seriesId != nil {
-		localVarQueryParams.Add("seriesId", parameterToString(*r.seriesId, ""))
+	if r.movieId != nil {
+		localVarQueryParams.Add("movieId", parameterToString(*r.movieId, ""))
 	}
-	if r.episodeIds != nil {
-		t := *r.episodeIds
-		if reflect.TypeOf(t).Kind() == reflect.Slice {
-			s := reflect.ValueOf(t)
-			for i := 0; i < s.Len(); i++ {
-				localVarQueryParams.Add("episodeIds", parameterToString(s.Index(i), "multi"))
-			}
-		} else {
-			localVarQueryParams.Add("episodeIds", parameterToString(t, "multi"))
-		}
-	}
-	if r.includeSeries != nil {
-		localVarQueryParams.Add("includeSeries", parameterToString(*r.includeSeries, ""))
-	}
-	if r.includeEpisode != nil {
-		localVarQueryParams.Add("includeEpisode", parameterToString(*r.includeEpisode, ""))
+	if r.includeMovie != nil {
+		localVarQueryParams.Add("includeMovie", parameterToString(*r.includeMovie, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -248,7 +221,7 @@ func (a *QueueDetailsApiService) ListQueueDetailsExecute(r ApiListQueueDetailsRe
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"text/plain", "application/json", "text/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)

@@ -23,8 +23,9 @@ Name | Type | Description | Notes
 **IsDocker** | Pointer to **bool** |  | [optional] 
 **Mode** | Pointer to [**RuntimeMode**](RuntimeMode.md) |  | [optional] 
 **Branch** | Pointer to **NullableString** |  | [optional] 
+**DatabaseType** | Pointer to [**DatabaseType**](DatabaseType.md) |  | [optional] 
+**DatabaseVersion** | Pointer to **string** |  | [optional] 
 **Authentication** | Pointer to [**AuthenticationType**](AuthenticationType.md) |  | [optional] 
-**SqliteVersion** | Pointer to **string** |  | [optional] 
 **MigrationVersion** | Pointer to **int32** |  | [optional] 
 **UrlBase** | Pointer to **NullableString** |  | [optional] 
 **RuntimeVersion** | Pointer to **string** |  | [optional] 
@@ -609,6 +610,56 @@ HasBranch returns a boolean if a field has been set.
 `func (o *SystemResource) UnsetBranch()`
 
 UnsetBranch ensures that no value is present for Branch, not even an explicit nil
+### GetDatabaseType
+
+`func (o *SystemResource) GetDatabaseType() DatabaseType`
+
+GetDatabaseType returns the DatabaseType field if non-nil, zero value otherwise.
+
+### GetDatabaseTypeOk
+
+`func (o *SystemResource) GetDatabaseTypeOk() (*DatabaseType, bool)`
+
+GetDatabaseTypeOk returns a tuple with the DatabaseType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDatabaseType
+
+`func (o *SystemResource) SetDatabaseType(v DatabaseType)`
+
+SetDatabaseType sets DatabaseType field to given value.
+
+### HasDatabaseType
+
+`func (o *SystemResource) HasDatabaseType() bool`
+
+HasDatabaseType returns a boolean if a field has been set.
+
+### GetDatabaseVersion
+
+`func (o *SystemResource) GetDatabaseVersion() string`
+
+GetDatabaseVersion returns the DatabaseVersion field if non-nil, zero value otherwise.
+
+### GetDatabaseVersionOk
+
+`func (o *SystemResource) GetDatabaseVersionOk() (*string, bool)`
+
+GetDatabaseVersionOk returns a tuple with the DatabaseVersion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDatabaseVersion
+
+`func (o *SystemResource) SetDatabaseVersion(v string)`
+
+SetDatabaseVersion sets DatabaseVersion field to given value.
+
+### HasDatabaseVersion
+
+`func (o *SystemResource) HasDatabaseVersion() bool`
+
+HasDatabaseVersion returns a boolean if a field has been set.
+
 ### GetAuthentication
 
 `func (o *SystemResource) GetAuthentication() AuthenticationType`
@@ -633,31 +684,6 @@ SetAuthentication sets Authentication field to given value.
 `func (o *SystemResource) HasAuthentication() bool`
 
 HasAuthentication returns a boolean if a field has been set.
-
-### GetSqliteVersion
-
-`func (o *SystemResource) GetSqliteVersion() string`
-
-GetSqliteVersion returns the SqliteVersion field if non-nil, zero value otherwise.
-
-### GetSqliteVersionOk
-
-`func (o *SystemResource) GetSqliteVersionOk() (*string, bool)`
-
-GetSqliteVersionOk returns a tuple with the SqliteVersion field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSqliteVersion
-
-`func (o *SystemResource) SetSqliteVersion(v string)`
-
-SetSqliteVersion sets SqliteVersion field to given value.
-
-### HasSqliteVersion
-
-`func (o *SystemResource) HasSqliteVersion() bool`
-
-HasSqliteVersion returns a boolean if a field has been set.
 
 ### GetMigrationVersion
 

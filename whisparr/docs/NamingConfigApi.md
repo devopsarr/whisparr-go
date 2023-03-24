@@ -1,6 +1,6 @@
 # \NamingConfigApi
 
-All URIs are relative to *http://localhost:6969*
+All URIs are relative to *http://localhost:7878*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -131,7 +131,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -140,7 +140,7 @@ Name | Type | Description  | Notes
 
 ## GetNamingConfigExamples
 
-> GetNamingConfigExamples(ctx).RenameEpisodes(renameEpisodes).ReplaceIllegalCharacters(replaceIllegalCharacters).MultiEpisodeStyle(multiEpisodeStyle).StandardEpisodeFormat(standardEpisodeFormat).DailyEpisodeFormat(dailyEpisodeFormat).AnimeEpisodeFormat(animeEpisodeFormat).SeriesFolderFormat(seriesFolderFormat).SeasonFolderFormat(seasonFolderFormat).SpecialsFolderFormat(specialsFolderFormat).IncludeSeriesTitle(includeSeriesTitle).IncludeEpisodeTitle(includeEpisodeTitle).IncludeQuality(includeQuality).ReplaceSpaces(replaceSpaces).Separator(separator).NumberStyle(numberStyle).Id(id).ResourceName(resourceName).Execute()
+> GetNamingConfigExamples(ctx).RenameMovies(renameMovies).ReplaceIllegalCharacters(replaceIllegalCharacters).ColonReplacementFormat(colonReplacementFormat).StandardMovieFormat(standardMovieFormat).MovieFolderFormat(movieFolderFormat).IncludeQuality(includeQuality).ReplaceSpaces(replaceSpaces).Separator(separator).NumberStyle(numberStyle).Id(id).ResourceName(resourceName).Execute()
 
 
 
@@ -157,17 +157,11 @@ import (
 )
 
 func main() {
-    renameEpisodes := true // bool |  (optional)
+    renameMovies := true // bool |  (optional)
     replaceIllegalCharacters := true // bool |  (optional)
-    multiEpisodeStyle := int32(56) // int32 |  (optional)
-    standardEpisodeFormat := "standardEpisodeFormat_example" // string |  (optional)
-    dailyEpisodeFormat := "dailyEpisodeFormat_example" // string |  (optional)
-    animeEpisodeFormat := "animeEpisodeFormat_example" // string |  (optional)
-    seriesFolderFormat := "seriesFolderFormat_example" // string |  (optional)
-    seasonFolderFormat := "seasonFolderFormat_example" // string |  (optional)
-    specialsFolderFormat := "specialsFolderFormat_example" // string |  (optional)
-    includeSeriesTitle := true // bool |  (optional)
-    includeEpisodeTitle := true // bool |  (optional)
+    colonReplacementFormat := whisparrClient.ColonReplacementFormat("delete") // ColonReplacementFormat |  (optional)
+    standardMovieFormat := "standardMovieFormat_example" // string |  (optional)
+    movieFolderFormat := "movieFolderFormat_example" // string |  (optional)
     includeQuality := true // bool |  (optional)
     replaceSpaces := true // bool |  (optional)
     separator := "separator_example" // string |  (optional)
@@ -177,7 +171,7 @@ func main() {
 
     configuration := whisparrClient.NewConfiguration()
     apiClient := whisparrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.NamingConfigApi.GetNamingConfigExamples(context.Background()).RenameEpisodes(renameEpisodes).ReplaceIllegalCharacters(replaceIllegalCharacters).MultiEpisodeStyle(multiEpisodeStyle).StandardEpisodeFormat(standardEpisodeFormat).DailyEpisodeFormat(dailyEpisodeFormat).AnimeEpisodeFormat(animeEpisodeFormat).SeriesFolderFormat(seriesFolderFormat).SeasonFolderFormat(seasonFolderFormat).SpecialsFolderFormat(specialsFolderFormat).IncludeSeriesTitle(includeSeriesTitle).IncludeEpisodeTitle(includeEpisodeTitle).IncludeQuality(includeQuality).ReplaceSpaces(replaceSpaces).Separator(separator).NumberStyle(numberStyle).Id(id).ResourceName(resourceName).Execute()
+    resp, r, err := apiClient.NamingConfigApi.GetNamingConfigExamples(context.Background()).RenameMovies(renameMovies).ReplaceIllegalCharacters(replaceIllegalCharacters).ColonReplacementFormat(colonReplacementFormat).StandardMovieFormat(standardMovieFormat).MovieFolderFormat(movieFolderFormat).IncludeQuality(includeQuality).ReplaceSpaces(replaceSpaces).Separator(separator).NumberStyle(numberStyle).Id(id).ResourceName(resourceName).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `NamingConfigApi.GetNamingConfigExamples``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -196,17 +190,11 @@ Other parameters are passed through a pointer to a apiGetNamingConfigExamplesReq
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **renameEpisodes** | **bool** |  | 
+ **renameMovies** | **bool** |  | 
  **replaceIllegalCharacters** | **bool** |  | 
- **multiEpisodeStyle** | **int32** |  | 
- **standardEpisodeFormat** | **string** |  | 
- **dailyEpisodeFormat** | **string** |  | 
- **animeEpisodeFormat** | **string** |  | 
- **seriesFolderFormat** | **string** |  | 
- **seasonFolderFormat** | **string** |  | 
- **specialsFolderFormat** | **string** |  | 
- **includeSeriesTitle** | **bool** |  | 
- **includeEpisodeTitle** | **bool** |  | 
+ **colonReplacementFormat** | [**ColonReplacementFormat**](ColonReplacementFormat.md) |  | 
+ **standardMovieFormat** | **string** |  | 
+ **movieFolderFormat** | **string** |  | 
  **includeQuality** | **bool** |  | 
  **replaceSpaces** | **bool** |  | 
  **separator** | **string** |  | 

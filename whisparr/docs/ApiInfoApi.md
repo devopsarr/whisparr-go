@@ -1,6 +1,6 @@
 # \ApiInfoApi
 
-All URIs are relative to *http://localhost:6969*
+All URIs are relative to *http://localhost:7878*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## GetApi
 
-> GetApi(ctx).Execute()
+> ApiInfoResource GetApi(ctx).Execute()
 
 
 
@@ -35,6 +35,8 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `ApiInfoApi.GetApi``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `GetApi`: ApiInfoResource
+    fmt.Fprintf(os.Stdout, "Response from `ApiInfoApi.GetApi`: %v\n", resp)
 }
 ```
 
@@ -49,7 +51,7 @@ Other parameters are passed through a pointer to a apiGetApiRequest struct via t
 
 ### Return type
 
- (empty response body)
+[**ApiInfoResource**](ApiInfoResource.md)
 
 ### Authorization
 
@@ -58,7 +60,7 @@ Other parameters are passed through a pointer to a apiGetApiRequest struct via t
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

@@ -1,7 +1,7 @@
 /*
-Whisparr
+Radarr
 
-Whisparr API docs
+Radarr API docs
 
 API version: 3.0.0
 */
@@ -203,7 +203,7 @@ func (a *NamingConfigApiService) GetNamingConfigByIdExecute(r ApiGetNamingConfig
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"text/plain", "application/json", "text/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -277,17 +277,11 @@ func (a *NamingConfigApiService) GetNamingConfigByIdExecute(r ApiGetNamingConfig
 type ApiGetNamingConfigExamplesRequest struct {
 	ctx context.Context
 	ApiService *NamingConfigApiService
-	renameEpisodes *bool
+	renameMovies *bool
 	replaceIllegalCharacters *bool
-	multiEpisodeStyle *int32
-	standardEpisodeFormat *string
-	dailyEpisodeFormat *string
-	animeEpisodeFormat *string
-	seriesFolderFormat *string
-	seasonFolderFormat *string
-	specialsFolderFormat *string
-	includeSeriesTitle *bool
-	includeEpisodeTitle *bool
+	colonReplacementFormat *ColonReplacementFormat
+	standardMovieFormat *string
+	movieFolderFormat *string
 	includeQuality *bool
 	replaceSpaces *bool
 	separator *string
@@ -296,8 +290,8 @@ type ApiGetNamingConfigExamplesRequest struct {
 	resourceName *string
 }
 
-func (r ApiGetNamingConfigExamplesRequest) RenameEpisodes(renameEpisodes bool) ApiGetNamingConfigExamplesRequest {
-	r.renameEpisodes = &renameEpisodes
+func (r ApiGetNamingConfigExamplesRequest) RenameMovies(renameMovies bool) ApiGetNamingConfigExamplesRequest {
+	r.renameMovies = &renameMovies
 	return r
 }
 
@@ -306,48 +300,18 @@ func (r ApiGetNamingConfigExamplesRequest) ReplaceIllegalCharacters(replaceIlleg
 	return r
 }
 
-func (r ApiGetNamingConfigExamplesRequest) MultiEpisodeStyle(multiEpisodeStyle int32) ApiGetNamingConfigExamplesRequest {
-	r.multiEpisodeStyle = &multiEpisodeStyle
+func (r ApiGetNamingConfigExamplesRequest) ColonReplacementFormat(colonReplacementFormat ColonReplacementFormat) ApiGetNamingConfigExamplesRequest {
+	r.colonReplacementFormat = &colonReplacementFormat
 	return r
 }
 
-func (r ApiGetNamingConfigExamplesRequest) StandardEpisodeFormat(standardEpisodeFormat string) ApiGetNamingConfigExamplesRequest {
-	r.standardEpisodeFormat = &standardEpisodeFormat
+func (r ApiGetNamingConfigExamplesRequest) StandardMovieFormat(standardMovieFormat string) ApiGetNamingConfigExamplesRequest {
+	r.standardMovieFormat = &standardMovieFormat
 	return r
 }
 
-func (r ApiGetNamingConfigExamplesRequest) DailyEpisodeFormat(dailyEpisodeFormat string) ApiGetNamingConfigExamplesRequest {
-	r.dailyEpisodeFormat = &dailyEpisodeFormat
-	return r
-}
-
-func (r ApiGetNamingConfigExamplesRequest) AnimeEpisodeFormat(animeEpisodeFormat string) ApiGetNamingConfigExamplesRequest {
-	r.animeEpisodeFormat = &animeEpisodeFormat
-	return r
-}
-
-func (r ApiGetNamingConfigExamplesRequest) SeriesFolderFormat(seriesFolderFormat string) ApiGetNamingConfigExamplesRequest {
-	r.seriesFolderFormat = &seriesFolderFormat
-	return r
-}
-
-func (r ApiGetNamingConfigExamplesRequest) SeasonFolderFormat(seasonFolderFormat string) ApiGetNamingConfigExamplesRequest {
-	r.seasonFolderFormat = &seasonFolderFormat
-	return r
-}
-
-func (r ApiGetNamingConfigExamplesRequest) SpecialsFolderFormat(specialsFolderFormat string) ApiGetNamingConfigExamplesRequest {
-	r.specialsFolderFormat = &specialsFolderFormat
-	return r
-}
-
-func (r ApiGetNamingConfigExamplesRequest) IncludeSeriesTitle(includeSeriesTitle bool) ApiGetNamingConfigExamplesRequest {
-	r.includeSeriesTitle = &includeSeriesTitle
-	return r
-}
-
-func (r ApiGetNamingConfigExamplesRequest) IncludeEpisodeTitle(includeEpisodeTitle bool) ApiGetNamingConfigExamplesRequest {
-	r.includeEpisodeTitle = &includeEpisodeTitle
+func (r ApiGetNamingConfigExamplesRequest) MovieFolderFormat(movieFolderFormat string) ApiGetNamingConfigExamplesRequest {
+	r.movieFolderFormat = &movieFolderFormat
 	return r
 }
 
@@ -417,38 +381,20 @@ func (a *NamingConfigApiService) GetNamingConfigExamplesExecute(r ApiGetNamingCo
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if r.renameEpisodes != nil {
-		localVarQueryParams.Add("RenameEpisodes", parameterToString(*r.renameEpisodes, ""))
+	if r.renameMovies != nil {
+		localVarQueryParams.Add("RenameMovies", parameterToString(*r.renameMovies, ""))
 	}
 	if r.replaceIllegalCharacters != nil {
 		localVarQueryParams.Add("ReplaceIllegalCharacters", parameterToString(*r.replaceIllegalCharacters, ""))
 	}
-	if r.multiEpisodeStyle != nil {
-		localVarQueryParams.Add("MultiEpisodeStyle", parameterToString(*r.multiEpisodeStyle, ""))
+	if r.colonReplacementFormat != nil {
+		localVarQueryParams.Add("ColonReplacementFormat", parameterToString(*r.colonReplacementFormat, ""))
 	}
-	if r.standardEpisodeFormat != nil {
-		localVarQueryParams.Add("StandardEpisodeFormat", parameterToString(*r.standardEpisodeFormat, ""))
+	if r.standardMovieFormat != nil {
+		localVarQueryParams.Add("StandardMovieFormat", parameterToString(*r.standardMovieFormat, ""))
 	}
-	if r.dailyEpisodeFormat != nil {
-		localVarQueryParams.Add("DailyEpisodeFormat", parameterToString(*r.dailyEpisodeFormat, ""))
-	}
-	if r.animeEpisodeFormat != nil {
-		localVarQueryParams.Add("AnimeEpisodeFormat", parameterToString(*r.animeEpisodeFormat, ""))
-	}
-	if r.seriesFolderFormat != nil {
-		localVarQueryParams.Add("SeriesFolderFormat", parameterToString(*r.seriesFolderFormat, ""))
-	}
-	if r.seasonFolderFormat != nil {
-		localVarQueryParams.Add("SeasonFolderFormat", parameterToString(*r.seasonFolderFormat, ""))
-	}
-	if r.specialsFolderFormat != nil {
-		localVarQueryParams.Add("SpecialsFolderFormat", parameterToString(*r.specialsFolderFormat, ""))
-	}
-	if r.includeSeriesTitle != nil {
-		localVarQueryParams.Add("IncludeSeriesTitle", parameterToString(*r.includeSeriesTitle, ""))
-	}
-	if r.includeEpisodeTitle != nil {
-		localVarQueryParams.Add("IncludeEpisodeTitle", parameterToString(*r.includeEpisodeTitle, ""))
+	if r.movieFolderFormat != nil {
+		localVarQueryParams.Add("MovieFolderFormat", parameterToString(*r.movieFolderFormat, ""))
 	}
 	if r.includeQuality != nil {
 		localVarQueryParams.Add("IncludeQuality", parameterToString(*r.includeQuality, ""))

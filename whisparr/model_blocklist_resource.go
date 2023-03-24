@@ -1,7 +1,7 @@
 /*
-Whisparr
+Radarr
 
-Whisparr API docs
+Radarr API docs
 
 API version: 3.0.0
 */
@@ -18,8 +18,7 @@ import (
 // BlocklistResource struct for BlocklistResource
 type BlocklistResource struct {
 	Id *int32 `json:"id,omitempty"`
-	SeriesId *int32 `json:"seriesId,omitempty"`
-	EpisodeIds []*int32 `json:"episodeIds,omitempty"`
+	MovieId *int32 `json:"movieId,omitempty"`
 	SourceTitle NullableString `json:"sourceTitle,omitempty"`
 	Languages []*Language `json:"languages,omitempty"`
 	Quality *QualityModel `json:"quality,omitempty"`
@@ -28,7 +27,7 @@ type BlocklistResource struct {
 	Protocol *DownloadProtocol `json:"protocol,omitempty"`
 	Indexer NullableString `json:"indexer,omitempty"`
 	Message NullableString `json:"message,omitempty"`
-	Series *SeriesResource `json:"series,omitempty"`
+	Movie *MovieResource `json:"movie,omitempty"`
 }
 
 // NewBlocklistResource instantiates a new BlocklistResource object
@@ -80,69 +79,36 @@ func (o *BlocklistResource) SetId(v int32) {
 	o.Id = &v
 }
 
-// GetSeriesId returns the SeriesId field value if set, zero value otherwise.
-func (o *BlocklistResource) GetSeriesId() int32 {
-	if o == nil || isNil(o.SeriesId) {
+// GetMovieId returns the MovieId field value if set, zero value otherwise.
+func (o *BlocklistResource) GetMovieId() int32 {
+	if o == nil || isNil(o.MovieId) {
 		var ret int32
 		return ret
 	}
-	return *o.SeriesId
+	return *o.MovieId
 }
 
-// GetSeriesIdOk returns a tuple with the SeriesId field value if set, nil otherwise
+// GetMovieIdOk returns a tuple with the MovieId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *BlocklistResource) GetSeriesIdOk() (*int32, bool) {
-	if o == nil || isNil(o.SeriesId) {
+func (o *BlocklistResource) GetMovieIdOk() (*int32, bool) {
+	if o == nil || isNil(o.MovieId) {
     return nil, false
 	}
-	return o.SeriesId, true
+	return o.MovieId, true
 }
 
-// HasSeriesId returns a boolean if a field has been set.
-func (o *BlocklistResource) HasSeriesId() bool {
-	if o != nil && !isNil(o.SeriesId) {
+// HasMovieId returns a boolean if a field has been set.
+func (o *BlocklistResource) HasMovieId() bool {
+	if o != nil && !isNil(o.MovieId) {
 		return true
 	}
 
 	return false
 }
 
-// SetSeriesId gets a reference to the given int32 and assigns it to the SeriesId field.
-func (o *BlocklistResource) SetSeriesId(v int32) {
-	o.SeriesId = &v
-}
-
-// GetEpisodeIds returns the EpisodeIds field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *BlocklistResource) GetEpisodeIds() []*int32 {
-	if o == nil {
-		var ret []*int32
-		return ret
-	}
-	return o.EpisodeIds
-}
-
-// GetEpisodeIdsOk returns a tuple with the EpisodeIds field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *BlocklistResource) GetEpisodeIdsOk() ([]*int32, bool) {
-	if o == nil || isNil(o.EpisodeIds) {
-    return nil, false
-	}
-	return o.EpisodeIds, true
-}
-
-// HasEpisodeIds returns a boolean if a field has been set.
-func (o *BlocklistResource) HasEpisodeIds() bool {
-	if o != nil && isNil(o.EpisodeIds) {
-		return true
-	}
-
-	return false
-}
-
-// SetEpisodeIds gets a reference to the given []int32 and assigns it to the EpisodeIds field.
-func (o *BlocklistResource) SetEpisodeIds(v []*int32) {
-	o.EpisodeIds = v
+// SetMovieId gets a reference to the given int32 and assigns it to the MovieId field.
+func (o *BlocklistResource) SetMovieId(v int32) {
+	o.MovieId = &v
 }
 
 // GetSourceTitle returns the SourceTitle field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -433,36 +399,36 @@ func (o *BlocklistResource) UnsetMessage() {
 	o.Message.Unset()
 }
 
-// GetSeries returns the Series field value if set, zero value otherwise.
-func (o *BlocklistResource) GetSeries() SeriesResource {
-	if o == nil || isNil(o.Series) {
-		var ret SeriesResource
+// GetMovie returns the Movie field value if set, zero value otherwise.
+func (o *BlocklistResource) GetMovie() MovieResource {
+	if o == nil || isNil(o.Movie) {
+		var ret MovieResource
 		return ret
 	}
-	return *o.Series
+	return *o.Movie
 }
 
-// GetSeriesOk returns a tuple with the Series field value if set, nil otherwise
+// GetMovieOk returns a tuple with the Movie field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *BlocklistResource) GetSeriesOk() (*SeriesResource, bool) {
-	if o == nil || isNil(o.Series) {
+func (o *BlocklistResource) GetMovieOk() (*MovieResource, bool) {
+	if o == nil || isNil(o.Movie) {
     return nil, false
 	}
-	return o.Series, true
+	return o.Movie, true
 }
 
-// HasSeries returns a boolean if a field has been set.
-func (o *BlocklistResource) HasSeries() bool {
-	if o != nil && !isNil(o.Series) {
+// HasMovie returns a boolean if a field has been set.
+func (o *BlocklistResource) HasMovie() bool {
+	if o != nil && !isNil(o.Movie) {
 		return true
 	}
 
 	return false
 }
 
-// SetSeries gets a reference to the given SeriesResource and assigns it to the Series field.
-func (o *BlocklistResource) SetSeries(v SeriesResource) {
-	o.Series = &v
+// SetMovie gets a reference to the given MovieResource and assigns it to the Movie field.
+func (o *BlocklistResource) SetMovie(v MovieResource) {
+	o.Movie = &v
 }
 
 func (o BlocklistResource) MarshalJSON() ([]byte, error) {
@@ -470,11 +436,8 @@ func (o BlocklistResource) MarshalJSON() ([]byte, error) {
 	if !isNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if !isNil(o.SeriesId) {
-		toSerialize["seriesId"] = o.SeriesId
-	}
-	if o.EpisodeIds != nil {
-		toSerialize["episodeIds"] = o.EpisodeIds
+	if !isNil(o.MovieId) {
+		toSerialize["movieId"] = o.MovieId
 	}
 	if o.SourceTitle.IsSet() {
 		toSerialize["sourceTitle"] = o.SourceTitle.Get()
@@ -500,8 +463,8 @@ func (o BlocklistResource) MarshalJSON() ([]byte, error) {
 	if o.Message.IsSet() {
 		toSerialize["message"] = o.Message.Get()
 	}
-	if !isNil(o.Series) {
-		toSerialize["series"] = o.Series
+	if !isNil(o.Movie) {
+		toSerialize["movie"] = o.Movie
 	}
 	return json.Marshal(toSerialize)
 }

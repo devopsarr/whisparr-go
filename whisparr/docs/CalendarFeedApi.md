@@ -1,16 +1,16 @@
 # \CalendarFeedApi
 
-All URIs are relative to *http://localhost:6969*
+All URIs are relative to *http://localhost:7878*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetFeedV3CalendarWhisparrIcs**](CalendarFeedApi.md#GetFeedV3CalendarWhisparrIcs) | **Get** /feed/v3/calendar/whisparr.ics | 
+[**GetFeedV3CalendarRadarrIcs**](CalendarFeedApi.md#GetFeedV3CalendarRadarrIcs) | **Get** /feed/v3/calendar/radarr.ics | 
 
 
 
-## GetFeedV3CalendarWhisparrIcs
+## GetFeedV3CalendarRadarrIcs
 
-> GetFeedV3CalendarWhisparrIcs(ctx).PastDays(pastDays).FutureDays(futureDays).TagList(tagList).Unmonitored(unmonitored).PremieresOnly(premieresOnly).AsAllDay(asAllDay).Execute()
+> GetFeedV3CalendarRadarrIcs(ctx).PastDays(pastDays).FutureDays(futureDays).TagList(tagList).Unmonitored(unmonitored).Execute()
 
 
 
@@ -31,14 +31,12 @@ func main() {
     futureDays := int32(56) // int32 |  (optional) (default to 28)
     tagList := "tagList_example" // string |  (optional) (default to "")
     unmonitored := true // bool |  (optional) (default to false)
-    premieresOnly := true // bool |  (optional) (default to false)
-    asAllDay := true // bool |  (optional) (default to false)
 
     configuration := whisparrClient.NewConfiguration()
     apiClient := whisparrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CalendarFeedApi.GetFeedV3CalendarWhisparrIcs(context.Background()).PastDays(pastDays).FutureDays(futureDays).TagList(tagList).Unmonitored(unmonitored).PremieresOnly(premieresOnly).AsAllDay(asAllDay).Execute()
+    resp, r, err := apiClient.CalendarFeedApi.GetFeedV3CalendarRadarrIcs(context.Background()).PastDays(pastDays).FutureDays(futureDays).TagList(tagList).Unmonitored(unmonitored).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CalendarFeedApi.GetFeedV3CalendarWhisparrIcs``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `CalendarFeedApi.GetFeedV3CalendarRadarrIcs``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -50,7 +48,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetFeedV3CalendarWhisparrIcsRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetFeedV3CalendarRadarrIcsRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -59,8 +57,6 @@ Name | Type | Description  | Notes
  **futureDays** | **int32** |  | [default to 28]
  **tagList** | **string** |  | [default to &quot;&quot;]
  **unmonitored** | **bool** |  | [default to false]
- **premieresOnly** | **bool** |  | [default to false]
- **asAllDay** | **bool** |  | [default to false]
 
 ### Return type
 

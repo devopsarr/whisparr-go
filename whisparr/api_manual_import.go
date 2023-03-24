@@ -1,7 +1,7 @@
 /*
-Whisparr
+Radarr
 
-Whisparr API docs
+Radarr API docs
 
 API version: 3.0.0
 */
@@ -69,7 +69,7 @@ func (a *ManualImportApiService) CreateManualImportExecute(r ApiCreateManualImpo
 	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{"application/json", "text/json", "application/*+json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -147,8 +147,7 @@ type ApiListManualImportRequest struct {
 	ApiService *ManualImportApiService
 	folder *string
 	downloadId *string
-	seriesId *int32
-	seasonNumber *int32
+	movieId *int32
 	filterExistingFiles *bool
 }
 
@@ -162,13 +161,8 @@ func (r ApiListManualImportRequest) DownloadId(downloadId string) ApiListManualI
 	return r
 }
 
-func (r ApiListManualImportRequest) SeriesId(seriesId int32) ApiListManualImportRequest {
-	r.seriesId = &seriesId
-	return r
-}
-
-func (r ApiListManualImportRequest) SeasonNumber(seasonNumber int32) ApiListManualImportRequest {
-	r.seasonNumber = &seasonNumber
+func (r ApiListManualImportRequest) MovieId(movieId int32) ApiListManualImportRequest {
+	r.movieId = &movieId
 	return r
 }
 
@@ -221,11 +215,8 @@ func (a *ManualImportApiService) ListManualImportExecute(r ApiListManualImportRe
 	if r.downloadId != nil {
 		localVarQueryParams.Add("downloadId", parameterToString(*r.downloadId, ""))
 	}
-	if r.seriesId != nil {
-		localVarQueryParams.Add("seriesId", parameterToString(*r.seriesId, ""))
-	}
-	if r.seasonNumber != nil {
-		localVarQueryParams.Add("seasonNumber", parameterToString(*r.seasonNumber, ""))
+	if r.movieId != nil {
+		localVarQueryParams.Add("movieId", parameterToString(*r.movieId, ""))
 	}
 	if r.filterExistingFiles != nil {
 		localVarQueryParams.Add("filterExistingFiles", parameterToString(*r.filterExistingFiles, ""))
@@ -240,7 +231,7 @@ func (a *ManualImportApiService) ListManualImportExecute(r ApiListManualImportRe
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"text/plain", "application/json", "text/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)

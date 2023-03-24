@@ -5,9 +5,11 @@
 
 * `PROGRAM` (value: `"program"`)
 
-* `PLEX` (value: `"plex"`)
+* `TMDB` (value: `"tmdb"`)
 
 * `TRAKT` (value: `"trakt"`)
+
+* `PLEX` (value: `"plex"`)
 
 * `OTHER` (value: `"other"`)
 

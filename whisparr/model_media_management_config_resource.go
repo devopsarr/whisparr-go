@@ -1,7 +1,7 @@
 /*
-Whisparr
+Radarr
 
-Whisparr API docs
+Radarr API docs
 
 API version: 3.0.0
 */
@@ -17,18 +17,19 @@ import (
 // MediaManagementConfigResource struct for MediaManagementConfigResource
 type MediaManagementConfigResource struct {
 	Id *int32 `json:"id,omitempty"`
-	AutoUnmonitorPreviouslyDownloadedEpisodes *bool `json:"autoUnmonitorPreviouslyDownloadedEpisodes,omitempty"`
+	AutoUnmonitorPreviouslyDownloadedMovies *bool `json:"autoUnmonitorPreviouslyDownloadedMovies,omitempty"`
 	RecycleBin NullableString `json:"recycleBin,omitempty"`
 	RecycleBinCleanupDays *int32 `json:"recycleBinCleanupDays,omitempty"`
 	DownloadPropersAndRepacks *ProperDownloadTypes `json:"downloadPropersAndRepacks,omitempty"`
-	CreateEmptySeriesFolders *bool `json:"createEmptySeriesFolders,omitempty"`
+	CreateEmptyMovieFolders *bool `json:"createEmptyMovieFolders,omitempty"`
 	DeleteEmptyFolders *bool `json:"deleteEmptyFolders,omitempty"`
 	FileDate *FileDateType `json:"fileDate,omitempty"`
 	RescanAfterRefresh *RescanAfterRefreshType `json:"rescanAfterRefresh,omitempty"`
+	AutoRenameFolders *bool `json:"autoRenameFolders,omitempty"`
+	PathsDefaultStatic *bool `json:"pathsDefaultStatic,omitempty"`
 	SetPermissionsLinux *bool `json:"setPermissionsLinux,omitempty"`
 	ChmodFolder NullableString `json:"chmodFolder,omitempty"`
 	ChownGroup NullableString `json:"chownGroup,omitempty"`
-	EpisodeTitleRequired *EpisodeTitleRequiredType `json:"episodeTitleRequired,omitempty"`
 	SkipFreeSpaceCheckWhenImporting *bool `json:"skipFreeSpaceCheckWhenImporting,omitempty"`
 	MinimumFreeSpaceWhenImporting *int32 `json:"minimumFreeSpaceWhenImporting,omitempty"`
 	CopyUsingHardlinks *bool `json:"copyUsingHardlinks,omitempty"`
@@ -86,36 +87,36 @@ func (o *MediaManagementConfigResource) SetId(v int32) {
 	o.Id = &v
 }
 
-// GetAutoUnmonitorPreviouslyDownloadedEpisodes returns the AutoUnmonitorPreviouslyDownloadedEpisodes field value if set, zero value otherwise.
-func (o *MediaManagementConfigResource) GetAutoUnmonitorPreviouslyDownloadedEpisodes() bool {
-	if o == nil || isNil(o.AutoUnmonitorPreviouslyDownloadedEpisodes) {
+// GetAutoUnmonitorPreviouslyDownloadedMovies returns the AutoUnmonitorPreviouslyDownloadedMovies field value if set, zero value otherwise.
+func (o *MediaManagementConfigResource) GetAutoUnmonitorPreviouslyDownloadedMovies() bool {
+	if o == nil || isNil(o.AutoUnmonitorPreviouslyDownloadedMovies) {
 		var ret bool
 		return ret
 	}
-	return *o.AutoUnmonitorPreviouslyDownloadedEpisodes
+	return *o.AutoUnmonitorPreviouslyDownloadedMovies
 }
 
-// GetAutoUnmonitorPreviouslyDownloadedEpisodesOk returns a tuple with the AutoUnmonitorPreviouslyDownloadedEpisodes field value if set, nil otherwise
+// GetAutoUnmonitorPreviouslyDownloadedMoviesOk returns a tuple with the AutoUnmonitorPreviouslyDownloadedMovies field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MediaManagementConfigResource) GetAutoUnmonitorPreviouslyDownloadedEpisodesOk() (*bool, bool) {
-	if o == nil || isNil(o.AutoUnmonitorPreviouslyDownloadedEpisodes) {
+func (o *MediaManagementConfigResource) GetAutoUnmonitorPreviouslyDownloadedMoviesOk() (*bool, bool) {
+	if o == nil || isNil(o.AutoUnmonitorPreviouslyDownloadedMovies) {
     return nil, false
 	}
-	return o.AutoUnmonitorPreviouslyDownloadedEpisodes, true
+	return o.AutoUnmonitorPreviouslyDownloadedMovies, true
 }
 
-// HasAutoUnmonitorPreviouslyDownloadedEpisodes returns a boolean if a field has been set.
-func (o *MediaManagementConfigResource) HasAutoUnmonitorPreviouslyDownloadedEpisodes() bool {
-	if o != nil && !isNil(o.AutoUnmonitorPreviouslyDownloadedEpisodes) {
+// HasAutoUnmonitorPreviouslyDownloadedMovies returns a boolean if a field has been set.
+func (o *MediaManagementConfigResource) HasAutoUnmonitorPreviouslyDownloadedMovies() bool {
+	if o != nil && !isNil(o.AutoUnmonitorPreviouslyDownloadedMovies) {
 		return true
 	}
 
 	return false
 }
 
-// SetAutoUnmonitorPreviouslyDownloadedEpisodes gets a reference to the given bool and assigns it to the AutoUnmonitorPreviouslyDownloadedEpisodes field.
-func (o *MediaManagementConfigResource) SetAutoUnmonitorPreviouslyDownloadedEpisodes(v bool) {
-	o.AutoUnmonitorPreviouslyDownloadedEpisodes = &v
+// SetAutoUnmonitorPreviouslyDownloadedMovies gets a reference to the given bool and assigns it to the AutoUnmonitorPreviouslyDownloadedMovies field.
+func (o *MediaManagementConfigResource) SetAutoUnmonitorPreviouslyDownloadedMovies(v bool) {
+	o.AutoUnmonitorPreviouslyDownloadedMovies = &v
 }
 
 // GetRecycleBin returns the RecycleBin field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -224,36 +225,36 @@ func (o *MediaManagementConfigResource) SetDownloadPropersAndRepacks(v ProperDow
 	o.DownloadPropersAndRepacks = &v
 }
 
-// GetCreateEmptySeriesFolders returns the CreateEmptySeriesFolders field value if set, zero value otherwise.
-func (o *MediaManagementConfigResource) GetCreateEmptySeriesFolders() bool {
-	if o == nil || isNil(o.CreateEmptySeriesFolders) {
+// GetCreateEmptyMovieFolders returns the CreateEmptyMovieFolders field value if set, zero value otherwise.
+func (o *MediaManagementConfigResource) GetCreateEmptyMovieFolders() bool {
+	if o == nil || isNil(o.CreateEmptyMovieFolders) {
 		var ret bool
 		return ret
 	}
-	return *o.CreateEmptySeriesFolders
+	return *o.CreateEmptyMovieFolders
 }
 
-// GetCreateEmptySeriesFoldersOk returns a tuple with the CreateEmptySeriesFolders field value if set, nil otherwise
+// GetCreateEmptyMovieFoldersOk returns a tuple with the CreateEmptyMovieFolders field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MediaManagementConfigResource) GetCreateEmptySeriesFoldersOk() (*bool, bool) {
-	if o == nil || isNil(o.CreateEmptySeriesFolders) {
+func (o *MediaManagementConfigResource) GetCreateEmptyMovieFoldersOk() (*bool, bool) {
+	if o == nil || isNil(o.CreateEmptyMovieFolders) {
     return nil, false
 	}
-	return o.CreateEmptySeriesFolders, true
+	return o.CreateEmptyMovieFolders, true
 }
 
-// HasCreateEmptySeriesFolders returns a boolean if a field has been set.
-func (o *MediaManagementConfigResource) HasCreateEmptySeriesFolders() bool {
-	if o != nil && !isNil(o.CreateEmptySeriesFolders) {
+// HasCreateEmptyMovieFolders returns a boolean if a field has been set.
+func (o *MediaManagementConfigResource) HasCreateEmptyMovieFolders() bool {
+	if o != nil && !isNil(o.CreateEmptyMovieFolders) {
 		return true
 	}
 
 	return false
 }
 
-// SetCreateEmptySeriesFolders gets a reference to the given bool and assigns it to the CreateEmptySeriesFolders field.
-func (o *MediaManagementConfigResource) SetCreateEmptySeriesFolders(v bool) {
-	o.CreateEmptySeriesFolders = &v
+// SetCreateEmptyMovieFolders gets a reference to the given bool and assigns it to the CreateEmptyMovieFolders field.
+func (o *MediaManagementConfigResource) SetCreateEmptyMovieFolders(v bool) {
+	o.CreateEmptyMovieFolders = &v
 }
 
 // GetDeleteEmptyFolders returns the DeleteEmptyFolders field value if set, zero value otherwise.
@@ -350,6 +351,70 @@ func (o *MediaManagementConfigResource) HasRescanAfterRefresh() bool {
 // SetRescanAfterRefresh gets a reference to the given RescanAfterRefreshType and assigns it to the RescanAfterRefresh field.
 func (o *MediaManagementConfigResource) SetRescanAfterRefresh(v RescanAfterRefreshType) {
 	o.RescanAfterRefresh = &v
+}
+
+// GetAutoRenameFolders returns the AutoRenameFolders field value if set, zero value otherwise.
+func (o *MediaManagementConfigResource) GetAutoRenameFolders() bool {
+	if o == nil || isNil(o.AutoRenameFolders) {
+		var ret bool
+		return ret
+	}
+	return *o.AutoRenameFolders
+}
+
+// GetAutoRenameFoldersOk returns a tuple with the AutoRenameFolders field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *MediaManagementConfigResource) GetAutoRenameFoldersOk() (*bool, bool) {
+	if o == nil || isNil(o.AutoRenameFolders) {
+    return nil, false
+	}
+	return o.AutoRenameFolders, true
+}
+
+// HasAutoRenameFolders returns a boolean if a field has been set.
+func (o *MediaManagementConfigResource) HasAutoRenameFolders() bool {
+	if o != nil && !isNil(o.AutoRenameFolders) {
+		return true
+	}
+
+	return false
+}
+
+// SetAutoRenameFolders gets a reference to the given bool and assigns it to the AutoRenameFolders field.
+func (o *MediaManagementConfigResource) SetAutoRenameFolders(v bool) {
+	o.AutoRenameFolders = &v
+}
+
+// GetPathsDefaultStatic returns the PathsDefaultStatic field value if set, zero value otherwise.
+func (o *MediaManagementConfigResource) GetPathsDefaultStatic() bool {
+	if o == nil || isNil(o.PathsDefaultStatic) {
+		var ret bool
+		return ret
+	}
+	return *o.PathsDefaultStatic
+}
+
+// GetPathsDefaultStaticOk returns a tuple with the PathsDefaultStatic field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *MediaManagementConfigResource) GetPathsDefaultStaticOk() (*bool, bool) {
+	if o == nil || isNil(o.PathsDefaultStatic) {
+    return nil, false
+	}
+	return o.PathsDefaultStatic, true
+}
+
+// HasPathsDefaultStatic returns a boolean if a field has been set.
+func (o *MediaManagementConfigResource) HasPathsDefaultStatic() bool {
+	if o != nil && !isNil(o.PathsDefaultStatic) {
+		return true
+	}
+
+	return false
+}
+
+// SetPathsDefaultStatic gets a reference to the given bool and assigns it to the PathsDefaultStatic field.
+func (o *MediaManagementConfigResource) SetPathsDefaultStatic(v bool) {
+	o.PathsDefaultStatic = &v
 }
 
 // GetSetPermissionsLinux returns the SetPermissionsLinux field value if set, zero value otherwise.
@@ -466,38 +531,6 @@ func (o *MediaManagementConfigResource) SetChownGroupNil() {
 // UnsetChownGroup ensures that no value is present for ChownGroup, not even an explicit nil
 func (o *MediaManagementConfigResource) UnsetChownGroup() {
 	o.ChownGroup.Unset()
-}
-
-// GetEpisodeTitleRequired returns the EpisodeTitleRequired field value if set, zero value otherwise.
-func (o *MediaManagementConfigResource) GetEpisodeTitleRequired() EpisodeTitleRequiredType {
-	if o == nil || isNil(o.EpisodeTitleRequired) {
-		var ret EpisodeTitleRequiredType
-		return ret
-	}
-	return *o.EpisodeTitleRequired
-}
-
-// GetEpisodeTitleRequiredOk returns a tuple with the EpisodeTitleRequired field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *MediaManagementConfigResource) GetEpisodeTitleRequiredOk() (*EpisodeTitleRequiredType, bool) {
-	if o == nil || isNil(o.EpisodeTitleRequired) {
-    return nil, false
-	}
-	return o.EpisodeTitleRequired, true
-}
-
-// HasEpisodeTitleRequired returns a boolean if a field has been set.
-func (o *MediaManagementConfigResource) HasEpisodeTitleRequired() bool {
-	if o != nil && !isNil(o.EpisodeTitleRequired) {
-		return true
-	}
-
-	return false
-}
-
-// SetEpisodeTitleRequired gets a reference to the given EpisodeTitleRequiredType and assigns it to the EpisodeTitleRequired field.
-func (o *MediaManagementConfigResource) SetEpisodeTitleRequired(v EpisodeTitleRequiredType) {
-	o.EpisodeTitleRequired = &v
 }
 
 // GetSkipFreeSpaceCheckWhenImporting returns the SkipFreeSpaceCheckWhenImporting field value if set, zero value otherwise.
@@ -707,8 +740,8 @@ func (o MediaManagementConfigResource) MarshalJSON() ([]byte, error) {
 	if !isNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if !isNil(o.AutoUnmonitorPreviouslyDownloadedEpisodes) {
-		toSerialize["autoUnmonitorPreviouslyDownloadedEpisodes"] = o.AutoUnmonitorPreviouslyDownloadedEpisodes
+	if !isNil(o.AutoUnmonitorPreviouslyDownloadedMovies) {
+		toSerialize["autoUnmonitorPreviouslyDownloadedMovies"] = o.AutoUnmonitorPreviouslyDownloadedMovies
 	}
 	if o.RecycleBin.IsSet() {
 		toSerialize["recycleBin"] = o.RecycleBin.Get()
@@ -719,8 +752,8 @@ func (o MediaManagementConfigResource) MarshalJSON() ([]byte, error) {
 	if !isNil(o.DownloadPropersAndRepacks) {
 		toSerialize["downloadPropersAndRepacks"] = o.DownloadPropersAndRepacks
 	}
-	if !isNil(o.CreateEmptySeriesFolders) {
-		toSerialize["createEmptySeriesFolders"] = o.CreateEmptySeriesFolders
+	if !isNil(o.CreateEmptyMovieFolders) {
+		toSerialize["createEmptyMovieFolders"] = o.CreateEmptyMovieFolders
 	}
 	if !isNil(o.DeleteEmptyFolders) {
 		toSerialize["deleteEmptyFolders"] = o.DeleteEmptyFolders
@@ -731,6 +764,12 @@ func (o MediaManagementConfigResource) MarshalJSON() ([]byte, error) {
 	if !isNil(o.RescanAfterRefresh) {
 		toSerialize["rescanAfterRefresh"] = o.RescanAfterRefresh
 	}
+	if !isNil(o.AutoRenameFolders) {
+		toSerialize["autoRenameFolders"] = o.AutoRenameFolders
+	}
+	if !isNil(o.PathsDefaultStatic) {
+		toSerialize["pathsDefaultStatic"] = o.PathsDefaultStatic
+	}
 	if !isNil(o.SetPermissionsLinux) {
 		toSerialize["setPermissionsLinux"] = o.SetPermissionsLinux
 	}
@@ -739,9 +778,6 @@ func (o MediaManagementConfigResource) MarshalJSON() ([]byte, error) {
 	}
 	if o.ChownGroup.IsSet() {
 		toSerialize["chownGroup"] = o.ChownGroup.Get()
-	}
-	if !isNil(o.EpisodeTitleRequired) {
-		toSerialize["episodeTitleRequired"] = o.EpisodeTitleRequired
 	}
 	if !isNil(o.SkipFreeSpaceCheckWhenImporting) {
 		toSerialize["skipFreeSpaceCheckWhenImporting"] = o.SkipFreeSpaceCheckWhenImporting

@@ -7,13 +7,15 @@ Name | Type | Description | Notes
 **Id** | Pointer to **int32** |  | [optional] 
 **FirstDayOfWeek** | Pointer to **int32** |  | [optional] 
 **CalendarWeekColumnHeader** | Pointer to **NullableString** |  | [optional] 
+**MovieRuntimeFormat** | Pointer to [**MovieRuntimeFormatType**](MovieRuntimeFormatType.md) |  | [optional] 
 **ShortDateFormat** | Pointer to **NullableString** |  | [optional] 
 **LongDateFormat** | Pointer to **NullableString** |  | [optional] 
 **TimeFormat** | Pointer to **NullableString** |  | [optional] 
 **ShowRelativeDates** | Pointer to **bool** |  | [optional] 
 **EnableColorImpairedMode** | Pointer to **bool** |  | [optional] 
-**Theme** | Pointer to **NullableString** |  | [optional] 
+**MovieInfoLanguage** | Pointer to **int32** |  | [optional] 
 **UiLanguage** | Pointer to **int32** |  | [optional] 
+**Theme** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -119,6 +121,31 @@ HasCalendarWeekColumnHeader returns a boolean if a field has been set.
 `func (o *UiConfigResource) UnsetCalendarWeekColumnHeader()`
 
 UnsetCalendarWeekColumnHeader ensures that no value is present for CalendarWeekColumnHeader, not even an explicit nil
+### GetMovieRuntimeFormat
+
+`func (o *UiConfigResource) GetMovieRuntimeFormat() MovieRuntimeFormatType`
+
+GetMovieRuntimeFormat returns the MovieRuntimeFormat field if non-nil, zero value otherwise.
+
+### GetMovieRuntimeFormatOk
+
+`func (o *UiConfigResource) GetMovieRuntimeFormatOk() (*MovieRuntimeFormatType, bool)`
+
+GetMovieRuntimeFormatOk returns a tuple with the MovieRuntimeFormat field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMovieRuntimeFormat
+
+`func (o *UiConfigResource) SetMovieRuntimeFormat(v MovieRuntimeFormatType)`
+
+SetMovieRuntimeFormat sets MovieRuntimeFormat field to given value.
+
+### HasMovieRuntimeFormat
+
+`func (o *UiConfigResource) HasMovieRuntimeFormat() bool`
+
+HasMovieRuntimeFormat returns a boolean if a field has been set.
+
 ### GetShortDateFormat
 
 `func (o *UiConfigResource) GetShortDateFormat() string`
@@ -274,6 +301,56 @@ SetEnableColorImpairedMode sets EnableColorImpairedMode field to given value.
 
 HasEnableColorImpairedMode returns a boolean if a field has been set.
 
+### GetMovieInfoLanguage
+
+`func (o *UiConfigResource) GetMovieInfoLanguage() int32`
+
+GetMovieInfoLanguage returns the MovieInfoLanguage field if non-nil, zero value otherwise.
+
+### GetMovieInfoLanguageOk
+
+`func (o *UiConfigResource) GetMovieInfoLanguageOk() (*int32, bool)`
+
+GetMovieInfoLanguageOk returns a tuple with the MovieInfoLanguage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMovieInfoLanguage
+
+`func (o *UiConfigResource) SetMovieInfoLanguage(v int32)`
+
+SetMovieInfoLanguage sets MovieInfoLanguage field to given value.
+
+### HasMovieInfoLanguage
+
+`func (o *UiConfigResource) HasMovieInfoLanguage() bool`
+
+HasMovieInfoLanguage returns a boolean if a field has been set.
+
+### GetUiLanguage
+
+`func (o *UiConfigResource) GetUiLanguage() int32`
+
+GetUiLanguage returns the UiLanguage field if non-nil, zero value otherwise.
+
+### GetUiLanguageOk
+
+`func (o *UiConfigResource) GetUiLanguageOk() (*int32, bool)`
+
+GetUiLanguageOk returns a tuple with the UiLanguage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUiLanguage
+
+`func (o *UiConfigResource) SetUiLanguage(v int32)`
+
+SetUiLanguage sets UiLanguage field to given value.
+
+### HasUiLanguage
+
+`func (o *UiConfigResource) HasUiLanguage() bool`
+
+HasUiLanguage returns a boolean if a field has been set.
+
 ### GetTheme
 
 `func (o *UiConfigResource) GetTheme() string`
@@ -309,31 +386,6 @@ HasTheme returns a boolean if a field has been set.
 `func (o *UiConfigResource) UnsetTheme()`
 
 UnsetTheme ensures that no value is present for Theme, not even an explicit nil
-### GetUiLanguage
-
-`func (o *UiConfigResource) GetUiLanguage() int32`
-
-GetUiLanguage returns the UiLanguage field if non-nil, zero value otherwise.
-
-### GetUiLanguageOk
-
-`func (o *UiConfigResource) GetUiLanguageOk() (*int32, bool)`
-
-GetUiLanguageOk returns a tuple with the UiLanguage field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetUiLanguage
-
-`func (o *UiConfigResource) SetUiLanguage(v int32)`
-
-SetUiLanguage sets UiLanguage field to given value.
-
-### HasUiLanguage
-
-`func (o *UiConfigResource) HasUiLanguage() bool`
-
-HasUiLanguage returns a boolean if a field has been set.
-
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

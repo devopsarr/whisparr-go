@@ -1,7 +1,7 @@
 /*
-Whisparr
+Radarr
 
-Whisparr API docs
+Radarr API docs
 
 API version: 3.0.0
 */
@@ -18,9 +18,8 @@ import (
 type ParseResource struct {
 	Id *int32 `json:"id,omitempty"`
 	Title NullableString `json:"title,omitempty"`
-	ParsedEpisodeInfo *ParsedEpisodeInfo `json:"parsedEpisodeInfo,omitempty"`
-	Series *SeriesResource `json:"series,omitempty"`
-	Episodes []*EpisodeResource `json:"episodes,omitempty"`
+	ParsedMovieInfo *ParsedMovieInfo `json:"parsedMovieInfo,omitempty"`
+	Movie *MovieResource `json:"movie,omitempty"`
 }
 
 // NewParseResource instantiates a new ParseResource object
@@ -114,101 +113,68 @@ func (o *ParseResource) UnsetTitle() {
 	o.Title.Unset()
 }
 
-// GetParsedEpisodeInfo returns the ParsedEpisodeInfo field value if set, zero value otherwise.
-func (o *ParseResource) GetParsedEpisodeInfo() ParsedEpisodeInfo {
-	if o == nil || isNil(o.ParsedEpisodeInfo) {
-		var ret ParsedEpisodeInfo
+// GetParsedMovieInfo returns the ParsedMovieInfo field value if set, zero value otherwise.
+func (o *ParseResource) GetParsedMovieInfo() ParsedMovieInfo {
+	if o == nil || isNil(o.ParsedMovieInfo) {
+		var ret ParsedMovieInfo
 		return ret
 	}
-	return *o.ParsedEpisodeInfo
+	return *o.ParsedMovieInfo
 }
 
-// GetParsedEpisodeInfoOk returns a tuple with the ParsedEpisodeInfo field value if set, nil otherwise
+// GetParsedMovieInfoOk returns a tuple with the ParsedMovieInfo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ParseResource) GetParsedEpisodeInfoOk() (*ParsedEpisodeInfo, bool) {
-	if o == nil || isNil(o.ParsedEpisodeInfo) {
+func (o *ParseResource) GetParsedMovieInfoOk() (*ParsedMovieInfo, bool) {
+	if o == nil || isNil(o.ParsedMovieInfo) {
     return nil, false
 	}
-	return o.ParsedEpisodeInfo, true
+	return o.ParsedMovieInfo, true
 }
 
-// HasParsedEpisodeInfo returns a boolean if a field has been set.
-func (o *ParseResource) HasParsedEpisodeInfo() bool {
-	if o != nil && !isNil(o.ParsedEpisodeInfo) {
+// HasParsedMovieInfo returns a boolean if a field has been set.
+func (o *ParseResource) HasParsedMovieInfo() bool {
+	if o != nil && !isNil(o.ParsedMovieInfo) {
 		return true
 	}
 
 	return false
 }
 
-// SetParsedEpisodeInfo gets a reference to the given ParsedEpisodeInfo and assigns it to the ParsedEpisodeInfo field.
-func (o *ParseResource) SetParsedEpisodeInfo(v ParsedEpisodeInfo) {
-	o.ParsedEpisodeInfo = &v
+// SetParsedMovieInfo gets a reference to the given ParsedMovieInfo and assigns it to the ParsedMovieInfo field.
+func (o *ParseResource) SetParsedMovieInfo(v ParsedMovieInfo) {
+	o.ParsedMovieInfo = &v
 }
 
-// GetSeries returns the Series field value if set, zero value otherwise.
-func (o *ParseResource) GetSeries() SeriesResource {
-	if o == nil || isNil(o.Series) {
-		var ret SeriesResource
+// GetMovie returns the Movie field value if set, zero value otherwise.
+func (o *ParseResource) GetMovie() MovieResource {
+	if o == nil || isNil(o.Movie) {
+		var ret MovieResource
 		return ret
 	}
-	return *o.Series
+	return *o.Movie
 }
 
-// GetSeriesOk returns a tuple with the Series field value if set, nil otherwise
+// GetMovieOk returns a tuple with the Movie field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ParseResource) GetSeriesOk() (*SeriesResource, bool) {
-	if o == nil || isNil(o.Series) {
+func (o *ParseResource) GetMovieOk() (*MovieResource, bool) {
+	if o == nil || isNil(o.Movie) {
     return nil, false
 	}
-	return o.Series, true
+	return o.Movie, true
 }
 
-// HasSeries returns a boolean if a field has been set.
-func (o *ParseResource) HasSeries() bool {
-	if o != nil && !isNil(o.Series) {
+// HasMovie returns a boolean if a field has been set.
+func (o *ParseResource) HasMovie() bool {
+	if o != nil && !isNil(o.Movie) {
 		return true
 	}
 
 	return false
 }
 
-// SetSeries gets a reference to the given SeriesResource and assigns it to the Series field.
-func (o *ParseResource) SetSeries(v SeriesResource) {
-	o.Series = &v
-}
-
-// GetEpisodes returns the Episodes field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ParseResource) GetEpisodes() []*EpisodeResource {
-	if o == nil {
-		var ret []*EpisodeResource
-		return ret
-	}
-	return o.Episodes
-}
-
-// GetEpisodesOk returns a tuple with the Episodes field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ParseResource) GetEpisodesOk() ([]*EpisodeResource, bool) {
-	if o == nil || isNil(o.Episodes) {
-    return nil, false
-	}
-	return o.Episodes, true
-}
-
-// HasEpisodes returns a boolean if a field has been set.
-func (o *ParseResource) HasEpisodes() bool {
-	if o != nil && isNil(o.Episodes) {
-		return true
-	}
-
-	return false
-}
-
-// SetEpisodes gets a reference to the given []EpisodeResource and assigns it to the Episodes field.
-func (o *ParseResource) SetEpisodes(v []*EpisodeResource) {
-	o.Episodes = v
+// SetMovie gets a reference to the given MovieResource and assigns it to the Movie field.
+func (o *ParseResource) SetMovie(v MovieResource) {
+	o.Movie = &v
 }
 
 func (o ParseResource) MarshalJSON() ([]byte, error) {
@@ -219,14 +185,11 @@ func (o ParseResource) MarshalJSON() ([]byte, error) {
 	if o.Title.IsSet() {
 		toSerialize["title"] = o.Title.Get()
 	}
-	if !isNil(o.ParsedEpisodeInfo) {
-		toSerialize["parsedEpisodeInfo"] = o.ParsedEpisodeInfo
+	if !isNil(o.ParsedMovieInfo) {
+		toSerialize["parsedMovieInfo"] = o.ParsedMovieInfo
 	}
-	if !isNil(o.Series) {
-		toSerialize["series"] = o.Series
-	}
-	if o.Episodes != nil {
-		toSerialize["episodes"] = o.Episodes
+	if !isNil(o.Movie) {
+		toSerialize["movie"] = o.Movie
 	}
 	return json.Marshal(toSerialize)
 }

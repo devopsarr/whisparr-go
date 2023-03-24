@@ -6,9 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **int32** |  | [optional] 
 **Title** | Pointer to **NullableString** |  | [optional] 
-**ParsedEpisodeInfo** | Pointer to [**ParsedEpisodeInfo**](ParsedEpisodeInfo.md) |  | [optional] 
-**Series** | Pointer to [**SeriesResource**](SeriesResource.md) |  | [optional] 
-**Episodes** | Pointer to [**[]EpisodeResource**](EpisodeResource.md) |  | [optional] 
+**ParsedMovieInfo** | Pointer to [**ParsedMovieInfo**](ParsedMovieInfo.md) |  | [optional] 
+**Movie** | Pointer to [**MovieResource**](MovieResource.md) |  | [optional] 
 
 ## Methods
 
@@ -89,91 +88,56 @@ HasTitle returns a boolean if a field has been set.
 `func (o *ParseResource) UnsetTitle()`
 
 UnsetTitle ensures that no value is present for Title, not even an explicit nil
-### GetParsedEpisodeInfo
+### GetParsedMovieInfo
 
-`func (o *ParseResource) GetParsedEpisodeInfo() ParsedEpisodeInfo`
+`func (o *ParseResource) GetParsedMovieInfo() ParsedMovieInfo`
 
-GetParsedEpisodeInfo returns the ParsedEpisodeInfo field if non-nil, zero value otherwise.
+GetParsedMovieInfo returns the ParsedMovieInfo field if non-nil, zero value otherwise.
 
-### GetParsedEpisodeInfoOk
+### GetParsedMovieInfoOk
 
-`func (o *ParseResource) GetParsedEpisodeInfoOk() (*ParsedEpisodeInfo, bool)`
+`func (o *ParseResource) GetParsedMovieInfoOk() (*ParsedMovieInfo, bool)`
 
-GetParsedEpisodeInfoOk returns a tuple with the ParsedEpisodeInfo field if it's non-nil, zero value otherwise
+GetParsedMovieInfoOk returns a tuple with the ParsedMovieInfo field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetParsedEpisodeInfo
+### SetParsedMovieInfo
 
-`func (o *ParseResource) SetParsedEpisodeInfo(v ParsedEpisodeInfo)`
+`func (o *ParseResource) SetParsedMovieInfo(v ParsedMovieInfo)`
 
-SetParsedEpisodeInfo sets ParsedEpisodeInfo field to given value.
+SetParsedMovieInfo sets ParsedMovieInfo field to given value.
 
-### HasParsedEpisodeInfo
+### HasParsedMovieInfo
 
-`func (o *ParseResource) HasParsedEpisodeInfo() bool`
+`func (o *ParseResource) HasParsedMovieInfo() bool`
 
-HasParsedEpisodeInfo returns a boolean if a field has been set.
+HasParsedMovieInfo returns a boolean if a field has been set.
 
-### GetSeries
+### GetMovie
 
-`func (o *ParseResource) GetSeries() SeriesResource`
+`func (o *ParseResource) GetMovie() MovieResource`
 
-GetSeries returns the Series field if non-nil, zero value otherwise.
+GetMovie returns the Movie field if non-nil, zero value otherwise.
 
-### GetSeriesOk
+### GetMovieOk
 
-`func (o *ParseResource) GetSeriesOk() (*SeriesResource, bool)`
+`func (o *ParseResource) GetMovieOk() (*MovieResource, bool)`
 
-GetSeriesOk returns a tuple with the Series field if it's non-nil, zero value otherwise
+GetMovieOk returns a tuple with the Movie field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSeries
+### SetMovie
 
-`func (o *ParseResource) SetSeries(v SeriesResource)`
+`func (o *ParseResource) SetMovie(v MovieResource)`
 
-SetSeries sets Series field to given value.
+SetMovie sets Movie field to given value.
 
-### HasSeries
+### HasMovie
 
-`func (o *ParseResource) HasSeries() bool`
+`func (o *ParseResource) HasMovie() bool`
 
-HasSeries returns a boolean if a field has been set.
+HasMovie returns a boolean if a field has been set.
 
-### GetEpisodes
-
-`func (o *ParseResource) GetEpisodes() []EpisodeResource`
-
-GetEpisodes returns the Episodes field if non-nil, zero value otherwise.
-
-### GetEpisodesOk
-
-`func (o *ParseResource) GetEpisodesOk() (*[]EpisodeResource, bool)`
-
-GetEpisodesOk returns a tuple with the Episodes field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetEpisodes
-
-`func (o *ParseResource) SetEpisodes(v []EpisodeResource)`
-
-SetEpisodes sets Episodes field to given value.
-
-### HasEpisodes
-
-`func (o *ParseResource) HasEpisodes() bool`
-
-HasEpisodes returns a boolean if a field has been set.
-
-### SetEpisodesNil
-
-`func (o *ParseResource) SetEpisodesNil(b bool)`
-
- SetEpisodesNil sets the value for Episodes to be an explicit nil
-
-### UnsetEpisodes
-`func (o *ParseResource) UnsetEpisodes()`
-
-UnsetEpisodes ensures that no value is present for Episodes, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

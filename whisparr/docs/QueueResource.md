@@ -5,10 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **int32** |  | [optional] 
-**SeriesId** | Pointer to **NullableInt32** |  | [optional] 
-**EpisodeId** | Pointer to **NullableInt32** |  | [optional] 
-**Series** | Pointer to [**SeriesResource**](SeriesResource.md) |  | [optional] 
-**Episode** | Pointer to [**EpisodeResource**](EpisodeResource.md) |  | [optional] 
+**MovieId** | Pointer to **NullableInt32** |  | [optional] 
+**Movie** | Pointer to [**MovieResource**](MovieResource.md) |  | [optional] 
 **Languages** | Pointer to [**[]Language**](Language.md) |  | [optional] 
 **Quality** | Pointer to [**QualityModel**](QualityModel.md) |  | [optional] 
 **CustomFormats** | Pointer to [**[]CustomFormatResource**](CustomFormatResource.md) |  | [optional] 
@@ -72,125 +70,65 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
-### GetSeriesId
+### GetMovieId
 
-`func (o *QueueResource) GetSeriesId() int32`
+`func (o *QueueResource) GetMovieId() int32`
 
-GetSeriesId returns the SeriesId field if non-nil, zero value otherwise.
+GetMovieId returns the MovieId field if non-nil, zero value otherwise.
 
-### GetSeriesIdOk
+### GetMovieIdOk
 
-`func (o *QueueResource) GetSeriesIdOk() (*int32, bool)`
+`func (o *QueueResource) GetMovieIdOk() (*int32, bool)`
 
-GetSeriesIdOk returns a tuple with the SeriesId field if it's non-nil, zero value otherwise
+GetMovieIdOk returns a tuple with the MovieId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSeriesId
+### SetMovieId
 
-`func (o *QueueResource) SetSeriesId(v int32)`
+`func (o *QueueResource) SetMovieId(v int32)`
 
-SetSeriesId sets SeriesId field to given value.
+SetMovieId sets MovieId field to given value.
 
-### HasSeriesId
+### HasMovieId
 
-`func (o *QueueResource) HasSeriesId() bool`
+`func (o *QueueResource) HasMovieId() bool`
 
-HasSeriesId returns a boolean if a field has been set.
+HasMovieId returns a boolean if a field has been set.
 
-### SetSeriesIdNil
+### SetMovieIdNil
 
-`func (o *QueueResource) SetSeriesIdNil(b bool)`
+`func (o *QueueResource) SetMovieIdNil(b bool)`
 
- SetSeriesIdNil sets the value for SeriesId to be an explicit nil
+ SetMovieIdNil sets the value for MovieId to be an explicit nil
 
-### UnsetSeriesId
-`func (o *QueueResource) UnsetSeriesId()`
+### UnsetMovieId
+`func (o *QueueResource) UnsetMovieId()`
 
-UnsetSeriesId ensures that no value is present for SeriesId, not even an explicit nil
-### GetEpisodeId
+UnsetMovieId ensures that no value is present for MovieId, not even an explicit nil
+### GetMovie
 
-`func (o *QueueResource) GetEpisodeId() int32`
+`func (o *QueueResource) GetMovie() MovieResource`
 
-GetEpisodeId returns the EpisodeId field if non-nil, zero value otherwise.
+GetMovie returns the Movie field if non-nil, zero value otherwise.
 
-### GetEpisodeIdOk
+### GetMovieOk
 
-`func (o *QueueResource) GetEpisodeIdOk() (*int32, bool)`
+`func (o *QueueResource) GetMovieOk() (*MovieResource, bool)`
 
-GetEpisodeIdOk returns a tuple with the EpisodeId field if it's non-nil, zero value otherwise
+GetMovieOk returns a tuple with the Movie field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetEpisodeId
+### SetMovie
 
-`func (o *QueueResource) SetEpisodeId(v int32)`
+`func (o *QueueResource) SetMovie(v MovieResource)`
 
-SetEpisodeId sets EpisodeId field to given value.
+SetMovie sets Movie field to given value.
 
-### HasEpisodeId
+### HasMovie
 
-`func (o *QueueResource) HasEpisodeId() bool`
+`func (o *QueueResource) HasMovie() bool`
 
-HasEpisodeId returns a boolean if a field has been set.
-
-### SetEpisodeIdNil
-
-`func (o *QueueResource) SetEpisodeIdNil(b bool)`
-
- SetEpisodeIdNil sets the value for EpisodeId to be an explicit nil
-
-### UnsetEpisodeId
-`func (o *QueueResource) UnsetEpisodeId()`
-
-UnsetEpisodeId ensures that no value is present for EpisodeId, not even an explicit nil
-### GetSeries
-
-`func (o *QueueResource) GetSeries() SeriesResource`
-
-GetSeries returns the Series field if non-nil, zero value otherwise.
-
-### GetSeriesOk
-
-`func (o *QueueResource) GetSeriesOk() (*SeriesResource, bool)`
-
-GetSeriesOk returns a tuple with the Series field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSeries
-
-`func (o *QueueResource) SetSeries(v SeriesResource)`
-
-SetSeries sets Series field to given value.
-
-### HasSeries
-
-`func (o *QueueResource) HasSeries() bool`
-
-HasSeries returns a boolean if a field has been set.
-
-### GetEpisode
-
-`func (o *QueueResource) GetEpisode() EpisodeResource`
-
-GetEpisode returns the Episode field if non-nil, zero value otherwise.
-
-### GetEpisodeOk
-
-`func (o *QueueResource) GetEpisodeOk() (*EpisodeResource, bool)`
-
-GetEpisodeOk returns a tuple with the Episode field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetEpisode
-
-`func (o *QueueResource) SetEpisode(v EpisodeResource)`
-
-SetEpisode sets Episode field to given value.
-
-### HasEpisode
-
-`func (o *QueueResource) HasEpisode() bool`
-
-HasEpisode returns a boolean if a field has been set.
+HasMovie returns a boolean if a field has been set.
 
 ### GetLanguages
 

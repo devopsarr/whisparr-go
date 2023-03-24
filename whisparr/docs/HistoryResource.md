@@ -5,19 +5,18 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **int32** |  | [optional] 
-**EpisodeId** | Pointer to **int32** |  | [optional] 
-**SeriesId** | Pointer to **int32** |  | [optional] 
+**MovieId** | Pointer to **int32** |  | [optional] 
 **SourceTitle** | Pointer to **NullableString** |  | [optional] 
 **Languages** | Pointer to [**[]Language**](Language.md) |  | [optional] 
 **Quality** | Pointer to [**QualityModel**](QualityModel.md) |  | [optional] 
 **CustomFormats** | Pointer to [**[]CustomFormatResource**](CustomFormatResource.md) |  | [optional] 
+**CustomFormatScore** | Pointer to **int32** |  | [optional] 
 **QualityCutoffNotMet** | Pointer to **bool** |  | [optional] 
 **Date** | Pointer to **time.Time** |  | [optional] 
 **DownloadId** | Pointer to **NullableString** |  | [optional] 
-**EventType** | Pointer to [**EpisodeHistoryEventType**](EpisodeHistoryEventType.md) |  | [optional] 
+**EventType** | Pointer to [**MovieHistoryEventType**](MovieHistoryEventType.md) |  | [optional] 
 **Data** | Pointer to **map[string]string** |  | [optional] 
-**Episode** | Pointer to [**EpisodeResource**](EpisodeResource.md) |  | [optional] 
-**Series** | Pointer to [**SeriesResource**](SeriesResource.md) |  | [optional] 
+**Movie** | Pointer to [**MovieResource**](MovieResource.md) |  | [optional] 
 
 ## Methods
 
@@ -63,55 +62,30 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
-### GetEpisodeId
+### GetMovieId
 
-`func (o *HistoryResource) GetEpisodeId() int32`
+`func (o *HistoryResource) GetMovieId() int32`
 
-GetEpisodeId returns the EpisodeId field if non-nil, zero value otherwise.
+GetMovieId returns the MovieId field if non-nil, zero value otherwise.
 
-### GetEpisodeIdOk
+### GetMovieIdOk
 
-`func (o *HistoryResource) GetEpisodeIdOk() (*int32, bool)`
+`func (o *HistoryResource) GetMovieIdOk() (*int32, bool)`
 
-GetEpisodeIdOk returns a tuple with the EpisodeId field if it's non-nil, zero value otherwise
+GetMovieIdOk returns a tuple with the MovieId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetEpisodeId
+### SetMovieId
 
-`func (o *HistoryResource) SetEpisodeId(v int32)`
+`func (o *HistoryResource) SetMovieId(v int32)`
 
-SetEpisodeId sets EpisodeId field to given value.
+SetMovieId sets MovieId field to given value.
 
-### HasEpisodeId
+### HasMovieId
 
-`func (o *HistoryResource) HasEpisodeId() bool`
+`func (o *HistoryResource) HasMovieId() bool`
 
-HasEpisodeId returns a boolean if a field has been set.
-
-### GetSeriesId
-
-`func (o *HistoryResource) GetSeriesId() int32`
-
-GetSeriesId returns the SeriesId field if non-nil, zero value otherwise.
-
-### GetSeriesIdOk
-
-`func (o *HistoryResource) GetSeriesIdOk() (*int32, bool)`
-
-GetSeriesIdOk returns a tuple with the SeriesId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSeriesId
-
-`func (o *HistoryResource) SetSeriesId(v int32)`
-
-SetSeriesId sets SeriesId field to given value.
-
-### HasSeriesId
-
-`func (o *HistoryResource) HasSeriesId() bool`
-
-HasSeriesId returns a boolean if a field has been set.
+HasMovieId returns a boolean if a field has been set.
 
 ### GetSourceTitle
 
@@ -243,6 +217,31 @@ HasCustomFormats returns a boolean if a field has been set.
 `func (o *HistoryResource) UnsetCustomFormats()`
 
 UnsetCustomFormats ensures that no value is present for CustomFormats, not even an explicit nil
+### GetCustomFormatScore
+
+`func (o *HistoryResource) GetCustomFormatScore() int32`
+
+GetCustomFormatScore returns the CustomFormatScore field if non-nil, zero value otherwise.
+
+### GetCustomFormatScoreOk
+
+`func (o *HistoryResource) GetCustomFormatScoreOk() (*int32, bool)`
+
+GetCustomFormatScoreOk returns a tuple with the CustomFormatScore field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomFormatScore
+
+`func (o *HistoryResource) SetCustomFormatScore(v int32)`
+
+SetCustomFormatScore sets CustomFormatScore field to given value.
+
+### HasCustomFormatScore
+
+`func (o *HistoryResource) HasCustomFormatScore() bool`
+
+HasCustomFormatScore returns a boolean if a field has been set.
+
 ### GetQualityCutoffNotMet
 
 `func (o *HistoryResource) GetQualityCutoffNotMet() bool`
@@ -330,20 +329,20 @@ HasDownloadId returns a boolean if a field has been set.
 UnsetDownloadId ensures that no value is present for DownloadId, not even an explicit nil
 ### GetEventType
 
-`func (o *HistoryResource) GetEventType() EpisodeHistoryEventType`
+`func (o *HistoryResource) GetEventType() MovieHistoryEventType`
 
 GetEventType returns the EventType field if non-nil, zero value otherwise.
 
 ### GetEventTypeOk
 
-`func (o *HistoryResource) GetEventTypeOk() (*EpisodeHistoryEventType, bool)`
+`func (o *HistoryResource) GetEventTypeOk() (*MovieHistoryEventType, bool)`
 
 GetEventTypeOk returns a tuple with the EventType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEventType
 
-`func (o *HistoryResource) SetEventType(v EpisodeHistoryEventType)`
+`func (o *HistoryResource) SetEventType(v MovieHistoryEventType)`
 
 SetEventType sets EventType field to given value.
 
@@ -388,55 +387,30 @@ HasData returns a boolean if a field has been set.
 `func (o *HistoryResource) UnsetData()`
 
 UnsetData ensures that no value is present for Data, not even an explicit nil
-### GetEpisode
+### GetMovie
 
-`func (o *HistoryResource) GetEpisode() EpisodeResource`
+`func (o *HistoryResource) GetMovie() MovieResource`
 
-GetEpisode returns the Episode field if non-nil, zero value otherwise.
+GetMovie returns the Movie field if non-nil, zero value otherwise.
 
-### GetEpisodeOk
+### GetMovieOk
 
-`func (o *HistoryResource) GetEpisodeOk() (*EpisodeResource, bool)`
+`func (o *HistoryResource) GetMovieOk() (*MovieResource, bool)`
 
-GetEpisodeOk returns a tuple with the Episode field if it's non-nil, zero value otherwise
+GetMovieOk returns a tuple with the Movie field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetEpisode
+### SetMovie
 
-`func (o *HistoryResource) SetEpisode(v EpisodeResource)`
+`func (o *HistoryResource) SetMovie(v MovieResource)`
 
-SetEpisode sets Episode field to given value.
+SetMovie sets Movie field to given value.
 
-### HasEpisode
+### HasMovie
 
-`func (o *HistoryResource) HasEpisode() bool`
+`func (o *HistoryResource) HasMovie() bool`
 
-HasEpisode returns a boolean if a field has been set.
-
-### GetSeries
-
-`func (o *HistoryResource) GetSeries() SeriesResource`
-
-GetSeries returns the Series field if non-nil, zero value otherwise.
-
-### GetSeriesOk
-
-`func (o *HistoryResource) GetSeriesOk() (*SeriesResource, bool)`
-
-GetSeriesOk returns a tuple with the Series field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSeries
-
-`func (o *HistoryResource) SetSeries(v SeriesResource)`
-
-SetSeries sets Series field to given value.
-
-### HasSeries
-
-`func (o *HistoryResource) HasSeries() bool`
-
-HasSeries returns a boolean if a field has been set.
+HasMovie returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

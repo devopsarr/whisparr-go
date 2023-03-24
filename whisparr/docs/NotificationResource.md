@@ -19,18 +19,20 @@ Name | Type | Description | Notes
 **OnDownload** | Pointer to **bool** |  | [optional] 
 **OnUpgrade** | Pointer to **bool** |  | [optional] 
 **OnRename** | Pointer to **bool** |  | [optional] 
-**OnSeriesDelete** | Pointer to **bool** |  | [optional] 
-**OnEpisodeFileDelete** | Pointer to **bool** |  | [optional] 
-**OnEpisodeFileDeleteForUpgrade** | Pointer to **bool** |  | [optional] 
+**OnMovieAdded** | Pointer to **bool** |  | [optional] 
+**OnMovieDelete** | Pointer to **bool** |  | [optional] 
+**OnMovieFileDelete** | Pointer to **bool** |  | [optional] 
+**OnMovieFileDeleteForUpgrade** | Pointer to **bool** |  | [optional] 
 **OnHealthIssue** | Pointer to **bool** |  | [optional] 
 **OnApplicationUpdate** | Pointer to **bool** |  | [optional] 
 **SupportsOnGrab** | Pointer to **bool** |  | [optional] 
 **SupportsOnDownload** | Pointer to **bool** |  | [optional] 
 **SupportsOnUpgrade** | Pointer to **bool** |  | [optional] 
 **SupportsOnRename** | Pointer to **bool** |  | [optional] 
-**SupportsOnSeriesDelete** | Pointer to **bool** |  | [optional] 
-**SupportsOnEpisodeFileDelete** | Pointer to **bool** |  | [optional] 
-**SupportsOnEpisodeFileDeleteForUpgrade** | Pointer to **bool** |  | [optional] 
+**SupportsOnMovieAdded** | Pointer to **bool** |  | [optional] 
+**SupportsOnMovieDelete** | Pointer to **bool** |  | [optional] 
+**SupportsOnMovieFileDelete** | Pointer to **bool** |  | [optional] 
+**SupportsOnMovieFileDeleteForUpgrade** | Pointer to **bool** |  | [optional] 
 **SupportsOnHealthIssue** | Pointer to **bool** |  | [optional] 
 **SupportsOnApplicationUpdate** | Pointer to **bool** |  | [optional] 
 **IncludeHealthWarnings** | Pointer to **bool** |  | [optional] 
@@ -520,80 +522,105 @@ SetOnRename sets OnRename field to given value.
 
 HasOnRename returns a boolean if a field has been set.
 
-### GetOnSeriesDelete
+### GetOnMovieAdded
 
-`func (o *NotificationResource) GetOnSeriesDelete() bool`
+`func (o *NotificationResource) GetOnMovieAdded() bool`
 
-GetOnSeriesDelete returns the OnSeriesDelete field if non-nil, zero value otherwise.
+GetOnMovieAdded returns the OnMovieAdded field if non-nil, zero value otherwise.
 
-### GetOnSeriesDeleteOk
+### GetOnMovieAddedOk
 
-`func (o *NotificationResource) GetOnSeriesDeleteOk() (*bool, bool)`
+`func (o *NotificationResource) GetOnMovieAddedOk() (*bool, bool)`
 
-GetOnSeriesDeleteOk returns a tuple with the OnSeriesDelete field if it's non-nil, zero value otherwise
+GetOnMovieAddedOk returns a tuple with the OnMovieAdded field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetOnSeriesDelete
+### SetOnMovieAdded
 
-`func (o *NotificationResource) SetOnSeriesDelete(v bool)`
+`func (o *NotificationResource) SetOnMovieAdded(v bool)`
 
-SetOnSeriesDelete sets OnSeriesDelete field to given value.
+SetOnMovieAdded sets OnMovieAdded field to given value.
 
-### HasOnSeriesDelete
+### HasOnMovieAdded
 
-`func (o *NotificationResource) HasOnSeriesDelete() bool`
+`func (o *NotificationResource) HasOnMovieAdded() bool`
 
-HasOnSeriesDelete returns a boolean if a field has been set.
+HasOnMovieAdded returns a boolean if a field has been set.
 
-### GetOnEpisodeFileDelete
+### GetOnMovieDelete
 
-`func (o *NotificationResource) GetOnEpisodeFileDelete() bool`
+`func (o *NotificationResource) GetOnMovieDelete() bool`
 
-GetOnEpisodeFileDelete returns the OnEpisodeFileDelete field if non-nil, zero value otherwise.
+GetOnMovieDelete returns the OnMovieDelete field if non-nil, zero value otherwise.
 
-### GetOnEpisodeFileDeleteOk
+### GetOnMovieDeleteOk
 
-`func (o *NotificationResource) GetOnEpisodeFileDeleteOk() (*bool, bool)`
+`func (o *NotificationResource) GetOnMovieDeleteOk() (*bool, bool)`
 
-GetOnEpisodeFileDeleteOk returns a tuple with the OnEpisodeFileDelete field if it's non-nil, zero value otherwise
+GetOnMovieDeleteOk returns a tuple with the OnMovieDelete field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetOnEpisodeFileDelete
+### SetOnMovieDelete
 
-`func (o *NotificationResource) SetOnEpisodeFileDelete(v bool)`
+`func (o *NotificationResource) SetOnMovieDelete(v bool)`
 
-SetOnEpisodeFileDelete sets OnEpisodeFileDelete field to given value.
+SetOnMovieDelete sets OnMovieDelete field to given value.
 
-### HasOnEpisodeFileDelete
+### HasOnMovieDelete
 
-`func (o *NotificationResource) HasOnEpisodeFileDelete() bool`
+`func (o *NotificationResource) HasOnMovieDelete() bool`
 
-HasOnEpisodeFileDelete returns a boolean if a field has been set.
+HasOnMovieDelete returns a boolean if a field has been set.
 
-### GetOnEpisodeFileDeleteForUpgrade
+### GetOnMovieFileDelete
 
-`func (o *NotificationResource) GetOnEpisodeFileDeleteForUpgrade() bool`
+`func (o *NotificationResource) GetOnMovieFileDelete() bool`
 
-GetOnEpisodeFileDeleteForUpgrade returns the OnEpisodeFileDeleteForUpgrade field if non-nil, zero value otherwise.
+GetOnMovieFileDelete returns the OnMovieFileDelete field if non-nil, zero value otherwise.
 
-### GetOnEpisodeFileDeleteForUpgradeOk
+### GetOnMovieFileDeleteOk
 
-`func (o *NotificationResource) GetOnEpisodeFileDeleteForUpgradeOk() (*bool, bool)`
+`func (o *NotificationResource) GetOnMovieFileDeleteOk() (*bool, bool)`
 
-GetOnEpisodeFileDeleteForUpgradeOk returns a tuple with the OnEpisodeFileDeleteForUpgrade field if it's non-nil, zero value otherwise
+GetOnMovieFileDeleteOk returns a tuple with the OnMovieFileDelete field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetOnEpisodeFileDeleteForUpgrade
+### SetOnMovieFileDelete
 
-`func (o *NotificationResource) SetOnEpisodeFileDeleteForUpgrade(v bool)`
+`func (o *NotificationResource) SetOnMovieFileDelete(v bool)`
 
-SetOnEpisodeFileDeleteForUpgrade sets OnEpisodeFileDeleteForUpgrade field to given value.
+SetOnMovieFileDelete sets OnMovieFileDelete field to given value.
 
-### HasOnEpisodeFileDeleteForUpgrade
+### HasOnMovieFileDelete
 
-`func (o *NotificationResource) HasOnEpisodeFileDeleteForUpgrade() bool`
+`func (o *NotificationResource) HasOnMovieFileDelete() bool`
 
-HasOnEpisodeFileDeleteForUpgrade returns a boolean if a field has been set.
+HasOnMovieFileDelete returns a boolean if a field has been set.
+
+### GetOnMovieFileDeleteForUpgrade
+
+`func (o *NotificationResource) GetOnMovieFileDeleteForUpgrade() bool`
+
+GetOnMovieFileDeleteForUpgrade returns the OnMovieFileDeleteForUpgrade field if non-nil, zero value otherwise.
+
+### GetOnMovieFileDeleteForUpgradeOk
+
+`func (o *NotificationResource) GetOnMovieFileDeleteForUpgradeOk() (*bool, bool)`
+
+GetOnMovieFileDeleteForUpgradeOk returns a tuple with the OnMovieFileDeleteForUpgrade field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOnMovieFileDeleteForUpgrade
+
+`func (o *NotificationResource) SetOnMovieFileDeleteForUpgrade(v bool)`
+
+SetOnMovieFileDeleteForUpgrade sets OnMovieFileDeleteForUpgrade field to given value.
+
+### HasOnMovieFileDeleteForUpgrade
+
+`func (o *NotificationResource) HasOnMovieFileDeleteForUpgrade() bool`
+
+HasOnMovieFileDeleteForUpgrade returns a boolean if a field has been set.
 
 ### GetOnHealthIssue
 
@@ -745,80 +772,105 @@ SetSupportsOnRename sets SupportsOnRename field to given value.
 
 HasSupportsOnRename returns a boolean if a field has been set.
 
-### GetSupportsOnSeriesDelete
+### GetSupportsOnMovieAdded
 
-`func (o *NotificationResource) GetSupportsOnSeriesDelete() bool`
+`func (o *NotificationResource) GetSupportsOnMovieAdded() bool`
 
-GetSupportsOnSeriesDelete returns the SupportsOnSeriesDelete field if non-nil, zero value otherwise.
+GetSupportsOnMovieAdded returns the SupportsOnMovieAdded field if non-nil, zero value otherwise.
 
-### GetSupportsOnSeriesDeleteOk
+### GetSupportsOnMovieAddedOk
 
-`func (o *NotificationResource) GetSupportsOnSeriesDeleteOk() (*bool, bool)`
+`func (o *NotificationResource) GetSupportsOnMovieAddedOk() (*bool, bool)`
 
-GetSupportsOnSeriesDeleteOk returns a tuple with the SupportsOnSeriesDelete field if it's non-nil, zero value otherwise
+GetSupportsOnMovieAddedOk returns a tuple with the SupportsOnMovieAdded field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSupportsOnSeriesDelete
+### SetSupportsOnMovieAdded
 
-`func (o *NotificationResource) SetSupportsOnSeriesDelete(v bool)`
+`func (o *NotificationResource) SetSupportsOnMovieAdded(v bool)`
 
-SetSupportsOnSeriesDelete sets SupportsOnSeriesDelete field to given value.
+SetSupportsOnMovieAdded sets SupportsOnMovieAdded field to given value.
 
-### HasSupportsOnSeriesDelete
+### HasSupportsOnMovieAdded
 
-`func (o *NotificationResource) HasSupportsOnSeriesDelete() bool`
+`func (o *NotificationResource) HasSupportsOnMovieAdded() bool`
 
-HasSupportsOnSeriesDelete returns a boolean if a field has been set.
+HasSupportsOnMovieAdded returns a boolean if a field has been set.
 
-### GetSupportsOnEpisodeFileDelete
+### GetSupportsOnMovieDelete
 
-`func (o *NotificationResource) GetSupportsOnEpisodeFileDelete() bool`
+`func (o *NotificationResource) GetSupportsOnMovieDelete() bool`
 
-GetSupportsOnEpisodeFileDelete returns the SupportsOnEpisodeFileDelete field if non-nil, zero value otherwise.
+GetSupportsOnMovieDelete returns the SupportsOnMovieDelete field if non-nil, zero value otherwise.
 
-### GetSupportsOnEpisodeFileDeleteOk
+### GetSupportsOnMovieDeleteOk
 
-`func (o *NotificationResource) GetSupportsOnEpisodeFileDeleteOk() (*bool, bool)`
+`func (o *NotificationResource) GetSupportsOnMovieDeleteOk() (*bool, bool)`
 
-GetSupportsOnEpisodeFileDeleteOk returns a tuple with the SupportsOnEpisodeFileDelete field if it's non-nil, zero value otherwise
+GetSupportsOnMovieDeleteOk returns a tuple with the SupportsOnMovieDelete field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSupportsOnEpisodeFileDelete
+### SetSupportsOnMovieDelete
 
-`func (o *NotificationResource) SetSupportsOnEpisodeFileDelete(v bool)`
+`func (o *NotificationResource) SetSupportsOnMovieDelete(v bool)`
 
-SetSupportsOnEpisodeFileDelete sets SupportsOnEpisodeFileDelete field to given value.
+SetSupportsOnMovieDelete sets SupportsOnMovieDelete field to given value.
 
-### HasSupportsOnEpisodeFileDelete
+### HasSupportsOnMovieDelete
 
-`func (o *NotificationResource) HasSupportsOnEpisodeFileDelete() bool`
+`func (o *NotificationResource) HasSupportsOnMovieDelete() bool`
 
-HasSupportsOnEpisodeFileDelete returns a boolean if a field has been set.
+HasSupportsOnMovieDelete returns a boolean if a field has been set.
 
-### GetSupportsOnEpisodeFileDeleteForUpgrade
+### GetSupportsOnMovieFileDelete
 
-`func (o *NotificationResource) GetSupportsOnEpisodeFileDeleteForUpgrade() bool`
+`func (o *NotificationResource) GetSupportsOnMovieFileDelete() bool`
 
-GetSupportsOnEpisodeFileDeleteForUpgrade returns the SupportsOnEpisodeFileDeleteForUpgrade field if non-nil, zero value otherwise.
+GetSupportsOnMovieFileDelete returns the SupportsOnMovieFileDelete field if non-nil, zero value otherwise.
 
-### GetSupportsOnEpisodeFileDeleteForUpgradeOk
+### GetSupportsOnMovieFileDeleteOk
 
-`func (o *NotificationResource) GetSupportsOnEpisodeFileDeleteForUpgradeOk() (*bool, bool)`
+`func (o *NotificationResource) GetSupportsOnMovieFileDeleteOk() (*bool, bool)`
 
-GetSupportsOnEpisodeFileDeleteForUpgradeOk returns a tuple with the SupportsOnEpisodeFileDeleteForUpgrade field if it's non-nil, zero value otherwise
+GetSupportsOnMovieFileDeleteOk returns a tuple with the SupportsOnMovieFileDelete field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSupportsOnEpisodeFileDeleteForUpgrade
+### SetSupportsOnMovieFileDelete
 
-`func (o *NotificationResource) SetSupportsOnEpisodeFileDeleteForUpgrade(v bool)`
+`func (o *NotificationResource) SetSupportsOnMovieFileDelete(v bool)`
 
-SetSupportsOnEpisodeFileDeleteForUpgrade sets SupportsOnEpisodeFileDeleteForUpgrade field to given value.
+SetSupportsOnMovieFileDelete sets SupportsOnMovieFileDelete field to given value.
 
-### HasSupportsOnEpisodeFileDeleteForUpgrade
+### HasSupportsOnMovieFileDelete
 
-`func (o *NotificationResource) HasSupportsOnEpisodeFileDeleteForUpgrade() bool`
+`func (o *NotificationResource) HasSupportsOnMovieFileDelete() bool`
 
-HasSupportsOnEpisodeFileDeleteForUpgrade returns a boolean if a field has been set.
+HasSupportsOnMovieFileDelete returns a boolean if a field has been set.
+
+### GetSupportsOnMovieFileDeleteForUpgrade
+
+`func (o *NotificationResource) GetSupportsOnMovieFileDeleteForUpgrade() bool`
+
+GetSupportsOnMovieFileDeleteForUpgrade returns the SupportsOnMovieFileDeleteForUpgrade field if non-nil, zero value otherwise.
+
+### GetSupportsOnMovieFileDeleteForUpgradeOk
+
+`func (o *NotificationResource) GetSupportsOnMovieFileDeleteForUpgradeOk() (*bool, bool)`
+
+GetSupportsOnMovieFileDeleteForUpgradeOk returns a tuple with the SupportsOnMovieFileDeleteForUpgrade field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSupportsOnMovieFileDeleteForUpgrade
+
+`func (o *NotificationResource) SetSupportsOnMovieFileDeleteForUpgrade(v bool)`
+
+SetSupportsOnMovieFileDeleteForUpgrade sets SupportsOnMovieFileDeleteForUpgrade field to given value.
+
+### HasSupportsOnMovieFileDeleteForUpgrade
+
+`func (o *NotificationResource) HasSupportsOnMovieFileDeleteForUpgrade() bool`
+
+HasSupportsOnMovieFileDeleteForUpgrade returns a boolean if a field has been set.
 
 ### GetSupportsOnHealthIssue
 

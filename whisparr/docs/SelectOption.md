@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Name** | Pointer to **NullableString** |  | [optional] 
 **Order** | Pointer to **int32** |  | [optional] 
 **Hint** | Pointer to **NullableString** |  | [optional] 
+**DividerAfter** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
@@ -148,6 +149,31 @@ HasHint returns a boolean if a field has been set.
 `func (o *SelectOption) UnsetHint()`
 
 UnsetHint ensures that no value is present for Hint, not even an explicit nil
+### GetDividerAfter
+
+`func (o *SelectOption) GetDividerAfter() bool`
+
+GetDividerAfter returns the DividerAfter field if non-nil, zero value otherwise.
+
+### GetDividerAfterOk
+
+`func (o *SelectOption) GetDividerAfterOk() (*bool, bool)`
+
+GetDividerAfterOk returns a tuple with the DividerAfter field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDividerAfter
+
+`func (o *SelectOption) SetDividerAfter(v bool)`
+
+SetDividerAfter sets DividerAfter field to given value.
+
+### HasDividerAfter
+
+`func (o *SelectOption) HasDividerAfter() bool`
+
+HasDividerAfter returns a boolean if a field has been set.
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

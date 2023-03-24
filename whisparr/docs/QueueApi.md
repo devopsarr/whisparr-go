@@ -1,6 +1,6 @@
 # \QueueApi
 
-All URIs are relative to *http://localhost:6969*
+All URIs are relative to *http://localhost:7878*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ## GetQueue
 
-> QueueResourcePagingResource GetQueue(ctx).IncludeUnknownSeriesItems(includeUnknownSeriesItems).IncludeSeries(includeSeries).IncludeEpisode(includeEpisode).Execute()
+> QueueResourcePagingResource GetQueue(ctx).IncludeUnknownMovieItems(includeUnknownMovieItems).IncludeMovie(includeMovie).Execute()
 
 
 
@@ -166,13 +166,12 @@ import (
 )
 
 func main() {
-    includeUnknownSeriesItems := true // bool |  (optional) (default to false)
-    includeSeries := true // bool |  (optional) (default to false)
-    includeEpisode := true // bool |  (optional) (default to false)
+    includeUnknownMovieItems := true // bool |  (optional) (default to false)
+    includeMovie := true // bool |  (optional) (default to false)
 
     configuration := whisparrClient.NewConfiguration()
     apiClient := whisparrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.QueueApi.GetQueue(context.Background()).IncludeUnknownSeriesItems(includeUnknownSeriesItems).IncludeSeries(includeSeries).IncludeEpisode(includeEpisode).Execute()
+    resp, r, err := apiClient.QueueApi.GetQueue(context.Background()).IncludeUnknownMovieItems(includeUnknownMovieItems).IncludeMovie(includeMovie).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `QueueApi.GetQueue``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -193,9 +192,8 @@ Other parameters are passed through a pointer to a apiGetQueueRequest struct via
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **includeUnknownSeriesItems** | **bool** |  | [default to false]
- **includeSeries** | **bool** |  | [default to false]
- **includeEpisode** | **bool** |  | [default to false]
+ **includeUnknownMovieItems** | **bool** |  | [default to false]
+ **includeMovie** | **bool** |  | [default to false]
 
 ### Return type
 
@@ -208,7 +206,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -276,7 +274,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

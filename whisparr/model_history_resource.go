@@ -1,7 +1,7 @@
 /*
-Whisparr
+Radarr
 
-Whisparr API docs
+Radarr API docs
 
 API version: 3.0.0
 */
@@ -18,19 +18,18 @@ import (
 // HistoryResource struct for HistoryResource
 type HistoryResource struct {
 	Id *int32 `json:"id,omitempty"`
-	EpisodeId *int32 `json:"episodeId,omitempty"`
-	SeriesId *int32 `json:"seriesId,omitempty"`
+	MovieId *int32 `json:"movieId,omitempty"`
 	SourceTitle NullableString `json:"sourceTitle,omitempty"`
 	Languages []*Language `json:"languages,omitempty"`
 	Quality *QualityModel `json:"quality,omitempty"`
 	CustomFormats []*CustomFormatResource `json:"customFormats,omitempty"`
+	CustomFormatScore *int32 `json:"customFormatScore,omitempty"`
 	QualityCutoffNotMet *bool `json:"qualityCutoffNotMet,omitempty"`
 	Date *time.Time `json:"date,omitempty"`
 	DownloadId NullableString `json:"downloadId,omitempty"`
-	EventType *EpisodeHistoryEventType `json:"eventType,omitempty"`
+	EventType *MovieHistoryEventType `json:"eventType,omitempty"`
 	Data map[string]string `json:"data,omitempty"`
-	Episode *EpisodeResource `json:"episode,omitempty"`
-	Series *SeriesResource `json:"series,omitempty"`
+	Movie *MovieResource `json:"movie,omitempty"`
 }
 
 // NewHistoryResource instantiates a new HistoryResource object
@@ -82,68 +81,36 @@ func (o *HistoryResource) SetId(v int32) {
 	o.Id = &v
 }
 
-// GetEpisodeId returns the EpisodeId field value if set, zero value otherwise.
-func (o *HistoryResource) GetEpisodeId() int32 {
-	if o == nil || isNil(o.EpisodeId) {
+// GetMovieId returns the MovieId field value if set, zero value otherwise.
+func (o *HistoryResource) GetMovieId() int32 {
+	if o == nil || isNil(o.MovieId) {
 		var ret int32
 		return ret
 	}
-	return *o.EpisodeId
+	return *o.MovieId
 }
 
-// GetEpisodeIdOk returns a tuple with the EpisodeId field value if set, nil otherwise
+// GetMovieIdOk returns a tuple with the MovieId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *HistoryResource) GetEpisodeIdOk() (*int32, bool) {
-	if o == nil || isNil(o.EpisodeId) {
+func (o *HistoryResource) GetMovieIdOk() (*int32, bool) {
+	if o == nil || isNil(o.MovieId) {
     return nil, false
 	}
-	return o.EpisodeId, true
+	return o.MovieId, true
 }
 
-// HasEpisodeId returns a boolean if a field has been set.
-func (o *HistoryResource) HasEpisodeId() bool {
-	if o != nil && !isNil(o.EpisodeId) {
+// HasMovieId returns a boolean if a field has been set.
+func (o *HistoryResource) HasMovieId() bool {
+	if o != nil && !isNil(o.MovieId) {
 		return true
 	}
 
 	return false
 }
 
-// SetEpisodeId gets a reference to the given int32 and assigns it to the EpisodeId field.
-func (o *HistoryResource) SetEpisodeId(v int32) {
-	o.EpisodeId = &v
-}
-
-// GetSeriesId returns the SeriesId field value if set, zero value otherwise.
-func (o *HistoryResource) GetSeriesId() int32 {
-	if o == nil || isNil(o.SeriesId) {
-		var ret int32
-		return ret
-	}
-	return *o.SeriesId
-}
-
-// GetSeriesIdOk returns a tuple with the SeriesId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *HistoryResource) GetSeriesIdOk() (*int32, bool) {
-	if o == nil || isNil(o.SeriesId) {
-    return nil, false
-	}
-	return o.SeriesId, true
-}
-
-// HasSeriesId returns a boolean if a field has been set.
-func (o *HistoryResource) HasSeriesId() bool {
-	if o != nil && !isNil(o.SeriesId) {
-		return true
-	}
-
-	return false
-}
-
-// SetSeriesId gets a reference to the given int32 and assigns it to the SeriesId field.
-func (o *HistoryResource) SetSeriesId(v int32) {
-	o.SeriesId = &v
+// SetMovieId gets a reference to the given int32 and assigns it to the MovieId field.
+func (o *HistoryResource) SetMovieId(v int32) {
+	o.MovieId = &v
 }
 
 // GetSourceTitle returns the SourceTitle field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -286,6 +253,38 @@ func (o *HistoryResource) SetCustomFormats(v []*CustomFormatResource) {
 	o.CustomFormats = v
 }
 
+// GetCustomFormatScore returns the CustomFormatScore field value if set, zero value otherwise.
+func (o *HistoryResource) GetCustomFormatScore() int32 {
+	if o == nil || isNil(o.CustomFormatScore) {
+		var ret int32
+		return ret
+	}
+	return *o.CustomFormatScore
+}
+
+// GetCustomFormatScoreOk returns a tuple with the CustomFormatScore field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HistoryResource) GetCustomFormatScoreOk() (*int32, bool) {
+	if o == nil || isNil(o.CustomFormatScore) {
+    return nil, false
+	}
+	return o.CustomFormatScore, true
+}
+
+// HasCustomFormatScore returns a boolean if a field has been set.
+func (o *HistoryResource) HasCustomFormatScore() bool {
+	if o != nil && !isNil(o.CustomFormatScore) {
+		return true
+	}
+
+	return false
+}
+
+// SetCustomFormatScore gets a reference to the given int32 and assigns it to the CustomFormatScore field.
+func (o *HistoryResource) SetCustomFormatScore(v int32) {
+	o.CustomFormatScore = &v
+}
+
 // GetQualityCutoffNotMet returns the QualityCutoffNotMet field value if set, zero value otherwise.
 func (o *HistoryResource) GetQualityCutoffNotMet() bool {
 	if o == nil || isNil(o.QualityCutoffNotMet) {
@@ -393,9 +392,9 @@ func (o *HistoryResource) UnsetDownloadId() {
 }
 
 // GetEventType returns the EventType field value if set, zero value otherwise.
-func (o *HistoryResource) GetEventType() EpisodeHistoryEventType {
+func (o *HistoryResource) GetEventType() MovieHistoryEventType {
 	if o == nil || isNil(o.EventType) {
-		var ret EpisodeHistoryEventType
+		var ret MovieHistoryEventType
 		return ret
 	}
 	return *o.EventType
@@ -403,7 +402,7 @@ func (o *HistoryResource) GetEventType() EpisodeHistoryEventType {
 
 // GetEventTypeOk returns a tuple with the EventType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *HistoryResource) GetEventTypeOk() (*EpisodeHistoryEventType, bool) {
+func (o *HistoryResource) GetEventTypeOk() (*MovieHistoryEventType, bool) {
 	if o == nil || isNil(o.EventType) {
     return nil, false
 	}
@@ -419,8 +418,8 @@ func (o *HistoryResource) HasEventType() bool {
 	return false
 }
 
-// SetEventType gets a reference to the given EpisodeHistoryEventType and assigns it to the EventType field.
-func (o *HistoryResource) SetEventType(v EpisodeHistoryEventType) {
+// SetEventType gets a reference to the given MovieHistoryEventType and assigns it to the EventType field.
+func (o *HistoryResource) SetEventType(v MovieHistoryEventType) {
 	o.EventType = &v
 }
 
@@ -457,68 +456,36 @@ func (o *HistoryResource) SetData(v map[string]string) {
 	o.Data = v
 }
 
-// GetEpisode returns the Episode field value if set, zero value otherwise.
-func (o *HistoryResource) GetEpisode() EpisodeResource {
-	if o == nil || isNil(o.Episode) {
-		var ret EpisodeResource
+// GetMovie returns the Movie field value if set, zero value otherwise.
+func (o *HistoryResource) GetMovie() MovieResource {
+	if o == nil || isNil(o.Movie) {
+		var ret MovieResource
 		return ret
 	}
-	return *o.Episode
+	return *o.Movie
 }
 
-// GetEpisodeOk returns a tuple with the Episode field value if set, nil otherwise
+// GetMovieOk returns a tuple with the Movie field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *HistoryResource) GetEpisodeOk() (*EpisodeResource, bool) {
-	if o == nil || isNil(o.Episode) {
+func (o *HistoryResource) GetMovieOk() (*MovieResource, bool) {
+	if o == nil || isNil(o.Movie) {
     return nil, false
 	}
-	return o.Episode, true
+	return o.Movie, true
 }
 
-// HasEpisode returns a boolean if a field has been set.
-func (o *HistoryResource) HasEpisode() bool {
-	if o != nil && !isNil(o.Episode) {
+// HasMovie returns a boolean if a field has been set.
+func (o *HistoryResource) HasMovie() bool {
+	if o != nil && !isNil(o.Movie) {
 		return true
 	}
 
 	return false
 }
 
-// SetEpisode gets a reference to the given EpisodeResource and assigns it to the Episode field.
-func (o *HistoryResource) SetEpisode(v EpisodeResource) {
-	o.Episode = &v
-}
-
-// GetSeries returns the Series field value if set, zero value otherwise.
-func (o *HistoryResource) GetSeries() SeriesResource {
-	if o == nil || isNil(o.Series) {
-		var ret SeriesResource
-		return ret
-	}
-	return *o.Series
-}
-
-// GetSeriesOk returns a tuple with the Series field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *HistoryResource) GetSeriesOk() (*SeriesResource, bool) {
-	if o == nil || isNil(o.Series) {
-    return nil, false
-	}
-	return o.Series, true
-}
-
-// HasSeries returns a boolean if a field has been set.
-func (o *HistoryResource) HasSeries() bool {
-	if o != nil && !isNil(o.Series) {
-		return true
-	}
-
-	return false
-}
-
-// SetSeries gets a reference to the given SeriesResource and assigns it to the Series field.
-func (o *HistoryResource) SetSeries(v SeriesResource) {
-	o.Series = &v
+// SetMovie gets a reference to the given MovieResource and assigns it to the Movie field.
+func (o *HistoryResource) SetMovie(v MovieResource) {
+	o.Movie = &v
 }
 
 func (o HistoryResource) MarshalJSON() ([]byte, error) {
@@ -526,11 +493,8 @@ func (o HistoryResource) MarshalJSON() ([]byte, error) {
 	if !isNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if !isNil(o.EpisodeId) {
-		toSerialize["episodeId"] = o.EpisodeId
-	}
-	if !isNil(o.SeriesId) {
-		toSerialize["seriesId"] = o.SeriesId
+	if !isNil(o.MovieId) {
+		toSerialize["movieId"] = o.MovieId
 	}
 	if o.SourceTitle.IsSet() {
 		toSerialize["sourceTitle"] = o.SourceTitle.Get()
@@ -543,6 +507,9 @@ func (o HistoryResource) MarshalJSON() ([]byte, error) {
 	}
 	if o.CustomFormats != nil {
 		toSerialize["customFormats"] = o.CustomFormats
+	}
+	if !isNil(o.CustomFormatScore) {
+		toSerialize["customFormatScore"] = o.CustomFormatScore
 	}
 	if !isNil(o.QualityCutoffNotMet) {
 		toSerialize["qualityCutoffNotMet"] = o.QualityCutoffNotMet
@@ -559,11 +526,8 @@ func (o HistoryResource) MarshalJSON() ([]byte, error) {
 	if o.Data != nil {
 		toSerialize["data"] = o.Data
 	}
-	if !isNil(o.Episode) {
-		toSerialize["episode"] = o.Episode
-	}
-	if !isNil(o.Series) {
-		toSerialize["series"] = o.Series
+	if !isNil(o.Movie) {
+		toSerialize["movie"] = o.Movie
 	}
 	return json.Marshal(toSerialize)
 }

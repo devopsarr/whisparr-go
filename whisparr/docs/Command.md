@@ -9,9 +9,11 @@ Name | Type | Description | Notes
 **CompletionMessage** | Pointer to **NullableString** |  | [optional] [readonly] 
 **RequiresDiskAccess** | Pointer to **bool** |  | [optional] [readonly] 
 **IsExclusive** | Pointer to **bool** |  | [optional] [readonly] 
+**IsTypeExclusive** | Pointer to **bool** |  | [optional] [readonly] 
 **IsLongRunning** | Pointer to **bool** |  | [optional] [readonly] 
 **Name** | Pointer to **NullableString** |  | [optional] [readonly] 
 **LastExecutionTime** | Pointer to **NullableTime** |  | [optional] 
+**LastStartTime** | Pointer to **NullableTime** |  | [optional] 
 **Trigger** | Pointer to [**CommandTrigger**](CommandTrigger.md) |  | [optional] 
 **SuppressMessages** | Pointer to **bool** |  | [optional] 
 **ClientUserAgent** | Pointer to **NullableString** |  | [optional] 
@@ -170,6 +172,31 @@ SetIsExclusive sets IsExclusive field to given value.
 
 HasIsExclusive returns a boolean if a field has been set.
 
+### GetIsTypeExclusive
+
+`func (o *Command) GetIsTypeExclusive() bool`
+
+GetIsTypeExclusive returns the IsTypeExclusive field if non-nil, zero value otherwise.
+
+### GetIsTypeExclusiveOk
+
+`func (o *Command) GetIsTypeExclusiveOk() (*bool, bool)`
+
+GetIsTypeExclusiveOk returns a tuple with the IsTypeExclusive field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsTypeExclusive
+
+`func (o *Command) SetIsTypeExclusive(v bool)`
+
+SetIsTypeExclusive sets IsTypeExclusive field to given value.
+
+### HasIsTypeExclusive
+
+`func (o *Command) HasIsTypeExclusive() bool`
+
+HasIsTypeExclusive returns a boolean if a field has been set.
+
 ### GetIsLongRunning
 
 `func (o *Command) GetIsLongRunning() bool`
@@ -265,6 +292,41 @@ HasLastExecutionTime returns a boolean if a field has been set.
 `func (o *Command) UnsetLastExecutionTime()`
 
 UnsetLastExecutionTime ensures that no value is present for LastExecutionTime, not even an explicit nil
+### GetLastStartTime
+
+`func (o *Command) GetLastStartTime() time.Time`
+
+GetLastStartTime returns the LastStartTime field if non-nil, zero value otherwise.
+
+### GetLastStartTimeOk
+
+`func (o *Command) GetLastStartTimeOk() (*time.Time, bool)`
+
+GetLastStartTimeOk returns a tuple with the LastStartTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLastStartTime
+
+`func (o *Command) SetLastStartTime(v time.Time)`
+
+SetLastStartTime sets LastStartTime field to given value.
+
+### HasLastStartTime
+
+`func (o *Command) HasLastStartTime() bool`
+
+HasLastStartTime returns a boolean if a field has been set.
+
+### SetLastStartTimeNil
+
+`func (o *Command) SetLastStartTimeNil(b bool)`
+
+ SetLastStartTimeNil sets the value for LastStartTime to be an explicit nil
+
+### UnsetLastStartTime
+`func (o *Command) UnsetLastStartTime()`
+
+UnsetLastStartTime ensures that no value is present for LastStartTime, not even an explicit nil
 ### GetTrigger
 
 `func (o *Command) GetTrigger() CommandTrigger`

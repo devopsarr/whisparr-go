@@ -5,9 +5,9 @@
 
 * `NONE` (value: `"none"`)
 
-* `LOCAL_AIR_DATE` (value: `"localAirDate"`)
+* `CINEMAS` (value: `"cinemas"`)
 
-* `UTC_AIR_DATE` (value: `"utcAirDate"`)
+* `RELEASE` (value: `"release"`)
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

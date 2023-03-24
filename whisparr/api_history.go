@@ -1,7 +1,7 @@
 /*
-Whisparr
+Radarr
 
-Whisparr API docs
+Radarr API docs
 
 API version: 3.0.0
 */
@@ -143,17 +143,11 @@ func (a *HistoryApiService) CreateHistoryFailedByIdExecute(r ApiCreateHistoryFai
 type ApiGetHistoryRequest struct {
 	ctx context.Context
 	ApiService *HistoryApiService
-	includeSeries *bool
-	includeEpisode *bool
+	includeMovie *bool
 }
 
-func (r ApiGetHistoryRequest) IncludeSeries(includeSeries bool) ApiGetHistoryRequest {
-	r.includeSeries = &includeSeries
-	return r
-}
-
-func (r ApiGetHistoryRequest) IncludeEpisode(includeEpisode bool) ApiGetHistoryRequest {
-	r.includeEpisode = &includeEpisode
+func (r ApiGetHistoryRequest) IncludeMovie(includeMovie bool) ApiGetHistoryRequest {
+	r.includeMovie = &includeMovie
 	return r
 }
 
@@ -195,11 +189,8 @@ func (a *HistoryApiService) GetHistoryExecute(r ApiGetHistoryRequest) (*HistoryR
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if r.includeSeries != nil {
-		localVarQueryParams.Add("includeSeries", parameterToString(*r.includeSeries, ""))
-	}
-	if r.includeEpisode != nil {
-		localVarQueryParams.Add("includeEpisode", parameterToString(*r.includeEpisode, ""))
+	if r.includeMovie != nil {
+		localVarQueryParams.Add("includeMovie", parameterToString(*r.includeMovie, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -211,7 +202,7 @@ func (a *HistoryApiService) GetHistoryExecute(r ApiGetHistoryRequest) (*HistoryR
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"text/plain", "application/json", "text/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -282,53 +273,41 @@ func (a *HistoryApiService) GetHistoryExecute(r ApiGetHistoryRequest) (*HistoryR
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
-type ApiListHistorySeriesRequest struct {
+type ApiListHistoryMovieRequest struct {
 	ctx context.Context
 	ApiService *HistoryApiService
-	seriesId *int32
-	seasonNumber *int32
-	eventType *EpisodeHistoryEventType
-	includeSeries *bool
-	includeEpisode *bool
+	movieId *int32
+	eventType *MovieHistoryEventType
+	includeMovie *bool
 }
 
-func (r ApiListHistorySeriesRequest) SeriesId(seriesId int32) ApiListHistorySeriesRequest {
-	r.seriesId = &seriesId
+func (r ApiListHistoryMovieRequest) MovieId(movieId int32) ApiListHistoryMovieRequest {
+	r.movieId = &movieId
 	return r
 }
 
-func (r ApiListHistorySeriesRequest) SeasonNumber(seasonNumber int32) ApiListHistorySeriesRequest {
-	r.seasonNumber = &seasonNumber
-	return r
-}
-
-func (r ApiListHistorySeriesRequest) EventType(eventType EpisodeHistoryEventType) ApiListHistorySeriesRequest {
+func (r ApiListHistoryMovieRequest) EventType(eventType MovieHistoryEventType) ApiListHistoryMovieRequest {
 	r.eventType = &eventType
 	return r
 }
 
-func (r ApiListHistorySeriesRequest) IncludeSeries(includeSeries bool) ApiListHistorySeriesRequest {
-	r.includeSeries = &includeSeries
+func (r ApiListHistoryMovieRequest) IncludeMovie(includeMovie bool) ApiListHistoryMovieRequest {
+	r.includeMovie = &includeMovie
 	return r
 }
 
-func (r ApiListHistorySeriesRequest) IncludeEpisode(includeEpisode bool) ApiListHistorySeriesRequest {
-	r.includeEpisode = &includeEpisode
-	return r
-}
-
-func (r ApiListHistorySeriesRequest) Execute() ([]*HistoryResource, *http.Response, error) {
-	return r.ApiService.ListHistorySeriesExecute(r)
+func (r ApiListHistoryMovieRequest) Execute() ([]*HistoryResource, *http.Response, error) {
+	return r.ApiService.ListHistoryMovieExecute(r)
 }
 
 /*
-ListHistorySeries Method for ListHistorySeries
+ListHistoryMovie Method for ListHistoryMovie
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiListHistorySeriesRequest
+ @return ApiListHistoryMovieRequest
 */
-func (a *HistoryApiService) ListHistorySeries(ctx context.Context) ApiListHistorySeriesRequest {
-	return ApiListHistorySeriesRequest{
+func (a *HistoryApiService) ListHistoryMovie(ctx context.Context) ApiListHistoryMovieRequest {
+	return ApiListHistoryMovieRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -336,7 +315,7 @@ func (a *HistoryApiService) ListHistorySeries(ctx context.Context) ApiListHistor
 
 // Execute executes the request
 //  @return []HistoryResource
-func (a *HistoryApiService) ListHistorySeriesExecute(r ApiListHistorySeriesRequest) ([]*HistoryResource, *http.Response, error) {
+func (a *HistoryApiService) ListHistoryMovieExecute(r ApiListHistoryMovieRequest) ([]*HistoryResource, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -344,31 +323,25 @@ func (a *HistoryApiService) ListHistorySeriesExecute(r ApiListHistorySeriesReque
 		localVarReturnValue  []*HistoryResource
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HistoryApiService.ListHistorySeries")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HistoryApiService.ListHistoryMovie")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/v3/history/series"
+	localVarPath := localBasePath + "/api/v3/history/movie"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if r.seriesId != nil {
-		localVarQueryParams.Add("seriesId", parameterToString(*r.seriesId, ""))
-	}
-	if r.seasonNumber != nil {
-		localVarQueryParams.Add("seasonNumber", parameterToString(*r.seasonNumber, ""))
+	if r.movieId != nil {
+		localVarQueryParams.Add("movieId", parameterToString(*r.movieId, ""))
 	}
 	if r.eventType != nil {
 		localVarQueryParams.Add("eventType", parameterToString(*r.eventType, ""))
 	}
-	if r.includeSeries != nil {
-		localVarQueryParams.Add("includeSeries", parameterToString(*r.includeSeries, ""))
-	}
-	if r.includeEpisode != nil {
-		localVarQueryParams.Add("includeEpisode", parameterToString(*r.includeEpisode, ""))
+	if r.includeMovie != nil {
+		localVarQueryParams.Add("includeMovie", parameterToString(*r.includeMovie, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -380,7 +353,7 @@ func (a *HistoryApiService) ListHistorySeriesExecute(r ApiListHistorySeriesReque
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"text/plain", "application/json", "text/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -455,9 +428,8 @@ type ApiListHistorySinceRequest struct {
 	ctx context.Context
 	ApiService *HistoryApiService
 	date *time.Time
-	eventType *EpisodeHistoryEventType
-	includeSeries *bool
-	includeEpisode *bool
+	eventType *MovieHistoryEventType
+	includeMovie *bool
 }
 
 func (r ApiListHistorySinceRequest) Date(date time.Time) ApiListHistorySinceRequest {
@@ -465,18 +437,13 @@ func (r ApiListHistorySinceRequest) Date(date time.Time) ApiListHistorySinceRequ
 	return r
 }
 
-func (r ApiListHistorySinceRequest) EventType(eventType EpisodeHistoryEventType) ApiListHistorySinceRequest {
+func (r ApiListHistorySinceRequest) EventType(eventType MovieHistoryEventType) ApiListHistorySinceRequest {
 	r.eventType = &eventType
 	return r
 }
 
-func (r ApiListHistorySinceRequest) IncludeSeries(includeSeries bool) ApiListHistorySinceRequest {
-	r.includeSeries = &includeSeries
-	return r
-}
-
-func (r ApiListHistorySinceRequest) IncludeEpisode(includeEpisode bool) ApiListHistorySinceRequest {
-	r.includeEpisode = &includeEpisode
+func (r ApiListHistorySinceRequest) IncludeMovie(includeMovie bool) ApiListHistorySinceRequest {
+	r.includeMovie = &includeMovie
 	return r
 }
 
@@ -524,11 +491,8 @@ func (a *HistoryApiService) ListHistorySinceExecute(r ApiListHistorySinceRequest
 	if r.eventType != nil {
 		localVarQueryParams.Add("eventType", parameterToString(*r.eventType, ""))
 	}
-	if r.includeSeries != nil {
-		localVarQueryParams.Add("includeSeries", parameterToString(*r.includeSeries, ""))
-	}
-	if r.includeEpisode != nil {
-		localVarQueryParams.Add("includeEpisode", parameterToString(*r.includeEpisode, ""))
+	if r.includeMovie != nil {
+		localVarQueryParams.Add("includeMovie", parameterToString(*r.includeMovie, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -540,7 +504,7 @@ func (a *HistoryApiService) ListHistorySinceExecute(r ApiListHistorySinceRequest
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"text/plain", "application/json", "text/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)

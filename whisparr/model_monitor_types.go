@@ -1,7 +1,7 @@
 /*
-Whisparr
+Radarr
 
-Whisparr API docs
+Radarr API docs
 
 API version: 3.0.0
 */
@@ -20,27 +20,15 @@ type MonitorTypes string
 
 // List of MonitorTypes
 const (
-	MONITORTYPES_UNKNOWN MonitorTypes = "unknown"
-	MONITORTYPES_ALL MonitorTypes = "all"
-	MONITORTYPES_FUTURE MonitorTypes = "future"
-	MONITORTYPES_MISSING MonitorTypes = "missing"
-	MONITORTYPES_EXISTING MonitorTypes = "existing"
-	MONITORTYPES_FIRST_SEASON MonitorTypes = "firstSeason"
-	MONITORTYPES_LATEST_SEASON MonitorTypes = "latestSeason"
-	MONITORTYPES_PILOT MonitorTypes = "pilot"
+	MONITORTYPES_MOVIE_ONLY MonitorTypes = "movieOnly"
+	MONITORTYPES_MOVIE_AND_COLLECTION MonitorTypes = "movieAndCollection"
 	MONITORTYPES_NONE MonitorTypes = "none"
 )
 
 // All allowed values of MonitorTypes enum
 var AllowedMonitorTypesEnumValues = []MonitorTypes{
-	"unknown",
-	"all",
-	"future",
-	"missing",
-	"existing",
-	"firstSeason",
-	"latestSeason",
-	"pilot",
+	"movieOnly",
+	"movieAndCollection",
 	"none",
 }
 

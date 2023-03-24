@@ -1,7 +1,7 @@
 /*
-Whisparr
+Radarr
 
-Whisparr API docs
+Radarr API docs
 
 API version: 3.0.0
 */
@@ -36,8 +36,9 @@ type SystemResource struct {
 	IsDocker *bool `json:"isDocker,omitempty"`
 	Mode *RuntimeMode `json:"mode,omitempty"`
 	Branch NullableString `json:"branch,omitempty"`
+	DatabaseType *DatabaseType `json:"databaseType,omitempty"`
+	DatabaseVersion *string `json:"databaseVersion,omitempty"`
 	Authentication *AuthenticationType `json:"authentication,omitempty"`
-	SqliteVersion *string `json:"sqliteVersion,omitempty"`
 	MigrationVersion *int32 `json:"migrationVersion,omitempty"`
 	UrlBase NullableString `json:"urlBase,omitempty"`
 	RuntimeVersion *string `json:"runtimeVersion,omitempty"`
@@ -754,6 +755,70 @@ func (o *SystemResource) UnsetBranch() {
 	o.Branch.Unset()
 }
 
+// GetDatabaseType returns the DatabaseType field value if set, zero value otherwise.
+func (o *SystemResource) GetDatabaseType() DatabaseType {
+	if o == nil || isNil(o.DatabaseType) {
+		var ret DatabaseType
+		return ret
+	}
+	return *o.DatabaseType
+}
+
+// GetDatabaseTypeOk returns a tuple with the DatabaseType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SystemResource) GetDatabaseTypeOk() (*DatabaseType, bool) {
+	if o == nil || isNil(o.DatabaseType) {
+    return nil, false
+	}
+	return o.DatabaseType, true
+}
+
+// HasDatabaseType returns a boolean if a field has been set.
+func (o *SystemResource) HasDatabaseType() bool {
+	if o != nil && !isNil(o.DatabaseType) {
+		return true
+	}
+
+	return false
+}
+
+// SetDatabaseType gets a reference to the given DatabaseType and assigns it to the DatabaseType field.
+func (o *SystemResource) SetDatabaseType(v DatabaseType) {
+	o.DatabaseType = &v
+}
+
+// GetDatabaseVersion returns the DatabaseVersion field value if set, zero value otherwise.
+func (o *SystemResource) GetDatabaseVersion() string {
+	if o == nil || isNil(o.DatabaseVersion) {
+		var ret string
+		return ret
+	}
+	return *o.DatabaseVersion
+}
+
+// GetDatabaseVersionOk returns a tuple with the DatabaseVersion field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SystemResource) GetDatabaseVersionOk() (*string, bool) {
+	if o == nil || isNil(o.DatabaseVersion) {
+    return nil, false
+	}
+	return o.DatabaseVersion, true
+}
+
+// HasDatabaseVersion returns a boolean if a field has been set.
+func (o *SystemResource) HasDatabaseVersion() bool {
+	if o != nil && !isNil(o.DatabaseVersion) {
+		return true
+	}
+
+	return false
+}
+
+// SetDatabaseVersion gets a reference to the given string and assigns it to the DatabaseVersion field.
+func (o *SystemResource) SetDatabaseVersion(v string) {
+	o.DatabaseVersion = &v
+}
+
 // GetAuthentication returns the Authentication field value if set, zero value otherwise.
 func (o *SystemResource) GetAuthentication() AuthenticationType {
 	if o == nil || isNil(o.Authentication) {
@@ -784,38 +849,6 @@ func (o *SystemResource) HasAuthentication() bool {
 // SetAuthentication gets a reference to the given AuthenticationType and assigns it to the Authentication field.
 func (o *SystemResource) SetAuthentication(v AuthenticationType) {
 	o.Authentication = &v
-}
-
-// GetSqliteVersion returns the SqliteVersion field value if set, zero value otherwise.
-func (o *SystemResource) GetSqliteVersion() string {
-	if o == nil || isNil(o.SqliteVersion) {
-		var ret string
-		return ret
-	}
-	return *o.SqliteVersion
-}
-
-// GetSqliteVersionOk returns a tuple with the SqliteVersion field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *SystemResource) GetSqliteVersionOk() (*string, bool) {
-	if o == nil || isNil(o.SqliteVersion) {
-    return nil, false
-	}
-	return o.SqliteVersion, true
-}
-
-// HasSqliteVersion returns a boolean if a field has been set.
-func (o *SystemResource) HasSqliteVersion() bool {
-	if o != nil && !isNil(o.SqliteVersion) {
-		return true
-	}
-
-	return false
-}
-
-// SetSqliteVersion gets a reference to the given string and assigns it to the SqliteVersion field.
-func (o *SystemResource) SetSqliteVersion(v string) {
-	o.SqliteVersion = &v
 }
 
 // GetMigrationVersion returns the MigrationVersion field value if set, zero value otherwise.
@@ -1215,11 +1248,14 @@ func (o SystemResource) MarshalJSON() ([]byte, error) {
 	if o.Branch.IsSet() {
 		toSerialize["branch"] = o.Branch.Get()
 	}
+	if !isNil(o.DatabaseType) {
+		toSerialize["databaseType"] = o.DatabaseType
+	}
+	if !isNil(o.DatabaseVersion) {
+		toSerialize["databaseVersion"] = o.DatabaseVersion
+	}
 	if !isNil(o.Authentication) {
 		toSerialize["authentication"] = o.Authentication
-	}
-	if !isNil(o.SqliteVersion) {
-		toSerialize["sqliteVersion"] = o.SqliteVersion
 	}
 	if !isNil(o.MigrationVersion) {
 		toSerialize["migrationVersion"] = o.MigrationVersion
