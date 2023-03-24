@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateHistoryFailedById**](HistoryApi.md#CreateHistoryFailedById) | **Post** /api/v3/history/failed/{id} | 
 [**GetHistory**](HistoryApi.md#GetHistory) | **Get** /api/v3/history | 
-[**ListHistoryMovie**](HistoryApi.md#ListHistoryMovie) | **Get** /api/v3/history/movie | 
+[**ListHistorySeries**](HistoryApi.md#ListHistorySeries) | **Get** /api/v3/history/series | 
 [**ListHistorySince**](HistoryApi.md#ListHistorySince) | **Get** /api/v3/history/since | 
 
 
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[X-Api-Key](../README.md#X-Api-Key), [apikey](../README.md#apikey)
+[apikey](../README.md#apikey), [X-Api-Key](../README.md#X-Api-Key)
 
 ### HTTP request headers
 
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 ## GetHistory
 
-> HistoryResourcePagingResource GetHistory(ctx).IncludeMovie(includeMovie).Execute()
+> HistoryResourcePagingResource GetHistory(ctx).IncludeSeries(includeSeries).IncludeEpisode(includeEpisode).Execute()
 
 
 
@@ -96,11 +96,12 @@ import (
 )
 
 func main() {
-    includeMovie := true // bool |  (optional)
+    includeSeries := true // bool |  (optional)
+    includeEpisode := true // bool |  (optional)
 
     configuration := whisparrClient.NewConfiguration()
     apiClient := whisparrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.HistoryApi.GetHistory(context.Background()).IncludeMovie(includeMovie).Execute()
+    resp, r, err := apiClient.HistoryApi.GetHistory(context.Background()).IncludeSeries(includeSeries).IncludeEpisode(includeEpisode).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `HistoryApi.GetHistory``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -121,7 +122,8 @@ Other parameters are passed through a pointer to a apiGetHistoryRequest struct v
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **includeMovie** | **bool** |  | 
+ **includeSeries** | **bool** |  | 
+ **includeEpisode** | **bool** |  | 
 
 ### Return type
 
@@ -129,21 +131,21 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[X-Api-Key](../README.md#X-Api-Key), [apikey](../README.md#apikey)
+[apikey](../README.md#apikey), [X-Api-Key](../README.md#X-Api-Key)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to README]](../README.md)
 
 
-## ListHistoryMovie
+## ListHistorySeries
 
-> []HistoryResource ListHistoryMovie(ctx).MovieId(movieId).EventType(eventType).IncludeMovie(includeMovie).Execute()
+> []HistoryResource ListHistorySeries(ctx).SeriesId(seriesId).SeasonNumber(seasonNumber).EventType(eventType).IncludeSeries(includeSeries).IncludeEpisode(includeEpisode).Execute()
 
 
 
@@ -160,19 +162,21 @@ import (
 )
 
 func main() {
-    movieId := int32(56) // int32 |  (optional)
-    eventType := whisparrClient.MovieHistoryEventType("unknown") // MovieHistoryEventType |  (optional)
-    includeMovie := true // bool |  (optional) (default to false)
+    seriesId := int32(56) // int32 |  (optional)
+    seasonNumber := int32(56) // int32 |  (optional)
+    eventType := whisparrClient.EpisodeHistoryEventType("unknown") // EpisodeHistoryEventType |  (optional)
+    includeSeries := true // bool |  (optional) (default to false)
+    includeEpisode := true // bool |  (optional) (default to false)
 
     configuration := whisparrClient.NewConfiguration()
     apiClient := whisparrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.HistoryApi.ListHistoryMovie(context.Background()).MovieId(movieId).EventType(eventType).IncludeMovie(includeMovie).Execute()
+    resp, r, err := apiClient.HistoryApi.ListHistorySeries(context.Background()).SeriesId(seriesId).SeasonNumber(seasonNumber).EventType(eventType).IncludeSeries(includeSeries).IncludeEpisode(includeEpisode).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `HistoryApi.ListHistoryMovie``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `HistoryApi.ListHistorySeries``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ListHistoryMovie`: []HistoryResource
-    fmt.Fprintf(os.Stdout, "Response from `HistoryApi.ListHistoryMovie`: %v\n", resp)
+    // response from `ListHistorySeries`: []HistoryResource
+    fmt.Fprintf(os.Stdout, "Response from `HistoryApi.ListHistorySeries`: %v\n", resp)
 }
 ```
 
@@ -182,14 +186,16 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiListHistoryMovieRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiListHistorySeriesRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **movieId** | **int32** |  | 
- **eventType** | [**MovieHistoryEventType**](MovieHistoryEventType.md) |  | 
- **includeMovie** | **bool** |  | [default to false]
+ **seriesId** | **int32** |  | 
+ **seasonNumber** | **int32** |  | 
+ **eventType** | [**EpisodeHistoryEventType**](EpisodeHistoryEventType.md) |  | 
+ **includeSeries** | **bool** |  | [default to false]
+ **includeEpisode** | **bool** |  | [default to false]
 
 ### Return type
 
@@ -197,12 +203,12 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[X-Api-Key](../README.md#X-Api-Key), [apikey](../README.md#apikey)
+[apikey](../README.md#apikey), [X-Api-Key](../README.md#X-Api-Key)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -211,7 +217,7 @@ Name | Type | Description  | Notes
 
 ## ListHistorySince
 
-> []HistoryResource ListHistorySince(ctx).Date(date).EventType(eventType).IncludeMovie(includeMovie).Execute()
+> []HistoryResource ListHistorySince(ctx).Date(date).EventType(eventType).IncludeSeries(includeSeries).IncludeEpisode(includeEpisode).Execute()
 
 
 
@@ -230,12 +236,13 @@ import (
 
 func main() {
     date := time.Now() // time.Time |  (optional)
-    eventType := whisparrClient.MovieHistoryEventType("unknown") // MovieHistoryEventType |  (optional)
-    includeMovie := true // bool |  (optional) (default to false)
+    eventType := whisparrClient.EpisodeHistoryEventType("unknown") // EpisodeHistoryEventType |  (optional)
+    includeSeries := true // bool |  (optional) (default to false)
+    includeEpisode := true // bool |  (optional) (default to false)
 
     configuration := whisparrClient.NewConfiguration()
     apiClient := whisparrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.HistoryApi.ListHistorySince(context.Background()).Date(date).EventType(eventType).IncludeMovie(includeMovie).Execute()
+    resp, r, err := apiClient.HistoryApi.ListHistorySince(context.Background()).Date(date).EventType(eventType).IncludeSeries(includeSeries).IncludeEpisode(includeEpisode).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `HistoryApi.ListHistorySince``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -257,8 +264,9 @@ Other parameters are passed through a pointer to a apiListHistorySinceRequest st
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **date** | **time.Time** |  | 
- **eventType** | [**MovieHistoryEventType**](MovieHistoryEventType.md) |  | 
- **includeMovie** | **bool** |  | [default to false]
+ **eventType** | [**EpisodeHistoryEventType**](EpisodeHistoryEventType.md) |  | 
+ **includeSeries** | **bool** |  | [default to false]
+ **includeEpisode** | **bool** |  | [default to false]
 
 ### Return type
 
@@ -266,12 +274,12 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[X-Api-Key](../README.md#X-Api-Key), [apikey](../README.md#apikey)
+[apikey](../README.md#apikey), [X-Api-Key](../README.md#X-Api-Key)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

@@ -23,6 +23,7 @@ type HostConfigResource struct {
 	EnableSsl *bool `json:"enableSsl,omitempty"`
 	LaunchBrowser *bool `json:"launchBrowser,omitempty"`
 	AuthenticationMethod *AuthenticationType `json:"authenticationMethod,omitempty"`
+	AuthenticationRequired *AuthenticationRequiredType `json:"authenticationRequired,omitempty"`
 	AnalyticsEnabled *bool `json:"analyticsEnabled,omitempty"`
 	Username NullableString `json:"username,omitempty"`
 	Password NullableString `json:"password,omitempty"`
@@ -33,6 +34,8 @@ type HostConfigResource struct {
 	SslCertPath NullableString `json:"sslCertPath,omitempty"`
 	SslCertPassword NullableString `json:"sslCertPassword,omitempty"`
 	UrlBase NullableString `json:"urlBase,omitempty"`
+	InstanceName NullableString `json:"instanceName,omitempty"`
+	ApplicationUrl NullableString `json:"applicationUrl,omitempty"`
 	UpdateAutomatically *bool `json:"updateAutomatically,omitempty"`
 	UpdateMechanism *UpdateMechanism `json:"updateMechanism,omitempty"`
 	UpdateScriptPath NullableString `json:"updateScriptPath,omitempty"`
@@ -299,6 +302,38 @@ func (o *HostConfigResource) HasAuthenticationMethod() bool {
 // SetAuthenticationMethod gets a reference to the given AuthenticationType and assigns it to the AuthenticationMethod field.
 func (o *HostConfigResource) SetAuthenticationMethod(v AuthenticationType) {
 	o.AuthenticationMethod = &v
+}
+
+// GetAuthenticationRequired returns the AuthenticationRequired field value if set, zero value otherwise.
+func (o *HostConfigResource) GetAuthenticationRequired() AuthenticationRequiredType {
+	if o == nil || isNil(o.AuthenticationRequired) {
+		var ret AuthenticationRequiredType
+		return ret
+	}
+	return *o.AuthenticationRequired
+}
+
+// GetAuthenticationRequiredOk returns a tuple with the AuthenticationRequired field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HostConfigResource) GetAuthenticationRequiredOk() (*AuthenticationRequiredType, bool) {
+	if o == nil || isNil(o.AuthenticationRequired) {
+    return nil, false
+	}
+	return o.AuthenticationRequired, true
+}
+
+// HasAuthenticationRequired returns a boolean if a field has been set.
+func (o *HostConfigResource) HasAuthenticationRequired() bool {
+	if o != nil && !isNil(o.AuthenticationRequired) {
+		return true
+	}
+
+	return false
+}
+
+// SetAuthenticationRequired gets a reference to the given AuthenticationRequiredType and assigns it to the AuthenticationRequired field.
+func (o *HostConfigResource) SetAuthenticationRequired(v AuthenticationRequiredType) {
+	o.AuthenticationRequired = &v
 }
 
 // GetAnalyticsEnabled returns the AnalyticsEnabled field value if set, zero value otherwise.
@@ -709,6 +744,90 @@ func (o *HostConfigResource) SetUrlBaseNil() {
 // UnsetUrlBase ensures that no value is present for UrlBase, not even an explicit nil
 func (o *HostConfigResource) UnsetUrlBase() {
 	o.UrlBase.Unset()
+}
+
+// GetInstanceName returns the InstanceName field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HostConfigResource) GetInstanceName() string {
+	if o == nil || isNil(o.InstanceName.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.InstanceName.Get()
+}
+
+// GetInstanceNameOk returns a tuple with the InstanceName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HostConfigResource) GetInstanceNameOk() (*string, bool) {
+	if o == nil {
+    return nil, false
+	}
+	return o.InstanceName.Get(), o.InstanceName.IsSet()
+}
+
+// HasInstanceName returns a boolean if a field has been set.
+func (o *HostConfigResource) HasInstanceName() bool {
+	if o != nil && o.InstanceName.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetInstanceName gets a reference to the given NullableString and assigns it to the InstanceName field.
+func (o *HostConfigResource) SetInstanceName(v string) {
+	o.InstanceName.Set(&v)
+}
+// SetInstanceNameNil sets the value for InstanceName to be an explicit nil
+func (o *HostConfigResource) SetInstanceNameNil() {
+	o.InstanceName.Set(nil)
+}
+
+// UnsetInstanceName ensures that no value is present for InstanceName, not even an explicit nil
+func (o *HostConfigResource) UnsetInstanceName() {
+	o.InstanceName.Unset()
+}
+
+// GetApplicationUrl returns the ApplicationUrl field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HostConfigResource) GetApplicationUrl() string {
+	if o == nil || isNil(o.ApplicationUrl.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ApplicationUrl.Get()
+}
+
+// GetApplicationUrlOk returns a tuple with the ApplicationUrl field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HostConfigResource) GetApplicationUrlOk() (*string, bool) {
+	if o == nil {
+    return nil, false
+	}
+	return o.ApplicationUrl.Get(), o.ApplicationUrl.IsSet()
+}
+
+// HasApplicationUrl returns a boolean if a field has been set.
+func (o *HostConfigResource) HasApplicationUrl() bool {
+	if o != nil && o.ApplicationUrl.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetApplicationUrl gets a reference to the given NullableString and assigns it to the ApplicationUrl field.
+func (o *HostConfigResource) SetApplicationUrl(v string) {
+	o.ApplicationUrl.Set(&v)
+}
+// SetApplicationUrlNil sets the value for ApplicationUrl to be an explicit nil
+func (o *HostConfigResource) SetApplicationUrlNil() {
+	o.ApplicationUrl.Set(nil)
+}
+
+// UnsetApplicationUrl ensures that no value is present for ApplicationUrl, not even an explicit nil
+func (o *HostConfigResource) UnsetApplicationUrl() {
+	o.ApplicationUrl.Unset()
 }
 
 // GetUpdateAutomatically returns the UpdateAutomatically field value if set, zero value otherwise.
@@ -1274,6 +1393,9 @@ func (o HostConfigResource) MarshalJSON() ([]byte, error) {
 	if !isNil(o.AuthenticationMethod) {
 		toSerialize["authenticationMethod"] = o.AuthenticationMethod
 	}
+	if !isNil(o.AuthenticationRequired) {
+		toSerialize["authenticationRequired"] = o.AuthenticationRequired
+	}
 	if !isNil(o.AnalyticsEnabled) {
 		toSerialize["analyticsEnabled"] = o.AnalyticsEnabled
 	}
@@ -1303,6 +1425,12 @@ func (o HostConfigResource) MarshalJSON() ([]byte, error) {
 	}
 	if o.UrlBase.IsSet() {
 		toSerialize["urlBase"] = o.UrlBase.Get()
+	}
+	if o.InstanceName.IsSet() {
+		toSerialize["instanceName"] = o.InstanceName.Get()
+	}
+	if o.ApplicationUrl.IsSet() {
+		toSerialize["applicationUrl"] = o.ApplicationUrl.Get()
 	}
 	if !isNil(o.UpdateAutomatically) {
 		toSerialize["updateAutomatically"] = o.UpdateAutomatically

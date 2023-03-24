@@ -29,7 +29,7 @@ type ApiGetCalendarByIdRequest struct {
 	id int32
 }
 
-func (r ApiGetCalendarByIdRequest) Execute() (*MovieResource, *http.Response, error) {
+func (r ApiGetCalendarByIdRequest) Execute() (*EpisodeResource, *http.Response, error) {
 	return r.ApiService.GetCalendarByIdExecute(r)
 }
 
@@ -49,13 +49,13 @@ func (a *CalendarApiService) GetCalendarById(ctx context.Context, id int32) ApiG
 }
 
 // Execute executes the request
-//  @return MovieResource
-func (a *CalendarApiService) GetCalendarByIdExecute(r ApiGetCalendarByIdRequest) (*MovieResource, *http.Response, error) {
+//  @return EpisodeResource
+func (a *CalendarApiService) GetCalendarByIdExecute(r ApiGetCalendarByIdRequest) (*EpisodeResource, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *MovieResource
+		localVarReturnValue  *EpisodeResource
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CalendarApiService.GetCalendarById")
@@ -80,26 +80,12 @@ func (a *CalendarApiService) GetCalendarByIdExecute(r ApiGetCalendarByIdRequest)
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"text/plain", "application/json", "text/json"}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["X-Api-Key"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["X-Api-Key"] = key
-			}
-		}
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -112,6 +98,20 @@ func (a *CalendarApiService) GetCalendarByIdExecute(r ApiGetCalendarByIdRequest)
 					key = apiKey.Key
 				}
 				localVarQueryParams.Add("apikey", key)
+			}
+		}
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["X-Api-Key"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["X-Api-Key"] = key
 			}
 		}
 	}
@@ -157,7 +157,9 @@ type ApiListCalendarRequest struct {
 	start *time.Time
 	end *time.Time
 	unmonitored *bool
-	includeArtist *bool
+	includeSeries *bool
+	includeEpisodeFile *bool
+	includeEpisodeImages *bool
 }
 
 func (r ApiListCalendarRequest) Start(start time.Time) ApiListCalendarRequest {
@@ -175,12 +177,22 @@ func (r ApiListCalendarRequest) Unmonitored(unmonitored bool) ApiListCalendarReq
 	return r
 }
 
-func (r ApiListCalendarRequest) IncludeArtist(includeArtist bool) ApiListCalendarRequest {
-	r.includeArtist = &includeArtist
+func (r ApiListCalendarRequest) IncludeSeries(includeSeries bool) ApiListCalendarRequest {
+	r.includeSeries = &includeSeries
 	return r
 }
 
-func (r ApiListCalendarRequest) Execute() ([]*MovieResource, *http.Response, error) {
+func (r ApiListCalendarRequest) IncludeEpisodeFile(includeEpisodeFile bool) ApiListCalendarRequest {
+	r.includeEpisodeFile = &includeEpisodeFile
+	return r
+}
+
+func (r ApiListCalendarRequest) IncludeEpisodeImages(includeEpisodeImages bool) ApiListCalendarRequest {
+	r.includeEpisodeImages = &includeEpisodeImages
+	return r
+}
+
+func (r ApiListCalendarRequest) Execute() ([]*EpisodeResource, *http.Response, error) {
 	return r.ApiService.ListCalendarExecute(r)
 }
 
@@ -198,13 +210,13 @@ func (a *CalendarApiService) ListCalendar(ctx context.Context) ApiListCalendarRe
 }
 
 // Execute executes the request
-//  @return []MovieResource
-func (a *CalendarApiService) ListCalendarExecute(r ApiListCalendarRequest) ([]*MovieResource, *http.Response, error) {
+//  @return []EpisodeResource
+func (a *CalendarApiService) ListCalendarExecute(r ApiListCalendarRequest) ([]*EpisodeResource, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []*MovieResource
+		localVarReturnValue  []*EpisodeResource
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CalendarApiService.ListCalendar")
@@ -227,8 +239,14 @@ func (a *CalendarApiService) ListCalendarExecute(r ApiListCalendarRequest) ([]*M
 	if r.unmonitored != nil {
 		localVarQueryParams.Add("unmonitored", parameterToString(*r.unmonitored, ""))
 	}
-	if r.includeArtist != nil {
-		localVarQueryParams.Add("includeArtist", parameterToString(*r.includeArtist, ""))
+	if r.includeSeries != nil {
+		localVarQueryParams.Add("includeSeries", parameterToString(*r.includeSeries, ""))
+	}
+	if r.includeEpisodeFile != nil {
+		localVarQueryParams.Add("includeEpisodeFile", parameterToString(*r.includeEpisodeFile, ""))
+	}
+	if r.includeEpisodeImages != nil {
+		localVarQueryParams.Add("includeEpisodeImages", parameterToString(*r.includeEpisodeImages, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -240,26 +258,12 @@ func (a *CalendarApiService) ListCalendarExecute(r ApiListCalendarRequest) ([]*M
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"text/plain", "application/json", "text/json"}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["X-Api-Key"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["X-Api-Key"] = key
-			}
-		}
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -272,6 +276,20 @@ func (a *CalendarApiService) ListCalendarExecute(r ApiListCalendarRequest) ([]*M
 					key = apiKey.Key
 				}
 				localVarQueryParams.Add("apikey", key)
+			}
+		}
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["X-Api-Key"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["X-Api-Key"] = key
 			}
 		}
 	}

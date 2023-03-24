@@ -47,34 +47,34 @@ type APIClient struct {
 	common service // Reuse a single struct instead of allocating one for each service on the heap.
 
 	// API Services
-	AlternativeTitleApi *AlternativeTitleApiService
+	ApiInfoApi *ApiInfoApiService
 	AuthenticationApi *AuthenticationApiService
 	BackupApi *BackupApiService
 	BlocklistApi *BlocklistApiService
 	CalendarApi *CalendarApiService
 	CalendarFeedApi *CalendarFeedApiService
 	CommandApi *CommandApiService
-	CreditApi *CreditApiService
 	CustomFilterApi *CustomFilterApiService
 	CustomFormatApi *CustomFormatApiService
+	CutoffApi *CutoffApiService
 	DelayProfileApi *DelayProfileApiService
 	DiskSpaceApi *DiskSpaceApiService
 	DownloadClientApi *DownloadClientApiService
 	DownloadClientConfigApi *DownloadClientConfigApiService
-	ExtraFileApi *ExtraFileApiService
+	EpisodeApi *EpisodeApiService
+	EpisodeFileApi *EpisodeFileApiService
 	FileSystemApi *FileSystemApiService
 	HealthApi *HealthApiService
 	HistoryApi *HistoryApiService
 	HostConfigApi *HostConfigApiService
-	ImportExclusionsApi *ImportExclusionsApiService
 	ImportListApi *ImportListApiService
-	ImportListConfigApi *ImportListConfigApiService
-	ImportListMoviesApi *ImportListMoviesApiService
+	ImportListExclusionApi *ImportListExclusionApiService
 	IndexerApi *IndexerApiService
 	IndexerConfigApi *IndexerConfigApiService
-	IndexerFlagApi *IndexerFlagApiService
 	InitializeJsApi *InitializeJsApiService
 	LanguageApi *LanguageApiService
+	LanguageProfileApi *LanguageProfileApiService
+	LanguageProfileSchemaApi *LanguageProfileSchemaApiService
 	LocalizationApi *LocalizationApiService
 	LogApi *LogApiService
 	LogFileApi *LogFileApiService
@@ -82,15 +82,11 @@ type APIClient struct {
 	MediaCoverApi *MediaCoverApiService
 	MediaManagementConfigApi *MediaManagementConfigApiService
 	MetadataApi *MetadataApiService
-	MetadataConfigApi *MetadataConfigApiService
-	MovieApi *MovieApiService
-	MovieEditorApi *MovieEditorApiService
-	MovieFileApi *MovieFileApiService
-	MovieImportApi *MovieImportApiService
-	MovieLookupApi *MovieLookupApiService
+	MissingApi *MissingApiService
 	NamingConfigApi *NamingConfigApiService
 	NotificationApi *NotificationApiService
 	ParseApi *ParseApiService
+	PingApi *PingApiService
 	QualityDefinitionApi *QualityDefinitionApiService
 	QualityProfileApi *QualityProfileApiService
 	QualityProfileSchemaApi *QualityProfileSchemaApiService
@@ -99,11 +95,16 @@ type APIClient struct {
 	QueueDetailsApi *QueueDetailsApiService
 	QueueStatusApi *QueueStatusApiService
 	ReleaseApi *ReleaseApiService
+	ReleaseProfileApi *ReleaseProfileApiService
 	ReleasePushApi *ReleasePushApiService
 	RemotePathMappingApi *RemotePathMappingApiService
-	RenameMovieApi *RenameMovieApiService
-	RestrictionApi *RestrictionApiService
+	RenameEpisodeApi *RenameEpisodeApiService
 	RootFolderApi *RootFolderApiService
+	SeasonPassApi *SeasonPassApiService
+	SeriesApi *SeriesApiService
+	SeriesEditorApi *SeriesEditorApiService
+	SeriesImportApi *SeriesImportApiService
+	SeriesLookupApi *SeriesLookupApiService
 	StaticResourceApi *StaticResourceApiService
 	SystemApi *SystemApiService
 	TagApi *TagApiService
@@ -130,34 +131,34 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.common.client = c
 
 	// API Services
-	c.AlternativeTitleApi = (*AlternativeTitleApiService)(&c.common)
+	c.ApiInfoApi = (*ApiInfoApiService)(&c.common)
 	c.AuthenticationApi = (*AuthenticationApiService)(&c.common)
 	c.BackupApi = (*BackupApiService)(&c.common)
 	c.BlocklistApi = (*BlocklistApiService)(&c.common)
 	c.CalendarApi = (*CalendarApiService)(&c.common)
 	c.CalendarFeedApi = (*CalendarFeedApiService)(&c.common)
 	c.CommandApi = (*CommandApiService)(&c.common)
-	c.CreditApi = (*CreditApiService)(&c.common)
 	c.CustomFilterApi = (*CustomFilterApiService)(&c.common)
 	c.CustomFormatApi = (*CustomFormatApiService)(&c.common)
+	c.CutoffApi = (*CutoffApiService)(&c.common)
 	c.DelayProfileApi = (*DelayProfileApiService)(&c.common)
 	c.DiskSpaceApi = (*DiskSpaceApiService)(&c.common)
 	c.DownloadClientApi = (*DownloadClientApiService)(&c.common)
 	c.DownloadClientConfigApi = (*DownloadClientConfigApiService)(&c.common)
-	c.ExtraFileApi = (*ExtraFileApiService)(&c.common)
+	c.EpisodeApi = (*EpisodeApiService)(&c.common)
+	c.EpisodeFileApi = (*EpisodeFileApiService)(&c.common)
 	c.FileSystemApi = (*FileSystemApiService)(&c.common)
 	c.HealthApi = (*HealthApiService)(&c.common)
 	c.HistoryApi = (*HistoryApiService)(&c.common)
 	c.HostConfigApi = (*HostConfigApiService)(&c.common)
-	c.ImportExclusionsApi = (*ImportExclusionsApiService)(&c.common)
 	c.ImportListApi = (*ImportListApiService)(&c.common)
-	c.ImportListConfigApi = (*ImportListConfigApiService)(&c.common)
-	c.ImportListMoviesApi = (*ImportListMoviesApiService)(&c.common)
+	c.ImportListExclusionApi = (*ImportListExclusionApiService)(&c.common)
 	c.IndexerApi = (*IndexerApiService)(&c.common)
 	c.IndexerConfigApi = (*IndexerConfigApiService)(&c.common)
-	c.IndexerFlagApi = (*IndexerFlagApiService)(&c.common)
 	c.InitializeJsApi = (*InitializeJsApiService)(&c.common)
 	c.LanguageApi = (*LanguageApiService)(&c.common)
+	c.LanguageProfileApi = (*LanguageProfileApiService)(&c.common)
+	c.LanguageProfileSchemaApi = (*LanguageProfileSchemaApiService)(&c.common)
 	c.LocalizationApi = (*LocalizationApiService)(&c.common)
 	c.LogApi = (*LogApiService)(&c.common)
 	c.LogFileApi = (*LogFileApiService)(&c.common)
@@ -165,15 +166,11 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.MediaCoverApi = (*MediaCoverApiService)(&c.common)
 	c.MediaManagementConfigApi = (*MediaManagementConfigApiService)(&c.common)
 	c.MetadataApi = (*MetadataApiService)(&c.common)
-	c.MetadataConfigApi = (*MetadataConfigApiService)(&c.common)
-	c.MovieApi = (*MovieApiService)(&c.common)
-	c.MovieEditorApi = (*MovieEditorApiService)(&c.common)
-	c.MovieFileApi = (*MovieFileApiService)(&c.common)
-	c.MovieImportApi = (*MovieImportApiService)(&c.common)
-	c.MovieLookupApi = (*MovieLookupApiService)(&c.common)
+	c.MissingApi = (*MissingApiService)(&c.common)
 	c.NamingConfigApi = (*NamingConfigApiService)(&c.common)
 	c.NotificationApi = (*NotificationApiService)(&c.common)
 	c.ParseApi = (*ParseApiService)(&c.common)
+	c.PingApi = (*PingApiService)(&c.common)
 	c.QualityDefinitionApi = (*QualityDefinitionApiService)(&c.common)
 	c.QualityProfileApi = (*QualityProfileApiService)(&c.common)
 	c.QualityProfileSchemaApi = (*QualityProfileSchemaApiService)(&c.common)
@@ -182,11 +179,16 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.QueueDetailsApi = (*QueueDetailsApiService)(&c.common)
 	c.QueueStatusApi = (*QueueStatusApiService)(&c.common)
 	c.ReleaseApi = (*ReleaseApiService)(&c.common)
+	c.ReleaseProfileApi = (*ReleaseProfileApiService)(&c.common)
 	c.ReleasePushApi = (*ReleasePushApiService)(&c.common)
 	c.RemotePathMappingApi = (*RemotePathMappingApiService)(&c.common)
-	c.RenameMovieApi = (*RenameMovieApiService)(&c.common)
-	c.RestrictionApi = (*RestrictionApiService)(&c.common)
+	c.RenameEpisodeApi = (*RenameEpisodeApiService)(&c.common)
 	c.RootFolderApi = (*RootFolderApiService)(&c.common)
+	c.SeasonPassApi = (*SeasonPassApiService)(&c.common)
+	c.SeriesApi = (*SeriesApiService)(&c.common)
+	c.SeriesEditorApi = (*SeriesEditorApiService)(&c.common)
+	c.SeriesImportApi = (*SeriesImportApiService)(&c.common)
+	c.SeriesLookupApi = (*SeriesLookupApiService)(&c.common)
 	c.StaticResourceApi = (*StaticResourceApiService)(&c.common)
 	c.SystemApi = (*SystemApiService)(&c.common)
 	c.TagApi = (*TagApiService)(&c.common)

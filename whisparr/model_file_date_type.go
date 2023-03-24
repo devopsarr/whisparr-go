@@ -21,15 +21,15 @@ type FileDateType string
 // List of FileDateType
 const (
 	FILEDATETYPE_NONE FileDateType = "none"
-	FILEDATETYPE_CINEMAS FileDateType = "cinemas"
-	FILEDATETYPE_RELEASE FileDateType = "release"
+	FILEDATETYPE_LOCAL_AIR_DATE FileDateType = "localAirDate"
+	FILEDATETYPE_UTC_AIR_DATE FileDateType = "utcAirDate"
 )
 
 // All allowed values of FileDateType enum
 var AllowedFileDateTypeEnumValues = []FileDateType{
 	"none",
-	"cinemas",
-	"release",
+	"localAirDate",
+	"utcAirDate",
 }
 
 func (v *FileDateType) UnmarshalJSON(src []byte) error {

@@ -28,6 +28,8 @@ type ApiGetFeedV3CalendarWhisparrIcsRequest struct {
 	futureDays *int32
 	tagList *string
 	unmonitored *bool
+	premieresOnly *bool
+	asAllDay *bool
 }
 
 func (r ApiGetFeedV3CalendarWhisparrIcsRequest) PastDays(pastDays int32) ApiGetFeedV3CalendarWhisparrIcsRequest {
@@ -47,6 +49,16 @@ func (r ApiGetFeedV3CalendarWhisparrIcsRequest) TagList(tagList string) ApiGetFe
 
 func (r ApiGetFeedV3CalendarWhisparrIcsRequest) Unmonitored(unmonitored bool) ApiGetFeedV3CalendarWhisparrIcsRequest {
 	r.unmonitored = &unmonitored
+	return r
+}
+
+func (r ApiGetFeedV3CalendarWhisparrIcsRequest) PremieresOnly(premieresOnly bool) ApiGetFeedV3CalendarWhisparrIcsRequest {
+	r.premieresOnly = &premieresOnly
+	return r
+}
+
+func (r ApiGetFeedV3CalendarWhisparrIcsRequest) AsAllDay(asAllDay bool) ApiGetFeedV3CalendarWhisparrIcsRequest {
+	r.asAllDay = &asAllDay
 	return r
 }
 
@@ -98,6 +110,12 @@ func (a *CalendarFeedApiService) GetFeedV3CalendarWhisparrIcsExecute(r ApiGetFee
 	if r.unmonitored != nil {
 		localVarQueryParams.Add("unmonitored", parameterToString(*r.unmonitored, ""))
 	}
+	if r.premieresOnly != nil {
+		localVarQueryParams.Add("premieresOnly", parameterToString(*r.premieresOnly, ""))
+	}
+	if r.asAllDay != nil {
+		localVarQueryParams.Add("asAllDay", parameterToString(*r.asAllDay, ""))
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -118,20 +136,6 @@ func (a *CalendarFeedApiService) GetFeedV3CalendarWhisparrIcsExecute(r ApiGetFee
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["X-Api-Key"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["X-Api-Key"] = key
-			}
-		}
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
 			if apiKey, ok := auth["apikey"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
@@ -140,6 +144,20 @@ func (a *CalendarFeedApiService) GetFeedV3CalendarWhisparrIcsExecute(r ApiGetFee
 					key = apiKey.Key
 				}
 				localVarQueryParams.Add("apikey", key)
+			}
+		}
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["X-Api-Key"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["X-Api-Key"] = key
 			}
 		}
 	}

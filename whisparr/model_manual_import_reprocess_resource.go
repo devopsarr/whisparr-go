@@ -18,8 +18,10 @@ import (
 type ManualImportReprocessResource struct {
 	Id *int32 `json:"id,omitempty"`
 	Path NullableString `json:"path,omitempty"`
-	MovieId *int32 `json:"movieId,omitempty"`
-	Movie *MovieResource `json:"movie,omitempty"`
+	SeriesId *int32 `json:"seriesId,omitempty"`
+	SeasonNumber NullableInt32 `json:"seasonNumber,omitempty"`
+	Episodes []*EpisodeResource `json:"episodes,omitempty"`
+	EpisodeIds []*int32 `json:"episodeIds,omitempty"`
 	Quality *QualityModel `json:"quality,omitempty"`
 	Languages []*Language `json:"languages,omitempty"`
 	ReleaseGroup NullableString `json:"releaseGroup,omitempty"`
@@ -118,68 +120,144 @@ func (o *ManualImportReprocessResource) UnsetPath() {
 	o.Path.Unset()
 }
 
-// GetMovieId returns the MovieId field value if set, zero value otherwise.
-func (o *ManualImportReprocessResource) GetMovieId() int32 {
-	if o == nil || isNil(o.MovieId) {
+// GetSeriesId returns the SeriesId field value if set, zero value otherwise.
+func (o *ManualImportReprocessResource) GetSeriesId() int32 {
+	if o == nil || isNil(o.SeriesId) {
 		var ret int32
 		return ret
 	}
-	return *o.MovieId
+	return *o.SeriesId
 }
 
-// GetMovieIdOk returns a tuple with the MovieId field value if set, nil otherwise
+// GetSeriesIdOk returns a tuple with the SeriesId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ManualImportReprocessResource) GetMovieIdOk() (*int32, bool) {
-	if o == nil || isNil(o.MovieId) {
+func (o *ManualImportReprocessResource) GetSeriesIdOk() (*int32, bool) {
+	if o == nil || isNil(o.SeriesId) {
     return nil, false
 	}
-	return o.MovieId, true
+	return o.SeriesId, true
 }
 
-// HasMovieId returns a boolean if a field has been set.
-func (o *ManualImportReprocessResource) HasMovieId() bool {
-	if o != nil && !isNil(o.MovieId) {
+// HasSeriesId returns a boolean if a field has been set.
+func (o *ManualImportReprocessResource) HasSeriesId() bool {
+	if o != nil && !isNil(o.SeriesId) {
 		return true
 	}
 
 	return false
 }
 
-// SetMovieId gets a reference to the given int32 and assigns it to the MovieId field.
-func (o *ManualImportReprocessResource) SetMovieId(v int32) {
-	o.MovieId = &v
+// SetSeriesId gets a reference to the given int32 and assigns it to the SeriesId field.
+func (o *ManualImportReprocessResource) SetSeriesId(v int32) {
+	o.SeriesId = &v
 }
 
-// GetMovie returns the Movie field value if set, zero value otherwise.
-func (o *ManualImportReprocessResource) GetMovie() MovieResource {
-	if o == nil || isNil(o.Movie) {
-		var ret MovieResource
+// GetSeasonNumber returns the SeasonNumber field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ManualImportReprocessResource) GetSeasonNumber() int32 {
+	if o == nil || isNil(o.SeasonNumber.Get()) {
+		var ret int32
 		return ret
 	}
-	return *o.Movie
+	return *o.SeasonNumber.Get()
 }
 
-// GetMovieOk returns a tuple with the Movie field value if set, nil otherwise
+// GetSeasonNumberOk returns a tuple with the SeasonNumber field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ManualImportReprocessResource) GetMovieOk() (*MovieResource, bool) {
-	if o == nil || isNil(o.Movie) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ManualImportReprocessResource) GetSeasonNumberOk() (*int32, bool) {
+	if o == nil {
     return nil, false
 	}
-	return o.Movie, true
+	return o.SeasonNumber.Get(), o.SeasonNumber.IsSet()
 }
 
-// HasMovie returns a boolean if a field has been set.
-func (o *ManualImportReprocessResource) HasMovie() bool {
-	if o != nil && !isNil(o.Movie) {
+// HasSeasonNumber returns a boolean if a field has been set.
+func (o *ManualImportReprocessResource) HasSeasonNumber() bool {
+	if o != nil && o.SeasonNumber.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetMovie gets a reference to the given MovieResource and assigns it to the Movie field.
-func (o *ManualImportReprocessResource) SetMovie(v MovieResource) {
-	o.Movie = &v
+// SetSeasonNumber gets a reference to the given NullableInt32 and assigns it to the SeasonNumber field.
+func (o *ManualImportReprocessResource) SetSeasonNumber(v int32) {
+	o.SeasonNumber.Set(&v)
+}
+// SetSeasonNumberNil sets the value for SeasonNumber to be an explicit nil
+func (o *ManualImportReprocessResource) SetSeasonNumberNil() {
+	o.SeasonNumber.Set(nil)
+}
+
+// UnsetSeasonNumber ensures that no value is present for SeasonNumber, not even an explicit nil
+func (o *ManualImportReprocessResource) UnsetSeasonNumber() {
+	o.SeasonNumber.Unset()
+}
+
+// GetEpisodes returns the Episodes field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ManualImportReprocessResource) GetEpisodes() []*EpisodeResource {
+	if o == nil {
+		var ret []*EpisodeResource
+		return ret
+	}
+	return o.Episodes
+}
+
+// GetEpisodesOk returns a tuple with the Episodes field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ManualImportReprocessResource) GetEpisodesOk() ([]*EpisodeResource, bool) {
+	if o == nil || isNil(o.Episodes) {
+    return nil, false
+	}
+	return o.Episodes, true
+}
+
+// HasEpisodes returns a boolean if a field has been set.
+func (o *ManualImportReprocessResource) HasEpisodes() bool {
+	if o != nil && isNil(o.Episodes) {
+		return true
+	}
+
+	return false
+}
+
+// SetEpisodes gets a reference to the given []EpisodeResource and assigns it to the Episodes field.
+func (o *ManualImportReprocessResource) SetEpisodes(v []*EpisodeResource) {
+	o.Episodes = v
+}
+
+// GetEpisodeIds returns the EpisodeIds field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ManualImportReprocessResource) GetEpisodeIds() []*int32 {
+	if o == nil {
+		var ret []*int32
+		return ret
+	}
+	return o.EpisodeIds
+}
+
+// GetEpisodeIdsOk returns a tuple with the EpisodeIds field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ManualImportReprocessResource) GetEpisodeIdsOk() ([]*int32, bool) {
+	if o == nil || isNil(o.EpisodeIds) {
+    return nil, false
+	}
+	return o.EpisodeIds, true
+}
+
+// HasEpisodeIds returns a boolean if a field has been set.
+func (o *ManualImportReprocessResource) HasEpisodeIds() bool {
+	if o != nil && isNil(o.EpisodeIds) {
+		return true
+	}
+
+	return false
+}
+
+// SetEpisodeIds gets a reference to the given []int32 and assigns it to the EpisodeIds field.
+func (o *ManualImportReprocessResource) SetEpisodeIds(v []*int32) {
+	o.EpisodeIds = v
 }
 
 // GetQuality returns the Quality field value if set, zero value otherwise.
@@ -372,11 +450,17 @@ func (o ManualImportReprocessResource) MarshalJSON() ([]byte, error) {
 	if o.Path.IsSet() {
 		toSerialize["path"] = o.Path.Get()
 	}
-	if !isNil(o.MovieId) {
-		toSerialize["movieId"] = o.MovieId
+	if !isNil(o.SeriesId) {
+		toSerialize["seriesId"] = o.SeriesId
 	}
-	if !isNil(o.Movie) {
-		toSerialize["movie"] = o.Movie
+	if o.SeasonNumber.IsSet() {
+		toSerialize["seasonNumber"] = o.SeasonNumber.Get()
+	}
+	if o.Episodes != nil {
+		toSerialize["episodes"] = o.Episodes
+	}
+	if o.EpisodeIds != nil {
+		toSerialize["episodeIds"] = o.EpisodeIds
 	}
 	if !isNil(o.Quality) {
 		toSerialize["quality"] = o.Quality

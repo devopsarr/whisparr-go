@@ -10,10 +10,13 @@ Name | Type | Description | Notes
 **FolderName** | Pointer to **NullableString** |  | [optional] 
 **Name** | Pointer to **NullableString** |  | [optional] 
 **Size** | Pointer to **int64** |  | [optional] 
-**Movie** | Pointer to [**MovieResource**](MovieResource.md) |  | [optional] 
+**Series** | Pointer to [**SeriesResource**](SeriesResource.md) |  | [optional] 
+**SeasonNumber** | Pointer to **NullableInt32** |  | [optional] 
+**Episodes** | Pointer to [**[]EpisodeResource**](EpisodeResource.md) |  | [optional] 
+**EpisodeFileId** | Pointer to **NullableInt32** |  | [optional] 
+**ReleaseGroup** | Pointer to **NullableString** |  | [optional] 
 **Quality** | Pointer to [**QualityModel**](QualityModel.md) |  | [optional] 
 **Languages** | Pointer to [**[]Language**](Language.md) |  | [optional] 
-**ReleaseGroup** | Pointer to **NullableString** |  | [optional] 
 **QualityWeight** | Pointer to **int32** |  | [optional] 
 **DownloadId** | Pointer to **NullableString** |  | [optional] 
 **Rejections** | Pointer to [**[]Rejection**](Rejection.md) |  | [optional] 
@@ -227,31 +230,171 @@ SetSize sets Size field to given value.
 
 HasSize returns a boolean if a field has been set.
 
-### GetMovie
+### GetSeries
 
-`func (o *ManualImportResource) GetMovie() MovieResource`
+`func (o *ManualImportResource) GetSeries() SeriesResource`
 
-GetMovie returns the Movie field if non-nil, zero value otherwise.
+GetSeries returns the Series field if non-nil, zero value otherwise.
 
-### GetMovieOk
+### GetSeriesOk
 
-`func (o *ManualImportResource) GetMovieOk() (*MovieResource, bool)`
+`func (o *ManualImportResource) GetSeriesOk() (*SeriesResource, bool)`
 
-GetMovieOk returns a tuple with the Movie field if it's non-nil, zero value otherwise
+GetSeriesOk returns a tuple with the Series field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetMovie
+### SetSeries
 
-`func (o *ManualImportResource) SetMovie(v MovieResource)`
+`func (o *ManualImportResource) SetSeries(v SeriesResource)`
 
-SetMovie sets Movie field to given value.
+SetSeries sets Series field to given value.
 
-### HasMovie
+### HasSeries
 
-`func (o *ManualImportResource) HasMovie() bool`
+`func (o *ManualImportResource) HasSeries() bool`
 
-HasMovie returns a boolean if a field has been set.
+HasSeries returns a boolean if a field has been set.
 
+### GetSeasonNumber
+
+`func (o *ManualImportResource) GetSeasonNumber() int32`
+
+GetSeasonNumber returns the SeasonNumber field if non-nil, zero value otherwise.
+
+### GetSeasonNumberOk
+
+`func (o *ManualImportResource) GetSeasonNumberOk() (*int32, bool)`
+
+GetSeasonNumberOk returns a tuple with the SeasonNumber field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSeasonNumber
+
+`func (o *ManualImportResource) SetSeasonNumber(v int32)`
+
+SetSeasonNumber sets SeasonNumber field to given value.
+
+### HasSeasonNumber
+
+`func (o *ManualImportResource) HasSeasonNumber() bool`
+
+HasSeasonNumber returns a boolean if a field has been set.
+
+### SetSeasonNumberNil
+
+`func (o *ManualImportResource) SetSeasonNumberNil(b bool)`
+
+ SetSeasonNumberNil sets the value for SeasonNumber to be an explicit nil
+
+### UnsetSeasonNumber
+`func (o *ManualImportResource) UnsetSeasonNumber()`
+
+UnsetSeasonNumber ensures that no value is present for SeasonNumber, not even an explicit nil
+### GetEpisodes
+
+`func (o *ManualImportResource) GetEpisodes() []EpisodeResource`
+
+GetEpisodes returns the Episodes field if non-nil, zero value otherwise.
+
+### GetEpisodesOk
+
+`func (o *ManualImportResource) GetEpisodesOk() (*[]EpisodeResource, bool)`
+
+GetEpisodesOk returns a tuple with the Episodes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEpisodes
+
+`func (o *ManualImportResource) SetEpisodes(v []EpisodeResource)`
+
+SetEpisodes sets Episodes field to given value.
+
+### HasEpisodes
+
+`func (o *ManualImportResource) HasEpisodes() bool`
+
+HasEpisodes returns a boolean if a field has been set.
+
+### SetEpisodesNil
+
+`func (o *ManualImportResource) SetEpisodesNil(b bool)`
+
+ SetEpisodesNil sets the value for Episodes to be an explicit nil
+
+### UnsetEpisodes
+`func (o *ManualImportResource) UnsetEpisodes()`
+
+UnsetEpisodes ensures that no value is present for Episodes, not even an explicit nil
+### GetEpisodeFileId
+
+`func (o *ManualImportResource) GetEpisodeFileId() int32`
+
+GetEpisodeFileId returns the EpisodeFileId field if non-nil, zero value otherwise.
+
+### GetEpisodeFileIdOk
+
+`func (o *ManualImportResource) GetEpisodeFileIdOk() (*int32, bool)`
+
+GetEpisodeFileIdOk returns a tuple with the EpisodeFileId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEpisodeFileId
+
+`func (o *ManualImportResource) SetEpisodeFileId(v int32)`
+
+SetEpisodeFileId sets EpisodeFileId field to given value.
+
+### HasEpisodeFileId
+
+`func (o *ManualImportResource) HasEpisodeFileId() bool`
+
+HasEpisodeFileId returns a boolean if a field has been set.
+
+### SetEpisodeFileIdNil
+
+`func (o *ManualImportResource) SetEpisodeFileIdNil(b bool)`
+
+ SetEpisodeFileIdNil sets the value for EpisodeFileId to be an explicit nil
+
+### UnsetEpisodeFileId
+`func (o *ManualImportResource) UnsetEpisodeFileId()`
+
+UnsetEpisodeFileId ensures that no value is present for EpisodeFileId, not even an explicit nil
+### GetReleaseGroup
+
+`func (o *ManualImportResource) GetReleaseGroup() string`
+
+GetReleaseGroup returns the ReleaseGroup field if non-nil, zero value otherwise.
+
+### GetReleaseGroupOk
+
+`func (o *ManualImportResource) GetReleaseGroupOk() (*string, bool)`
+
+GetReleaseGroupOk returns a tuple with the ReleaseGroup field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetReleaseGroup
+
+`func (o *ManualImportResource) SetReleaseGroup(v string)`
+
+SetReleaseGroup sets ReleaseGroup field to given value.
+
+### HasReleaseGroup
+
+`func (o *ManualImportResource) HasReleaseGroup() bool`
+
+HasReleaseGroup returns a boolean if a field has been set.
+
+### SetReleaseGroupNil
+
+`func (o *ManualImportResource) SetReleaseGroupNil(b bool)`
+
+ SetReleaseGroupNil sets the value for ReleaseGroup to be an explicit nil
+
+### UnsetReleaseGroup
+`func (o *ManualImportResource) UnsetReleaseGroup()`
+
+UnsetReleaseGroup ensures that no value is present for ReleaseGroup, not even an explicit nil
 ### GetQuality
 
 `func (o *ManualImportResource) GetQuality() QualityModel`
@@ -312,41 +455,6 @@ HasLanguages returns a boolean if a field has been set.
 `func (o *ManualImportResource) UnsetLanguages()`
 
 UnsetLanguages ensures that no value is present for Languages, not even an explicit nil
-### GetReleaseGroup
-
-`func (o *ManualImportResource) GetReleaseGroup() string`
-
-GetReleaseGroup returns the ReleaseGroup field if non-nil, zero value otherwise.
-
-### GetReleaseGroupOk
-
-`func (o *ManualImportResource) GetReleaseGroupOk() (*string, bool)`
-
-GetReleaseGroupOk returns a tuple with the ReleaseGroup field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetReleaseGroup
-
-`func (o *ManualImportResource) SetReleaseGroup(v string)`
-
-SetReleaseGroup sets ReleaseGroup field to given value.
-
-### HasReleaseGroup
-
-`func (o *ManualImportResource) HasReleaseGroup() bool`
-
-HasReleaseGroup returns a boolean if a field has been set.
-
-### SetReleaseGroupNil
-
-`func (o *ManualImportResource) SetReleaseGroupNil(b bool)`
-
- SetReleaseGroupNil sets the value for ReleaseGroup to be an explicit nil
-
-### UnsetReleaseGroup
-`func (o *ManualImportResource) UnsetReleaseGroup()`
-
-UnsetReleaseGroup ensures that no value is present for ReleaseGroup, not even an explicit nil
 ### GetQualityWeight
 
 `func (o *ManualImportResource) GetQualityWeight() int32`

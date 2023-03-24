@@ -19,13 +19,12 @@ type UiConfigResource struct {
 	Id *int32 `json:"id,omitempty"`
 	FirstDayOfWeek *int32 `json:"firstDayOfWeek,omitempty"`
 	CalendarWeekColumnHeader NullableString `json:"calendarWeekColumnHeader,omitempty"`
-	MovieRuntimeFormat *MovieRuntimeFormatType `json:"movieRuntimeFormat,omitempty"`
 	ShortDateFormat NullableString `json:"shortDateFormat,omitempty"`
 	LongDateFormat NullableString `json:"longDateFormat,omitempty"`
 	TimeFormat NullableString `json:"timeFormat,omitempty"`
 	ShowRelativeDates *bool `json:"showRelativeDates,omitempty"`
 	EnableColorImpairedMode *bool `json:"enableColorImpairedMode,omitempty"`
-	MovieInfoLanguage *int32 `json:"movieInfoLanguage,omitempty"`
+	Theme NullableString `json:"theme,omitempty"`
 	UiLanguage *int32 `json:"uiLanguage,omitempty"`
 }
 
@@ -150,38 +149,6 @@ func (o *UiConfigResource) SetCalendarWeekColumnHeaderNil() {
 // UnsetCalendarWeekColumnHeader ensures that no value is present for CalendarWeekColumnHeader, not even an explicit nil
 func (o *UiConfigResource) UnsetCalendarWeekColumnHeader() {
 	o.CalendarWeekColumnHeader.Unset()
-}
-
-// GetMovieRuntimeFormat returns the MovieRuntimeFormat field value if set, zero value otherwise.
-func (o *UiConfigResource) GetMovieRuntimeFormat() MovieRuntimeFormatType {
-	if o == nil || isNil(o.MovieRuntimeFormat) {
-		var ret MovieRuntimeFormatType
-		return ret
-	}
-	return *o.MovieRuntimeFormat
-}
-
-// GetMovieRuntimeFormatOk returns a tuple with the MovieRuntimeFormat field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *UiConfigResource) GetMovieRuntimeFormatOk() (*MovieRuntimeFormatType, bool) {
-	if o == nil || isNil(o.MovieRuntimeFormat) {
-    return nil, false
-	}
-	return o.MovieRuntimeFormat, true
-}
-
-// HasMovieRuntimeFormat returns a boolean if a field has been set.
-func (o *UiConfigResource) HasMovieRuntimeFormat() bool {
-	if o != nil && !isNil(o.MovieRuntimeFormat) {
-		return true
-	}
-
-	return false
-}
-
-// SetMovieRuntimeFormat gets a reference to the given MovieRuntimeFormatType and assigns it to the MovieRuntimeFormat field.
-func (o *UiConfigResource) SetMovieRuntimeFormat(v MovieRuntimeFormatType) {
-	o.MovieRuntimeFormat = &v
 }
 
 // GetShortDateFormat returns the ShortDateFormat field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -374,36 +341,46 @@ func (o *UiConfigResource) SetEnableColorImpairedMode(v bool) {
 	o.EnableColorImpairedMode = &v
 }
 
-// GetMovieInfoLanguage returns the MovieInfoLanguage field value if set, zero value otherwise.
-func (o *UiConfigResource) GetMovieInfoLanguage() int32 {
-	if o == nil || isNil(o.MovieInfoLanguage) {
-		var ret int32
+// GetTheme returns the Theme field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *UiConfigResource) GetTheme() string {
+	if o == nil || isNil(o.Theme.Get()) {
+		var ret string
 		return ret
 	}
-	return *o.MovieInfoLanguage
+	return *o.Theme.Get()
 }
 
-// GetMovieInfoLanguageOk returns a tuple with the MovieInfoLanguage field value if set, nil otherwise
+// GetThemeOk returns a tuple with the Theme field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UiConfigResource) GetMovieInfoLanguageOk() (*int32, bool) {
-	if o == nil || isNil(o.MovieInfoLanguage) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *UiConfigResource) GetThemeOk() (*string, bool) {
+	if o == nil {
     return nil, false
 	}
-	return o.MovieInfoLanguage, true
+	return o.Theme.Get(), o.Theme.IsSet()
 }
 
-// HasMovieInfoLanguage returns a boolean if a field has been set.
-func (o *UiConfigResource) HasMovieInfoLanguage() bool {
-	if o != nil && !isNil(o.MovieInfoLanguage) {
+// HasTheme returns a boolean if a field has been set.
+func (o *UiConfigResource) HasTheme() bool {
+	if o != nil && o.Theme.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetMovieInfoLanguage gets a reference to the given int32 and assigns it to the MovieInfoLanguage field.
-func (o *UiConfigResource) SetMovieInfoLanguage(v int32) {
-	o.MovieInfoLanguage = &v
+// SetTheme gets a reference to the given NullableString and assigns it to the Theme field.
+func (o *UiConfigResource) SetTheme(v string) {
+	o.Theme.Set(&v)
+}
+// SetThemeNil sets the value for Theme to be an explicit nil
+func (o *UiConfigResource) SetThemeNil() {
+	o.Theme.Set(nil)
+}
+
+// UnsetTheme ensures that no value is present for Theme, not even an explicit nil
+func (o *UiConfigResource) UnsetTheme() {
+	o.Theme.Unset()
 }
 
 // GetUiLanguage returns the UiLanguage field value if set, zero value otherwise.
@@ -449,9 +426,6 @@ func (o UiConfigResource) MarshalJSON() ([]byte, error) {
 	if o.CalendarWeekColumnHeader.IsSet() {
 		toSerialize["calendarWeekColumnHeader"] = o.CalendarWeekColumnHeader.Get()
 	}
-	if !isNil(o.MovieRuntimeFormat) {
-		toSerialize["movieRuntimeFormat"] = o.MovieRuntimeFormat
-	}
 	if o.ShortDateFormat.IsSet() {
 		toSerialize["shortDateFormat"] = o.ShortDateFormat.Get()
 	}
@@ -467,8 +441,8 @@ func (o UiConfigResource) MarshalJSON() ([]byte, error) {
 	if !isNil(o.EnableColorImpairedMode) {
 		toSerialize["enableColorImpairedMode"] = o.EnableColorImpairedMode
 	}
-	if !isNil(o.MovieInfoLanguage) {
-		toSerialize["movieInfoLanguage"] = o.MovieInfoLanguage
+	if o.Theme.IsSet() {
+		toSerialize["theme"] = o.Theme.Get()
 	}
 	if !isNil(o.UiLanguage) {
 		toSerialize["uiLanguage"] = o.UiLanguage

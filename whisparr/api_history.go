@@ -88,20 +88,6 @@ func (a *HistoryApiService) CreateHistoryFailedByIdExecute(r ApiCreateHistoryFai
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["X-Api-Key"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["X-Api-Key"] = key
-			}
-		}
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
 			if apiKey, ok := auth["apikey"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
@@ -110,6 +96,20 @@ func (a *HistoryApiService) CreateHistoryFailedByIdExecute(r ApiCreateHistoryFai
 					key = apiKey.Key
 				}
 				localVarQueryParams.Add("apikey", key)
+			}
+		}
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["X-Api-Key"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["X-Api-Key"] = key
 			}
 		}
 	}
@@ -143,11 +143,17 @@ func (a *HistoryApiService) CreateHistoryFailedByIdExecute(r ApiCreateHistoryFai
 type ApiGetHistoryRequest struct {
 	ctx context.Context
 	ApiService *HistoryApiService
-	includeMovie *bool
+	includeSeries *bool
+	includeEpisode *bool
 }
 
-func (r ApiGetHistoryRequest) IncludeMovie(includeMovie bool) ApiGetHistoryRequest {
-	r.includeMovie = &includeMovie
+func (r ApiGetHistoryRequest) IncludeSeries(includeSeries bool) ApiGetHistoryRequest {
+	r.includeSeries = &includeSeries
+	return r
+}
+
+func (r ApiGetHistoryRequest) IncludeEpisode(includeEpisode bool) ApiGetHistoryRequest {
+	r.includeEpisode = &includeEpisode
 	return r
 }
 
@@ -189,8 +195,11 @@ func (a *HistoryApiService) GetHistoryExecute(r ApiGetHistoryRequest) (*HistoryR
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if r.includeMovie != nil {
-		localVarQueryParams.Add("includeMovie", parameterToString(*r.includeMovie, ""))
+	if r.includeSeries != nil {
+		localVarQueryParams.Add("includeSeries", parameterToString(*r.includeSeries, ""))
+	}
+	if r.includeEpisode != nil {
+		localVarQueryParams.Add("includeEpisode", parameterToString(*r.includeEpisode, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -202,26 +211,12 @@ func (a *HistoryApiService) GetHistoryExecute(r ApiGetHistoryRequest) (*HistoryR
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"text/plain", "application/json", "text/json"}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["X-Api-Key"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["X-Api-Key"] = key
-			}
-		}
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -234,6 +229,20 @@ func (a *HistoryApiService) GetHistoryExecute(r ApiGetHistoryRequest) (*HistoryR
 					key = apiKey.Key
 				}
 				localVarQueryParams.Add("apikey", key)
+			}
+		}
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["X-Api-Key"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["X-Api-Key"] = key
 			}
 		}
 	}
@@ -273,41 +282,53 @@ func (a *HistoryApiService) GetHistoryExecute(r ApiGetHistoryRequest) (*HistoryR
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
-type ApiListHistoryMovieRequest struct {
+type ApiListHistorySeriesRequest struct {
 	ctx context.Context
 	ApiService *HistoryApiService
-	movieId *int32
-	eventType *MovieHistoryEventType
-	includeMovie *bool
+	seriesId *int32
+	seasonNumber *int32
+	eventType *EpisodeHistoryEventType
+	includeSeries *bool
+	includeEpisode *bool
 }
 
-func (r ApiListHistoryMovieRequest) MovieId(movieId int32) ApiListHistoryMovieRequest {
-	r.movieId = &movieId
+func (r ApiListHistorySeriesRequest) SeriesId(seriesId int32) ApiListHistorySeriesRequest {
+	r.seriesId = &seriesId
 	return r
 }
 
-func (r ApiListHistoryMovieRequest) EventType(eventType MovieHistoryEventType) ApiListHistoryMovieRequest {
+func (r ApiListHistorySeriesRequest) SeasonNumber(seasonNumber int32) ApiListHistorySeriesRequest {
+	r.seasonNumber = &seasonNumber
+	return r
+}
+
+func (r ApiListHistorySeriesRequest) EventType(eventType EpisodeHistoryEventType) ApiListHistorySeriesRequest {
 	r.eventType = &eventType
 	return r
 }
 
-func (r ApiListHistoryMovieRequest) IncludeMovie(includeMovie bool) ApiListHistoryMovieRequest {
-	r.includeMovie = &includeMovie
+func (r ApiListHistorySeriesRequest) IncludeSeries(includeSeries bool) ApiListHistorySeriesRequest {
+	r.includeSeries = &includeSeries
 	return r
 }
 
-func (r ApiListHistoryMovieRequest) Execute() ([]*HistoryResource, *http.Response, error) {
-	return r.ApiService.ListHistoryMovieExecute(r)
+func (r ApiListHistorySeriesRequest) IncludeEpisode(includeEpisode bool) ApiListHistorySeriesRequest {
+	r.includeEpisode = &includeEpisode
+	return r
+}
+
+func (r ApiListHistorySeriesRequest) Execute() ([]*HistoryResource, *http.Response, error) {
+	return r.ApiService.ListHistorySeriesExecute(r)
 }
 
 /*
-ListHistoryMovie Method for ListHistoryMovie
+ListHistorySeries Method for ListHistorySeries
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiListHistoryMovieRequest
+ @return ApiListHistorySeriesRequest
 */
-func (a *HistoryApiService) ListHistoryMovie(ctx context.Context) ApiListHistoryMovieRequest {
-	return ApiListHistoryMovieRequest{
+func (a *HistoryApiService) ListHistorySeries(ctx context.Context) ApiListHistorySeriesRequest {
+	return ApiListHistorySeriesRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -315,7 +336,7 @@ func (a *HistoryApiService) ListHistoryMovie(ctx context.Context) ApiListHistory
 
 // Execute executes the request
 //  @return []HistoryResource
-func (a *HistoryApiService) ListHistoryMovieExecute(r ApiListHistoryMovieRequest) ([]*HistoryResource, *http.Response, error) {
+func (a *HistoryApiService) ListHistorySeriesExecute(r ApiListHistorySeriesRequest) ([]*HistoryResource, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -323,25 +344,31 @@ func (a *HistoryApiService) ListHistoryMovieExecute(r ApiListHistoryMovieRequest
 		localVarReturnValue  []*HistoryResource
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HistoryApiService.ListHistoryMovie")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HistoryApiService.ListHistorySeries")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/v3/history/movie"
+	localVarPath := localBasePath + "/api/v3/history/series"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if r.movieId != nil {
-		localVarQueryParams.Add("movieId", parameterToString(*r.movieId, ""))
+	if r.seriesId != nil {
+		localVarQueryParams.Add("seriesId", parameterToString(*r.seriesId, ""))
+	}
+	if r.seasonNumber != nil {
+		localVarQueryParams.Add("seasonNumber", parameterToString(*r.seasonNumber, ""))
 	}
 	if r.eventType != nil {
 		localVarQueryParams.Add("eventType", parameterToString(*r.eventType, ""))
 	}
-	if r.includeMovie != nil {
-		localVarQueryParams.Add("includeMovie", parameterToString(*r.includeMovie, ""))
+	if r.includeSeries != nil {
+		localVarQueryParams.Add("includeSeries", parameterToString(*r.includeSeries, ""))
+	}
+	if r.includeEpisode != nil {
+		localVarQueryParams.Add("includeEpisode", parameterToString(*r.includeEpisode, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -353,26 +380,12 @@ func (a *HistoryApiService) ListHistoryMovieExecute(r ApiListHistoryMovieRequest
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"text/plain", "application/json", "text/json"}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["X-Api-Key"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["X-Api-Key"] = key
-			}
-		}
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -385,6 +398,20 @@ func (a *HistoryApiService) ListHistoryMovieExecute(r ApiListHistoryMovieRequest
 					key = apiKey.Key
 				}
 				localVarQueryParams.Add("apikey", key)
+			}
+		}
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["X-Api-Key"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["X-Api-Key"] = key
 			}
 		}
 	}
@@ -428,8 +455,9 @@ type ApiListHistorySinceRequest struct {
 	ctx context.Context
 	ApiService *HistoryApiService
 	date *time.Time
-	eventType *MovieHistoryEventType
-	includeMovie *bool
+	eventType *EpisodeHistoryEventType
+	includeSeries *bool
+	includeEpisode *bool
 }
 
 func (r ApiListHistorySinceRequest) Date(date time.Time) ApiListHistorySinceRequest {
@@ -437,13 +465,18 @@ func (r ApiListHistorySinceRequest) Date(date time.Time) ApiListHistorySinceRequ
 	return r
 }
 
-func (r ApiListHistorySinceRequest) EventType(eventType MovieHistoryEventType) ApiListHistorySinceRequest {
+func (r ApiListHistorySinceRequest) EventType(eventType EpisodeHistoryEventType) ApiListHistorySinceRequest {
 	r.eventType = &eventType
 	return r
 }
 
-func (r ApiListHistorySinceRequest) IncludeMovie(includeMovie bool) ApiListHistorySinceRequest {
-	r.includeMovie = &includeMovie
+func (r ApiListHistorySinceRequest) IncludeSeries(includeSeries bool) ApiListHistorySinceRequest {
+	r.includeSeries = &includeSeries
+	return r
+}
+
+func (r ApiListHistorySinceRequest) IncludeEpisode(includeEpisode bool) ApiListHistorySinceRequest {
+	r.includeEpisode = &includeEpisode
 	return r
 }
 
@@ -491,8 +524,11 @@ func (a *HistoryApiService) ListHistorySinceExecute(r ApiListHistorySinceRequest
 	if r.eventType != nil {
 		localVarQueryParams.Add("eventType", parameterToString(*r.eventType, ""))
 	}
-	if r.includeMovie != nil {
-		localVarQueryParams.Add("includeMovie", parameterToString(*r.includeMovie, ""))
+	if r.includeSeries != nil {
+		localVarQueryParams.Add("includeSeries", parameterToString(*r.includeSeries, ""))
+	}
+	if r.includeEpisode != nil {
+		localVarQueryParams.Add("includeEpisode", parameterToString(*r.includeEpisode, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -504,26 +540,12 @@ func (a *HistoryApiService) ListHistorySinceExecute(r ApiListHistorySinceRequest
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"text/plain", "application/json", "text/json"}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["X-Api-Key"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["X-Api-Key"] = key
-			}
-		}
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -536,6 +558,20 @@ func (a *HistoryApiService) ListHistorySinceExecute(r ApiListHistorySinceRequest
 					key = apiKey.Key
 				}
 				localVarQueryParams.Add("apikey", key)
+			}
+		}
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["X-Api-Key"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["X-Api-Key"] = key
 			}
 		}
 	}

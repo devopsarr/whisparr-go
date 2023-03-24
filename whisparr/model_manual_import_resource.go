@@ -22,10 +22,13 @@ type ManualImportResource struct {
 	FolderName NullableString `json:"folderName,omitempty"`
 	Name NullableString `json:"name,omitempty"`
 	Size *int64 `json:"size,omitempty"`
-	Movie *MovieResource `json:"movie,omitempty"`
+	Series *SeriesResource `json:"series,omitempty"`
+	SeasonNumber NullableInt32 `json:"seasonNumber,omitempty"`
+	Episodes []*EpisodeResource `json:"episodes,omitempty"`
+	EpisodeFileId NullableInt32 `json:"episodeFileId,omitempty"`
+	ReleaseGroup NullableString `json:"releaseGroup,omitempty"`
 	Quality *QualityModel `json:"quality,omitempty"`
 	Languages []*Language `json:"languages,omitempty"`
-	ReleaseGroup NullableString `json:"releaseGroup,omitempty"`
 	QualityWeight *int32 `json:"qualityWeight,omitempty"`
 	DownloadId NullableString `json:"downloadId,omitempty"`
 	Rejections []*Rejection `json:"rejections,omitempty"`
@@ -280,36 +283,195 @@ func (o *ManualImportResource) SetSize(v int64) {
 	o.Size = &v
 }
 
-// GetMovie returns the Movie field value if set, zero value otherwise.
-func (o *ManualImportResource) GetMovie() MovieResource {
-	if o == nil || isNil(o.Movie) {
-		var ret MovieResource
+// GetSeries returns the Series field value if set, zero value otherwise.
+func (o *ManualImportResource) GetSeries() SeriesResource {
+	if o == nil || isNil(o.Series) {
+		var ret SeriesResource
 		return ret
 	}
-	return *o.Movie
+	return *o.Series
 }
 
-// GetMovieOk returns a tuple with the Movie field value if set, nil otherwise
+// GetSeriesOk returns a tuple with the Series field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ManualImportResource) GetMovieOk() (*MovieResource, bool) {
-	if o == nil || isNil(o.Movie) {
+func (o *ManualImportResource) GetSeriesOk() (*SeriesResource, bool) {
+	if o == nil || isNil(o.Series) {
     return nil, false
 	}
-	return o.Movie, true
+	return o.Series, true
 }
 
-// HasMovie returns a boolean if a field has been set.
-func (o *ManualImportResource) HasMovie() bool {
-	if o != nil && !isNil(o.Movie) {
+// HasSeries returns a boolean if a field has been set.
+func (o *ManualImportResource) HasSeries() bool {
+	if o != nil && !isNil(o.Series) {
 		return true
 	}
 
 	return false
 }
 
-// SetMovie gets a reference to the given MovieResource and assigns it to the Movie field.
-func (o *ManualImportResource) SetMovie(v MovieResource) {
-	o.Movie = &v
+// SetSeries gets a reference to the given SeriesResource and assigns it to the Series field.
+func (o *ManualImportResource) SetSeries(v SeriesResource) {
+	o.Series = &v
+}
+
+// GetSeasonNumber returns the SeasonNumber field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ManualImportResource) GetSeasonNumber() int32 {
+	if o == nil || isNil(o.SeasonNumber.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.SeasonNumber.Get()
+}
+
+// GetSeasonNumberOk returns a tuple with the SeasonNumber field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ManualImportResource) GetSeasonNumberOk() (*int32, bool) {
+	if o == nil {
+    return nil, false
+	}
+	return o.SeasonNumber.Get(), o.SeasonNumber.IsSet()
+}
+
+// HasSeasonNumber returns a boolean if a field has been set.
+func (o *ManualImportResource) HasSeasonNumber() bool {
+	if o != nil && o.SeasonNumber.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSeasonNumber gets a reference to the given NullableInt32 and assigns it to the SeasonNumber field.
+func (o *ManualImportResource) SetSeasonNumber(v int32) {
+	o.SeasonNumber.Set(&v)
+}
+// SetSeasonNumberNil sets the value for SeasonNumber to be an explicit nil
+func (o *ManualImportResource) SetSeasonNumberNil() {
+	o.SeasonNumber.Set(nil)
+}
+
+// UnsetSeasonNumber ensures that no value is present for SeasonNumber, not even an explicit nil
+func (o *ManualImportResource) UnsetSeasonNumber() {
+	o.SeasonNumber.Unset()
+}
+
+// GetEpisodes returns the Episodes field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ManualImportResource) GetEpisodes() []*EpisodeResource {
+	if o == nil {
+		var ret []*EpisodeResource
+		return ret
+	}
+	return o.Episodes
+}
+
+// GetEpisodesOk returns a tuple with the Episodes field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ManualImportResource) GetEpisodesOk() ([]*EpisodeResource, bool) {
+	if o == nil || isNil(o.Episodes) {
+    return nil, false
+	}
+	return o.Episodes, true
+}
+
+// HasEpisodes returns a boolean if a field has been set.
+func (o *ManualImportResource) HasEpisodes() bool {
+	if o != nil && isNil(o.Episodes) {
+		return true
+	}
+
+	return false
+}
+
+// SetEpisodes gets a reference to the given []EpisodeResource and assigns it to the Episodes field.
+func (o *ManualImportResource) SetEpisodes(v []*EpisodeResource) {
+	o.Episodes = v
+}
+
+// GetEpisodeFileId returns the EpisodeFileId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ManualImportResource) GetEpisodeFileId() int32 {
+	if o == nil || isNil(o.EpisodeFileId.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.EpisodeFileId.Get()
+}
+
+// GetEpisodeFileIdOk returns a tuple with the EpisodeFileId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ManualImportResource) GetEpisodeFileIdOk() (*int32, bool) {
+	if o == nil {
+    return nil, false
+	}
+	return o.EpisodeFileId.Get(), o.EpisodeFileId.IsSet()
+}
+
+// HasEpisodeFileId returns a boolean if a field has been set.
+func (o *ManualImportResource) HasEpisodeFileId() bool {
+	if o != nil && o.EpisodeFileId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetEpisodeFileId gets a reference to the given NullableInt32 and assigns it to the EpisodeFileId field.
+func (o *ManualImportResource) SetEpisodeFileId(v int32) {
+	o.EpisodeFileId.Set(&v)
+}
+// SetEpisodeFileIdNil sets the value for EpisodeFileId to be an explicit nil
+func (o *ManualImportResource) SetEpisodeFileIdNil() {
+	o.EpisodeFileId.Set(nil)
+}
+
+// UnsetEpisodeFileId ensures that no value is present for EpisodeFileId, not even an explicit nil
+func (o *ManualImportResource) UnsetEpisodeFileId() {
+	o.EpisodeFileId.Unset()
+}
+
+// GetReleaseGroup returns the ReleaseGroup field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ManualImportResource) GetReleaseGroup() string {
+	if o == nil || isNil(o.ReleaseGroup.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ReleaseGroup.Get()
+}
+
+// GetReleaseGroupOk returns a tuple with the ReleaseGroup field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ManualImportResource) GetReleaseGroupOk() (*string, bool) {
+	if o == nil {
+    return nil, false
+	}
+	return o.ReleaseGroup.Get(), o.ReleaseGroup.IsSet()
+}
+
+// HasReleaseGroup returns a boolean if a field has been set.
+func (o *ManualImportResource) HasReleaseGroup() bool {
+	if o != nil && o.ReleaseGroup.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetReleaseGroup gets a reference to the given NullableString and assigns it to the ReleaseGroup field.
+func (o *ManualImportResource) SetReleaseGroup(v string) {
+	o.ReleaseGroup.Set(&v)
+}
+// SetReleaseGroupNil sets the value for ReleaseGroup to be an explicit nil
+func (o *ManualImportResource) SetReleaseGroupNil() {
+	o.ReleaseGroup.Set(nil)
+}
+
+// UnsetReleaseGroup ensures that no value is present for ReleaseGroup, not even an explicit nil
+func (o *ManualImportResource) UnsetReleaseGroup() {
+	o.ReleaseGroup.Unset()
 }
 
 // GetQuality returns the Quality field value if set, zero value otherwise.
@@ -375,48 +537,6 @@ func (o *ManualImportResource) HasLanguages() bool {
 // SetLanguages gets a reference to the given []Language and assigns it to the Languages field.
 func (o *ManualImportResource) SetLanguages(v []*Language) {
 	o.Languages = v
-}
-
-// GetReleaseGroup returns the ReleaseGroup field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ManualImportResource) GetReleaseGroup() string {
-	if o == nil || isNil(o.ReleaseGroup.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.ReleaseGroup.Get()
-}
-
-// GetReleaseGroupOk returns a tuple with the ReleaseGroup field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ManualImportResource) GetReleaseGroupOk() (*string, bool) {
-	if o == nil {
-    return nil, false
-	}
-	return o.ReleaseGroup.Get(), o.ReleaseGroup.IsSet()
-}
-
-// HasReleaseGroup returns a boolean if a field has been set.
-func (o *ManualImportResource) HasReleaseGroup() bool {
-	if o != nil && o.ReleaseGroup.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetReleaseGroup gets a reference to the given NullableString and assigns it to the ReleaseGroup field.
-func (o *ManualImportResource) SetReleaseGroup(v string) {
-	o.ReleaseGroup.Set(&v)
-}
-// SetReleaseGroupNil sets the value for ReleaseGroup to be an explicit nil
-func (o *ManualImportResource) SetReleaseGroupNil() {
-	o.ReleaseGroup.Set(nil)
-}
-
-// UnsetReleaseGroup ensures that no value is present for ReleaseGroup, not even an explicit nil
-func (o *ManualImportResource) UnsetReleaseGroup() {
-	o.ReleaseGroup.Unset()
 }
 
 // GetQualityWeight returns the QualityWeight field value if set, zero value otherwise.
@@ -546,17 +666,26 @@ func (o ManualImportResource) MarshalJSON() ([]byte, error) {
 	if !isNil(o.Size) {
 		toSerialize["size"] = o.Size
 	}
-	if !isNil(o.Movie) {
-		toSerialize["movie"] = o.Movie
+	if !isNil(o.Series) {
+		toSerialize["series"] = o.Series
+	}
+	if o.SeasonNumber.IsSet() {
+		toSerialize["seasonNumber"] = o.SeasonNumber.Get()
+	}
+	if o.Episodes != nil {
+		toSerialize["episodes"] = o.Episodes
+	}
+	if o.EpisodeFileId.IsSet() {
+		toSerialize["episodeFileId"] = o.EpisodeFileId.Get()
+	}
+	if o.ReleaseGroup.IsSet() {
+		toSerialize["releaseGroup"] = o.ReleaseGroup.Get()
 	}
 	if !isNil(o.Quality) {
 		toSerialize["quality"] = o.Quality
 	}
 	if o.Languages != nil {
 		toSerialize["languages"] = o.Languages
-	}
-	if o.ReleaseGroup.IsSet() {
-		toSerialize["releaseGroup"] = o.ReleaseGroup.Get()
 	}
 	if !isNil(o.QualityWeight) {
 		toSerialize["qualityWeight"] = o.QualityWeight

@@ -22,10 +22,9 @@ type Command struct {
 	CompletionMessage NullableString `json:"completionMessage,omitempty"`
 	RequiresDiskAccess *bool `json:"requiresDiskAccess,omitempty"`
 	IsExclusive *bool `json:"isExclusive,omitempty"`
-	IsTypeExclusive *bool `json:"isTypeExclusive,omitempty"`
+	IsLongRunning *bool `json:"isLongRunning,omitempty"`
 	Name NullableString `json:"name,omitempty"`
 	LastExecutionTime NullableTime `json:"lastExecutionTime,omitempty"`
-	LastStartTime NullableTime `json:"lastStartTime,omitempty"`
 	Trigger *CommandTrigger `json:"trigger,omitempty"`
 	SuppressMessages *bool `json:"suppressMessages,omitempty"`
 	ClientUserAgent NullableString `json:"clientUserAgent,omitempty"`
@@ -218,36 +217,36 @@ func (o *Command) SetIsExclusive(v bool) {
 	o.IsExclusive = &v
 }
 
-// GetIsTypeExclusive returns the IsTypeExclusive field value if set, zero value otherwise.
-func (o *Command) GetIsTypeExclusive() bool {
-	if o == nil || isNil(o.IsTypeExclusive) {
+// GetIsLongRunning returns the IsLongRunning field value if set, zero value otherwise.
+func (o *Command) GetIsLongRunning() bool {
+	if o == nil || isNil(o.IsLongRunning) {
 		var ret bool
 		return ret
 	}
-	return *o.IsTypeExclusive
+	return *o.IsLongRunning
 }
 
-// GetIsTypeExclusiveOk returns a tuple with the IsTypeExclusive field value if set, nil otherwise
+// GetIsLongRunningOk returns a tuple with the IsLongRunning field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Command) GetIsTypeExclusiveOk() (*bool, bool) {
-	if o == nil || isNil(o.IsTypeExclusive) {
+func (o *Command) GetIsLongRunningOk() (*bool, bool) {
+	if o == nil || isNil(o.IsLongRunning) {
     return nil, false
 	}
-	return o.IsTypeExclusive, true
+	return o.IsLongRunning, true
 }
 
-// HasIsTypeExclusive returns a boolean if a field has been set.
-func (o *Command) HasIsTypeExclusive() bool {
-	if o != nil && !isNil(o.IsTypeExclusive) {
+// HasIsLongRunning returns a boolean if a field has been set.
+func (o *Command) HasIsLongRunning() bool {
+	if o != nil && !isNil(o.IsLongRunning) {
 		return true
 	}
 
 	return false
 }
 
-// SetIsTypeExclusive gets a reference to the given bool and assigns it to the IsTypeExclusive field.
-func (o *Command) SetIsTypeExclusive(v bool) {
-	o.IsTypeExclusive = &v
+// SetIsLongRunning gets a reference to the given bool and assigns it to the IsLongRunning field.
+func (o *Command) SetIsLongRunning(v bool) {
+	o.IsLongRunning = &v
 }
 
 // GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -332,48 +331,6 @@ func (o *Command) SetLastExecutionTimeNil() {
 // UnsetLastExecutionTime ensures that no value is present for LastExecutionTime, not even an explicit nil
 func (o *Command) UnsetLastExecutionTime() {
 	o.LastExecutionTime.Unset()
-}
-
-// GetLastStartTime returns the LastStartTime field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *Command) GetLastStartTime() time.Time {
-	if o == nil || isNil(o.LastStartTime.Get()) {
-		var ret time.Time
-		return ret
-	}
-	return *o.LastStartTime.Get()
-}
-
-// GetLastStartTimeOk returns a tuple with the LastStartTime field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Command) GetLastStartTimeOk() (*time.Time, bool) {
-	if o == nil {
-    return nil, false
-	}
-	return o.LastStartTime.Get(), o.LastStartTime.IsSet()
-}
-
-// HasLastStartTime returns a boolean if a field has been set.
-func (o *Command) HasLastStartTime() bool {
-	if o != nil && o.LastStartTime.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetLastStartTime gets a reference to the given NullableTime and assigns it to the LastStartTime field.
-func (o *Command) SetLastStartTime(v time.Time) {
-	o.LastStartTime.Set(&v)
-}
-// SetLastStartTimeNil sets the value for LastStartTime to be an explicit nil
-func (o *Command) SetLastStartTimeNil() {
-	o.LastStartTime.Set(nil)
-}
-
-// UnsetLastStartTime ensures that no value is present for LastStartTime, not even an explicit nil
-func (o *Command) UnsetLastStartTime() {
-	o.LastStartTime.Unset()
 }
 
 // GetTrigger returns the Trigger field value if set, zero value otherwise.
@@ -499,17 +456,14 @@ func (o Command) MarshalJSON() ([]byte, error) {
 	if !isNil(o.IsExclusive) {
 		toSerialize["isExclusive"] = o.IsExclusive
 	}
-	if !isNil(o.IsTypeExclusive) {
-		toSerialize["isTypeExclusive"] = o.IsTypeExclusive
+	if !isNil(o.IsLongRunning) {
+		toSerialize["isLongRunning"] = o.IsLongRunning
 	}
 	if o.Name.IsSet() {
 		toSerialize["name"] = o.Name.Get()
 	}
 	if o.LastExecutionTime.IsSet() {
 		toSerialize["lastExecutionTime"] = o.LastExecutionTime.Get()
-	}
-	if o.LastStartTime.IsSet() {
-		toSerialize["lastStartTime"] = o.LastStartTime.Get()
 	}
 	if !isNil(o.Trigger) {
 		toSerialize["trigger"] = o.Trigger

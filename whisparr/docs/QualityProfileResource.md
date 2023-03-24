@@ -12,7 +12,6 @@ Name | Type | Description | Notes
 **MinFormatScore** | Pointer to **int32** |  | [optional] 
 **CutoffFormatScore** | Pointer to **int32** |  | [optional] 
 **FormatItems** | Pointer to [**[]ProfileFormatItemResource**](ProfileFormatItemResource.md) |  | [optional] 
-**Language** | Pointer to [**Language**](Language.md) |  | [optional] 
 
 ## Methods
 
@@ -263,31 +262,6 @@ HasFormatItems returns a boolean if a field has been set.
 `func (o *QualityProfileResource) UnsetFormatItems()`
 
 UnsetFormatItems ensures that no value is present for FormatItems, not even an explicit nil
-### GetLanguage
-
-`func (o *QualityProfileResource) GetLanguage() Language`
-
-GetLanguage returns the Language field if non-nil, zero value otherwise.
-
-### GetLanguageOk
-
-`func (o *QualityProfileResource) GetLanguageOk() (*Language, bool)`
-
-GetLanguageOk returns a tuple with the Language field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetLanguage
-
-`func (o *QualityProfileResource) SetLanguage(v Language)`
-
-SetLanguage sets Language field to given value.
-
-### HasLanguage
-
-`func (o *QualityProfileResource) HasLanguage() bool`
-
-HasLanguage returns a boolean if a field has been set.
-
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

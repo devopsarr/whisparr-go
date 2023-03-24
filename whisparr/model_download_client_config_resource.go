@@ -19,7 +19,6 @@ type DownloadClientConfigResource struct {
 	Id *int32 `json:"id,omitempty"`
 	DownloadClientWorkingFolders NullableString `json:"downloadClientWorkingFolders,omitempty"`
 	EnableCompletedDownloadHandling *bool `json:"enableCompletedDownloadHandling,omitempty"`
-	CheckForFinishedDownloadInterval *int32 `json:"checkForFinishedDownloadInterval,omitempty"`
 	AutoRedownloadFailed *bool `json:"autoRedownloadFailed,omitempty"`
 }
 
@@ -146,38 +145,6 @@ func (o *DownloadClientConfigResource) SetEnableCompletedDownloadHandling(v bool
 	o.EnableCompletedDownloadHandling = &v
 }
 
-// GetCheckForFinishedDownloadInterval returns the CheckForFinishedDownloadInterval field value if set, zero value otherwise.
-func (o *DownloadClientConfigResource) GetCheckForFinishedDownloadInterval() int32 {
-	if o == nil || isNil(o.CheckForFinishedDownloadInterval) {
-		var ret int32
-		return ret
-	}
-	return *o.CheckForFinishedDownloadInterval
-}
-
-// GetCheckForFinishedDownloadIntervalOk returns a tuple with the CheckForFinishedDownloadInterval field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *DownloadClientConfigResource) GetCheckForFinishedDownloadIntervalOk() (*int32, bool) {
-	if o == nil || isNil(o.CheckForFinishedDownloadInterval) {
-    return nil, false
-	}
-	return o.CheckForFinishedDownloadInterval, true
-}
-
-// HasCheckForFinishedDownloadInterval returns a boolean if a field has been set.
-func (o *DownloadClientConfigResource) HasCheckForFinishedDownloadInterval() bool {
-	if o != nil && !isNil(o.CheckForFinishedDownloadInterval) {
-		return true
-	}
-
-	return false
-}
-
-// SetCheckForFinishedDownloadInterval gets a reference to the given int32 and assigns it to the CheckForFinishedDownloadInterval field.
-func (o *DownloadClientConfigResource) SetCheckForFinishedDownloadInterval(v int32) {
-	o.CheckForFinishedDownloadInterval = &v
-}
-
 // GetAutoRedownloadFailed returns the AutoRedownloadFailed field value if set, zero value otherwise.
 func (o *DownloadClientConfigResource) GetAutoRedownloadFailed() bool {
 	if o == nil || isNil(o.AutoRedownloadFailed) {
@@ -220,9 +187,6 @@ func (o DownloadClientConfigResource) MarshalJSON() ([]byte, error) {
 	}
 	if !isNil(o.EnableCompletedDownloadHandling) {
 		toSerialize["enableCompletedDownloadHandling"] = o.EnableCompletedDownloadHandling
-	}
-	if !isNil(o.CheckForFinishedDownloadInterval) {
-		toSerialize["checkForFinishedDownloadInterval"] = o.CheckForFinishedDownloadInterval
 	}
 	if !isNil(o.AutoRedownloadFailed) {
 		toSerialize["autoRedownloadFailed"] = o.AutoRedownloadFailed

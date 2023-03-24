@@ -6,8 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **int32** |  | [optional] 
 **Path** | Pointer to **NullableString** |  | [optional] 
-**MovieId** | Pointer to **int32** |  | [optional] 
-**Movie** | Pointer to [**MovieResource**](MovieResource.md) |  | [optional] 
+**SeriesId** | Pointer to **int32** |  | [optional] 
+**SeasonNumber** | Pointer to **NullableInt32** |  | [optional] 
+**Episodes** | Pointer to [**[]EpisodeResource**](EpisodeResource.md) |  | [optional] 
+**EpisodeIds** | Pointer to **[]int32** |  | [optional] 
 **Quality** | Pointer to [**QualityModel**](QualityModel.md) |  | [optional] 
 **Languages** | Pointer to [**[]Language**](Language.md) |  | [optional] 
 **ReleaseGroup** | Pointer to **NullableString** |  | [optional] 
@@ -93,56 +95,136 @@ HasPath returns a boolean if a field has been set.
 `func (o *ManualImportReprocessResource) UnsetPath()`
 
 UnsetPath ensures that no value is present for Path, not even an explicit nil
-### GetMovieId
+### GetSeriesId
 
-`func (o *ManualImportReprocessResource) GetMovieId() int32`
+`func (o *ManualImportReprocessResource) GetSeriesId() int32`
 
-GetMovieId returns the MovieId field if non-nil, zero value otherwise.
+GetSeriesId returns the SeriesId field if non-nil, zero value otherwise.
 
-### GetMovieIdOk
+### GetSeriesIdOk
 
-`func (o *ManualImportReprocessResource) GetMovieIdOk() (*int32, bool)`
+`func (o *ManualImportReprocessResource) GetSeriesIdOk() (*int32, bool)`
 
-GetMovieIdOk returns a tuple with the MovieId field if it's non-nil, zero value otherwise
+GetSeriesIdOk returns a tuple with the SeriesId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetMovieId
+### SetSeriesId
 
-`func (o *ManualImportReprocessResource) SetMovieId(v int32)`
+`func (o *ManualImportReprocessResource) SetSeriesId(v int32)`
 
-SetMovieId sets MovieId field to given value.
+SetSeriesId sets SeriesId field to given value.
 
-### HasMovieId
+### HasSeriesId
 
-`func (o *ManualImportReprocessResource) HasMovieId() bool`
+`func (o *ManualImportReprocessResource) HasSeriesId() bool`
 
-HasMovieId returns a boolean if a field has been set.
+HasSeriesId returns a boolean if a field has been set.
 
-### GetMovie
+### GetSeasonNumber
 
-`func (o *ManualImportReprocessResource) GetMovie() MovieResource`
+`func (o *ManualImportReprocessResource) GetSeasonNumber() int32`
 
-GetMovie returns the Movie field if non-nil, zero value otherwise.
+GetSeasonNumber returns the SeasonNumber field if non-nil, zero value otherwise.
 
-### GetMovieOk
+### GetSeasonNumberOk
 
-`func (o *ManualImportReprocessResource) GetMovieOk() (*MovieResource, bool)`
+`func (o *ManualImportReprocessResource) GetSeasonNumberOk() (*int32, bool)`
 
-GetMovieOk returns a tuple with the Movie field if it's non-nil, zero value otherwise
+GetSeasonNumberOk returns a tuple with the SeasonNumber field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetMovie
+### SetSeasonNumber
 
-`func (o *ManualImportReprocessResource) SetMovie(v MovieResource)`
+`func (o *ManualImportReprocessResource) SetSeasonNumber(v int32)`
 
-SetMovie sets Movie field to given value.
+SetSeasonNumber sets SeasonNumber field to given value.
 
-### HasMovie
+### HasSeasonNumber
 
-`func (o *ManualImportReprocessResource) HasMovie() bool`
+`func (o *ManualImportReprocessResource) HasSeasonNumber() bool`
 
-HasMovie returns a boolean if a field has been set.
+HasSeasonNumber returns a boolean if a field has been set.
 
+### SetSeasonNumberNil
+
+`func (o *ManualImportReprocessResource) SetSeasonNumberNil(b bool)`
+
+ SetSeasonNumberNil sets the value for SeasonNumber to be an explicit nil
+
+### UnsetSeasonNumber
+`func (o *ManualImportReprocessResource) UnsetSeasonNumber()`
+
+UnsetSeasonNumber ensures that no value is present for SeasonNumber, not even an explicit nil
+### GetEpisodes
+
+`func (o *ManualImportReprocessResource) GetEpisodes() []EpisodeResource`
+
+GetEpisodes returns the Episodes field if non-nil, zero value otherwise.
+
+### GetEpisodesOk
+
+`func (o *ManualImportReprocessResource) GetEpisodesOk() (*[]EpisodeResource, bool)`
+
+GetEpisodesOk returns a tuple with the Episodes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEpisodes
+
+`func (o *ManualImportReprocessResource) SetEpisodes(v []EpisodeResource)`
+
+SetEpisodes sets Episodes field to given value.
+
+### HasEpisodes
+
+`func (o *ManualImportReprocessResource) HasEpisodes() bool`
+
+HasEpisodes returns a boolean if a field has been set.
+
+### SetEpisodesNil
+
+`func (o *ManualImportReprocessResource) SetEpisodesNil(b bool)`
+
+ SetEpisodesNil sets the value for Episodes to be an explicit nil
+
+### UnsetEpisodes
+`func (o *ManualImportReprocessResource) UnsetEpisodes()`
+
+UnsetEpisodes ensures that no value is present for Episodes, not even an explicit nil
+### GetEpisodeIds
+
+`func (o *ManualImportReprocessResource) GetEpisodeIds() []int32`
+
+GetEpisodeIds returns the EpisodeIds field if non-nil, zero value otherwise.
+
+### GetEpisodeIdsOk
+
+`func (o *ManualImportReprocessResource) GetEpisodeIdsOk() (*[]int32, bool)`
+
+GetEpisodeIdsOk returns a tuple with the EpisodeIds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEpisodeIds
+
+`func (o *ManualImportReprocessResource) SetEpisodeIds(v []int32)`
+
+SetEpisodeIds sets EpisodeIds field to given value.
+
+### HasEpisodeIds
+
+`func (o *ManualImportReprocessResource) HasEpisodeIds() bool`
+
+HasEpisodeIds returns a boolean if a field has been set.
+
+### SetEpisodeIdsNil
+
+`func (o *ManualImportReprocessResource) SetEpisodeIdsNil(b bool)`
+
+ SetEpisodeIdsNil sets the value for EpisodeIds to be an explicit nil
+
+### UnsetEpisodeIds
+`func (o *ManualImportReprocessResource) UnsetEpisodeIds()`
+
+UnsetEpisodeIds ensures that no value is present for EpisodeIds, not even an explicit nil
 ### GetQuality
 
 `func (o *ManualImportReprocessResource) GetQuality() QualityModel`

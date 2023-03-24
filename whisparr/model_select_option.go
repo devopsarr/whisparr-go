@@ -20,7 +20,6 @@ type SelectOption struct {
 	Name NullableString `json:"name,omitempty"`
 	Order *int32 `json:"order,omitempty"`
 	Hint NullableString `json:"hint,omitempty"`
-	DividerAfter *bool `json:"dividerAfter,omitempty"`
 }
 
 // NewSelectOption instantiates a new SelectOption object
@@ -188,38 +187,6 @@ func (o *SelectOption) UnsetHint() {
 	o.Hint.Unset()
 }
 
-// GetDividerAfter returns the DividerAfter field value if set, zero value otherwise.
-func (o *SelectOption) GetDividerAfter() bool {
-	if o == nil || isNil(o.DividerAfter) {
-		var ret bool
-		return ret
-	}
-	return *o.DividerAfter
-}
-
-// GetDividerAfterOk returns a tuple with the DividerAfter field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *SelectOption) GetDividerAfterOk() (*bool, bool) {
-	if o == nil || isNil(o.DividerAfter) {
-    return nil, false
-	}
-	return o.DividerAfter, true
-}
-
-// HasDividerAfter returns a boolean if a field has been set.
-func (o *SelectOption) HasDividerAfter() bool {
-	if o != nil && !isNil(o.DividerAfter) {
-		return true
-	}
-
-	return false
-}
-
-// SetDividerAfter gets a reference to the given bool and assigns it to the DividerAfter field.
-func (o *SelectOption) SetDividerAfter(v bool) {
-	o.DividerAfter = &v
-}
-
 func (o SelectOption) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.Value) {
@@ -233,9 +200,6 @@ func (o SelectOption) MarshalJSON() ([]byte, error) {
 	}
 	if o.Hint.IsSet() {
 		toSerialize["hint"] = o.Hint.Get()
-	}
-	if !isNil(o.DividerAfter) {
-		toSerialize["dividerAfter"] = o.DividerAfter
 	}
 	return json.Marshal(toSerialize)
 }

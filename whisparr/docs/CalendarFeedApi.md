@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## GetFeedV3CalendarWhisparrIcs
 
-> GetFeedV3CalendarWhisparrIcs(ctx).PastDays(pastDays).FutureDays(futureDays).TagList(tagList).Unmonitored(unmonitored).Execute()
+> GetFeedV3CalendarWhisparrIcs(ctx).PastDays(pastDays).FutureDays(futureDays).TagList(tagList).Unmonitored(unmonitored).PremieresOnly(premieresOnly).AsAllDay(asAllDay).Execute()
 
 
 
@@ -31,10 +31,12 @@ func main() {
     futureDays := int32(56) // int32 |  (optional) (default to 28)
     tagList := "tagList_example" // string |  (optional) (default to "")
     unmonitored := true // bool |  (optional) (default to false)
+    premieresOnly := true // bool |  (optional) (default to false)
+    asAllDay := true // bool |  (optional) (default to false)
 
     configuration := whisparrClient.NewConfiguration()
     apiClient := whisparrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CalendarFeedApi.GetFeedV3CalendarWhisparrIcs(context.Background()).PastDays(pastDays).FutureDays(futureDays).TagList(tagList).Unmonitored(unmonitored).Execute()
+    resp, r, err := apiClient.CalendarFeedApi.GetFeedV3CalendarWhisparrIcs(context.Background()).PastDays(pastDays).FutureDays(futureDays).TagList(tagList).Unmonitored(unmonitored).PremieresOnly(premieresOnly).AsAllDay(asAllDay).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CalendarFeedApi.GetFeedV3CalendarWhisparrIcs``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -57,6 +59,8 @@ Name | Type | Description  | Notes
  **futureDays** | **int32** |  | [default to 28]
  **tagList** | **string** |  | [default to &quot;&quot;]
  **unmonitored** | **bool** |  | [default to false]
+ **premieresOnly** | **bool** |  | [default to false]
+ **asAllDay** | **bool** |  | [default to false]
 
 ### Return type
 
@@ -64,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[X-Api-Key](../README.md#X-Api-Key), [apikey](../README.md#apikey)
+[apikey](../README.md#apikey), [X-Api-Key](../README.md#X-Api-Key)
 
 ### HTTP request headers
 

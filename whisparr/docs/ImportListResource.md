@@ -14,13 +14,12 @@ Name | Type | Description | Notes
 **Message** | Pointer to [**ProviderMessage**](ProviderMessage.md) |  | [optional] 
 **Tags** | Pointer to **[]int32** |  | [optional] 
 **Presets** | Pointer to [**[]ImportListResource**](ImportListResource.md) |  | [optional] 
-**Enabled** | Pointer to **bool** |  | [optional] 
-**EnableAuto** | Pointer to **bool** |  | [optional] 
-**ShouldMonitor** | Pointer to **bool** |  | [optional] 
+**EnableAutomaticAdd** | Pointer to **bool** |  | [optional] 
+**ShouldMonitor** | Pointer to [**MonitorTypes**](MonitorTypes.md) |  | [optional] 
 **RootFolderPath** | Pointer to **NullableString** |  | [optional] 
 **QualityProfileId** | Pointer to **int32** |  | [optional] 
-**SearchOnAdd** | Pointer to **bool** |  | [optional] 
-**MinimumAvailability** | Pointer to [**MovieStatusType**](MovieStatusType.md) |  | [optional] 
+**SeriesType** | Pointer to [**SeriesTypes**](SeriesTypes.md) |  | [optional] 
+**SeasonFolder** | Pointer to **bool** |  | [optional] 
 **ListType** | Pointer to [**ImportListType**](ImportListType.md) |  | [optional] 
 **ListOrder** | Pointer to **int32** |  | [optional] 
 
@@ -373,72 +372,47 @@ HasPresets returns a boolean if a field has been set.
 `func (o *ImportListResource) UnsetPresets()`
 
 UnsetPresets ensures that no value is present for Presets, not even an explicit nil
-### GetEnabled
+### GetEnableAutomaticAdd
 
-`func (o *ImportListResource) GetEnabled() bool`
+`func (o *ImportListResource) GetEnableAutomaticAdd() bool`
 
-GetEnabled returns the Enabled field if non-nil, zero value otherwise.
+GetEnableAutomaticAdd returns the EnableAutomaticAdd field if non-nil, zero value otherwise.
 
-### GetEnabledOk
+### GetEnableAutomaticAddOk
 
-`func (o *ImportListResource) GetEnabledOk() (*bool, bool)`
+`func (o *ImportListResource) GetEnableAutomaticAddOk() (*bool, bool)`
 
-GetEnabledOk returns a tuple with the Enabled field if it's non-nil, zero value otherwise
+GetEnableAutomaticAddOk returns a tuple with the EnableAutomaticAdd field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetEnabled
+### SetEnableAutomaticAdd
 
-`func (o *ImportListResource) SetEnabled(v bool)`
+`func (o *ImportListResource) SetEnableAutomaticAdd(v bool)`
 
-SetEnabled sets Enabled field to given value.
+SetEnableAutomaticAdd sets EnableAutomaticAdd field to given value.
 
-### HasEnabled
+### HasEnableAutomaticAdd
 
-`func (o *ImportListResource) HasEnabled() bool`
+`func (o *ImportListResource) HasEnableAutomaticAdd() bool`
 
-HasEnabled returns a boolean if a field has been set.
-
-### GetEnableAuto
-
-`func (o *ImportListResource) GetEnableAuto() bool`
-
-GetEnableAuto returns the EnableAuto field if non-nil, zero value otherwise.
-
-### GetEnableAutoOk
-
-`func (o *ImportListResource) GetEnableAutoOk() (*bool, bool)`
-
-GetEnableAutoOk returns a tuple with the EnableAuto field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetEnableAuto
-
-`func (o *ImportListResource) SetEnableAuto(v bool)`
-
-SetEnableAuto sets EnableAuto field to given value.
-
-### HasEnableAuto
-
-`func (o *ImportListResource) HasEnableAuto() bool`
-
-HasEnableAuto returns a boolean if a field has been set.
+HasEnableAutomaticAdd returns a boolean if a field has been set.
 
 ### GetShouldMonitor
 
-`func (o *ImportListResource) GetShouldMonitor() bool`
+`func (o *ImportListResource) GetShouldMonitor() MonitorTypes`
 
 GetShouldMonitor returns the ShouldMonitor field if non-nil, zero value otherwise.
 
 ### GetShouldMonitorOk
 
-`func (o *ImportListResource) GetShouldMonitorOk() (*bool, bool)`
+`func (o *ImportListResource) GetShouldMonitorOk() (*MonitorTypes, bool)`
 
 GetShouldMonitorOk returns a tuple with the ShouldMonitor field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetShouldMonitor
 
-`func (o *ImportListResource) SetShouldMonitor(v bool)`
+`func (o *ImportListResource) SetShouldMonitor(v MonitorTypes)`
 
 SetShouldMonitor sets ShouldMonitor field to given value.
 
@@ -508,55 +482,55 @@ SetQualityProfileId sets QualityProfileId field to given value.
 
 HasQualityProfileId returns a boolean if a field has been set.
 
-### GetSearchOnAdd
+### GetSeriesType
 
-`func (o *ImportListResource) GetSearchOnAdd() bool`
+`func (o *ImportListResource) GetSeriesType() SeriesTypes`
 
-GetSearchOnAdd returns the SearchOnAdd field if non-nil, zero value otherwise.
+GetSeriesType returns the SeriesType field if non-nil, zero value otherwise.
 
-### GetSearchOnAddOk
+### GetSeriesTypeOk
 
-`func (o *ImportListResource) GetSearchOnAddOk() (*bool, bool)`
+`func (o *ImportListResource) GetSeriesTypeOk() (*SeriesTypes, bool)`
 
-GetSearchOnAddOk returns a tuple with the SearchOnAdd field if it's non-nil, zero value otherwise
+GetSeriesTypeOk returns a tuple with the SeriesType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSearchOnAdd
+### SetSeriesType
 
-`func (o *ImportListResource) SetSearchOnAdd(v bool)`
+`func (o *ImportListResource) SetSeriesType(v SeriesTypes)`
 
-SetSearchOnAdd sets SearchOnAdd field to given value.
+SetSeriesType sets SeriesType field to given value.
 
-### HasSearchOnAdd
+### HasSeriesType
 
-`func (o *ImportListResource) HasSearchOnAdd() bool`
+`func (o *ImportListResource) HasSeriesType() bool`
 
-HasSearchOnAdd returns a boolean if a field has been set.
+HasSeriesType returns a boolean if a field has been set.
 
-### GetMinimumAvailability
+### GetSeasonFolder
 
-`func (o *ImportListResource) GetMinimumAvailability() MovieStatusType`
+`func (o *ImportListResource) GetSeasonFolder() bool`
 
-GetMinimumAvailability returns the MinimumAvailability field if non-nil, zero value otherwise.
+GetSeasonFolder returns the SeasonFolder field if non-nil, zero value otherwise.
 
-### GetMinimumAvailabilityOk
+### GetSeasonFolderOk
 
-`func (o *ImportListResource) GetMinimumAvailabilityOk() (*MovieStatusType, bool)`
+`func (o *ImportListResource) GetSeasonFolderOk() (*bool, bool)`
 
-GetMinimumAvailabilityOk returns a tuple with the MinimumAvailability field if it's non-nil, zero value otherwise
+GetSeasonFolderOk returns a tuple with the SeasonFolder field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetMinimumAvailability
+### SetSeasonFolder
 
-`func (o *ImportListResource) SetMinimumAvailability(v MovieStatusType)`
+`func (o *ImportListResource) SetSeasonFolder(v bool)`
 
-SetMinimumAvailability sets MinimumAvailability field to given value.
+SetSeasonFolder sets SeasonFolder field to given value.
 
-### HasMinimumAvailability
+### HasSeasonFolder
 
-`func (o *ImportListResource) HasMinimumAvailability() bool`
+`func (o *ImportListResource) HasSeasonFolder() bool`
 
-HasMinimumAvailability returns a boolean if a field has been set.
+HasSeasonFolder returns a boolean if a field has been set.
 
 ### GetListType
 
