@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.2.0](https://github.com/devopsarr/whisparr-go/compare/v0.1.1...v0.2.0) (2023-03-24)
+
+
+### Features
+
+* sdk generation alignment ([71b0e8a](https://github.com/devopsarr/whisparr-go/commit/71b0e8a39e76105c884e828c37f2bfefde69a176))
+
+
+### Bug Fixes
+
+* **whisparr:** use radarr swagger for now ([b92dbe3](https://github.com/devopsarr/whisparr-go/commit/b92dbe38b15a314c2fbc0f47536e7e2cdbbdb924))
+
 ## [0.1.1](https://github.com/devopsarr/whisparr-go/compare/v0.1.0...v0.1.1) (2023-01-27)
 
 
