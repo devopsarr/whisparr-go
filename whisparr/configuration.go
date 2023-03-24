@@ -102,7 +102,7 @@ func NewConfiguration() *Configuration {
 	cfg := &Configuration{
 		DefaultHeader:    make(map[string]string),
 		// x-release-please-start-version
-		UserAgent:        "whisparr-go/v0.1.1",
+		UserAgent:        "whisparr-go/v0.2.0",
 		// x-release-please-end
 		Debug:            false,
 		Servers:          ServerConfigurations{
