@@ -1,7 +1,7 @@
 /*
-Whisparr
+Radarr
 
-Whisparr API docs
+Radarr API docs
 
 API version: 3.0.0
 */
@@ -72,7 +72,7 @@ func (a *CommandApiService) CreateCommandExecute(r ApiCreateCommandRequest) (*Co
 	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{"application/json", "text/json", "application/*+json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -81,7 +81,7 @@ func (a *CommandApiService) CreateCommandExecute(r ApiCreateCommandRequest) (*Co
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"text/plain", "application/json", "text/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -328,7 +328,7 @@ func (a *CommandApiService) GetCommandByIdExecute(r ApiGetCommandByIdRequest) (*
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"text/plain", "application/json", "text/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -452,7 +452,7 @@ func (a *CommandApiService) ListCommandExecute(r ApiListCommandRequest) ([]*Comm
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"text/plain", "application/json", "text/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)

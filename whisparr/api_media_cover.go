@@ -1,7 +1,7 @@
 /*
-Whisparr
+Radarr
 
-Whisparr API docs
+Radarr API docs
 
 API version: 3.0.0
 */
@@ -22,49 +22,49 @@ import (
 
 // MediaCoverApiService MediaCoverApi service
 type MediaCoverApiService service
-type ApiGetMediaCoverseriesIdByFilenameRequest struct {
+type ApiGetMediaCovermovieIdByFilenameRequest struct {
 	ctx context.Context
 	ApiService *MediaCoverApiService
-	seriesId int32
+	movieId int32
 	filename string
 }
 
-func (r ApiGetMediaCoverseriesIdByFilenameRequest) Execute() (*http.Response, error) {
-	return r.ApiService.GetMediaCoverseriesIdByFilenameExecute(r)
+func (r ApiGetMediaCovermovieIdByFilenameRequest) Execute() (*http.Response, error) {
+	return r.ApiService.GetMediaCovermovieIdByFilenameExecute(r)
 }
 
 /*
-GetMediaCoverseriesIdByFilename Method for GetMediaCoverseriesIdByFilename
+GetMediaCovermovieIdByFilename Method for GetMediaCovermovieIdByFilename
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param seriesId
+ @param movieId
  @param filename
- @return ApiGetMediaCoverseriesIdByFilenameRequest
+ @return ApiGetMediaCovermovieIdByFilenameRequest
 */
-func (a *MediaCoverApiService) GetMediaCoverseriesIdByFilename(ctx context.Context, seriesId int32, filename string) ApiGetMediaCoverseriesIdByFilenameRequest {
-	return ApiGetMediaCoverseriesIdByFilenameRequest{
+func (a *MediaCoverApiService) GetMediaCovermovieIdByFilename(ctx context.Context, movieId int32, filename string) ApiGetMediaCovermovieIdByFilenameRequest {
+	return ApiGetMediaCovermovieIdByFilenameRequest{
 		ApiService: a,
 		ctx: ctx,
-		seriesId: seriesId,
+		movieId: movieId,
 		filename: filename,
 	}
 }
 
 // Execute executes the request
-func (a *MediaCoverApiService) GetMediaCoverseriesIdByFilenameExecute(r ApiGetMediaCoverseriesIdByFilenameRequest) (*http.Response, error) {
+func (a *MediaCoverApiService) GetMediaCovermovieIdByFilenameExecute(r ApiGetMediaCovermovieIdByFilenameRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MediaCoverApiService.GetMediaCoverseriesIdByFilename")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MediaCoverApiService.GetMediaCovermovieIdByFilename")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/v3/mediacover/{seriesId}/{filename}"
-	localVarPath = strings.Replace(localVarPath, "{"+"seriesId"+"}", url.PathEscape(parameterToString(r.seriesId, "")), -1)
+	localVarPath := localBasePath + "/api/v3/mediacover/{movieId}/{filename}"
+	localVarPath = strings.Replace(localVarPath, "{"+"movieId"+"}", url.PathEscape(parameterToString(r.movieId, "")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"filename"+"}", url.PathEscape(parameterToString(r.filename, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)

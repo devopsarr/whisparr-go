@@ -21,7 +21,6 @@ Name | Type | Description | Notes
 **SupportsSearch** | Pointer to **bool** |  | [optional] 
 **Protocol** | Pointer to [**DownloadProtocol**](DownloadProtocol.md) |  | [optional] 
 **Priority** | Pointer to **int32** |  | [optional] 
-**SeasonSearchMaximumSingleEpisodeAge** | Pointer to **int32** |  | [optional] 
 **DownloadClientId** | Pointer to **int32** |  | [optional] 
 
 ## Methods
@@ -547,31 +546,6 @@ SetPriority sets Priority field to given value.
 `func (o *IndexerResource) HasPriority() bool`
 
 HasPriority returns a boolean if a field has been set.
-
-### GetSeasonSearchMaximumSingleEpisodeAge
-
-`func (o *IndexerResource) GetSeasonSearchMaximumSingleEpisodeAge() int32`
-
-GetSeasonSearchMaximumSingleEpisodeAge returns the SeasonSearchMaximumSingleEpisodeAge field if non-nil, zero value otherwise.
-
-### GetSeasonSearchMaximumSingleEpisodeAgeOk
-
-`func (o *IndexerResource) GetSeasonSearchMaximumSingleEpisodeAgeOk() (*int32, bool)`
-
-GetSeasonSearchMaximumSingleEpisodeAgeOk returns a tuple with the SeasonSearchMaximumSingleEpisodeAge field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSeasonSearchMaximumSingleEpisodeAge
-
-`func (o *IndexerResource) SetSeasonSearchMaximumSingleEpisodeAge(v int32)`
-
-SetSeasonSearchMaximumSingleEpisodeAge sets SeasonSearchMaximumSingleEpisodeAge field to given value.
-
-### HasSeasonSearchMaximumSingleEpisodeAge
-
-`func (o *IndexerResource) HasSeasonSearchMaximumSingleEpisodeAge() bool`
-
-HasSeasonSearchMaximumSingleEpisodeAge returns a boolean if a field has been set.
 
 ### GetDownloadClientId
 

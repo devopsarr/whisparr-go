@@ -1,7 +1,7 @@
 /*
-Whisparr
+Radarr
 
-Whisparr API docs
+Radarr API docs
 
 API version: 3.0.0
 */
@@ -70,7 +70,7 @@ func (a *ReleaseApiService) CreateReleaseExecute(r ApiCreateReleaseRequest) (*ht
 	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{"application/json", "text/json", "application/*+json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -200,7 +200,7 @@ func (a *ReleaseApiService) GetReleaseByIdExecute(r ApiGetReleaseByIdRequest) (*
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"text/plain", "application/json", "text/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -274,23 +274,11 @@ func (a *ReleaseApiService) GetReleaseByIdExecute(r ApiGetReleaseByIdRequest) (*
 type ApiListReleaseRequest struct {
 	ctx context.Context
 	ApiService *ReleaseApiService
-	seriesId *int32
-	episodeId *int32
-	seasonNumber *int32
+	movieId *int32
 }
 
-func (r ApiListReleaseRequest) SeriesId(seriesId int32) ApiListReleaseRequest {
-	r.seriesId = &seriesId
-	return r
-}
-
-func (r ApiListReleaseRequest) EpisodeId(episodeId int32) ApiListReleaseRequest {
-	r.episodeId = &episodeId
-	return r
-}
-
-func (r ApiListReleaseRequest) SeasonNumber(seasonNumber int32) ApiListReleaseRequest {
-	r.seasonNumber = &seasonNumber
+func (r ApiListReleaseRequest) MovieId(movieId int32) ApiListReleaseRequest {
+	r.movieId = &movieId
 	return r
 }
 
@@ -332,14 +320,8 @@ func (a *ReleaseApiService) ListReleaseExecute(r ApiListReleaseRequest) ([]*Rele
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if r.seriesId != nil {
-		localVarQueryParams.Add("seriesId", parameterToString(*r.seriesId, ""))
-	}
-	if r.episodeId != nil {
-		localVarQueryParams.Add("episodeId", parameterToString(*r.episodeId, ""))
-	}
-	if r.seasonNumber != nil {
-		localVarQueryParams.Add("seasonNumber", parameterToString(*r.seasonNumber, ""))
+	if r.movieId != nil {
+		localVarQueryParams.Add("movieId", parameterToString(*r.movieId, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -351,7 +333,7 @@ func (a *ReleaseApiService) ListReleaseExecute(r ApiListReleaseRequest) ([]*Rele
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"text/plain", "application/json", "text/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)

@@ -1,7 +1,7 @@
 /*
-Whisparr
+Radarr
 
-Whisparr API docs
+Radarr API docs
 
 API version: 3.0.0
 */
@@ -18,10 +18,8 @@ import (
 // QueueResource struct for QueueResource
 type QueueResource struct {
 	Id *int32 `json:"id,omitempty"`
-	SeriesId NullableInt32 `json:"seriesId,omitempty"`
-	EpisodeId NullableInt32 `json:"episodeId,omitempty"`
-	Series *SeriesResource `json:"series,omitempty"`
-	Episode *EpisodeResource `json:"episode,omitempty"`
+	MovieId NullableInt32 `json:"movieId,omitempty"`
+	Movie *MovieResource `json:"movie,omitempty"`
 	Languages []*Language `json:"languages,omitempty"`
 	Quality *QualityModel `json:"quality,omitempty"`
 	CustomFormats []*CustomFormatResource `json:"customFormats,omitempty"`
@@ -91,152 +89,78 @@ func (o *QueueResource) SetId(v int32) {
 	o.Id = &v
 }
 
-// GetSeriesId returns the SeriesId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *QueueResource) GetSeriesId() int32 {
-	if o == nil || isNil(o.SeriesId.Get()) {
+// GetMovieId returns the MovieId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *QueueResource) GetMovieId() int32 {
+	if o == nil || isNil(o.MovieId.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.SeriesId.Get()
+	return *o.MovieId.Get()
 }
 
-// GetSeriesIdOk returns a tuple with the SeriesId field value if set, nil otherwise
+// GetMovieIdOk returns a tuple with the MovieId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *QueueResource) GetSeriesIdOk() (*int32, bool) {
+func (o *QueueResource) GetMovieIdOk() (*int32, bool) {
 	if o == nil {
     return nil, false
 	}
-	return o.SeriesId.Get(), o.SeriesId.IsSet()
+	return o.MovieId.Get(), o.MovieId.IsSet()
 }
 
-// HasSeriesId returns a boolean if a field has been set.
-func (o *QueueResource) HasSeriesId() bool {
-	if o != nil && o.SeriesId.IsSet() {
+// HasMovieId returns a boolean if a field has been set.
+func (o *QueueResource) HasMovieId() bool {
+	if o != nil && o.MovieId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetSeriesId gets a reference to the given NullableInt32 and assigns it to the SeriesId field.
-func (o *QueueResource) SetSeriesId(v int32) {
-	o.SeriesId.Set(&v)
+// SetMovieId gets a reference to the given NullableInt32 and assigns it to the MovieId field.
+func (o *QueueResource) SetMovieId(v int32) {
+	o.MovieId.Set(&v)
 }
-// SetSeriesIdNil sets the value for SeriesId to be an explicit nil
-func (o *QueueResource) SetSeriesIdNil() {
-	o.SeriesId.Set(nil)
-}
-
-// UnsetSeriesId ensures that no value is present for SeriesId, not even an explicit nil
-func (o *QueueResource) UnsetSeriesId() {
-	o.SeriesId.Unset()
+// SetMovieIdNil sets the value for MovieId to be an explicit nil
+func (o *QueueResource) SetMovieIdNil() {
+	o.MovieId.Set(nil)
 }
 
-// GetEpisodeId returns the EpisodeId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *QueueResource) GetEpisodeId() int32 {
-	if o == nil || isNil(o.EpisodeId.Get()) {
-		var ret int32
+// UnsetMovieId ensures that no value is present for MovieId, not even an explicit nil
+func (o *QueueResource) UnsetMovieId() {
+	o.MovieId.Unset()
+}
+
+// GetMovie returns the Movie field value if set, zero value otherwise.
+func (o *QueueResource) GetMovie() MovieResource {
+	if o == nil || isNil(o.Movie) {
+		var ret MovieResource
 		return ret
 	}
-	return *o.EpisodeId.Get()
+	return *o.Movie
 }
 
-// GetEpisodeIdOk returns a tuple with the EpisodeId field value if set, nil otherwise
+// GetMovieOk returns a tuple with the Movie field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *QueueResource) GetEpisodeIdOk() (*int32, bool) {
-	if o == nil {
+func (o *QueueResource) GetMovieOk() (*MovieResource, bool) {
+	if o == nil || isNil(o.Movie) {
     return nil, false
 	}
-	return o.EpisodeId.Get(), o.EpisodeId.IsSet()
+	return o.Movie, true
 }
 
-// HasEpisodeId returns a boolean if a field has been set.
-func (o *QueueResource) HasEpisodeId() bool {
-	if o != nil && o.EpisodeId.IsSet() {
+// HasMovie returns a boolean if a field has been set.
+func (o *QueueResource) HasMovie() bool {
+	if o != nil && !isNil(o.Movie) {
 		return true
 	}
 
 	return false
 }
 
-// SetEpisodeId gets a reference to the given NullableInt32 and assigns it to the EpisodeId field.
-func (o *QueueResource) SetEpisodeId(v int32) {
-	o.EpisodeId.Set(&v)
-}
-// SetEpisodeIdNil sets the value for EpisodeId to be an explicit nil
-func (o *QueueResource) SetEpisodeIdNil() {
-	o.EpisodeId.Set(nil)
-}
-
-// UnsetEpisodeId ensures that no value is present for EpisodeId, not even an explicit nil
-func (o *QueueResource) UnsetEpisodeId() {
-	o.EpisodeId.Unset()
-}
-
-// GetSeries returns the Series field value if set, zero value otherwise.
-func (o *QueueResource) GetSeries() SeriesResource {
-	if o == nil || isNil(o.Series) {
-		var ret SeriesResource
-		return ret
-	}
-	return *o.Series
-}
-
-// GetSeriesOk returns a tuple with the Series field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *QueueResource) GetSeriesOk() (*SeriesResource, bool) {
-	if o == nil || isNil(o.Series) {
-    return nil, false
-	}
-	return o.Series, true
-}
-
-// HasSeries returns a boolean if a field has been set.
-func (o *QueueResource) HasSeries() bool {
-	if o != nil && !isNil(o.Series) {
-		return true
-	}
-
-	return false
-}
-
-// SetSeries gets a reference to the given SeriesResource and assigns it to the Series field.
-func (o *QueueResource) SetSeries(v SeriesResource) {
-	o.Series = &v
-}
-
-// GetEpisode returns the Episode field value if set, zero value otherwise.
-func (o *QueueResource) GetEpisode() EpisodeResource {
-	if o == nil || isNil(o.Episode) {
-		var ret EpisodeResource
-		return ret
-	}
-	return *o.Episode
-}
-
-// GetEpisodeOk returns a tuple with the Episode field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *QueueResource) GetEpisodeOk() (*EpisodeResource, bool) {
-	if o == nil || isNil(o.Episode) {
-    return nil, false
-	}
-	return o.Episode, true
-}
-
-// HasEpisode returns a boolean if a field has been set.
-func (o *QueueResource) HasEpisode() bool {
-	if o != nil && !isNil(o.Episode) {
-		return true
-	}
-
-	return false
-}
-
-// SetEpisode gets a reference to the given EpisodeResource and assigns it to the Episode field.
-func (o *QueueResource) SetEpisode(v EpisodeResource) {
-	o.Episode = &v
+// SetMovie gets a reference to the given MovieResource and assigns it to the Movie field.
+func (o *QueueResource) SetMovie(v MovieResource) {
+	o.Movie = &v
 }
 
 // GetLanguages returns the Languages field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -903,17 +827,11 @@ func (o QueueResource) MarshalJSON() ([]byte, error) {
 	if !isNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if o.SeriesId.IsSet() {
-		toSerialize["seriesId"] = o.SeriesId.Get()
+	if o.MovieId.IsSet() {
+		toSerialize["movieId"] = o.MovieId.Get()
 	}
-	if o.EpisodeId.IsSet() {
-		toSerialize["episodeId"] = o.EpisodeId.Get()
-	}
-	if !isNil(o.Series) {
-		toSerialize["series"] = o.Series
-	}
-	if !isNil(o.Episode) {
-		toSerialize["episode"] = o.Episode
+	if !isNil(o.Movie) {
+		toSerialize["movie"] = o.Movie
 	}
 	if o.Languages != nil {
 		toSerialize["languages"] = o.Languages

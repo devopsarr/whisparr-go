@@ -1,7 +1,7 @@
 /*
-Whisparr
+Radarr
 
-Whisparr API docs
+Radarr API docs
 
 API version: 3.0.0
 */
@@ -72,7 +72,7 @@ func (a *DownloadClientApiService) CreateDownloadClientExecute(r ApiCreateDownlo
 	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{"application/json", "text/json", "application/*+json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -206,7 +206,7 @@ func (a *DownloadClientApiService) CreateDownloadClientActionByNameExecute(r Api
 	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{"application/json", "text/json", "application/*+json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -453,7 +453,7 @@ func (a *DownloadClientApiService) GetDownloadClientByIdExecute(r ApiGetDownload
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"text/plain", "application/json", "text/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -577,7 +577,7 @@ func (a *DownloadClientApiService) ListDownloadClientExecute(r ApiListDownloadCl
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"text/plain", "application/json", "text/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -701,7 +701,7 @@ func (a *DownloadClientApiService) ListDownloadClientSchemaExecute(r ApiListDown
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"text/plain", "application/json", "text/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -820,7 +820,7 @@ func (a *DownloadClientApiService) TestDownloadClientExecute(r ApiTestDownloadCl
 	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{"application/json", "text/json", "application/*+json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1060,7 +1060,7 @@ func (a *DownloadClientApiService) UpdateDownloadClientExecute(r ApiUpdateDownlo
 	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{"application/json", "text/json", "application/*+json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)

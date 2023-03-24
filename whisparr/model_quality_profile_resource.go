@@ -1,7 +1,7 @@
 /*
-Whisparr
+Radarr
 
-Whisparr API docs
+Radarr API docs
 
 API version: 3.0.0
 */
@@ -24,6 +24,7 @@ type QualityProfileResource struct {
 	MinFormatScore *int32 `json:"minFormatScore,omitempty"`
 	CutoffFormatScore *int32 `json:"cutoffFormatScore,omitempty"`
 	FormatItems []*ProfileFormatItemResource `json:"formatItems,omitempty"`
+	Language *Language `json:"language,omitempty"`
 }
 
 // NewQualityProfileResource instantiates a new QualityProfileResource object
@@ -311,6 +312,38 @@ func (o *QualityProfileResource) SetFormatItems(v []*ProfileFormatItemResource) 
 	o.FormatItems = v
 }
 
+// GetLanguage returns the Language field value if set, zero value otherwise.
+func (o *QualityProfileResource) GetLanguage() Language {
+	if o == nil || isNil(o.Language) {
+		var ret Language
+		return ret
+	}
+	return *o.Language
+}
+
+// GetLanguageOk returns a tuple with the Language field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *QualityProfileResource) GetLanguageOk() (*Language, bool) {
+	if o == nil || isNil(o.Language) {
+    return nil, false
+	}
+	return o.Language, true
+}
+
+// HasLanguage returns a boolean if a field has been set.
+func (o *QualityProfileResource) HasLanguage() bool {
+	if o != nil && !isNil(o.Language) {
+		return true
+	}
+
+	return false
+}
+
+// SetLanguage gets a reference to the given Language and assigns it to the Language field.
+func (o *QualityProfileResource) SetLanguage(v Language) {
+	o.Language = &v
+}
+
 func (o QualityProfileResource) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.Id) {
@@ -336,6 +369,9 @@ func (o QualityProfileResource) MarshalJSON() ([]byte, error) {
 	}
 	if o.FormatItems != nil {
 		toSerialize["formatItems"] = o.FormatItems
+	}
+	if !isNil(o.Language) {
+		toSerialize["language"] = o.Language
 	}
 	return json.Marshal(toSerialize)
 }

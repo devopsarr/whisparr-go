@@ -1,7 +1,7 @@
 /*
-Whisparr
+Radarr
 
-Whisparr API docs
+Radarr API docs
 
 API version: 3.0.0
 */
@@ -29,7 +29,7 @@ type Field struct {
 	SelectOptionsProviderAction NullableString `json:"selectOptionsProviderAction,omitempty"`
 	Section NullableString `json:"section,omitempty"`
 	Hidden NullableString `json:"hidden,omitempty"`
-	Privacy *PrivacyLevel `json:"privacy,omitempty"`
+	Placeholder NullableString `json:"placeholder,omitempty"`
 }
 
 // NewField instantiates a new Field object
@@ -557,36 +557,46 @@ func (o *Field) UnsetHidden() {
 	o.Hidden.Unset()
 }
 
-// GetPrivacy returns the Privacy field value if set, zero value otherwise.
-func (o *Field) GetPrivacy() PrivacyLevel {
-	if o == nil || isNil(o.Privacy) {
-		var ret PrivacyLevel
+// GetPlaceholder returns the Placeholder field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *Field) GetPlaceholder() string {
+	if o == nil || isNil(o.Placeholder.Get()) {
+		var ret string
 		return ret
 	}
-	return *o.Privacy
+	return *o.Placeholder.Get()
 }
 
-// GetPrivacyOk returns a tuple with the Privacy field value if set, nil otherwise
+// GetPlaceholderOk returns a tuple with the Placeholder field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Field) GetPrivacyOk() (*PrivacyLevel, bool) {
-	if o == nil || isNil(o.Privacy) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *Field) GetPlaceholderOk() (*string, bool) {
+	if o == nil {
     return nil, false
 	}
-	return o.Privacy, true
+	return o.Placeholder.Get(), o.Placeholder.IsSet()
 }
 
-// HasPrivacy returns a boolean if a field has been set.
-func (o *Field) HasPrivacy() bool {
-	if o != nil && !isNil(o.Privacy) {
+// HasPlaceholder returns a boolean if a field has been set.
+func (o *Field) HasPlaceholder() bool {
+	if o != nil && o.Placeholder.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetPrivacy gets a reference to the given PrivacyLevel and assigns it to the Privacy field.
-func (o *Field) SetPrivacy(v PrivacyLevel) {
-	o.Privacy = &v
+// SetPlaceholder gets a reference to the given NullableString and assigns it to the Placeholder field.
+func (o *Field) SetPlaceholder(v string) {
+	o.Placeholder.Set(&v)
+}
+// SetPlaceholderNil sets the value for Placeholder to be an explicit nil
+func (o *Field) SetPlaceholderNil() {
+	o.Placeholder.Set(nil)
+}
+
+// UnsetPlaceholder ensures that no value is present for Placeholder, not even an explicit nil
+func (o *Field) UnsetPlaceholder() {
+	o.Placeholder.Unset()
 }
 
 func (o Field) MarshalJSON() ([]byte, error) {
@@ -630,8 +640,8 @@ func (o Field) MarshalJSON() ([]byte, error) {
 	if o.Hidden.IsSet() {
 		toSerialize["hidden"] = o.Hidden.Get()
 	}
-	if !isNil(o.Privacy) {
-		toSerialize["privacy"] = o.Privacy
+	if o.Placeholder.IsSet() {
+		toSerialize["placeholder"] = o.Placeholder.Get()
 	}
 	return json.Marshal(toSerialize)
 }

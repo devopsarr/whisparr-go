@@ -1,7 +1,7 @@
 /*
-Whisparr
+Radarr
 
-Whisparr API docs
+Radarr API docs
 
 API version: 3.0.0
 */
@@ -26,7 +26,7 @@ type ApiGetApiRequest struct {
 	ApiService *ApiInfoApiService
 }
 
-func (r ApiGetApiRequest) Execute() (*http.Response, error) {
+func (r ApiGetApiRequest) Execute() (*ApiInfoResource, *http.Response, error) {
 	return r.ApiService.GetApiExecute(r)
 }
 
@@ -44,16 +44,18 @@ func (a *ApiInfoApiService) GetApi(ctx context.Context) ApiGetApiRequest {
 }
 
 // Execute executes the request
-func (a *ApiInfoApiService) GetApiExecute(r ApiGetApiRequest) (*http.Response, error) {
+//  @return ApiInfoResource
+func (a *ApiInfoApiService) GetApiExecute(r ApiGetApiRequest) (*ApiInfoResource, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
+		localVarReturnValue  *ApiInfoResource
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ApiInfoApiService.GetApi")
 	if err != nil {
-		return nil, &GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/api"
@@ -72,7 +74,7 @@ func (a *ApiInfoApiService) GetApiExecute(r ApiGetApiRequest) (*http.Response, e
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -109,19 +111,19 @@ func (a *ApiInfoApiService) GetApiExecute(r ApiGetApiRequest) (*http.Response, e
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
-		return nil, err
+		return localVarReturnValue, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(req)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
-		return localVarHTTPResponse, err
+		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -129,8 +131,17 @@ func (a *ApiInfoApiService) GetApiExecute(r ApiGetApiRequest) (*http.Response, e
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
 }

@@ -4,8 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Votes** | Pointer to **int32** |  | [optional] 
-**Value** | Pointer to **float64** |  | [optional] 
+**Imdb** | Pointer to [**RatingChild**](RatingChild.md) |  | [optional] 
+**Tmdb** | Pointer to [**RatingChild**](RatingChild.md) |  | [optional] 
+**Metacritic** | Pointer to [**RatingChild**](RatingChild.md) |  | [optional] 
+**RottenTomatoes** | Pointer to [**RatingChild**](RatingChild.md) |  | [optional] 
 
 ## Methods
 
@@ -26,55 +28,105 @@ NewRatingsWithDefaults instantiates a new Ratings object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetVotes
+### GetImdb
 
-`func (o *Ratings) GetVotes() int32`
+`func (o *Ratings) GetImdb() RatingChild`
 
-GetVotes returns the Votes field if non-nil, zero value otherwise.
+GetImdb returns the Imdb field if non-nil, zero value otherwise.
 
-### GetVotesOk
+### GetImdbOk
 
-`func (o *Ratings) GetVotesOk() (*int32, bool)`
+`func (o *Ratings) GetImdbOk() (*RatingChild, bool)`
 
-GetVotesOk returns a tuple with the Votes field if it's non-nil, zero value otherwise
+GetImdbOk returns a tuple with the Imdb field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetVotes
+### SetImdb
 
-`func (o *Ratings) SetVotes(v int32)`
+`func (o *Ratings) SetImdb(v RatingChild)`
 
-SetVotes sets Votes field to given value.
+SetImdb sets Imdb field to given value.
 
-### HasVotes
+### HasImdb
 
-`func (o *Ratings) HasVotes() bool`
+`func (o *Ratings) HasImdb() bool`
 
-HasVotes returns a boolean if a field has been set.
+HasImdb returns a boolean if a field has been set.
 
-### GetValue
+### GetTmdb
 
-`func (o *Ratings) GetValue() float64`
+`func (o *Ratings) GetTmdb() RatingChild`
 
-GetValue returns the Value field if non-nil, zero value otherwise.
+GetTmdb returns the Tmdb field if non-nil, zero value otherwise.
 
-### GetValueOk
+### GetTmdbOk
 
-`func (o *Ratings) GetValueOk() (*float64, bool)`
+`func (o *Ratings) GetTmdbOk() (*RatingChild, bool)`
 
-GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
+GetTmdbOk returns a tuple with the Tmdb field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetValue
+### SetTmdb
 
-`func (o *Ratings) SetValue(v float64)`
+`func (o *Ratings) SetTmdb(v RatingChild)`
 
-SetValue sets Value field to given value.
+SetTmdb sets Tmdb field to given value.
 
-### HasValue
+### HasTmdb
 
-`func (o *Ratings) HasValue() bool`
+`func (o *Ratings) HasTmdb() bool`
 
-HasValue returns a boolean if a field has been set.
+HasTmdb returns a boolean if a field has been set.
+
+### GetMetacritic
+
+`func (o *Ratings) GetMetacritic() RatingChild`
+
+GetMetacritic returns the Metacritic field if non-nil, zero value otherwise.
+
+### GetMetacriticOk
+
+`func (o *Ratings) GetMetacriticOk() (*RatingChild, bool)`
+
+GetMetacriticOk returns a tuple with the Metacritic field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMetacritic
+
+`func (o *Ratings) SetMetacritic(v RatingChild)`
+
+SetMetacritic sets Metacritic field to given value.
+
+### HasMetacritic
+
+`func (o *Ratings) HasMetacritic() bool`
+
+HasMetacritic returns a boolean if a field has been set.
+
+### GetRottenTomatoes
+
+`func (o *Ratings) GetRottenTomatoes() RatingChild`
+
+GetRottenTomatoes returns the RottenTomatoes field if non-nil, zero value otherwise.
+
+### GetRottenTomatoesOk
+
+`func (o *Ratings) GetRottenTomatoesOk() (*RatingChild, bool)`
+
+GetRottenTomatoesOk returns a tuple with the RottenTomatoes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRottenTomatoes
+
+`func (o *Ratings) SetRottenTomatoes(v RatingChild)`
+
+SetRottenTomatoes sets RottenTomatoes field to given value.
+
+### HasRottenTomatoes
+
+`func (o *Ratings) HasRottenTomatoes() bool`
+
+HasRottenTomatoes returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

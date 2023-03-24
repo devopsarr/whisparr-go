@@ -1,6 +1,6 @@
 # \DelayProfileApi
 
-All URIs are relative to *http://localhost:6969*
+All URIs are relative to *http://localhost:7878*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,7 +9,6 @@ Method | HTTP request | Description
 [**GetDelayProfileById**](DelayProfileApi.md#GetDelayProfileById) | **Get** /api/v3/delayprofile/{id} | 
 [**ListDelayProfile**](DelayProfileApi.md#ListDelayProfile) | **Get** /api/v3/delayprofile | 
 [**UpdateDelayProfile**](DelayProfileApi.md#UpdateDelayProfile) | **Put** /api/v3/delayprofile/{id} | 
-[**UpdateDelayProfileReorder**](DelayProfileApi.md#UpdateDelayProfileReorder) | **Put** /api/v3/delayprofile/reorder/{id} | 
 
 
 
@@ -69,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: application/json, text/json, application/*+json
 - **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -204,7 +203,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -263,7 +262,7 @@ Other parameters are passed through a pointer to a apiListDelayProfileRequest st
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -332,77 +331,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: text/plain, application/json, text/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## UpdateDelayProfileReorder
-
-> []DelayProfileResource UpdateDelayProfileReorder(ctx, id).After(after).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    whisparrClient "./openapi"
-)
-
-func main() {
-    id := int32(56) // int32 | 
-    after := int32(56) // int32 |  (optional)
-
-    configuration := whisparrClient.NewConfiguration()
-    apiClient := whisparrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DelayProfileApi.UpdateDelayProfileReorder(context.Background(), id).After(after).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DelayProfileApi.UpdateDelayProfileReorder``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UpdateDelayProfileReorder`: []DelayProfileResource
-    fmt.Fprintf(os.Stdout, "Response from `DelayProfileApi.UpdateDelayProfileReorder`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **int32** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiUpdateDelayProfileReorderRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **after** | **int32** |  | 
-
-### Return type
-
-[**[]DelayProfileResource**](DelayProfileResource.md)
-
-### Authorization
-
-[apikey](../README.md#apikey), [X-Api-Key](../README.md#X-Api-Key)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, text/json, application/*+json
 - **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

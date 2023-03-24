@@ -1,7 +1,7 @@
 /*
-Whisparr
+Radarr
 
-Whisparr API docs
+Radarr API docs
 
 API version: 3.0.0
 */
@@ -21,15 +21,15 @@ type FileDateType string
 // List of FileDateType
 const (
 	FILEDATETYPE_NONE FileDateType = "none"
-	FILEDATETYPE_LOCAL_AIR_DATE FileDateType = "localAirDate"
-	FILEDATETYPE_UTC_AIR_DATE FileDateType = "utcAirDate"
+	FILEDATETYPE_CINEMAS FileDateType = "cinemas"
+	FILEDATETYPE_RELEASE FileDateType = "release"
 )
 
 // All allowed values of FileDateType enum
 var AllowedFileDateTypeEnumValues = []FileDateType{
 	"none",
-	"localAirDate",
-	"utcAirDate",
+	"cinemas",
+	"release",
 }
 
 func (v *FileDateType) UnmarshalJSON(src []byte) error {

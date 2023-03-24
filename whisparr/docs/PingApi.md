@@ -1,6 +1,6 @@
 # \PingApi
 
-All URIs are relative to *http://localhost:6969*
+All URIs are relative to *http://localhost:7878*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

@@ -1,7 +1,7 @@
 /*
-Whisparr
+Radarr
 
-Whisparr API docs
+Radarr API docs
 
 API version: 3.0.0
 */
@@ -25,16 +25,10 @@ type ApiGetParseRequest struct {
 	ctx context.Context
 	ApiService *ParseApiService
 	title *string
-	path *string
 }
 
 func (r ApiGetParseRequest) Title(title string) ApiGetParseRequest {
 	r.title = &title
-	return r
-}
-
-func (r ApiGetParseRequest) Path(path string) ApiGetParseRequest {
-	r.path = &path
 	return r
 }
 
@@ -79,9 +73,6 @@ func (a *ParseApiService) GetParseExecute(r ApiGetParseRequest) (*ParseResource,
 	if r.title != nil {
 		localVarQueryParams.Add("title", parameterToString(*r.title, ""))
 	}
-	if r.path != nil {
-		localVarQueryParams.Add("path", parameterToString(*r.path, ""))
-	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -92,7 +83,7 @@ func (a *ParseApiService) GetParseExecute(r ApiGetParseRequest) (*ParseResource,
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"text/plain", "application/json", "text/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)

@@ -3,21 +3,9 @@
 ## Enum
 
 
-* `UNKNOWN` (value: `"unknown"`)
+* `MOVIE_ONLY` (value: `"movieOnly"`)
 
-* `ALL` (value: `"all"`)
-
-* `FUTURE` (value: `"future"`)
-
-* `MISSING` (value: `"missing"`)
-
-* `EXISTING` (value: `"existing"`)
-
-* `FIRST_SEASON` (value: `"firstSeason"`)
-
-* `LATEST_SEASON` (value: `"latestSeason"`)
-
-* `PILOT` (value: `"pilot"`)
+* `MOVIE_AND_COLLECTION` (value: `"movieAndCollection"`)
 
 * `NONE` (value: `"none"`)
 

@@ -5,17 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **int32** |  | [optional] 
-**RenameEpisodes** | Pointer to **bool** |  | [optional] 
+**RenameMovies** | Pointer to **bool** |  | [optional] 
 **ReplaceIllegalCharacters** | Pointer to **bool** |  | [optional] 
-**MultiEpisodeStyle** | Pointer to **int32** |  | [optional] 
-**StandardEpisodeFormat** | Pointer to **NullableString** |  | [optional] 
-**DailyEpisodeFormat** | Pointer to **NullableString** |  | [optional] 
-**AnimeEpisodeFormat** | Pointer to **NullableString** |  | [optional] 
-**SeriesFolderFormat** | Pointer to **NullableString** |  | [optional] 
-**SeasonFolderFormat** | Pointer to **NullableString** |  | [optional] 
-**SpecialsFolderFormat** | Pointer to **NullableString** |  | [optional] 
-**IncludeSeriesTitle** | Pointer to **bool** |  | [optional] 
-**IncludeEpisodeTitle** | Pointer to **bool** |  | [optional] 
+**ColonReplacementFormat** | Pointer to [**ColonReplacementFormat**](ColonReplacementFormat.md) |  | [optional] 
+**StandardMovieFormat** | Pointer to **NullableString** |  | [optional] 
+**MovieFolderFormat** | Pointer to **NullableString** |  | [optional] 
 **IncludeQuality** | Pointer to **bool** |  | [optional] 
 **ReplaceSpaces** | Pointer to **bool** |  | [optional] 
 **Separator** | Pointer to **NullableString** |  | [optional] 
@@ -65,30 +59,30 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
-### GetRenameEpisodes
+### GetRenameMovies
 
-`func (o *NamingConfigResource) GetRenameEpisodes() bool`
+`func (o *NamingConfigResource) GetRenameMovies() bool`
 
-GetRenameEpisodes returns the RenameEpisodes field if non-nil, zero value otherwise.
+GetRenameMovies returns the RenameMovies field if non-nil, zero value otherwise.
 
-### GetRenameEpisodesOk
+### GetRenameMoviesOk
 
-`func (o *NamingConfigResource) GetRenameEpisodesOk() (*bool, bool)`
+`func (o *NamingConfigResource) GetRenameMoviesOk() (*bool, bool)`
 
-GetRenameEpisodesOk returns a tuple with the RenameEpisodes field if it's non-nil, zero value otherwise
+GetRenameMoviesOk returns a tuple with the RenameMovies field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetRenameEpisodes
+### SetRenameMovies
 
-`func (o *NamingConfigResource) SetRenameEpisodes(v bool)`
+`func (o *NamingConfigResource) SetRenameMovies(v bool)`
 
-SetRenameEpisodes sets RenameEpisodes field to given value.
+SetRenameMovies sets RenameMovies field to given value.
 
-### HasRenameEpisodes
+### HasRenameMovies
 
-`func (o *NamingConfigResource) HasRenameEpisodes() bool`
+`func (o *NamingConfigResource) HasRenameMovies() bool`
 
-HasRenameEpisodes returns a boolean if a field has been set.
+HasRenameMovies returns a boolean if a field has been set.
 
 ### GetReplaceIllegalCharacters
 
@@ -115,291 +109,101 @@ SetReplaceIllegalCharacters sets ReplaceIllegalCharacters field to given value.
 
 HasReplaceIllegalCharacters returns a boolean if a field has been set.
 
-### GetMultiEpisodeStyle
+### GetColonReplacementFormat
 
-`func (o *NamingConfigResource) GetMultiEpisodeStyle() int32`
+`func (o *NamingConfigResource) GetColonReplacementFormat() ColonReplacementFormat`
 
-GetMultiEpisodeStyle returns the MultiEpisodeStyle field if non-nil, zero value otherwise.
+GetColonReplacementFormat returns the ColonReplacementFormat field if non-nil, zero value otherwise.
 
-### GetMultiEpisodeStyleOk
+### GetColonReplacementFormatOk
 
-`func (o *NamingConfigResource) GetMultiEpisodeStyleOk() (*int32, bool)`
+`func (o *NamingConfigResource) GetColonReplacementFormatOk() (*ColonReplacementFormat, bool)`
 
-GetMultiEpisodeStyleOk returns a tuple with the MultiEpisodeStyle field if it's non-nil, zero value otherwise
+GetColonReplacementFormatOk returns a tuple with the ColonReplacementFormat field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetMultiEpisodeStyle
+### SetColonReplacementFormat
 
-`func (o *NamingConfigResource) SetMultiEpisodeStyle(v int32)`
+`func (o *NamingConfigResource) SetColonReplacementFormat(v ColonReplacementFormat)`
 
-SetMultiEpisodeStyle sets MultiEpisodeStyle field to given value.
+SetColonReplacementFormat sets ColonReplacementFormat field to given value.
 
-### HasMultiEpisodeStyle
+### HasColonReplacementFormat
 
-`func (o *NamingConfigResource) HasMultiEpisodeStyle() bool`
+`func (o *NamingConfigResource) HasColonReplacementFormat() bool`
 
-HasMultiEpisodeStyle returns a boolean if a field has been set.
+HasColonReplacementFormat returns a boolean if a field has been set.
 
-### GetStandardEpisodeFormat
+### GetStandardMovieFormat
 
-`func (o *NamingConfigResource) GetStandardEpisodeFormat() string`
+`func (o *NamingConfigResource) GetStandardMovieFormat() string`
 
-GetStandardEpisodeFormat returns the StandardEpisodeFormat field if non-nil, zero value otherwise.
+GetStandardMovieFormat returns the StandardMovieFormat field if non-nil, zero value otherwise.
 
-### GetStandardEpisodeFormatOk
+### GetStandardMovieFormatOk
 
-`func (o *NamingConfigResource) GetStandardEpisodeFormatOk() (*string, bool)`
+`func (o *NamingConfigResource) GetStandardMovieFormatOk() (*string, bool)`
 
-GetStandardEpisodeFormatOk returns a tuple with the StandardEpisodeFormat field if it's non-nil, zero value otherwise
+GetStandardMovieFormatOk returns a tuple with the StandardMovieFormat field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetStandardEpisodeFormat
+### SetStandardMovieFormat
 
-`func (o *NamingConfigResource) SetStandardEpisodeFormat(v string)`
+`func (o *NamingConfigResource) SetStandardMovieFormat(v string)`
 
-SetStandardEpisodeFormat sets StandardEpisodeFormat field to given value.
+SetStandardMovieFormat sets StandardMovieFormat field to given value.
 
-### HasStandardEpisodeFormat
+### HasStandardMovieFormat
 
-`func (o *NamingConfigResource) HasStandardEpisodeFormat() bool`
+`func (o *NamingConfigResource) HasStandardMovieFormat() bool`
 
-HasStandardEpisodeFormat returns a boolean if a field has been set.
+HasStandardMovieFormat returns a boolean if a field has been set.
 
-### SetStandardEpisodeFormatNil
+### SetStandardMovieFormatNil
 
-`func (o *NamingConfigResource) SetStandardEpisodeFormatNil(b bool)`
+`func (o *NamingConfigResource) SetStandardMovieFormatNil(b bool)`
 
- SetStandardEpisodeFormatNil sets the value for StandardEpisodeFormat to be an explicit nil
+ SetStandardMovieFormatNil sets the value for StandardMovieFormat to be an explicit nil
 
-### UnsetStandardEpisodeFormat
-`func (o *NamingConfigResource) UnsetStandardEpisodeFormat()`
+### UnsetStandardMovieFormat
+`func (o *NamingConfigResource) UnsetStandardMovieFormat()`
 
-UnsetStandardEpisodeFormat ensures that no value is present for StandardEpisodeFormat, not even an explicit nil
-### GetDailyEpisodeFormat
+UnsetStandardMovieFormat ensures that no value is present for StandardMovieFormat, not even an explicit nil
+### GetMovieFolderFormat
 
-`func (o *NamingConfigResource) GetDailyEpisodeFormat() string`
+`func (o *NamingConfigResource) GetMovieFolderFormat() string`
 
-GetDailyEpisodeFormat returns the DailyEpisodeFormat field if non-nil, zero value otherwise.
+GetMovieFolderFormat returns the MovieFolderFormat field if non-nil, zero value otherwise.
 
-### GetDailyEpisodeFormatOk
+### GetMovieFolderFormatOk
 
-`func (o *NamingConfigResource) GetDailyEpisodeFormatOk() (*string, bool)`
+`func (o *NamingConfigResource) GetMovieFolderFormatOk() (*string, bool)`
 
-GetDailyEpisodeFormatOk returns a tuple with the DailyEpisodeFormat field if it's non-nil, zero value otherwise
+GetMovieFolderFormatOk returns a tuple with the MovieFolderFormat field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetDailyEpisodeFormat
+### SetMovieFolderFormat
 
-`func (o *NamingConfigResource) SetDailyEpisodeFormat(v string)`
+`func (o *NamingConfigResource) SetMovieFolderFormat(v string)`
 
-SetDailyEpisodeFormat sets DailyEpisodeFormat field to given value.
+SetMovieFolderFormat sets MovieFolderFormat field to given value.
 
-### HasDailyEpisodeFormat
+### HasMovieFolderFormat
 
-`func (o *NamingConfigResource) HasDailyEpisodeFormat() bool`
+`func (o *NamingConfigResource) HasMovieFolderFormat() bool`
 
-HasDailyEpisodeFormat returns a boolean if a field has been set.
+HasMovieFolderFormat returns a boolean if a field has been set.
 
-### SetDailyEpisodeFormatNil
+### SetMovieFolderFormatNil
 
-`func (o *NamingConfigResource) SetDailyEpisodeFormatNil(b bool)`
+`func (o *NamingConfigResource) SetMovieFolderFormatNil(b bool)`
 
- SetDailyEpisodeFormatNil sets the value for DailyEpisodeFormat to be an explicit nil
+ SetMovieFolderFormatNil sets the value for MovieFolderFormat to be an explicit nil
 
-### UnsetDailyEpisodeFormat
-`func (o *NamingConfigResource) UnsetDailyEpisodeFormat()`
+### UnsetMovieFolderFormat
+`func (o *NamingConfigResource) UnsetMovieFolderFormat()`
 
-UnsetDailyEpisodeFormat ensures that no value is present for DailyEpisodeFormat, not even an explicit nil
-### GetAnimeEpisodeFormat
-
-`func (o *NamingConfigResource) GetAnimeEpisodeFormat() string`
-
-GetAnimeEpisodeFormat returns the AnimeEpisodeFormat field if non-nil, zero value otherwise.
-
-### GetAnimeEpisodeFormatOk
-
-`func (o *NamingConfigResource) GetAnimeEpisodeFormatOk() (*string, bool)`
-
-GetAnimeEpisodeFormatOk returns a tuple with the AnimeEpisodeFormat field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAnimeEpisodeFormat
-
-`func (o *NamingConfigResource) SetAnimeEpisodeFormat(v string)`
-
-SetAnimeEpisodeFormat sets AnimeEpisodeFormat field to given value.
-
-### HasAnimeEpisodeFormat
-
-`func (o *NamingConfigResource) HasAnimeEpisodeFormat() bool`
-
-HasAnimeEpisodeFormat returns a boolean if a field has been set.
-
-### SetAnimeEpisodeFormatNil
-
-`func (o *NamingConfigResource) SetAnimeEpisodeFormatNil(b bool)`
-
- SetAnimeEpisodeFormatNil sets the value for AnimeEpisodeFormat to be an explicit nil
-
-### UnsetAnimeEpisodeFormat
-`func (o *NamingConfigResource) UnsetAnimeEpisodeFormat()`
-
-UnsetAnimeEpisodeFormat ensures that no value is present for AnimeEpisodeFormat, not even an explicit nil
-### GetSeriesFolderFormat
-
-`func (o *NamingConfigResource) GetSeriesFolderFormat() string`
-
-GetSeriesFolderFormat returns the SeriesFolderFormat field if non-nil, zero value otherwise.
-
-### GetSeriesFolderFormatOk
-
-`func (o *NamingConfigResource) GetSeriesFolderFormatOk() (*string, bool)`
-
-GetSeriesFolderFormatOk returns a tuple with the SeriesFolderFormat field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSeriesFolderFormat
-
-`func (o *NamingConfigResource) SetSeriesFolderFormat(v string)`
-
-SetSeriesFolderFormat sets SeriesFolderFormat field to given value.
-
-### HasSeriesFolderFormat
-
-`func (o *NamingConfigResource) HasSeriesFolderFormat() bool`
-
-HasSeriesFolderFormat returns a boolean if a field has been set.
-
-### SetSeriesFolderFormatNil
-
-`func (o *NamingConfigResource) SetSeriesFolderFormatNil(b bool)`
-
- SetSeriesFolderFormatNil sets the value for SeriesFolderFormat to be an explicit nil
-
-### UnsetSeriesFolderFormat
-`func (o *NamingConfigResource) UnsetSeriesFolderFormat()`
-
-UnsetSeriesFolderFormat ensures that no value is present for SeriesFolderFormat, not even an explicit nil
-### GetSeasonFolderFormat
-
-`func (o *NamingConfigResource) GetSeasonFolderFormat() string`
-
-GetSeasonFolderFormat returns the SeasonFolderFormat field if non-nil, zero value otherwise.
-
-### GetSeasonFolderFormatOk
-
-`func (o *NamingConfigResource) GetSeasonFolderFormatOk() (*string, bool)`
-
-GetSeasonFolderFormatOk returns a tuple with the SeasonFolderFormat field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSeasonFolderFormat
-
-`func (o *NamingConfigResource) SetSeasonFolderFormat(v string)`
-
-SetSeasonFolderFormat sets SeasonFolderFormat field to given value.
-
-### HasSeasonFolderFormat
-
-`func (o *NamingConfigResource) HasSeasonFolderFormat() bool`
-
-HasSeasonFolderFormat returns a boolean if a field has been set.
-
-### SetSeasonFolderFormatNil
-
-`func (o *NamingConfigResource) SetSeasonFolderFormatNil(b bool)`
-
- SetSeasonFolderFormatNil sets the value for SeasonFolderFormat to be an explicit nil
-
-### UnsetSeasonFolderFormat
-`func (o *NamingConfigResource) UnsetSeasonFolderFormat()`
-
-UnsetSeasonFolderFormat ensures that no value is present for SeasonFolderFormat, not even an explicit nil
-### GetSpecialsFolderFormat
-
-`func (o *NamingConfigResource) GetSpecialsFolderFormat() string`
-
-GetSpecialsFolderFormat returns the SpecialsFolderFormat field if non-nil, zero value otherwise.
-
-### GetSpecialsFolderFormatOk
-
-`func (o *NamingConfigResource) GetSpecialsFolderFormatOk() (*string, bool)`
-
-GetSpecialsFolderFormatOk returns a tuple with the SpecialsFolderFormat field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSpecialsFolderFormat
-
-`func (o *NamingConfigResource) SetSpecialsFolderFormat(v string)`
-
-SetSpecialsFolderFormat sets SpecialsFolderFormat field to given value.
-
-### HasSpecialsFolderFormat
-
-`func (o *NamingConfigResource) HasSpecialsFolderFormat() bool`
-
-HasSpecialsFolderFormat returns a boolean if a field has been set.
-
-### SetSpecialsFolderFormatNil
-
-`func (o *NamingConfigResource) SetSpecialsFolderFormatNil(b bool)`
-
- SetSpecialsFolderFormatNil sets the value for SpecialsFolderFormat to be an explicit nil
-
-### UnsetSpecialsFolderFormat
-`func (o *NamingConfigResource) UnsetSpecialsFolderFormat()`
-
-UnsetSpecialsFolderFormat ensures that no value is present for SpecialsFolderFormat, not even an explicit nil
-### GetIncludeSeriesTitle
-
-`func (o *NamingConfigResource) GetIncludeSeriesTitle() bool`
-
-GetIncludeSeriesTitle returns the IncludeSeriesTitle field if non-nil, zero value otherwise.
-
-### GetIncludeSeriesTitleOk
-
-`func (o *NamingConfigResource) GetIncludeSeriesTitleOk() (*bool, bool)`
-
-GetIncludeSeriesTitleOk returns a tuple with the IncludeSeriesTitle field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetIncludeSeriesTitle
-
-`func (o *NamingConfigResource) SetIncludeSeriesTitle(v bool)`
-
-SetIncludeSeriesTitle sets IncludeSeriesTitle field to given value.
-
-### HasIncludeSeriesTitle
-
-`func (o *NamingConfigResource) HasIncludeSeriesTitle() bool`
-
-HasIncludeSeriesTitle returns a boolean if a field has been set.
-
-### GetIncludeEpisodeTitle
-
-`func (o *NamingConfigResource) GetIncludeEpisodeTitle() bool`
-
-GetIncludeEpisodeTitle returns the IncludeEpisodeTitle field if non-nil, zero value otherwise.
-
-### GetIncludeEpisodeTitleOk
-
-`func (o *NamingConfigResource) GetIncludeEpisodeTitleOk() (*bool, bool)`
-
-GetIncludeEpisodeTitleOk returns a tuple with the IncludeEpisodeTitle field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetIncludeEpisodeTitle
-
-`func (o *NamingConfigResource) SetIncludeEpisodeTitle(v bool)`
-
-SetIncludeEpisodeTitle sets IncludeEpisodeTitle field to given value.
-
-### HasIncludeEpisodeTitle
-
-`func (o *NamingConfigResource) HasIncludeEpisodeTitle() bool`
-
-HasIncludeEpisodeTitle returns a boolean if a field has been set.
-
+UnsetMovieFolderFormat ensures that no value is present for MovieFolderFormat, not even an explicit nil
 ### GetIncludeQuality
 
 `func (o *NamingConfigResource) GetIncludeQuality() bool`

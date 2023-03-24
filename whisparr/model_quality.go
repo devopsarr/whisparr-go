@@ -1,7 +1,7 @@
 /*
-Whisparr
+Radarr
 
-Whisparr API docs
+Radarr API docs
 
 API version: 3.0.0
 */
@@ -18,8 +18,9 @@ import (
 type Quality struct {
 	Id *int32 `json:"id,omitempty"`
 	Name NullableString `json:"name,omitempty"`
-	Source *QualitySource `json:"source,omitempty"`
+	Source *Source `json:"source,omitempty"`
 	Resolution *int32 `json:"resolution,omitempty"`
+	Modifier *Modifier `json:"modifier,omitempty"`
 }
 
 // NewQuality instantiates a new Quality object
@@ -114,9 +115,9 @@ func (o *Quality) UnsetName() {
 }
 
 // GetSource returns the Source field value if set, zero value otherwise.
-func (o *Quality) GetSource() QualitySource {
+func (o *Quality) GetSource() Source {
 	if o == nil || isNil(o.Source) {
-		var ret QualitySource
+		var ret Source
 		return ret
 	}
 	return *o.Source
@@ -124,7 +125,7 @@ func (o *Quality) GetSource() QualitySource {
 
 // GetSourceOk returns a tuple with the Source field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Quality) GetSourceOk() (*QualitySource, bool) {
+func (o *Quality) GetSourceOk() (*Source, bool) {
 	if o == nil || isNil(o.Source) {
     return nil, false
 	}
@@ -140,8 +141,8 @@ func (o *Quality) HasSource() bool {
 	return false
 }
 
-// SetSource gets a reference to the given QualitySource and assigns it to the Source field.
-func (o *Quality) SetSource(v QualitySource) {
+// SetSource gets a reference to the given Source and assigns it to the Source field.
+func (o *Quality) SetSource(v Source) {
 	o.Source = &v
 }
 
@@ -177,6 +178,38 @@ func (o *Quality) SetResolution(v int32) {
 	o.Resolution = &v
 }
 
+// GetModifier returns the Modifier field value if set, zero value otherwise.
+func (o *Quality) GetModifier() Modifier {
+	if o == nil || isNil(o.Modifier) {
+		var ret Modifier
+		return ret
+	}
+	return *o.Modifier
+}
+
+// GetModifierOk returns a tuple with the Modifier field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Quality) GetModifierOk() (*Modifier, bool) {
+	if o == nil || isNil(o.Modifier) {
+    return nil, false
+	}
+	return o.Modifier, true
+}
+
+// HasModifier returns a boolean if a field has been set.
+func (o *Quality) HasModifier() bool {
+	if o != nil && !isNil(o.Modifier) {
+		return true
+	}
+
+	return false
+}
+
+// SetModifier gets a reference to the given Modifier and assigns it to the Modifier field.
+func (o *Quality) SetModifier(v Modifier) {
+	o.Modifier = &v
+}
+
 func (o Quality) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.Id) {
@@ -190,6 +223,9 @@ func (o Quality) MarshalJSON() ([]byte, error) {
 	}
 	if !isNil(o.Resolution) {
 		toSerialize["resolution"] = o.Resolution
+	}
+	if !isNil(o.Modifier) {
+		toSerialize["modifier"] = o.Modifier
 	}
 	return json.Marshal(toSerialize)
 }

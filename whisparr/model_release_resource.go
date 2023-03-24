@@ -1,7 +1,7 @@
 /*
-Whisparr
+Radarr
 
-Whisparr API docs
+Radarr API docs
 
 API version: 3.0.0
 */
@@ -20,6 +20,8 @@ type ReleaseResource struct {
 	Id *int32 `json:"id,omitempty"`
 	Guid NullableString `json:"guid,omitempty"`
 	Quality *QualityModel `json:"quality,omitempty"`
+	CustomFormats []*CustomFormatResource `json:"customFormats,omitempty"`
+	CustomFormatScore *int32 `json:"customFormatScore,omitempty"`
 	QualityWeight *int32 `json:"qualityWeight,omitempty"`
 	Age *int32 `json:"age,omitempty"`
 	AgeHours *float64 `json:"ageHours,omitempty"`
@@ -31,45 +33,29 @@ type ReleaseResource struct {
 	SubGroup NullableString `json:"subGroup,omitempty"`
 	ReleaseHash NullableString `json:"releaseHash,omitempty"`
 	Title NullableString `json:"title,omitempty"`
-	FullSeason *bool `json:"fullSeason,omitempty"`
 	SceneSource *bool `json:"sceneSource,omitempty"`
-	SeasonNumber *int32 `json:"seasonNumber,omitempty"`
+	MovieTitles []*string `json:"movieTitles,omitempty"`
 	Languages []*Language `json:"languages,omitempty"`
-	LanguageWeight *int32 `json:"languageWeight,omitempty"`
-	AirDate NullableString `json:"airDate,omitempty"`
-	SeriesTitle NullableString `json:"seriesTitle,omitempty"`
-	EpisodeNumbers []*int32 `json:"episodeNumbers,omitempty"`
-	AbsoluteEpisodeNumbers []*int32 `json:"absoluteEpisodeNumbers,omitempty"`
-	MappedSeasonNumber NullableInt32 `json:"mappedSeasonNumber,omitempty"`
-	MappedEpisodeNumbers []*int32 `json:"mappedEpisodeNumbers,omitempty"`
-	MappedAbsoluteEpisodeNumbers []*int32 `json:"mappedAbsoluteEpisodeNumbers,omitempty"`
 	Approved *bool `json:"approved,omitempty"`
 	TemporarilyRejected *bool `json:"temporarilyRejected,omitempty"`
 	Rejected *bool `json:"rejected,omitempty"`
-	TvdbId *int32 `json:"tvdbId,omitempty"`
-	TvRageId *int32 `json:"tvRageId,omitempty"`
+	TmdbId *int32 `json:"tmdbId,omitempty"`
+	ImdbId *int32 `json:"imdbId,omitempty"`
 	Rejections []*string `json:"rejections,omitempty"`
 	PublishDate *time.Time `json:"publishDate,omitempty"`
 	CommentUrl NullableString `json:"commentUrl,omitempty"`
 	DownloadUrl NullableString `json:"downloadUrl,omitempty"`
 	InfoUrl NullableString `json:"infoUrl,omitempty"`
-	EpisodeRequested *bool `json:"episodeRequested,omitempty"`
 	DownloadAllowed *bool `json:"downloadAllowed,omitempty"`
 	ReleaseWeight *int32 `json:"releaseWeight,omitempty"`
-	CustomFormats []*CustomFormatResource `json:"customFormats,omitempty"`
-	CustomFormatScore *int32 `json:"customFormatScore,omitempty"`
-	SceneMapping *AlternateTitleResource `json:"sceneMapping,omitempty"`
+	IndexerFlags []*string `json:"indexerFlags,omitempty"`
+	Edition NullableString `json:"edition,omitempty"`
 	MagnetUrl NullableString `json:"magnetUrl,omitempty"`
 	InfoHash NullableString `json:"infoHash,omitempty"`
 	Seeders NullableInt32 `json:"seeders,omitempty"`
 	Leechers NullableInt32 `json:"leechers,omitempty"`
 	Protocol *DownloadProtocol `json:"protocol,omitempty"`
-	IsDaily *bool `json:"isDaily,omitempty"`
-	IsAbsoluteNumbering *bool `json:"isAbsoluteNumbering,omitempty"`
-	IsPossibleSpecialEpisode *bool `json:"isPossibleSpecialEpisode,omitempty"`
-	Special *bool `json:"special,omitempty"`
-	SeriesId NullableInt32 `json:"seriesId,omitempty"`
-	EpisodeId NullableInt32 `json:"episodeId,omitempty"`
+	MovieId NullableInt32 `json:"movieId,omitempty"`
 }
 
 // NewReleaseResource instantiates a new ReleaseResource object
@@ -193,6 +179,71 @@ func (o *ReleaseResource) HasQuality() bool {
 // SetQuality gets a reference to the given QualityModel and assigns it to the Quality field.
 func (o *ReleaseResource) SetQuality(v QualityModel) {
 	o.Quality = &v
+}
+
+// GetCustomFormats returns the CustomFormats field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ReleaseResource) GetCustomFormats() []*CustomFormatResource {
+	if o == nil {
+		var ret []*CustomFormatResource
+		return ret
+	}
+	return o.CustomFormats
+}
+
+// GetCustomFormatsOk returns a tuple with the CustomFormats field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ReleaseResource) GetCustomFormatsOk() ([]*CustomFormatResource, bool) {
+	if o == nil || isNil(o.CustomFormats) {
+    return nil, false
+	}
+	return o.CustomFormats, true
+}
+
+// HasCustomFormats returns a boolean if a field has been set.
+func (o *ReleaseResource) HasCustomFormats() bool {
+	if o != nil && isNil(o.CustomFormats) {
+		return true
+	}
+
+	return false
+}
+
+// SetCustomFormats gets a reference to the given []CustomFormatResource and assigns it to the CustomFormats field.
+func (o *ReleaseResource) SetCustomFormats(v []*CustomFormatResource) {
+	o.CustomFormats = v
+}
+
+// GetCustomFormatScore returns the CustomFormatScore field value if set, zero value otherwise.
+func (o *ReleaseResource) GetCustomFormatScore() int32 {
+	if o == nil || isNil(o.CustomFormatScore) {
+		var ret int32
+		return ret
+	}
+	return *o.CustomFormatScore
+}
+
+// GetCustomFormatScoreOk returns a tuple with the CustomFormatScore field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ReleaseResource) GetCustomFormatScoreOk() (*int32, bool) {
+	if o == nil || isNil(o.CustomFormatScore) {
+    return nil, false
+	}
+	return o.CustomFormatScore, true
+}
+
+// HasCustomFormatScore returns a boolean if a field has been set.
+func (o *ReleaseResource) HasCustomFormatScore() bool {
+	if o != nil && !isNil(o.CustomFormatScore) {
+		return true
+	}
+
+	return false
+}
+
+// SetCustomFormatScore gets a reference to the given int32 and assigns it to the CustomFormatScore field.
+func (o *ReleaseResource) SetCustomFormatScore(v int32) {
+	o.CustomFormatScore = &v
 }
 
 // GetQualityWeight returns the QualityWeight field value if set, zero value otherwise.
@@ -597,38 +648,6 @@ func (o *ReleaseResource) UnsetTitle() {
 	o.Title.Unset()
 }
 
-// GetFullSeason returns the FullSeason field value if set, zero value otherwise.
-func (o *ReleaseResource) GetFullSeason() bool {
-	if o == nil || isNil(o.FullSeason) {
-		var ret bool
-		return ret
-	}
-	return *o.FullSeason
-}
-
-// GetFullSeasonOk returns a tuple with the FullSeason field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ReleaseResource) GetFullSeasonOk() (*bool, bool) {
-	if o == nil || isNil(o.FullSeason) {
-    return nil, false
-	}
-	return o.FullSeason, true
-}
-
-// HasFullSeason returns a boolean if a field has been set.
-func (o *ReleaseResource) HasFullSeason() bool {
-	if o != nil && !isNil(o.FullSeason) {
-		return true
-	}
-
-	return false
-}
-
-// SetFullSeason gets a reference to the given bool and assigns it to the FullSeason field.
-func (o *ReleaseResource) SetFullSeason(v bool) {
-	o.FullSeason = &v
-}
-
 // GetSceneSource returns the SceneSource field value if set, zero value otherwise.
 func (o *ReleaseResource) GetSceneSource() bool {
 	if o == nil || isNil(o.SceneSource) {
@@ -661,36 +680,37 @@ func (o *ReleaseResource) SetSceneSource(v bool) {
 	o.SceneSource = &v
 }
 
-// GetSeasonNumber returns the SeasonNumber field value if set, zero value otherwise.
-func (o *ReleaseResource) GetSeasonNumber() int32 {
-	if o == nil || isNil(o.SeasonNumber) {
-		var ret int32
+// GetMovieTitles returns the MovieTitles field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ReleaseResource) GetMovieTitles() []*string {
+	if o == nil {
+		var ret []*string
 		return ret
 	}
-	return *o.SeasonNumber
+	return o.MovieTitles
 }
 
-// GetSeasonNumberOk returns a tuple with the SeasonNumber field value if set, nil otherwise
+// GetMovieTitlesOk returns a tuple with the MovieTitles field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ReleaseResource) GetSeasonNumberOk() (*int32, bool) {
-	if o == nil || isNil(o.SeasonNumber) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ReleaseResource) GetMovieTitlesOk() ([]*string, bool) {
+	if o == nil || isNil(o.MovieTitles) {
     return nil, false
 	}
-	return o.SeasonNumber, true
+	return o.MovieTitles, true
 }
 
-// HasSeasonNumber returns a boolean if a field has been set.
-func (o *ReleaseResource) HasSeasonNumber() bool {
-	if o != nil && !isNil(o.SeasonNumber) {
+// HasMovieTitles returns a boolean if a field has been set.
+func (o *ReleaseResource) HasMovieTitles() bool {
+	if o != nil && isNil(o.MovieTitles) {
 		return true
 	}
 
 	return false
 }
 
-// SetSeasonNumber gets a reference to the given int32 and assigns it to the SeasonNumber field.
-func (o *ReleaseResource) SetSeasonNumber(v int32) {
-	o.SeasonNumber = &v
+// SetMovieTitles gets a reference to the given []string and assigns it to the MovieTitles field.
+func (o *ReleaseResource) SetMovieTitles(v []*string) {
+	o.MovieTitles = v
 }
 
 // GetLanguages returns the Languages field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -724,296 +744,6 @@ func (o *ReleaseResource) HasLanguages() bool {
 // SetLanguages gets a reference to the given []Language and assigns it to the Languages field.
 func (o *ReleaseResource) SetLanguages(v []*Language) {
 	o.Languages = v
-}
-
-// GetLanguageWeight returns the LanguageWeight field value if set, zero value otherwise.
-func (o *ReleaseResource) GetLanguageWeight() int32 {
-	if o == nil || isNil(o.LanguageWeight) {
-		var ret int32
-		return ret
-	}
-	return *o.LanguageWeight
-}
-
-// GetLanguageWeightOk returns a tuple with the LanguageWeight field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ReleaseResource) GetLanguageWeightOk() (*int32, bool) {
-	if o == nil || isNil(o.LanguageWeight) {
-    return nil, false
-	}
-	return o.LanguageWeight, true
-}
-
-// HasLanguageWeight returns a boolean if a field has been set.
-func (o *ReleaseResource) HasLanguageWeight() bool {
-	if o != nil && !isNil(o.LanguageWeight) {
-		return true
-	}
-
-	return false
-}
-
-// SetLanguageWeight gets a reference to the given int32 and assigns it to the LanguageWeight field.
-func (o *ReleaseResource) SetLanguageWeight(v int32) {
-	o.LanguageWeight = &v
-}
-
-// GetAirDate returns the AirDate field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ReleaseResource) GetAirDate() string {
-	if o == nil || isNil(o.AirDate.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.AirDate.Get()
-}
-
-// GetAirDateOk returns a tuple with the AirDate field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ReleaseResource) GetAirDateOk() (*string, bool) {
-	if o == nil {
-    return nil, false
-	}
-	return o.AirDate.Get(), o.AirDate.IsSet()
-}
-
-// HasAirDate returns a boolean if a field has been set.
-func (o *ReleaseResource) HasAirDate() bool {
-	if o != nil && o.AirDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetAirDate gets a reference to the given NullableString and assigns it to the AirDate field.
-func (o *ReleaseResource) SetAirDate(v string) {
-	o.AirDate.Set(&v)
-}
-// SetAirDateNil sets the value for AirDate to be an explicit nil
-func (o *ReleaseResource) SetAirDateNil() {
-	o.AirDate.Set(nil)
-}
-
-// UnsetAirDate ensures that no value is present for AirDate, not even an explicit nil
-func (o *ReleaseResource) UnsetAirDate() {
-	o.AirDate.Unset()
-}
-
-// GetSeriesTitle returns the SeriesTitle field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ReleaseResource) GetSeriesTitle() string {
-	if o == nil || isNil(o.SeriesTitle.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.SeriesTitle.Get()
-}
-
-// GetSeriesTitleOk returns a tuple with the SeriesTitle field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ReleaseResource) GetSeriesTitleOk() (*string, bool) {
-	if o == nil {
-    return nil, false
-	}
-	return o.SeriesTitle.Get(), o.SeriesTitle.IsSet()
-}
-
-// HasSeriesTitle returns a boolean if a field has been set.
-func (o *ReleaseResource) HasSeriesTitle() bool {
-	if o != nil && o.SeriesTitle.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetSeriesTitle gets a reference to the given NullableString and assigns it to the SeriesTitle field.
-func (o *ReleaseResource) SetSeriesTitle(v string) {
-	o.SeriesTitle.Set(&v)
-}
-// SetSeriesTitleNil sets the value for SeriesTitle to be an explicit nil
-func (o *ReleaseResource) SetSeriesTitleNil() {
-	o.SeriesTitle.Set(nil)
-}
-
-// UnsetSeriesTitle ensures that no value is present for SeriesTitle, not even an explicit nil
-func (o *ReleaseResource) UnsetSeriesTitle() {
-	o.SeriesTitle.Unset()
-}
-
-// GetEpisodeNumbers returns the EpisodeNumbers field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ReleaseResource) GetEpisodeNumbers() []*int32 {
-	if o == nil {
-		var ret []*int32
-		return ret
-	}
-	return o.EpisodeNumbers
-}
-
-// GetEpisodeNumbersOk returns a tuple with the EpisodeNumbers field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ReleaseResource) GetEpisodeNumbersOk() ([]*int32, bool) {
-	if o == nil || isNil(o.EpisodeNumbers) {
-    return nil, false
-	}
-	return o.EpisodeNumbers, true
-}
-
-// HasEpisodeNumbers returns a boolean if a field has been set.
-func (o *ReleaseResource) HasEpisodeNumbers() bool {
-	if o != nil && isNil(o.EpisodeNumbers) {
-		return true
-	}
-
-	return false
-}
-
-// SetEpisodeNumbers gets a reference to the given []int32 and assigns it to the EpisodeNumbers field.
-func (o *ReleaseResource) SetEpisodeNumbers(v []*int32) {
-	o.EpisodeNumbers = v
-}
-
-// GetAbsoluteEpisodeNumbers returns the AbsoluteEpisodeNumbers field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ReleaseResource) GetAbsoluteEpisodeNumbers() []*int32 {
-	if o == nil {
-		var ret []*int32
-		return ret
-	}
-	return o.AbsoluteEpisodeNumbers
-}
-
-// GetAbsoluteEpisodeNumbersOk returns a tuple with the AbsoluteEpisodeNumbers field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ReleaseResource) GetAbsoluteEpisodeNumbersOk() ([]*int32, bool) {
-	if o == nil || isNil(o.AbsoluteEpisodeNumbers) {
-    return nil, false
-	}
-	return o.AbsoluteEpisodeNumbers, true
-}
-
-// HasAbsoluteEpisodeNumbers returns a boolean if a field has been set.
-func (o *ReleaseResource) HasAbsoluteEpisodeNumbers() bool {
-	if o != nil && isNil(o.AbsoluteEpisodeNumbers) {
-		return true
-	}
-
-	return false
-}
-
-// SetAbsoluteEpisodeNumbers gets a reference to the given []int32 and assigns it to the AbsoluteEpisodeNumbers field.
-func (o *ReleaseResource) SetAbsoluteEpisodeNumbers(v []*int32) {
-	o.AbsoluteEpisodeNumbers = v
-}
-
-// GetMappedSeasonNumber returns the MappedSeasonNumber field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ReleaseResource) GetMappedSeasonNumber() int32 {
-	if o == nil || isNil(o.MappedSeasonNumber.Get()) {
-		var ret int32
-		return ret
-	}
-	return *o.MappedSeasonNumber.Get()
-}
-
-// GetMappedSeasonNumberOk returns a tuple with the MappedSeasonNumber field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ReleaseResource) GetMappedSeasonNumberOk() (*int32, bool) {
-	if o == nil {
-    return nil, false
-	}
-	return o.MappedSeasonNumber.Get(), o.MappedSeasonNumber.IsSet()
-}
-
-// HasMappedSeasonNumber returns a boolean if a field has been set.
-func (o *ReleaseResource) HasMappedSeasonNumber() bool {
-	if o != nil && o.MappedSeasonNumber.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetMappedSeasonNumber gets a reference to the given NullableInt32 and assigns it to the MappedSeasonNumber field.
-func (o *ReleaseResource) SetMappedSeasonNumber(v int32) {
-	o.MappedSeasonNumber.Set(&v)
-}
-// SetMappedSeasonNumberNil sets the value for MappedSeasonNumber to be an explicit nil
-func (o *ReleaseResource) SetMappedSeasonNumberNil() {
-	o.MappedSeasonNumber.Set(nil)
-}
-
-// UnsetMappedSeasonNumber ensures that no value is present for MappedSeasonNumber, not even an explicit nil
-func (o *ReleaseResource) UnsetMappedSeasonNumber() {
-	o.MappedSeasonNumber.Unset()
-}
-
-// GetMappedEpisodeNumbers returns the MappedEpisodeNumbers field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ReleaseResource) GetMappedEpisodeNumbers() []*int32 {
-	if o == nil {
-		var ret []*int32
-		return ret
-	}
-	return o.MappedEpisodeNumbers
-}
-
-// GetMappedEpisodeNumbersOk returns a tuple with the MappedEpisodeNumbers field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ReleaseResource) GetMappedEpisodeNumbersOk() ([]*int32, bool) {
-	if o == nil || isNil(o.MappedEpisodeNumbers) {
-    return nil, false
-	}
-	return o.MappedEpisodeNumbers, true
-}
-
-// HasMappedEpisodeNumbers returns a boolean if a field has been set.
-func (o *ReleaseResource) HasMappedEpisodeNumbers() bool {
-	if o != nil && isNil(o.MappedEpisodeNumbers) {
-		return true
-	}
-
-	return false
-}
-
-// SetMappedEpisodeNumbers gets a reference to the given []int32 and assigns it to the MappedEpisodeNumbers field.
-func (o *ReleaseResource) SetMappedEpisodeNumbers(v []*int32) {
-	o.MappedEpisodeNumbers = v
-}
-
-// GetMappedAbsoluteEpisodeNumbers returns the MappedAbsoluteEpisodeNumbers field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ReleaseResource) GetMappedAbsoluteEpisodeNumbers() []*int32 {
-	if o == nil {
-		var ret []*int32
-		return ret
-	}
-	return o.MappedAbsoluteEpisodeNumbers
-}
-
-// GetMappedAbsoluteEpisodeNumbersOk returns a tuple with the MappedAbsoluteEpisodeNumbers field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ReleaseResource) GetMappedAbsoluteEpisodeNumbersOk() ([]*int32, bool) {
-	if o == nil || isNil(o.MappedAbsoluteEpisodeNumbers) {
-    return nil, false
-	}
-	return o.MappedAbsoluteEpisodeNumbers, true
-}
-
-// HasMappedAbsoluteEpisodeNumbers returns a boolean if a field has been set.
-func (o *ReleaseResource) HasMappedAbsoluteEpisodeNumbers() bool {
-	if o != nil && isNil(o.MappedAbsoluteEpisodeNumbers) {
-		return true
-	}
-
-	return false
-}
-
-// SetMappedAbsoluteEpisodeNumbers gets a reference to the given []int32 and assigns it to the MappedAbsoluteEpisodeNumbers field.
-func (o *ReleaseResource) SetMappedAbsoluteEpisodeNumbers(v []*int32) {
-	o.MappedAbsoluteEpisodeNumbers = v
 }
 
 // GetApproved returns the Approved field value if set, zero value otherwise.
@@ -1112,68 +842,68 @@ func (o *ReleaseResource) SetRejected(v bool) {
 	o.Rejected = &v
 }
 
-// GetTvdbId returns the TvdbId field value if set, zero value otherwise.
-func (o *ReleaseResource) GetTvdbId() int32 {
-	if o == nil || isNil(o.TvdbId) {
+// GetTmdbId returns the TmdbId field value if set, zero value otherwise.
+func (o *ReleaseResource) GetTmdbId() int32 {
+	if o == nil || isNil(o.TmdbId) {
 		var ret int32
 		return ret
 	}
-	return *o.TvdbId
+	return *o.TmdbId
 }
 
-// GetTvdbIdOk returns a tuple with the TvdbId field value if set, nil otherwise
+// GetTmdbIdOk returns a tuple with the TmdbId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ReleaseResource) GetTvdbIdOk() (*int32, bool) {
-	if o == nil || isNil(o.TvdbId) {
+func (o *ReleaseResource) GetTmdbIdOk() (*int32, bool) {
+	if o == nil || isNil(o.TmdbId) {
     return nil, false
 	}
-	return o.TvdbId, true
+	return o.TmdbId, true
 }
 
-// HasTvdbId returns a boolean if a field has been set.
-func (o *ReleaseResource) HasTvdbId() bool {
-	if o != nil && !isNil(o.TvdbId) {
+// HasTmdbId returns a boolean if a field has been set.
+func (o *ReleaseResource) HasTmdbId() bool {
+	if o != nil && !isNil(o.TmdbId) {
 		return true
 	}
 
 	return false
 }
 
-// SetTvdbId gets a reference to the given int32 and assigns it to the TvdbId field.
-func (o *ReleaseResource) SetTvdbId(v int32) {
-	o.TvdbId = &v
+// SetTmdbId gets a reference to the given int32 and assigns it to the TmdbId field.
+func (o *ReleaseResource) SetTmdbId(v int32) {
+	o.TmdbId = &v
 }
 
-// GetTvRageId returns the TvRageId field value if set, zero value otherwise.
-func (o *ReleaseResource) GetTvRageId() int32 {
-	if o == nil || isNil(o.TvRageId) {
+// GetImdbId returns the ImdbId field value if set, zero value otherwise.
+func (o *ReleaseResource) GetImdbId() int32 {
+	if o == nil || isNil(o.ImdbId) {
 		var ret int32
 		return ret
 	}
-	return *o.TvRageId
+	return *o.ImdbId
 }
 
-// GetTvRageIdOk returns a tuple with the TvRageId field value if set, nil otherwise
+// GetImdbIdOk returns a tuple with the ImdbId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ReleaseResource) GetTvRageIdOk() (*int32, bool) {
-	if o == nil || isNil(o.TvRageId) {
+func (o *ReleaseResource) GetImdbIdOk() (*int32, bool) {
+	if o == nil || isNil(o.ImdbId) {
     return nil, false
 	}
-	return o.TvRageId, true
+	return o.ImdbId, true
 }
 
-// HasTvRageId returns a boolean if a field has been set.
-func (o *ReleaseResource) HasTvRageId() bool {
-	if o != nil && !isNil(o.TvRageId) {
+// HasImdbId returns a boolean if a field has been set.
+func (o *ReleaseResource) HasImdbId() bool {
+	if o != nil && !isNil(o.ImdbId) {
 		return true
 	}
 
 	return false
 }
 
-// SetTvRageId gets a reference to the given int32 and assigns it to the TvRageId field.
-func (o *ReleaseResource) SetTvRageId(v int32) {
-	o.TvRageId = &v
+// SetImdbId gets a reference to the given int32 and assigns it to the ImdbId field.
+func (o *ReleaseResource) SetImdbId(v int32) {
+	o.ImdbId = &v
 }
 
 // GetRejections returns the Rejections field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -1367,38 +1097,6 @@ func (o *ReleaseResource) UnsetInfoUrl() {
 	o.InfoUrl.Unset()
 }
 
-// GetEpisodeRequested returns the EpisodeRequested field value if set, zero value otherwise.
-func (o *ReleaseResource) GetEpisodeRequested() bool {
-	if o == nil || isNil(o.EpisodeRequested) {
-		var ret bool
-		return ret
-	}
-	return *o.EpisodeRequested
-}
-
-// GetEpisodeRequestedOk returns a tuple with the EpisodeRequested field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ReleaseResource) GetEpisodeRequestedOk() (*bool, bool) {
-	if o == nil || isNil(o.EpisodeRequested) {
-    return nil, false
-	}
-	return o.EpisodeRequested, true
-}
-
-// HasEpisodeRequested returns a boolean if a field has been set.
-func (o *ReleaseResource) HasEpisodeRequested() bool {
-	if o != nil && !isNil(o.EpisodeRequested) {
-		return true
-	}
-
-	return false
-}
-
-// SetEpisodeRequested gets a reference to the given bool and assigns it to the EpisodeRequested field.
-func (o *ReleaseResource) SetEpisodeRequested(v bool) {
-	o.EpisodeRequested = &v
-}
-
 // GetDownloadAllowed returns the DownloadAllowed field value if set, zero value otherwise.
 func (o *ReleaseResource) GetDownloadAllowed() bool {
 	if o == nil || isNil(o.DownloadAllowed) {
@@ -1463,101 +1161,79 @@ func (o *ReleaseResource) SetReleaseWeight(v int32) {
 	o.ReleaseWeight = &v
 }
 
-// GetCustomFormats returns the CustomFormats field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ReleaseResource) GetCustomFormats() []*CustomFormatResource {
+// GetIndexerFlags returns the IndexerFlags field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ReleaseResource) GetIndexerFlags() []*string {
 	if o == nil {
-		var ret []*CustomFormatResource
+		var ret []*string
 		return ret
 	}
-	return o.CustomFormats
+	return o.IndexerFlags
 }
 
-// GetCustomFormatsOk returns a tuple with the CustomFormats field value if set, nil otherwise
+// GetIndexerFlagsOk returns a tuple with the IndexerFlags field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ReleaseResource) GetCustomFormatsOk() ([]*CustomFormatResource, bool) {
-	if o == nil || isNil(o.CustomFormats) {
+func (o *ReleaseResource) GetIndexerFlagsOk() ([]*string, bool) {
+	if o == nil || isNil(o.IndexerFlags) {
     return nil, false
 	}
-	return o.CustomFormats, true
+	return o.IndexerFlags, true
 }
 
-// HasCustomFormats returns a boolean if a field has been set.
-func (o *ReleaseResource) HasCustomFormats() bool {
-	if o != nil && isNil(o.CustomFormats) {
+// HasIndexerFlags returns a boolean if a field has been set.
+func (o *ReleaseResource) HasIndexerFlags() bool {
+	if o != nil && isNil(o.IndexerFlags) {
 		return true
 	}
 
 	return false
 }
 
-// SetCustomFormats gets a reference to the given []CustomFormatResource and assigns it to the CustomFormats field.
-func (o *ReleaseResource) SetCustomFormats(v []*CustomFormatResource) {
-	o.CustomFormats = v
+// SetIndexerFlags gets a reference to the given []string and assigns it to the IndexerFlags field.
+func (o *ReleaseResource) SetIndexerFlags(v []*string) {
+	o.IndexerFlags = v
 }
 
-// GetCustomFormatScore returns the CustomFormatScore field value if set, zero value otherwise.
-func (o *ReleaseResource) GetCustomFormatScore() int32 {
-	if o == nil || isNil(o.CustomFormatScore) {
-		var ret int32
+// GetEdition returns the Edition field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ReleaseResource) GetEdition() string {
+	if o == nil || isNil(o.Edition.Get()) {
+		var ret string
 		return ret
 	}
-	return *o.CustomFormatScore
+	return *o.Edition.Get()
 }
 
-// GetCustomFormatScoreOk returns a tuple with the CustomFormatScore field value if set, nil otherwise
+// GetEditionOk returns a tuple with the Edition field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ReleaseResource) GetCustomFormatScoreOk() (*int32, bool) {
-	if o == nil || isNil(o.CustomFormatScore) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ReleaseResource) GetEditionOk() (*string, bool) {
+	if o == nil {
     return nil, false
 	}
-	return o.CustomFormatScore, true
+	return o.Edition.Get(), o.Edition.IsSet()
 }
 
-// HasCustomFormatScore returns a boolean if a field has been set.
-func (o *ReleaseResource) HasCustomFormatScore() bool {
-	if o != nil && !isNil(o.CustomFormatScore) {
+// HasEdition returns a boolean if a field has been set.
+func (o *ReleaseResource) HasEdition() bool {
+	if o != nil && o.Edition.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetCustomFormatScore gets a reference to the given int32 and assigns it to the CustomFormatScore field.
-func (o *ReleaseResource) SetCustomFormatScore(v int32) {
-	o.CustomFormatScore = &v
+// SetEdition gets a reference to the given NullableString and assigns it to the Edition field.
+func (o *ReleaseResource) SetEdition(v string) {
+	o.Edition.Set(&v)
+}
+// SetEditionNil sets the value for Edition to be an explicit nil
+func (o *ReleaseResource) SetEditionNil() {
+	o.Edition.Set(nil)
 }
 
-// GetSceneMapping returns the SceneMapping field value if set, zero value otherwise.
-func (o *ReleaseResource) GetSceneMapping() AlternateTitleResource {
-	if o == nil || isNil(o.SceneMapping) {
-		var ret AlternateTitleResource
-		return ret
-	}
-	return *o.SceneMapping
-}
-
-// GetSceneMappingOk returns a tuple with the SceneMapping field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ReleaseResource) GetSceneMappingOk() (*AlternateTitleResource, bool) {
-	if o == nil || isNil(o.SceneMapping) {
-    return nil, false
-	}
-	return o.SceneMapping, true
-}
-
-// HasSceneMapping returns a boolean if a field has been set.
-func (o *ReleaseResource) HasSceneMapping() bool {
-	if o != nil && !isNil(o.SceneMapping) {
-		return true
-	}
-
-	return false
-}
-
-// SetSceneMapping gets a reference to the given AlternateTitleResource and assigns it to the SceneMapping field.
-func (o *ReleaseResource) SetSceneMapping(v AlternateTitleResource) {
-	o.SceneMapping = &v
+// UnsetEdition ensures that no value is present for Edition, not even an explicit nil
+func (o *ReleaseResource) UnsetEdition() {
+	o.Edition.Unset()
 }
 
 // GetMagnetUrl returns the MagnetUrl field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -1760,216 +1436,46 @@ func (o *ReleaseResource) SetProtocol(v DownloadProtocol) {
 	o.Protocol = &v
 }
 
-// GetIsDaily returns the IsDaily field value if set, zero value otherwise.
-func (o *ReleaseResource) GetIsDaily() bool {
-	if o == nil || isNil(o.IsDaily) {
-		var ret bool
-		return ret
-	}
-	return *o.IsDaily
-}
-
-// GetIsDailyOk returns a tuple with the IsDaily field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ReleaseResource) GetIsDailyOk() (*bool, bool) {
-	if o == nil || isNil(o.IsDaily) {
-    return nil, false
-	}
-	return o.IsDaily, true
-}
-
-// HasIsDaily returns a boolean if a field has been set.
-func (o *ReleaseResource) HasIsDaily() bool {
-	if o != nil && !isNil(o.IsDaily) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsDaily gets a reference to the given bool and assigns it to the IsDaily field.
-func (o *ReleaseResource) SetIsDaily(v bool) {
-	o.IsDaily = &v
-}
-
-// GetIsAbsoluteNumbering returns the IsAbsoluteNumbering field value if set, zero value otherwise.
-func (o *ReleaseResource) GetIsAbsoluteNumbering() bool {
-	if o == nil || isNil(o.IsAbsoluteNumbering) {
-		var ret bool
-		return ret
-	}
-	return *o.IsAbsoluteNumbering
-}
-
-// GetIsAbsoluteNumberingOk returns a tuple with the IsAbsoluteNumbering field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ReleaseResource) GetIsAbsoluteNumberingOk() (*bool, bool) {
-	if o == nil || isNil(o.IsAbsoluteNumbering) {
-    return nil, false
-	}
-	return o.IsAbsoluteNumbering, true
-}
-
-// HasIsAbsoluteNumbering returns a boolean if a field has been set.
-func (o *ReleaseResource) HasIsAbsoluteNumbering() bool {
-	if o != nil && !isNil(o.IsAbsoluteNumbering) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsAbsoluteNumbering gets a reference to the given bool and assigns it to the IsAbsoluteNumbering field.
-func (o *ReleaseResource) SetIsAbsoluteNumbering(v bool) {
-	o.IsAbsoluteNumbering = &v
-}
-
-// GetIsPossibleSpecialEpisode returns the IsPossibleSpecialEpisode field value if set, zero value otherwise.
-func (o *ReleaseResource) GetIsPossibleSpecialEpisode() bool {
-	if o == nil || isNil(o.IsPossibleSpecialEpisode) {
-		var ret bool
-		return ret
-	}
-	return *o.IsPossibleSpecialEpisode
-}
-
-// GetIsPossibleSpecialEpisodeOk returns a tuple with the IsPossibleSpecialEpisode field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ReleaseResource) GetIsPossibleSpecialEpisodeOk() (*bool, bool) {
-	if o == nil || isNil(o.IsPossibleSpecialEpisode) {
-    return nil, false
-	}
-	return o.IsPossibleSpecialEpisode, true
-}
-
-// HasIsPossibleSpecialEpisode returns a boolean if a field has been set.
-func (o *ReleaseResource) HasIsPossibleSpecialEpisode() bool {
-	if o != nil && !isNil(o.IsPossibleSpecialEpisode) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsPossibleSpecialEpisode gets a reference to the given bool and assigns it to the IsPossibleSpecialEpisode field.
-func (o *ReleaseResource) SetIsPossibleSpecialEpisode(v bool) {
-	o.IsPossibleSpecialEpisode = &v
-}
-
-// GetSpecial returns the Special field value if set, zero value otherwise.
-func (o *ReleaseResource) GetSpecial() bool {
-	if o == nil || isNil(o.Special) {
-		var ret bool
-		return ret
-	}
-	return *o.Special
-}
-
-// GetSpecialOk returns a tuple with the Special field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ReleaseResource) GetSpecialOk() (*bool, bool) {
-	if o == nil || isNil(o.Special) {
-    return nil, false
-	}
-	return o.Special, true
-}
-
-// HasSpecial returns a boolean if a field has been set.
-func (o *ReleaseResource) HasSpecial() bool {
-	if o != nil && !isNil(o.Special) {
-		return true
-	}
-
-	return false
-}
-
-// SetSpecial gets a reference to the given bool and assigns it to the Special field.
-func (o *ReleaseResource) SetSpecial(v bool) {
-	o.Special = &v
-}
-
-// GetSeriesId returns the SeriesId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ReleaseResource) GetSeriesId() int32 {
-	if o == nil || isNil(o.SeriesId.Get()) {
+// GetMovieId returns the MovieId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ReleaseResource) GetMovieId() int32 {
+	if o == nil || isNil(o.MovieId.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.SeriesId.Get()
+	return *o.MovieId.Get()
 }
 
-// GetSeriesIdOk returns a tuple with the SeriesId field value if set, nil otherwise
+// GetMovieIdOk returns a tuple with the MovieId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ReleaseResource) GetSeriesIdOk() (*int32, bool) {
+func (o *ReleaseResource) GetMovieIdOk() (*int32, bool) {
 	if o == nil {
     return nil, false
 	}
-	return o.SeriesId.Get(), o.SeriesId.IsSet()
+	return o.MovieId.Get(), o.MovieId.IsSet()
 }
 
-// HasSeriesId returns a boolean if a field has been set.
-func (o *ReleaseResource) HasSeriesId() bool {
-	if o != nil && o.SeriesId.IsSet() {
+// HasMovieId returns a boolean if a field has been set.
+func (o *ReleaseResource) HasMovieId() bool {
+	if o != nil && o.MovieId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetSeriesId gets a reference to the given NullableInt32 and assigns it to the SeriesId field.
-func (o *ReleaseResource) SetSeriesId(v int32) {
-	o.SeriesId.Set(&v)
+// SetMovieId gets a reference to the given NullableInt32 and assigns it to the MovieId field.
+func (o *ReleaseResource) SetMovieId(v int32) {
+	o.MovieId.Set(&v)
 }
-// SetSeriesIdNil sets the value for SeriesId to be an explicit nil
-func (o *ReleaseResource) SetSeriesIdNil() {
-	o.SeriesId.Set(nil)
-}
-
-// UnsetSeriesId ensures that no value is present for SeriesId, not even an explicit nil
-func (o *ReleaseResource) UnsetSeriesId() {
-	o.SeriesId.Unset()
+// SetMovieIdNil sets the value for MovieId to be an explicit nil
+func (o *ReleaseResource) SetMovieIdNil() {
+	o.MovieId.Set(nil)
 }
 
-// GetEpisodeId returns the EpisodeId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ReleaseResource) GetEpisodeId() int32 {
-	if o == nil || isNil(o.EpisodeId.Get()) {
-		var ret int32
-		return ret
-	}
-	return *o.EpisodeId.Get()
-}
-
-// GetEpisodeIdOk returns a tuple with the EpisodeId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ReleaseResource) GetEpisodeIdOk() (*int32, bool) {
-	if o == nil {
-    return nil, false
-	}
-	return o.EpisodeId.Get(), o.EpisodeId.IsSet()
-}
-
-// HasEpisodeId returns a boolean if a field has been set.
-func (o *ReleaseResource) HasEpisodeId() bool {
-	if o != nil && o.EpisodeId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetEpisodeId gets a reference to the given NullableInt32 and assigns it to the EpisodeId field.
-func (o *ReleaseResource) SetEpisodeId(v int32) {
-	o.EpisodeId.Set(&v)
-}
-// SetEpisodeIdNil sets the value for EpisodeId to be an explicit nil
-func (o *ReleaseResource) SetEpisodeIdNil() {
-	o.EpisodeId.Set(nil)
-}
-
-// UnsetEpisodeId ensures that no value is present for EpisodeId, not even an explicit nil
-func (o *ReleaseResource) UnsetEpisodeId() {
-	o.EpisodeId.Unset()
+// UnsetMovieId ensures that no value is present for MovieId, not even an explicit nil
+func (o *ReleaseResource) UnsetMovieId() {
+	o.MovieId.Unset()
 }
 
 func (o ReleaseResource) MarshalJSON() ([]byte, error) {
@@ -1982,6 +1488,12 @@ func (o ReleaseResource) MarshalJSON() ([]byte, error) {
 	}
 	if !isNil(o.Quality) {
 		toSerialize["quality"] = o.Quality
+	}
+	if o.CustomFormats != nil {
+		toSerialize["customFormats"] = o.CustomFormats
+	}
+	if !isNil(o.CustomFormatScore) {
+		toSerialize["customFormatScore"] = o.CustomFormatScore
 	}
 	if !isNil(o.QualityWeight) {
 		toSerialize["qualityWeight"] = o.QualityWeight
@@ -2016,41 +1528,14 @@ func (o ReleaseResource) MarshalJSON() ([]byte, error) {
 	if o.Title.IsSet() {
 		toSerialize["title"] = o.Title.Get()
 	}
-	if !isNil(o.FullSeason) {
-		toSerialize["fullSeason"] = o.FullSeason
-	}
 	if !isNil(o.SceneSource) {
 		toSerialize["sceneSource"] = o.SceneSource
 	}
-	if !isNil(o.SeasonNumber) {
-		toSerialize["seasonNumber"] = o.SeasonNumber
+	if o.MovieTitles != nil {
+		toSerialize["movieTitles"] = o.MovieTitles
 	}
 	if o.Languages != nil {
 		toSerialize["languages"] = o.Languages
-	}
-	if !isNil(o.LanguageWeight) {
-		toSerialize["languageWeight"] = o.LanguageWeight
-	}
-	if o.AirDate.IsSet() {
-		toSerialize["airDate"] = o.AirDate.Get()
-	}
-	if o.SeriesTitle.IsSet() {
-		toSerialize["seriesTitle"] = o.SeriesTitle.Get()
-	}
-	if o.EpisodeNumbers != nil {
-		toSerialize["episodeNumbers"] = o.EpisodeNumbers
-	}
-	if o.AbsoluteEpisodeNumbers != nil {
-		toSerialize["absoluteEpisodeNumbers"] = o.AbsoluteEpisodeNumbers
-	}
-	if o.MappedSeasonNumber.IsSet() {
-		toSerialize["mappedSeasonNumber"] = o.MappedSeasonNumber.Get()
-	}
-	if o.MappedEpisodeNumbers != nil {
-		toSerialize["mappedEpisodeNumbers"] = o.MappedEpisodeNumbers
-	}
-	if o.MappedAbsoluteEpisodeNumbers != nil {
-		toSerialize["mappedAbsoluteEpisodeNumbers"] = o.MappedAbsoluteEpisodeNumbers
 	}
 	if !isNil(o.Approved) {
 		toSerialize["approved"] = o.Approved
@@ -2061,11 +1546,11 @@ func (o ReleaseResource) MarshalJSON() ([]byte, error) {
 	if !isNil(o.Rejected) {
 		toSerialize["rejected"] = o.Rejected
 	}
-	if !isNil(o.TvdbId) {
-		toSerialize["tvdbId"] = o.TvdbId
+	if !isNil(o.TmdbId) {
+		toSerialize["tmdbId"] = o.TmdbId
 	}
-	if !isNil(o.TvRageId) {
-		toSerialize["tvRageId"] = o.TvRageId
+	if !isNil(o.ImdbId) {
+		toSerialize["imdbId"] = o.ImdbId
 	}
 	if o.Rejections != nil {
 		toSerialize["rejections"] = o.Rejections
@@ -2082,23 +1567,17 @@ func (o ReleaseResource) MarshalJSON() ([]byte, error) {
 	if o.InfoUrl.IsSet() {
 		toSerialize["infoUrl"] = o.InfoUrl.Get()
 	}
-	if !isNil(o.EpisodeRequested) {
-		toSerialize["episodeRequested"] = o.EpisodeRequested
-	}
 	if !isNil(o.DownloadAllowed) {
 		toSerialize["downloadAllowed"] = o.DownloadAllowed
 	}
 	if !isNil(o.ReleaseWeight) {
 		toSerialize["releaseWeight"] = o.ReleaseWeight
 	}
-	if o.CustomFormats != nil {
-		toSerialize["customFormats"] = o.CustomFormats
+	if o.IndexerFlags != nil {
+		toSerialize["indexerFlags"] = o.IndexerFlags
 	}
-	if !isNil(o.CustomFormatScore) {
-		toSerialize["customFormatScore"] = o.CustomFormatScore
-	}
-	if !isNil(o.SceneMapping) {
-		toSerialize["sceneMapping"] = o.SceneMapping
+	if o.Edition.IsSet() {
+		toSerialize["edition"] = o.Edition.Get()
 	}
 	if o.MagnetUrl.IsSet() {
 		toSerialize["magnetUrl"] = o.MagnetUrl.Get()
@@ -2115,23 +1594,8 @@ func (o ReleaseResource) MarshalJSON() ([]byte, error) {
 	if !isNil(o.Protocol) {
 		toSerialize["protocol"] = o.Protocol
 	}
-	if !isNil(o.IsDaily) {
-		toSerialize["isDaily"] = o.IsDaily
-	}
-	if !isNil(o.IsAbsoluteNumbering) {
-		toSerialize["isAbsoluteNumbering"] = o.IsAbsoluteNumbering
-	}
-	if !isNil(o.IsPossibleSpecialEpisode) {
-		toSerialize["isPossibleSpecialEpisode"] = o.IsPossibleSpecialEpisode
-	}
-	if !isNil(o.Special) {
-		toSerialize["special"] = o.Special
-	}
-	if o.SeriesId.IsSet() {
-		toSerialize["seriesId"] = o.SeriesId.Get()
-	}
-	if o.EpisodeId.IsSet() {
-		toSerialize["episodeId"] = o.EpisodeId.Get()
+	if o.MovieId.IsSet() {
+		toSerialize["movieId"] = o.MovieId.Get()
 	}
 	return json.Marshal(toSerialize)
 }

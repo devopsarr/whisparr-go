@@ -1,7 +1,7 @@
 /*
-Whisparr
+Radarr
 
-Whisparr API docs
+Radarr API docs
 
 API version: 3.0.0
 */
@@ -120,7 +120,7 @@ func NewConfiguration() *Configuration {
 					},
 					"hostpath": {
 						Description: "No description provided",
-						DefaultValue: "localhost:6969",
+						DefaultValue: "localhost:7878",
 					},
 				},
 			},
