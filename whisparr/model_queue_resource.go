@@ -18,15 +18,17 @@ import (
 // QueueResource struct for QueueResource
 type QueueResource struct {
 	Id *int32 `json:"id,omitempty"`
-	MovieId NullableInt32 `json:"movieId,omitempty"`
-	Movie *MovieResource `json:"movie,omitempty"`
+	SeriesId NullableInt32 `json:"seriesId,omitempty"`
+	EpisodeId NullableInt32 `json:"episodeId,omitempty"`
+	Series *SeriesResource `json:"series,omitempty"`
+	Episode *EpisodeResource `json:"episode,omitempty"`
 	Languages []*Language `json:"languages,omitempty"`
 	Quality *QualityModel `json:"quality,omitempty"`
 	CustomFormats []*CustomFormatResource `json:"customFormats,omitempty"`
 	Size *float64 `json:"size,omitempty"`
 	Title NullableString `json:"title,omitempty"`
 	Sizeleft *float64 `json:"sizeleft,omitempty"`
-	Timeleft *TimeSpan `json:"timeleft,omitempty"`
+	Timeleft *string `json:"timeleft,omitempty"`
 	EstimatedCompletionTime NullableTime `json:"estimatedCompletionTime,omitempty"`
 	Status NullableString `json:"status,omitempty"`
 	TrackedDownloadStatus *TrackedDownloadStatus `json:"trackedDownloadStatus,omitempty"`
@@ -89,78 +91,152 @@ func (o *QueueResource) SetId(v int32) {
 	o.Id = &v
 }
 
-// GetMovieId returns the MovieId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *QueueResource) GetMovieId() int32 {
-	if o == nil || isNil(o.MovieId.Get()) {
+// GetSeriesId returns the SeriesId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *QueueResource) GetSeriesId() int32 {
+	if o == nil || isNil(o.SeriesId.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.MovieId.Get()
+	return *o.SeriesId.Get()
 }
 
-// GetMovieIdOk returns a tuple with the MovieId field value if set, nil otherwise
+// GetSeriesIdOk returns a tuple with the SeriesId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *QueueResource) GetMovieIdOk() (*int32, bool) {
+func (o *QueueResource) GetSeriesIdOk() (*int32, bool) {
 	if o == nil {
     return nil, false
 	}
-	return o.MovieId.Get(), o.MovieId.IsSet()
+	return o.SeriesId.Get(), o.SeriesId.IsSet()
 }
 
-// HasMovieId returns a boolean if a field has been set.
-func (o *QueueResource) HasMovieId() bool {
-	if o != nil && o.MovieId.IsSet() {
+// HasSeriesId returns a boolean if a field has been set.
+func (o *QueueResource) HasSeriesId() bool {
+	if o != nil && o.SeriesId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetMovieId gets a reference to the given NullableInt32 and assigns it to the MovieId field.
-func (o *QueueResource) SetMovieId(v int32) {
-	o.MovieId.Set(&v)
+// SetSeriesId gets a reference to the given NullableInt32 and assigns it to the SeriesId field.
+func (o *QueueResource) SetSeriesId(v int32) {
+	o.SeriesId.Set(&v)
 }
-// SetMovieIdNil sets the value for MovieId to be an explicit nil
-func (o *QueueResource) SetMovieIdNil() {
-	o.MovieId.Set(nil)
-}
-
-// UnsetMovieId ensures that no value is present for MovieId, not even an explicit nil
-func (o *QueueResource) UnsetMovieId() {
-	o.MovieId.Unset()
+// SetSeriesIdNil sets the value for SeriesId to be an explicit nil
+func (o *QueueResource) SetSeriesIdNil() {
+	o.SeriesId.Set(nil)
 }
 
-// GetMovie returns the Movie field value if set, zero value otherwise.
-func (o *QueueResource) GetMovie() MovieResource {
-	if o == nil || isNil(o.Movie) {
-		var ret MovieResource
+// UnsetSeriesId ensures that no value is present for SeriesId, not even an explicit nil
+func (o *QueueResource) UnsetSeriesId() {
+	o.SeriesId.Unset()
+}
+
+// GetEpisodeId returns the EpisodeId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *QueueResource) GetEpisodeId() int32 {
+	if o == nil || isNil(o.EpisodeId.Get()) {
+		var ret int32
 		return ret
 	}
-	return *o.Movie
+	return *o.EpisodeId.Get()
 }
 
-// GetMovieOk returns a tuple with the Movie field value if set, nil otherwise
+// GetEpisodeIdOk returns a tuple with the EpisodeId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *QueueResource) GetMovieOk() (*MovieResource, bool) {
-	if o == nil || isNil(o.Movie) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *QueueResource) GetEpisodeIdOk() (*int32, bool) {
+	if o == nil {
     return nil, false
 	}
-	return o.Movie, true
+	return o.EpisodeId.Get(), o.EpisodeId.IsSet()
 }
 
-// HasMovie returns a boolean if a field has been set.
-func (o *QueueResource) HasMovie() bool {
-	if o != nil && !isNil(o.Movie) {
+// HasEpisodeId returns a boolean if a field has been set.
+func (o *QueueResource) HasEpisodeId() bool {
+	if o != nil && o.EpisodeId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetMovie gets a reference to the given MovieResource and assigns it to the Movie field.
-func (o *QueueResource) SetMovie(v MovieResource) {
-	o.Movie = &v
+// SetEpisodeId gets a reference to the given NullableInt32 and assigns it to the EpisodeId field.
+func (o *QueueResource) SetEpisodeId(v int32) {
+	o.EpisodeId.Set(&v)
+}
+// SetEpisodeIdNil sets the value for EpisodeId to be an explicit nil
+func (o *QueueResource) SetEpisodeIdNil() {
+	o.EpisodeId.Set(nil)
+}
+
+// UnsetEpisodeId ensures that no value is present for EpisodeId, not even an explicit nil
+func (o *QueueResource) UnsetEpisodeId() {
+	o.EpisodeId.Unset()
+}
+
+// GetSeries returns the Series field value if set, zero value otherwise.
+func (o *QueueResource) GetSeries() SeriesResource {
+	if o == nil || isNil(o.Series) {
+		var ret SeriesResource
+		return ret
+	}
+	return *o.Series
+}
+
+// GetSeriesOk returns a tuple with the Series field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *QueueResource) GetSeriesOk() (*SeriesResource, bool) {
+	if o == nil || isNil(o.Series) {
+    return nil, false
+	}
+	return o.Series, true
+}
+
+// HasSeries returns a boolean if a field has been set.
+func (o *QueueResource) HasSeries() bool {
+	if o != nil && !isNil(o.Series) {
+		return true
+	}
+
+	return false
+}
+
+// SetSeries gets a reference to the given SeriesResource and assigns it to the Series field.
+func (o *QueueResource) SetSeries(v SeriesResource) {
+	o.Series = &v
+}
+
+// GetEpisode returns the Episode field value if set, zero value otherwise.
+func (o *QueueResource) GetEpisode() EpisodeResource {
+	if o == nil || isNil(o.Episode) {
+		var ret EpisodeResource
+		return ret
+	}
+	return *o.Episode
+}
+
+// GetEpisodeOk returns a tuple with the Episode field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *QueueResource) GetEpisodeOk() (*EpisodeResource, bool) {
+	if o == nil || isNil(o.Episode) {
+    return nil, false
+	}
+	return o.Episode, true
+}
+
+// HasEpisode returns a boolean if a field has been set.
+func (o *QueueResource) HasEpisode() bool {
+	if o != nil && !isNil(o.Episode) {
+		return true
+	}
+
+	return false
+}
+
+// SetEpisode gets a reference to the given EpisodeResource and assigns it to the Episode field.
+func (o *QueueResource) SetEpisode(v EpisodeResource) {
+	o.Episode = &v
 }
 
 // GetLanguages returns the Languages field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -368,9 +444,9 @@ func (o *QueueResource) SetSizeleft(v float64) {
 }
 
 // GetTimeleft returns the Timeleft field value if set, zero value otherwise.
-func (o *QueueResource) GetTimeleft() TimeSpan {
+func (o *QueueResource) GetTimeleft() string {
 	if o == nil || isNil(o.Timeleft) {
-		var ret TimeSpan
+		var ret string
 		return ret
 	}
 	return *o.Timeleft
@@ -378,7 +454,7 @@ func (o *QueueResource) GetTimeleft() TimeSpan {
 
 // GetTimeleftOk returns a tuple with the Timeleft field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *QueueResource) GetTimeleftOk() (*TimeSpan, bool) {
+func (o *QueueResource) GetTimeleftOk() (*string, bool) {
 	if o == nil || isNil(o.Timeleft) {
     return nil, false
 	}
@@ -394,8 +470,8 @@ func (o *QueueResource) HasTimeleft() bool {
 	return false
 }
 
-// SetTimeleft gets a reference to the given TimeSpan and assigns it to the Timeleft field.
-func (o *QueueResource) SetTimeleft(v TimeSpan) {
+// SetTimeleft gets a reference to the given string and assigns it to the Timeleft field.
+func (o *QueueResource) SetTimeleft(v string) {
 	o.Timeleft = &v
 }
 
@@ -827,11 +903,17 @@ func (o QueueResource) MarshalJSON() ([]byte, error) {
 	if !isNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if o.MovieId.IsSet() {
-		toSerialize["movieId"] = o.MovieId.Get()
+	if o.SeriesId.IsSet() {
+		toSerialize["seriesId"] = o.SeriesId.Get()
 	}
-	if !isNil(o.Movie) {
-		toSerialize["movie"] = o.Movie
+	if o.EpisodeId.IsSet() {
+		toSerialize["episodeId"] = o.EpisodeId.Get()
+	}
+	if !isNil(o.Series) {
+		toSerialize["series"] = o.Series
+	}
+	if !isNil(o.Episode) {
+		toSerialize["episode"] = o.Episode
 	}
 	if o.Languages != nil {
 		toSerialize["languages"] = o.Languages

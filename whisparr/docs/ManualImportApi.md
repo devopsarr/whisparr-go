@@ -59,11 +59,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[X-Api-Key](../README.md#X-Api-Key), [apikey](../README.md#apikey)
+[apikey](../README.md#apikey), [X-Api-Key](../README.md#X-Api-Key)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, text/json, application/*+json
+- **Content-Type**: application/json
 - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 
 ## ListManualImport
 
-> []ManualImportResource ListManualImport(ctx).Folder(folder).DownloadId(downloadId).MovieId(movieId).FilterExistingFiles(filterExistingFiles).Execute()
+> []ManualImportResource ListManualImport(ctx).Folder(folder).DownloadId(downloadId).SeriesId(seriesId).SeasonNumber(seasonNumber).FilterExistingFiles(filterExistingFiles).Execute()
 
 
 
@@ -92,12 +92,13 @@ import (
 func main() {
     folder := "folder_example" // string |  (optional)
     downloadId := "downloadId_example" // string |  (optional)
-    movieId := int32(56) // int32 |  (optional)
+    seriesId := int32(56) // int32 |  (optional)
+    seasonNumber := int32(56) // int32 |  (optional)
     filterExistingFiles := true // bool |  (optional) (default to true)
 
     configuration := whisparrClient.NewConfiguration()
     apiClient := whisparrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ManualImportApi.ListManualImport(context.Background()).Folder(folder).DownloadId(downloadId).MovieId(movieId).FilterExistingFiles(filterExistingFiles).Execute()
+    resp, r, err := apiClient.ManualImportApi.ListManualImport(context.Background()).Folder(folder).DownloadId(downloadId).SeriesId(seriesId).SeasonNumber(seasonNumber).FilterExistingFiles(filterExistingFiles).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ManualImportApi.ListManualImport``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -120,7 +121,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **folder** | **string** |  | 
  **downloadId** | **string** |  | 
- **movieId** | **int32** |  | 
+ **seriesId** | **int32** |  | 
+ **seasonNumber** | **int32** |  | 
  **filterExistingFiles** | **bool** |  | [default to true]
 
 ### Return type
@@ -129,12 +131,12 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[X-Api-Key](../README.md#X-Api-Key), [apikey](../README.md#apikey)
+[apikey](../README.md#apikey), [X-Api-Key](../README.md#X-Api-Key)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

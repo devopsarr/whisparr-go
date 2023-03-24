@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **Id** | Pointer to **int32** |  | [optional] 
 **DownloadClientWorkingFolders** | Pointer to **NullableString** |  | [optional] 
 **EnableCompletedDownloadHandling** | Pointer to **bool** |  | [optional] 
-**CheckForFinishedDownloadInterval** | Pointer to **int32** |  | [optional] 
 **AutoRedownloadFailed** | Pointer to **bool** |  | [optional] 
 
 ## Methods
@@ -113,31 +112,6 @@ SetEnableCompletedDownloadHandling sets EnableCompletedDownloadHandling field to
 `func (o *DownloadClientConfigResource) HasEnableCompletedDownloadHandling() bool`
 
 HasEnableCompletedDownloadHandling returns a boolean if a field has been set.
-
-### GetCheckForFinishedDownloadInterval
-
-`func (o *DownloadClientConfigResource) GetCheckForFinishedDownloadInterval() int32`
-
-GetCheckForFinishedDownloadInterval returns the CheckForFinishedDownloadInterval field if non-nil, zero value otherwise.
-
-### GetCheckForFinishedDownloadIntervalOk
-
-`func (o *DownloadClientConfigResource) GetCheckForFinishedDownloadIntervalOk() (*int32, bool)`
-
-GetCheckForFinishedDownloadIntervalOk returns a tuple with the CheckForFinishedDownloadInterval field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCheckForFinishedDownloadInterval
-
-`func (o *DownloadClientConfigResource) SetCheckForFinishedDownloadInterval(v int32)`
-
-SetCheckForFinishedDownloadInterval sets CheckForFinishedDownloadInterval field to given value.
-
-### HasCheckForFinishedDownloadInterval
-
-`func (o *DownloadClientConfigResource) HasCheckForFinishedDownloadInterval() bool`
-
-HasCheckForFinishedDownloadInterval returns a boolean if a field has been set.
 
 ### GetAutoRedownloadFailed
 

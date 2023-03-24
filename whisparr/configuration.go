@@ -101,7 +101,9 @@ type Configuration struct {
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
 		DefaultHeader:    make(map[string]string),
-		UserAgent:        "Whisparr-go/v0.0.1",
+		// x-release-please-start-version
+		UserAgent:        "whisparr-go/v0.1.1",
+		// x-release-please-end
 		Debug:            false,
 		Servers:          ServerConfigurations{
 			{

@@ -58,7 +58,7 @@ Other parameters are passed through a pointer to a apiGetNamingConfigRequest str
 
 ### Authorization
 
-[X-Api-Key](../README.md#X-Api-Key), [apikey](../README.md#apikey)
+[apikey](../README.md#apikey), [X-Api-Key](../README.md#X-Api-Key)
 
 ### HTTP request headers
 
@@ -126,12 +126,12 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[X-Api-Key](../README.md#X-Api-Key), [apikey](../README.md#apikey)
+[apikey](../README.md#apikey), [X-Api-Key](../README.md#X-Api-Key)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -140,7 +140,7 @@ Name | Type | Description  | Notes
 
 ## GetNamingConfigExamples
 
-> GetNamingConfigExamples(ctx).RenameMovies(renameMovies).ReplaceIllegalCharacters(replaceIllegalCharacters).ColonReplacementFormat(colonReplacementFormat).StandardMovieFormat(standardMovieFormat).MovieFolderFormat(movieFolderFormat).IncludeQuality(includeQuality).ReplaceSpaces(replaceSpaces).Separator(separator).NumberStyle(numberStyle).Id(id).ResourceName(resourceName).Execute()
+> GetNamingConfigExamples(ctx).RenameEpisodes(renameEpisodes).ReplaceIllegalCharacters(replaceIllegalCharacters).MultiEpisodeStyle(multiEpisodeStyle).StandardEpisodeFormat(standardEpisodeFormat).DailyEpisodeFormat(dailyEpisodeFormat).AnimeEpisodeFormat(animeEpisodeFormat).SeriesFolderFormat(seriesFolderFormat).SeasonFolderFormat(seasonFolderFormat).SpecialsFolderFormat(specialsFolderFormat).IncludeSeriesTitle(includeSeriesTitle).IncludeEpisodeTitle(includeEpisodeTitle).IncludeQuality(includeQuality).ReplaceSpaces(replaceSpaces).Separator(separator).NumberStyle(numberStyle).Id(id).ResourceName(resourceName).Execute()
 
 
 
@@ -157,11 +157,17 @@ import (
 )
 
 func main() {
-    renameMovies := true // bool |  (optional)
+    renameEpisodes := true // bool |  (optional)
     replaceIllegalCharacters := true // bool |  (optional)
-    colonReplacementFormat := whisparrClient.ColonReplacementFormat("delete") // ColonReplacementFormat |  (optional)
-    standardMovieFormat := "standardMovieFormat_example" // string |  (optional)
-    movieFolderFormat := "movieFolderFormat_example" // string |  (optional)
+    multiEpisodeStyle := int32(56) // int32 |  (optional)
+    standardEpisodeFormat := "standardEpisodeFormat_example" // string |  (optional)
+    dailyEpisodeFormat := "dailyEpisodeFormat_example" // string |  (optional)
+    animeEpisodeFormat := "animeEpisodeFormat_example" // string |  (optional)
+    seriesFolderFormat := "seriesFolderFormat_example" // string |  (optional)
+    seasonFolderFormat := "seasonFolderFormat_example" // string |  (optional)
+    specialsFolderFormat := "specialsFolderFormat_example" // string |  (optional)
+    includeSeriesTitle := true // bool |  (optional)
+    includeEpisodeTitle := true // bool |  (optional)
     includeQuality := true // bool |  (optional)
     replaceSpaces := true // bool |  (optional)
     separator := "separator_example" // string |  (optional)
@@ -171,7 +177,7 @@ func main() {
 
     configuration := whisparrClient.NewConfiguration()
     apiClient := whisparrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.NamingConfigApi.GetNamingConfigExamples(context.Background()).RenameMovies(renameMovies).ReplaceIllegalCharacters(replaceIllegalCharacters).ColonReplacementFormat(colonReplacementFormat).StandardMovieFormat(standardMovieFormat).MovieFolderFormat(movieFolderFormat).IncludeQuality(includeQuality).ReplaceSpaces(replaceSpaces).Separator(separator).NumberStyle(numberStyle).Id(id).ResourceName(resourceName).Execute()
+    resp, r, err := apiClient.NamingConfigApi.GetNamingConfigExamples(context.Background()).RenameEpisodes(renameEpisodes).ReplaceIllegalCharacters(replaceIllegalCharacters).MultiEpisodeStyle(multiEpisodeStyle).StandardEpisodeFormat(standardEpisodeFormat).DailyEpisodeFormat(dailyEpisodeFormat).AnimeEpisodeFormat(animeEpisodeFormat).SeriesFolderFormat(seriesFolderFormat).SeasonFolderFormat(seasonFolderFormat).SpecialsFolderFormat(specialsFolderFormat).IncludeSeriesTitle(includeSeriesTitle).IncludeEpisodeTitle(includeEpisodeTitle).IncludeQuality(includeQuality).ReplaceSpaces(replaceSpaces).Separator(separator).NumberStyle(numberStyle).Id(id).ResourceName(resourceName).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `NamingConfigApi.GetNamingConfigExamples``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -190,11 +196,17 @@ Other parameters are passed through a pointer to a apiGetNamingConfigExamplesReq
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **renameMovies** | **bool** |  | 
+ **renameEpisodes** | **bool** |  | 
  **replaceIllegalCharacters** | **bool** |  | 
- **colonReplacementFormat** | [**ColonReplacementFormat**](ColonReplacementFormat.md) |  | 
- **standardMovieFormat** | **string** |  | 
- **movieFolderFormat** | **string** |  | 
+ **multiEpisodeStyle** | **int32** |  | 
+ **standardEpisodeFormat** | **string** |  | 
+ **dailyEpisodeFormat** | **string** |  | 
+ **animeEpisodeFormat** | **string** |  | 
+ **seriesFolderFormat** | **string** |  | 
+ **seasonFolderFormat** | **string** |  | 
+ **specialsFolderFormat** | **string** |  | 
+ **includeSeriesTitle** | **bool** |  | 
+ **includeEpisodeTitle** | **bool** |  | 
  **includeQuality** | **bool** |  | 
  **replaceSpaces** | **bool** |  | 
  **separator** | **string** |  | 
@@ -208,7 +220,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[X-Api-Key](../README.md#X-Api-Key), [apikey](../README.md#apikey)
+[apikey](../README.md#apikey), [X-Api-Key](../README.md#X-Api-Key)
 
 ### HTTP request headers
 
@@ -278,7 +290,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[X-Api-Key](../README.md#X-Api-Key), [apikey](../README.md#apikey)
+[apikey](../README.md#apikey), [X-Api-Key](../README.md#X-Api-Key)
 
 ### HTTP request headers
 

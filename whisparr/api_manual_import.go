@@ -69,7 +69,7 @@ func (a *ManualImportApiService) CreateManualImportExecute(r ApiCreateManualImpo
 	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json", "text/json", "application/*+json"}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -90,20 +90,6 @@ func (a *ManualImportApiService) CreateManualImportExecute(r ApiCreateManualImpo
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["X-Api-Key"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["X-Api-Key"] = key
-			}
-		}
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
 			if apiKey, ok := auth["apikey"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
@@ -112,6 +98,20 @@ func (a *ManualImportApiService) CreateManualImportExecute(r ApiCreateManualImpo
 					key = apiKey.Key
 				}
 				localVarQueryParams.Add("apikey", key)
+			}
+		}
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["X-Api-Key"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["X-Api-Key"] = key
 			}
 		}
 	}
@@ -147,7 +147,8 @@ type ApiListManualImportRequest struct {
 	ApiService *ManualImportApiService
 	folder *string
 	downloadId *string
-	movieId *int32
+	seriesId *int32
+	seasonNumber *int32
 	filterExistingFiles *bool
 }
 
@@ -161,8 +162,13 @@ func (r ApiListManualImportRequest) DownloadId(downloadId string) ApiListManualI
 	return r
 }
 
-func (r ApiListManualImportRequest) MovieId(movieId int32) ApiListManualImportRequest {
-	r.movieId = &movieId
+func (r ApiListManualImportRequest) SeriesId(seriesId int32) ApiListManualImportRequest {
+	r.seriesId = &seriesId
+	return r
+}
+
+func (r ApiListManualImportRequest) SeasonNumber(seasonNumber int32) ApiListManualImportRequest {
+	r.seasonNumber = &seasonNumber
 	return r
 }
 
@@ -215,8 +221,11 @@ func (a *ManualImportApiService) ListManualImportExecute(r ApiListManualImportRe
 	if r.downloadId != nil {
 		localVarQueryParams.Add("downloadId", parameterToString(*r.downloadId, ""))
 	}
-	if r.movieId != nil {
-		localVarQueryParams.Add("movieId", parameterToString(*r.movieId, ""))
+	if r.seriesId != nil {
+		localVarQueryParams.Add("seriesId", parameterToString(*r.seriesId, ""))
+	}
+	if r.seasonNumber != nil {
+		localVarQueryParams.Add("seasonNumber", parameterToString(*r.seasonNumber, ""))
 	}
 	if r.filterExistingFiles != nil {
 		localVarQueryParams.Add("filterExistingFiles", parameterToString(*r.filterExistingFiles, ""))
@@ -231,26 +240,12 @@ func (a *ManualImportApiService) ListManualImportExecute(r ApiListManualImportRe
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"text/plain", "application/json", "text/json"}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["X-Api-Key"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["X-Api-Key"] = key
-			}
-		}
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -263,6 +258,20 @@ func (a *ManualImportApiService) ListManualImportExecute(r ApiListManualImportRe
 					key = apiKey.Key
 				}
 				localVarQueryParams.Add("apikey", key)
+			}
+		}
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["X-Api-Key"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["X-Api-Key"] = key
 			}
 		}
 	}

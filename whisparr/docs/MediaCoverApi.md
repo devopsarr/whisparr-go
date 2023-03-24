@@ -4,13 +4,13 @@ All URIs are relative to *http://localhost:6969*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetMediaCovermovieIdByFilename**](MediaCoverApi.md#GetMediaCovermovieIdByFilename) | **Get** /api/v3/mediacover/{movieId}/{filename} | 
+[**GetMediaCoverseriesIdByFilename**](MediaCoverApi.md#GetMediaCoverseriesIdByFilename) | **Get** /api/v3/mediacover/{seriesId}/{filename} | 
 
 
 
-## GetMediaCovermovieIdByFilename
+## GetMediaCoverseriesIdByFilename
 
-> GetMediaCovermovieIdByFilename(ctx, movieId, filename).Execute()
+> GetMediaCoverseriesIdByFilename(ctx, seriesId, filename).Execute()
 
 
 
@@ -27,14 +27,14 @@ import (
 )
 
 func main() {
-    movieId := int32(56) // int32 | 
+    seriesId := int32(56) // int32 | 
     filename := "filename_example" // string | 
 
     configuration := whisparrClient.NewConfiguration()
     apiClient := whisparrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MediaCoverApi.GetMediaCovermovieIdByFilename(context.Background(), movieId, filename).Execute()
+    resp, r, err := apiClient.MediaCoverApi.GetMediaCoverseriesIdByFilename(context.Background(), seriesId, filename).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MediaCoverApi.GetMediaCovermovieIdByFilename``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `MediaCoverApi.GetMediaCoverseriesIdByFilename``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -46,12 +46,12 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**movieId** | **int32** |  | 
+**seriesId** | **int32** |  | 
 **filename** | **string** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetMediaCovermovieIdByFilenameRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetMediaCoverseriesIdByFilenameRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[X-Api-Key](../README.md#X-Api-Key), [apikey](../README.md#apikey)
+[apikey](../README.md#apikey), [X-Api-Key](../README.md#X-Api-Key)
 
 ### HTTP request headers
 

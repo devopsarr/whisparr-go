@@ -25,10 +25,16 @@ type ApiGetParseRequest struct {
 	ctx context.Context
 	ApiService *ParseApiService
 	title *string
+	path *string
 }
 
 func (r ApiGetParseRequest) Title(title string) ApiGetParseRequest {
 	r.title = &title
+	return r
+}
+
+func (r ApiGetParseRequest) Path(path string) ApiGetParseRequest {
+	r.path = &path
 	return r
 }
 
@@ -73,6 +79,9 @@ func (a *ParseApiService) GetParseExecute(r ApiGetParseRequest) (*ParseResource,
 	if r.title != nil {
 		localVarQueryParams.Add("title", parameterToString(*r.title, ""))
 	}
+	if r.path != nil {
+		localVarQueryParams.Add("path", parameterToString(*r.path, ""))
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -83,26 +92,12 @@ func (a *ParseApiService) GetParseExecute(r ApiGetParseRequest) (*ParseResource,
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"text/plain", "application/json", "text/json"}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["X-Api-Key"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["X-Api-Key"] = key
-			}
-		}
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -115,6 +110,20 @@ func (a *ParseApiService) GetParseExecute(r ApiGetParseRequest) (*ParseResource,
 					key = apiKey.Key
 				}
 				localVarQueryParams.Add("apikey", key)
+			}
+		}
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["X-Api-Key"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["X-Api-Key"] = key
 			}
 		}
 	}

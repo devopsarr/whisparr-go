@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **SelectOptionsProviderAction** | Pointer to **NullableString** |  | [optional] 
 **Section** | Pointer to **NullableString** |  | [optional] 
 **Hidden** | Pointer to **NullableString** |  | [optional] 
-**Placeholder** | Pointer to **NullableString** |  | [optional] 
+**Privacy** | Pointer to [**PrivacyLevel**](PrivacyLevel.md) |  | [optional] 
 
 ## Methods
 
@@ -473,41 +473,31 @@ HasHidden returns a boolean if a field has been set.
 `func (o *Field) UnsetHidden()`
 
 UnsetHidden ensures that no value is present for Hidden, not even an explicit nil
-### GetPlaceholder
+### GetPrivacy
 
-`func (o *Field) GetPlaceholder() string`
+`func (o *Field) GetPrivacy() PrivacyLevel`
 
-GetPlaceholder returns the Placeholder field if non-nil, zero value otherwise.
+GetPrivacy returns the Privacy field if non-nil, zero value otherwise.
 
-### GetPlaceholderOk
+### GetPrivacyOk
 
-`func (o *Field) GetPlaceholderOk() (*string, bool)`
+`func (o *Field) GetPrivacyOk() (*PrivacyLevel, bool)`
 
-GetPlaceholderOk returns a tuple with the Placeholder field if it's non-nil, zero value otherwise
+GetPrivacyOk returns a tuple with the Privacy field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetPlaceholder
+### SetPrivacy
 
-`func (o *Field) SetPlaceholder(v string)`
+`func (o *Field) SetPrivacy(v PrivacyLevel)`
 
-SetPlaceholder sets Placeholder field to given value.
+SetPrivacy sets Privacy field to given value.
 
-### HasPlaceholder
+### HasPrivacy
 
-`func (o *Field) HasPlaceholder() bool`
+`func (o *Field) HasPrivacy() bool`
 
-HasPlaceholder returns a boolean if a field has been set.
+HasPrivacy returns a boolean if a field has been set.
 
-### SetPlaceholderNil
-
-`func (o *Field) SetPlaceholderNil(b bool)`
-
- SetPlaceholderNil sets the value for Placeholder to be an explicit nil
-
-### UnsetPlaceholder
-`func (o *Field) UnsetPlaceholder()`
-
-UnsetPlaceholder ensures that no value is present for Placeholder, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

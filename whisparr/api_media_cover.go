@@ -22,49 +22,49 @@ import (
 
 // MediaCoverApiService MediaCoverApi service
 type MediaCoverApiService service
-type ApiGetMediaCovermovieIdByFilenameRequest struct {
+type ApiGetMediaCoverseriesIdByFilenameRequest struct {
 	ctx context.Context
 	ApiService *MediaCoverApiService
-	movieId int32
+	seriesId int32
 	filename string
 }
 
-func (r ApiGetMediaCovermovieIdByFilenameRequest) Execute() (*http.Response, error) {
-	return r.ApiService.GetMediaCovermovieIdByFilenameExecute(r)
+func (r ApiGetMediaCoverseriesIdByFilenameRequest) Execute() (*http.Response, error) {
+	return r.ApiService.GetMediaCoverseriesIdByFilenameExecute(r)
 }
 
 /*
-GetMediaCovermovieIdByFilename Method for GetMediaCovermovieIdByFilename
+GetMediaCoverseriesIdByFilename Method for GetMediaCoverseriesIdByFilename
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param movieId
+ @param seriesId
  @param filename
- @return ApiGetMediaCovermovieIdByFilenameRequest
+ @return ApiGetMediaCoverseriesIdByFilenameRequest
 */
-func (a *MediaCoverApiService) GetMediaCovermovieIdByFilename(ctx context.Context, movieId int32, filename string) ApiGetMediaCovermovieIdByFilenameRequest {
-	return ApiGetMediaCovermovieIdByFilenameRequest{
+func (a *MediaCoverApiService) GetMediaCoverseriesIdByFilename(ctx context.Context, seriesId int32, filename string) ApiGetMediaCoverseriesIdByFilenameRequest {
+	return ApiGetMediaCoverseriesIdByFilenameRequest{
 		ApiService: a,
 		ctx: ctx,
-		movieId: movieId,
+		seriesId: seriesId,
 		filename: filename,
 	}
 }
 
 // Execute executes the request
-func (a *MediaCoverApiService) GetMediaCovermovieIdByFilenameExecute(r ApiGetMediaCovermovieIdByFilenameRequest) (*http.Response, error) {
+func (a *MediaCoverApiService) GetMediaCoverseriesIdByFilenameExecute(r ApiGetMediaCoverseriesIdByFilenameRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MediaCoverApiService.GetMediaCovermovieIdByFilename")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MediaCoverApiService.GetMediaCoverseriesIdByFilename")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/v3/mediacover/{movieId}/{filename}"
-	localVarPath = strings.Replace(localVarPath, "{"+"movieId"+"}", url.PathEscape(parameterToString(r.movieId, "")), -1)
+	localVarPath := localBasePath + "/api/v3/mediacover/{seriesId}/{filename}"
+	localVarPath = strings.Replace(localVarPath, "{"+"seriesId"+"}", url.PathEscape(parameterToString(r.seriesId, "")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"filename"+"}", url.PathEscape(parameterToString(r.filename, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -91,20 +91,6 @@ func (a *MediaCoverApiService) GetMediaCovermovieIdByFilenameExecute(r ApiGetMed
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["X-Api-Key"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["X-Api-Key"] = key
-			}
-		}
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
 			if apiKey, ok := auth["apikey"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
@@ -113,6 +99,20 @@ func (a *MediaCoverApiService) GetMediaCovermovieIdByFilenameExecute(r ApiGetMed
 					key = apiKey.Key
 				}
 				localVarQueryParams.Add("apikey", key)
+			}
+		}
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["X-Api-Key"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["X-Api-Key"] = key
 			}
 		}
 	}

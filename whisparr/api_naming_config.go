@@ -85,20 +85,6 @@ func (a *NamingConfigApiService) GetNamingConfigExecute(r ApiGetNamingConfigRequ
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["X-Api-Key"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["X-Api-Key"] = key
-			}
-		}
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
 			if apiKey, ok := auth["apikey"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
@@ -107,6 +93,20 @@ func (a *NamingConfigApiService) GetNamingConfigExecute(r ApiGetNamingConfigRequ
 					key = apiKey.Key
 				}
 				localVarQueryParams.Add("apikey", key)
+			}
+		}
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["X-Api-Key"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["X-Api-Key"] = key
 			}
 		}
 	}
@@ -203,26 +203,12 @@ func (a *NamingConfigApiService) GetNamingConfigByIdExecute(r ApiGetNamingConfig
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"text/plain", "application/json", "text/json"}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["X-Api-Key"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["X-Api-Key"] = key
-			}
-		}
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -235,6 +221,20 @@ func (a *NamingConfigApiService) GetNamingConfigByIdExecute(r ApiGetNamingConfig
 					key = apiKey.Key
 				}
 				localVarQueryParams.Add("apikey", key)
+			}
+		}
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["X-Api-Key"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["X-Api-Key"] = key
 			}
 		}
 	}
@@ -277,11 +277,17 @@ func (a *NamingConfigApiService) GetNamingConfigByIdExecute(r ApiGetNamingConfig
 type ApiGetNamingConfigExamplesRequest struct {
 	ctx context.Context
 	ApiService *NamingConfigApiService
-	renameMovies *bool
+	renameEpisodes *bool
 	replaceIllegalCharacters *bool
-	colonReplacementFormat *ColonReplacementFormat
-	standardMovieFormat *string
-	movieFolderFormat *string
+	multiEpisodeStyle *int32
+	standardEpisodeFormat *string
+	dailyEpisodeFormat *string
+	animeEpisodeFormat *string
+	seriesFolderFormat *string
+	seasonFolderFormat *string
+	specialsFolderFormat *string
+	includeSeriesTitle *bool
+	includeEpisodeTitle *bool
 	includeQuality *bool
 	replaceSpaces *bool
 	separator *string
@@ -290,8 +296,8 @@ type ApiGetNamingConfigExamplesRequest struct {
 	resourceName *string
 }
 
-func (r ApiGetNamingConfigExamplesRequest) RenameMovies(renameMovies bool) ApiGetNamingConfigExamplesRequest {
-	r.renameMovies = &renameMovies
+func (r ApiGetNamingConfigExamplesRequest) RenameEpisodes(renameEpisodes bool) ApiGetNamingConfigExamplesRequest {
+	r.renameEpisodes = &renameEpisodes
 	return r
 }
 
@@ -300,18 +306,48 @@ func (r ApiGetNamingConfigExamplesRequest) ReplaceIllegalCharacters(replaceIlleg
 	return r
 }
 
-func (r ApiGetNamingConfigExamplesRequest) ColonReplacementFormat(colonReplacementFormat ColonReplacementFormat) ApiGetNamingConfigExamplesRequest {
-	r.colonReplacementFormat = &colonReplacementFormat
+func (r ApiGetNamingConfigExamplesRequest) MultiEpisodeStyle(multiEpisodeStyle int32) ApiGetNamingConfigExamplesRequest {
+	r.multiEpisodeStyle = &multiEpisodeStyle
 	return r
 }
 
-func (r ApiGetNamingConfigExamplesRequest) StandardMovieFormat(standardMovieFormat string) ApiGetNamingConfigExamplesRequest {
-	r.standardMovieFormat = &standardMovieFormat
+func (r ApiGetNamingConfigExamplesRequest) StandardEpisodeFormat(standardEpisodeFormat string) ApiGetNamingConfigExamplesRequest {
+	r.standardEpisodeFormat = &standardEpisodeFormat
 	return r
 }
 
-func (r ApiGetNamingConfigExamplesRequest) MovieFolderFormat(movieFolderFormat string) ApiGetNamingConfigExamplesRequest {
-	r.movieFolderFormat = &movieFolderFormat
+func (r ApiGetNamingConfigExamplesRequest) DailyEpisodeFormat(dailyEpisodeFormat string) ApiGetNamingConfigExamplesRequest {
+	r.dailyEpisodeFormat = &dailyEpisodeFormat
+	return r
+}
+
+func (r ApiGetNamingConfigExamplesRequest) AnimeEpisodeFormat(animeEpisodeFormat string) ApiGetNamingConfigExamplesRequest {
+	r.animeEpisodeFormat = &animeEpisodeFormat
+	return r
+}
+
+func (r ApiGetNamingConfigExamplesRequest) SeriesFolderFormat(seriesFolderFormat string) ApiGetNamingConfigExamplesRequest {
+	r.seriesFolderFormat = &seriesFolderFormat
+	return r
+}
+
+func (r ApiGetNamingConfigExamplesRequest) SeasonFolderFormat(seasonFolderFormat string) ApiGetNamingConfigExamplesRequest {
+	r.seasonFolderFormat = &seasonFolderFormat
+	return r
+}
+
+func (r ApiGetNamingConfigExamplesRequest) SpecialsFolderFormat(specialsFolderFormat string) ApiGetNamingConfigExamplesRequest {
+	r.specialsFolderFormat = &specialsFolderFormat
+	return r
+}
+
+func (r ApiGetNamingConfigExamplesRequest) IncludeSeriesTitle(includeSeriesTitle bool) ApiGetNamingConfigExamplesRequest {
+	r.includeSeriesTitle = &includeSeriesTitle
+	return r
+}
+
+func (r ApiGetNamingConfigExamplesRequest) IncludeEpisodeTitle(includeEpisodeTitle bool) ApiGetNamingConfigExamplesRequest {
+	r.includeEpisodeTitle = &includeEpisodeTitle
 	return r
 }
 
@@ -381,20 +417,38 @@ func (a *NamingConfigApiService) GetNamingConfigExamplesExecute(r ApiGetNamingCo
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if r.renameMovies != nil {
-		localVarQueryParams.Add("RenameMovies", parameterToString(*r.renameMovies, ""))
+	if r.renameEpisodes != nil {
+		localVarQueryParams.Add("RenameEpisodes", parameterToString(*r.renameEpisodes, ""))
 	}
 	if r.replaceIllegalCharacters != nil {
 		localVarQueryParams.Add("ReplaceIllegalCharacters", parameterToString(*r.replaceIllegalCharacters, ""))
 	}
-	if r.colonReplacementFormat != nil {
-		localVarQueryParams.Add("ColonReplacementFormat", parameterToString(*r.colonReplacementFormat, ""))
+	if r.multiEpisodeStyle != nil {
+		localVarQueryParams.Add("MultiEpisodeStyle", parameterToString(*r.multiEpisodeStyle, ""))
 	}
-	if r.standardMovieFormat != nil {
-		localVarQueryParams.Add("StandardMovieFormat", parameterToString(*r.standardMovieFormat, ""))
+	if r.standardEpisodeFormat != nil {
+		localVarQueryParams.Add("StandardEpisodeFormat", parameterToString(*r.standardEpisodeFormat, ""))
 	}
-	if r.movieFolderFormat != nil {
-		localVarQueryParams.Add("MovieFolderFormat", parameterToString(*r.movieFolderFormat, ""))
+	if r.dailyEpisodeFormat != nil {
+		localVarQueryParams.Add("DailyEpisodeFormat", parameterToString(*r.dailyEpisodeFormat, ""))
+	}
+	if r.animeEpisodeFormat != nil {
+		localVarQueryParams.Add("AnimeEpisodeFormat", parameterToString(*r.animeEpisodeFormat, ""))
+	}
+	if r.seriesFolderFormat != nil {
+		localVarQueryParams.Add("SeriesFolderFormat", parameterToString(*r.seriesFolderFormat, ""))
+	}
+	if r.seasonFolderFormat != nil {
+		localVarQueryParams.Add("SeasonFolderFormat", parameterToString(*r.seasonFolderFormat, ""))
+	}
+	if r.specialsFolderFormat != nil {
+		localVarQueryParams.Add("SpecialsFolderFormat", parameterToString(*r.specialsFolderFormat, ""))
+	}
+	if r.includeSeriesTitle != nil {
+		localVarQueryParams.Add("IncludeSeriesTitle", parameterToString(*r.includeSeriesTitle, ""))
+	}
+	if r.includeEpisodeTitle != nil {
+		localVarQueryParams.Add("IncludeEpisodeTitle", parameterToString(*r.includeEpisodeTitle, ""))
 	}
 	if r.includeQuality != nil {
 		localVarQueryParams.Add("IncludeQuality", parameterToString(*r.includeQuality, ""))
@@ -434,20 +488,6 @@ func (a *NamingConfigApiService) GetNamingConfigExamplesExecute(r ApiGetNamingCo
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["X-Api-Key"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["X-Api-Key"] = key
-			}
-		}
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
 			if apiKey, ok := auth["apikey"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
@@ -456,6 +496,20 @@ func (a *NamingConfigApiService) GetNamingConfigExamplesExecute(r ApiGetNamingCo
 					key = apiKey.Key
 				}
 				localVarQueryParams.Add("apikey", key)
+			}
+		}
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["X-Api-Key"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["X-Api-Key"] = key
 			}
 		}
 	}
@@ -561,20 +615,6 @@ func (a *NamingConfigApiService) UpdateNamingConfigExecute(r ApiUpdateNamingConf
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["X-Api-Key"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["X-Api-Key"] = key
-			}
-		}
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
 			if apiKey, ok := auth["apikey"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
@@ -583,6 +623,20 @@ func (a *NamingConfigApiService) UpdateNamingConfigExecute(r ApiUpdateNamingConf
 					key = apiKey.Key
 				}
 				localVarQueryParams.Add("apikey", key)
+			}
+		}
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["X-Api-Key"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["X-Api-Key"] = key
 			}
 		}
 	}

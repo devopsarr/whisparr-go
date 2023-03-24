@@ -17,6 +17,7 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+	"reflect"
 )
 
 
@@ -79,26 +80,12 @@ func (a *QueueDetailsApiService) GetQueueDetailsByIdExecute(r ApiGetQueueDetails
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"text/plain", "application/json", "text/json"}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["X-Api-Key"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["X-Api-Key"] = key
-			}
-		}
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -111,6 +98,20 @@ func (a *QueueDetailsApiService) GetQueueDetailsByIdExecute(r ApiGetQueueDetails
 					key = apiKey.Key
 				}
 				localVarQueryParams.Add("apikey", key)
+			}
+		}
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["X-Api-Key"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["X-Api-Key"] = key
 			}
 		}
 	}
@@ -153,17 +154,29 @@ func (a *QueueDetailsApiService) GetQueueDetailsByIdExecute(r ApiGetQueueDetails
 type ApiListQueueDetailsRequest struct {
 	ctx context.Context
 	ApiService *QueueDetailsApiService
-	movieId *int32
-	includeMovie *bool
+	seriesId *int32
+	episodeIds *[]int32
+	includeSeries *bool
+	includeEpisode *bool
 }
 
-func (r ApiListQueueDetailsRequest) MovieId(movieId int32) ApiListQueueDetailsRequest {
-	r.movieId = &movieId
+func (r ApiListQueueDetailsRequest) SeriesId(seriesId int32) ApiListQueueDetailsRequest {
+	r.seriesId = &seriesId
 	return r
 }
 
-func (r ApiListQueueDetailsRequest) IncludeMovie(includeMovie bool) ApiListQueueDetailsRequest {
-	r.includeMovie = &includeMovie
+func (r ApiListQueueDetailsRequest) EpisodeIds(episodeIds []int32) ApiListQueueDetailsRequest {
+	r.episodeIds = &episodeIds
+	return r
+}
+
+func (r ApiListQueueDetailsRequest) IncludeSeries(includeSeries bool) ApiListQueueDetailsRequest {
+	r.includeSeries = &includeSeries
+	return r
+}
+
+func (r ApiListQueueDetailsRequest) IncludeEpisode(includeEpisode bool) ApiListQueueDetailsRequest {
+	r.includeEpisode = &includeEpisode
 	return r
 }
 
@@ -205,11 +218,25 @@ func (a *QueueDetailsApiService) ListQueueDetailsExecute(r ApiListQueueDetailsRe
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if r.movieId != nil {
-		localVarQueryParams.Add("movieId", parameterToString(*r.movieId, ""))
+	if r.seriesId != nil {
+		localVarQueryParams.Add("seriesId", parameterToString(*r.seriesId, ""))
 	}
-	if r.includeMovie != nil {
-		localVarQueryParams.Add("includeMovie", parameterToString(*r.includeMovie, ""))
+	if r.episodeIds != nil {
+		t := *r.episodeIds
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				localVarQueryParams.Add("episodeIds", parameterToString(s.Index(i), "multi"))
+			}
+		} else {
+			localVarQueryParams.Add("episodeIds", parameterToString(t, "multi"))
+		}
+	}
+	if r.includeSeries != nil {
+		localVarQueryParams.Add("includeSeries", parameterToString(*r.includeSeries, ""))
+	}
+	if r.includeEpisode != nil {
+		localVarQueryParams.Add("includeEpisode", parameterToString(*r.includeEpisode, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -221,26 +248,12 @@ func (a *QueueDetailsApiService) ListQueueDetailsExecute(r ApiListQueueDetailsRe
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"text/plain", "application/json", "text/json"}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["X-Api-Key"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["X-Api-Key"] = key
-			}
-		}
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -253,6 +266,20 @@ func (a *QueueDetailsApiService) ListQueueDetailsExecute(r ApiListQueueDetailsRe
 					key = apiKey.Key
 				}
 				localVarQueryParams.Add("apikey", key)
+			}
+		}
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["X-Api-Key"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["X-Api-Key"] = key
 			}
 		}
 	}

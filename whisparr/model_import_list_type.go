@@ -21,21 +21,19 @@ type ImportListType string
 // List of ImportListType
 const (
 	IMPORTLISTTYPE_PROGRAM ImportListType = "program"
-	IMPORTLISTTYPE_TMDB ImportListType = "tmdb"
+	IMPORTLISTTYPE_PLEX ImportListType = "plex"
 	IMPORTLISTTYPE_TRAKT ImportListType = "trakt"
 	IMPORTLISTTYPE_OTHER ImportListType = "other"
 	IMPORTLISTTYPE_ADVANCED ImportListType = "advanced"
-	IMPORTLISTTYPE_PLEX ImportListType = "plex"
 )
 
 // All allowed values of ImportListType enum
 var AllowedImportListTypeEnumValues = []ImportListType{
 	"program",
-	"tmdb",
+	"plex",
 	"trakt",
 	"other",
 	"advanced",
-	"plex",
 }
 
 func (v *ImportListType) UnmarshalJSON(src []byte) error {

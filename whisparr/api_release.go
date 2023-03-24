@@ -70,7 +70,7 @@ func (a *ReleaseApiService) CreateReleaseExecute(r ApiCreateReleaseRequest) (*ht
 	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json", "text/json", "application/*+json"}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -91,20 +91,6 @@ func (a *ReleaseApiService) CreateReleaseExecute(r ApiCreateReleaseRequest) (*ht
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["X-Api-Key"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["X-Api-Key"] = key
-			}
-		}
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
 			if apiKey, ok := auth["apikey"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
@@ -113,6 +99,20 @@ func (a *ReleaseApiService) CreateReleaseExecute(r ApiCreateReleaseRequest) (*ht
 					key = apiKey.Key
 				}
 				localVarQueryParams.Add("apikey", key)
+			}
+		}
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["X-Api-Key"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["X-Api-Key"] = key
 			}
 		}
 	}
@@ -200,26 +200,12 @@ func (a *ReleaseApiService) GetReleaseByIdExecute(r ApiGetReleaseByIdRequest) (*
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"text/plain", "application/json", "text/json"}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["X-Api-Key"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["X-Api-Key"] = key
-			}
-		}
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -232,6 +218,20 @@ func (a *ReleaseApiService) GetReleaseByIdExecute(r ApiGetReleaseByIdRequest) (*
 					key = apiKey.Key
 				}
 				localVarQueryParams.Add("apikey", key)
+			}
+		}
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["X-Api-Key"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["X-Api-Key"] = key
 			}
 		}
 	}
@@ -274,11 +274,23 @@ func (a *ReleaseApiService) GetReleaseByIdExecute(r ApiGetReleaseByIdRequest) (*
 type ApiListReleaseRequest struct {
 	ctx context.Context
 	ApiService *ReleaseApiService
-	movieId *int32
+	seriesId *int32
+	episodeId *int32
+	seasonNumber *int32
 }
 
-func (r ApiListReleaseRequest) MovieId(movieId int32) ApiListReleaseRequest {
-	r.movieId = &movieId
+func (r ApiListReleaseRequest) SeriesId(seriesId int32) ApiListReleaseRequest {
+	r.seriesId = &seriesId
+	return r
+}
+
+func (r ApiListReleaseRequest) EpisodeId(episodeId int32) ApiListReleaseRequest {
+	r.episodeId = &episodeId
+	return r
+}
+
+func (r ApiListReleaseRequest) SeasonNumber(seasonNumber int32) ApiListReleaseRequest {
+	r.seasonNumber = &seasonNumber
 	return r
 }
 
@@ -320,8 +332,14 @@ func (a *ReleaseApiService) ListReleaseExecute(r ApiListReleaseRequest) ([]*Rele
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if r.movieId != nil {
-		localVarQueryParams.Add("movieId", parameterToString(*r.movieId, ""))
+	if r.seriesId != nil {
+		localVarQueryParams.Add("seriesId", parameterToString(*r.seriesId, ""))
+	}
+	if r.episodeId != nil {
+		localVarQueryParams.Add("episodeId", parameterToString(*r.episodeId, ""))
+	}
+	if r.seasonNumber != nil {
+		localVarQueryParams.Add("seasonNumber", parameterToString(*r.seasonNumber, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -333,26 +351,12 @@ func (a *ReleaseApiService) ListReleaseExecute(r ApiListReleaseRequest) ([]*Rele
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"text/plain", "application/json", "text/json"}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["X-Api-Key"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["X-Api-Key"] = key
-			}
-		}
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -365,6 +369,20 @@ func (a *ReleaseApiService) ListReleaseExecute(r ApiListReleaseRequest) ([]*Rele
 					key = apiKey.Key
 				}
 				localVarQueryParams.Add("apikey", key)
+			}
+		}
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["X-Api-Key"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["X-Api-Key"] = key
 			}
 		}
 	}

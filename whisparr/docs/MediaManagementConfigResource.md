@@ -5,19 +5,18 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **int32** |  | [optional] 
-**AutoUnmonitorPreviouslyDownloadedMovies** | Pointer to **bool** |  | [optional] 
+**AutoUnmonitorPreviouslyDownloadedEpisodes** | Pointer to **bool** |  | [optional] 
 **RecycleBin** | Pointer to **NullableString** |  | [optional] 
 **RecycleBinCleanupDays** | Pointer to **int32** |  | [optional] 
 **DownloadPropersAndRepacks** | Pointer to [**ProperDownloadTypes**](ProperDownloadTypes.md) |  | [optional] 
-**CreateEmptyMovieFolders** | Pointer to **bool** |  | [optional] 
+**CreateEmptySeriesFolders** | Pointer to **bool** |  | [optional] 
 **DeleteEmptyFolders** | Pointer to **bool** |  | [optional] 
 **FileDate** | Pointer to [**FileDateType**](FileDateType.md) |  | [optional] 
 **RescanAfterRefresh** | Pointer to [**RescanAfterRefreshType**](RescanAfterRefreshType.md) |  | [optional] 
-**AutoRenameFolders** | Pointer to **bool** |  | [optional] 
-**PathsDefaultStatic** | Pointer to **bool** |  | [optional] 
 **SetPermissionsLinux** | Pointer to **bool** |  | [optional] 
 **ChmodFolder** | Pointer to **NullableString** |  | [optional] 
 **ChownGroup** | Pointer to **NullableString** |  | [optional] 
+**EpisodeTitleRequired** | Pointer to [**EpisodeTitleRequiredType**](EpisodeTitleRequiredType.md) |  | [optional] 
 **SkipFreeSpaceCheckWhenImporting** | Pointer to **bool** |  | [optional] 
 **MinimumFreeSpaceWhenImporting** | Pointer to **int32** |  | [optional] 
 **CopyUsingHardlinks** | Pointer to **bool** |  | [optional] 
@@ -69,30 +68,30 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
-### GetAutoUnmonitorPreviouslyDownloadedMovies
+### GetAutoUnmonitorPreviouslyDownloadedEpisodes
 
-`func (o *MediaManagementConfigResource) GetAutoUnmonitorPreviouslyDownloadedMovies() bool`
+`func (o *MediaManagementConfigResource) GetAutoUnmonitorPreviouslyDownloadedEpisodes() bool`
 
-GetAutoUnmonitorPreviouslyDownloadedMovies returns the AutoUnmonitorPreviouslyDownloadedMovies field if non-nil, zero value otherwise.
+GetAutoUnmonitorPreviouslyDownloadedEpisodes returns the AutoUnmonitorPreviouslyDownloadedEpisodes field if non-nil, zero value otherwise.
 
-### GetAutoUnmonitorPreviouslyDownloadedMoviesOk
+### GetAutoUnmonitorPreviouslyDownloadedEpisodesOk
 
-`func (o *MediaManagementConfigResource) GetAutoUnmonitorPreviouslyDownloadedMoviesOk() (*bool, bool)`
+`func (o *MediaManagementConfigResource) GetAutoUnmonitorPreviouslyDownloadedEpisodesOk() (*bool, bool)`
 
-GetAutoUnmonitorPreviouslyDownloadedMoviesOk returns a tuple with the AutoUnmonitorPreviouslyDownloadedMovies field if it's non-nil, zero value otherwise
+GetAutoUnmonitorPreviouslyDownloadedEpisodesOk returns a tuple with the AutoUnmonitorPreviouslyDownloadedEpisodes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAutoUnmonitorPreviouslyDownloadedMovies
+### SetAutoUnmonitorPreviouslyDownloadedEpisodes
 
-`func (o *MediaManagementConfigResource) SetAutoUnmonitorPreviouslyDownloadedMovies(v bool)`
+`func (o *MediaManagementConfigResource) SetAutoUnmonitorPreviouslyDownloadedEpisodes(v bool)`
 
-SetAutoUnmonitorPreviouslyDownloadedMovies sets AutoUnmonitorPreviouslyDownloadedMovies field to given value.
+SetAutoUnmonitorPreviouslyDownloadedEpisodes sets AutoUnmonitorPreviouslyDownloadedEpisodes field to given value.
 
-### HasAutoUnmonitorPreviouslyDownloadedMovies
+### HasAutoUnmonitorPreviouslyDownloadedEpisodes
 
-`func (o *MediaManagementConfigResource) HasAutoUnmonitorPreviouslyDownloadedMovies() bool`
+`func (o *MediaManagementConfigResource) HasAutoUnmonitorPreviouslyDownloadedEpisodes() bool`
 
-HasAutoUnmonitorPreviouslyDownloadedMovies returns a boolean if a field has been set.
+HasAutoUnmonitorPreviouslyDownloadedEpisodes returns a boolean if a field has been set.
 
 ### GetRecycleBin
 
@@ -179,30 +178,30 @@ SetDownloadPropersAndRepacks sets DownloadPropersAndRepacks field to given value
 
 HasDownloadPropersAndRepacks returns a boolean if a field has been set.
 
-### GetCreateEmptyMovieFolders
+### GetCreateEmptySeriesFolders
 
-`func (o *MediaManagementConfigResource) GetCreateEmptyMovieFolders() bool`
+`func (o *MediaManagementConfigResource) GetCreateEmptySeriesFolders() bool`
 
-GetCreateEmptyMovieFolders returns the CreateEmptyMovieFolders field if non-nil, zero value otherwise.
+GetCreateEmptySeriesFolders returns the CreateEmptySeriesFolders field if non-nil, zero value otherwise.
 
-### GetCreateEmptyMovieFoldersOk
+### GetCreateEmptySeriesFoldersOk
 
-`func (o *MediaManagementConfigResource) GetCreateEmptyMovieFoldersOk() (*bool, bool)`
+`func (o *MediaManagementConfigResource) GetCreateEmptySeriesFoldersOk() (*bool, bool)`
 
-GetCreateEmptyMovieFoldersOk returns a tuple with the CreateEmptyMovieFolders field if it's non-nil, zero value otherwise
+GetCreateEmptySeriesFoldersOk returns a tuple with the CreateEmptySeriesFolders field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCreateEmptyMovieFolders
+### SetCreateEmptySeriesFolders
 
-`func (o *MediaManagementConfigResource) SetCreateEmptyMovieFolders(v bool)`
+`func (o *MediaManagementConfigResource) SetCreateEmptySeriesFolders(v bool)`
 
-SetCreateEmptyMovieFolders sets CreateEmptyMovieFolders field to given value.
+SetCreateEmptySeriesFolders sets CreateEmptySeriesFolders field to given value.
 
-### HasCreateEmptyMovieFolders
+### HasCreateEmptySeriesFolders
 
-`func (o *MediaManagementConfigResource) HasCreateEmptyMovieFolders() bool`
+`func (o *MediaManagementConfigResource) HasCreateEmptySeriesFolders() bool`
 
-HasCreateEmptyMovieFolders returns a boolean if a field has been set.
+HasCreateEmptySeriesFolders returns a boolean if a field has been set.
 
 ### GetDeleteEmptyFolders
 
@@ -278,56 +277,6 @@ SetRescanAfterRefresh sets RescanAfterRefresh field to given value.
 `func (o *MediaManagementConfigResource) HasRescanAfterRefresh() bool`
 
 HasRescanAfterRefresh returns a boolean if a field has been set.
-
-### GetAutoRenameFolders
-
-`func (o *MediaManagementConfigResource) GetAutoRenameFolders() bool`
-
-GetAutoRenameFolders returns the AutoRenameFolders field if non-nil, zero value otherwise.
-
-### GetAutoRenameFoldersOk
-
-`func (o *MediaManagementConfigResource) GetAutoRenameFoldersOk() (*bool, bool)`
-
-GetAutoRenameFoldersOk returns a tuple with the AutoRenameFolders field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAutoRenameFolders
-
-`func (o *MediaManagementConfigResource) SetAutoRenameFolders(v bool)`
-
-SetAutoRenameFolders sets AutoRenameFolders field to given value.
-
-### HasAutoRenameFolders
-
-`func (o *MediaManagementConfigResource) HasAutoRenameFolders() bool`
-
-HasAutoRenameFolders returns a boolean if a field has been set.
-
-### GetPathsDefaultStatic
-
-`func (o *MediaManagementConfigResource) GetPathsDefaultStatic() bool`
-
-GetPathsDefaultStatic returns the PathsDefaultStatic field if non-nil, zero value otherwise.
-
-### GetPathsDefaultStaticOk
-
-`func (o *MediaManagementConfigResource) GetPathsDefaultStaticOk() (*bool, bool)`
-
-GetPathsDefaultStaticOk returns a tuple with the PathsDefaultStatic field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPathsDefaultStatic
-
-`func (o *MediaManagementConfigResource) SetPathsDefaultStatic(v bool)`
-
-SetPathsDefaultStatic sets PathsDefaultStatic field to given value.
-
-### HasPathsDefaultStatic
-
-`func (o *MediaManagementConfigResource) HasPathsDefaultStatic() bool`
-
-HasPathsDefaultStatic returns a boolean if a field has been set.
 
 ### GetSetPermissionsLinux
 
@@ -424,6 +373,31 @@ HasChownGroup returns a boolean if a field has been set.
 `func (o *MediaManagementConfigResource) UnsetChownGroup()`
 
 UnsetChownGroup ensures that no value is present for ChownGroup, not even an explicit nil
+### GetEpisodeTitleRequired
+
+`func (o *MediaManagementConfigResource) GetEpisodeTitleRequired() EpisodeTitleRequiredType`
+
+GetEpisodeTitleRequired returns the EpisodeTitleRequired field if non-nil, zero value otherwise.
+
+### GetEpisodeTitleRequiredOk
+
+`func (o *MediaManagementConfigResource) GetEpisodeTitleRequiredOk() (*EpisodeTitleRequiredType, bool)`
+
+GetEpisodeTitleRequiredOk returns a tuple with the EpisodeTitleRequired field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEpisodeTitleRequired
+
+`func (o *MediaManagementConfigResource) SetEpisodeTitleRequired(v EpisodeTitleRequiredType)`
+
+SetEpisodeTitleRequired sets EpisodeTitleRequired field to given value.
+
+### HasEpisodeTitleRequired
+
+`func (o *MediaManagementConfigResource) HasEpisodeTitleRequired() bool`
+
+HasEpisodeTitleRequired returns a boolean if a field has been set.
+
 ### GetSkipFreeSpaceCheckWhenImporting
 
 `func (o *MediaManagementConfigResource) GetSkipFreeSpaceCheckWhenImporting() bool`

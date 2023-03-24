@@ -16,10 +16,8 @@ import (
 
 // Ratings struct for Ratings
 type Ratings struct {
-	Imdb *RatingChild `json:"imdb,omitempty"`
-	Tmdb *RatingChild `json:"tmdb,omitempty"`
-	Metacritic *RatingChild `json:"metacritic,omitempty"`
-	RottenTomatoes *RatingChild `json:"rottenTomatoes,omitempty"`
+	Votes *int32 `json:"votes,omitempty"`
+	Value *float64 `json:"value,omitempty"`
 }
 
 // NewRatings instantiates a new Ratings object
@@ -39,147 +37,77 @@ func NewRatingsWithDefaults() *Ratings {
 	return &this
 }
 
-// GetImdb returns the Imdb field value if set, zero value otherwise.
-func (o *Ratings) GetImdb() RatingChild {
-	if o == nil || isNil(o.Imdb) {
-		var ret RatingChild
+// GetVotes returns the Votes field value if set, zero value otherwise.
+func (o *Ratings) GetVotes() int32 {
+	if o == nil || isNil(o.Votes) {
+		var ret int32
 		return ret
 	}
-	return *o.Imdb
+	return *o.Votes
 }
 
-// GetImdbOk returns a tuple with the Imdb field value if set, nil otherwise
+// GetVotesOk returns a tuple with the Votes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Ratings) GetImdbOk() (*RatingChild, bool) {
-	if o == nil || isNil(o.Imdb) {
+func (o *Ratings) GetVotesOk() (*int32, bool) {
+	if o == nil || isNil(o.Votes) {
     return nil, false
 	}
-	return o.Imdb, true
+	return o.Votes, true
 }
 
-// HasImdb returns a boolean if a field has been set.
-func (o *Ratings) HasImdb() bool {
-	if o != nil && !isNil(o.Imdb) {
+// HasVotes returns a boolean if a field has been set.
+func (o *Ratings) HasVotes() bool {
+	if o != nil && !isNil(o.Votes) {
 		return true
 	}
 
 	return false
 }
 
-// SetImdb gets a reference to the given RatingChild and assigns it to the Imdb field.
-func (o *Ratings) SetImdb(v RatingChild) {
-	o.Imdb = &v
+// SetVotes gets a reference to the given int32 and assigns it to the Votes field.
+func (o *Ratings) SetVotes(v int32) {
+	o.Votes = &v
 }
 
-// GetTmdb returns the Tmdb field value if set, zero value otherwise.
-func (o *Ratings) GetTmdb() RatingChild {
-	if o == nil || isNil(o.Tmdb) {
-		var ret RatingChild
+// GetValue returns the Value field value if set, zero value otherwise.
+func (o *Ratings) GetValue() float64 {
+	if o == nil || isNil(o.Value) {
+		var ret float64
 		return ret
 	}
-	return *o.Tmdb
+	return *o.Value
 }
 
-// GetTmdbOk returns a tuple with the Tmdb field value if set, nil otherwise
+// GetValueOk returns a tuple with the Value field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Ratings) GetTmdbOk() (*RatingChild, bool) {
-	if o == nil || isNil(o.Tmdb) {
+func (o *Ratings) GetValueOk() (*float64, bool) {
+	if o == nil || isNil(o.Value) {
     return nil, false
 	}
-	return o.Tmdb, true
+	return o.Value, true
 }
 
-// HasTmdb returns a boolean if a field has been set.
-func (o *Ratings) HasTmdb() bool {
-	if o != nil && !isNil(o.Tmdb) {
+// HasValue returns a boolean if a field has been set.
+func (o *Ratings) HasValue() bool {
+	if o != nil && !isNil(o.Value) {
 		return true
 	}
 
 	return false
 }
 
-// SetTmdb gets a reference to the given RatingChild and assigns it to the Tmdb field.
-func (o *Ratings) SetTmdb(v RatingChild) {
-	o.Tmdb = &v
-}
-
-// GetMetacritic returns the Metacritic field value if set, zero value otherwise.
-func (o *Ratings) GetMetacritic() RatingChild {
-	if o == nil || isNil(o.Metacritic) {
-		var ret RatingChild
-		return ret
-	}
-	return *o.Metacritic
-}
-
-// GetMetacriticOk returns a tuple with the Metacritic field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *Ratings) GetMetacriticOk() (*RatingChild, bool) {
-	if o == nil || isNil(o.Metacritic) {
-    return nil, false
-	}
-	return o.Metacritic, true
-}
-
-// HasMetacritic returns a boolean if a field has been set.
-func (o *Ratings) HasMetacritic() bool {
-	if o != nil && !isNil(o.Metacritic) {
-		return true
-	}
-
-	return false
-}
-
-// SetMetacritic gets a reference to the given RatingChild and assigns it to the Metacritic field.
-func (o *Ratings) SetMetacritic(v RatingChild) {
-	o.Metacritic = &v
-}
-
-// GetRottenTomatoes returns the RottenTomatoes field value if set, zero value otherwise.
-func (o *Ratings) GetRottenTomatoes() RatingChild {
-	if o == nil || isNil(o.RottenTomatoes) {
-		var ret RatingChild
-		return ret
-	}
-	return *o.RottenTomatoes
-}
-
-// GetRottenTomatoesOk returns a tuple with the RottenTomatoes field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *Ratings) GetRottenTomatoesOk() (*RatingChild, bool) {
-	if o == nil || isNil(o.RottenTomatoes) {
-    return nil, false
-	}
-	return o.RottenTomatoes, true
-}
-
-// HasRottenTomatoes returns a boolean if a field has been set.
-func (o *Ratings) HasRottenTomatoes() bool {
-	if o != nil && !isNil(o.RottenTomatoes) {
-		return true
-	}
-
-	return false
-}
-
-// SetRottenTomatoes gets a reference to the given RatingChild and assigns it to the RottenTomatoes field.
-func (o *Ratings) SetRottenTomatoes(v RatingChild) {
-	o.RottenTomatoes = &v
+// SetValue gets a reference to the given float64 and assigns it to the Value field.
+func (o *Ratings) SetValue(v float64) {
+	o.Value = &v
 }
 
 func (o Ratings) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Imdb) {
-		toSerialize["imdb"] = o.Imdb
+	if !isNil(o.Votes) {
+		toSerialize["votes"] = o.Votes
 	}
-	if !isNil(o.Tmdb) {
-		toSerialize["tmdb"] = o.Tmdb
-	}
-	if !isNil(o.Metacritic) {
-		toSerialize["metacritic"] = o.Metacritic
-	}
-	if !isNil(o.RottenTomatoes) {
-		toSerialize["rottenTomatoes"] = o.RottenTomatoes
+	if !isNil(o.Value) {
+		toSerialize["value"] = o.Value
 	}
 	return json.Marshal(toSerialize)
 }

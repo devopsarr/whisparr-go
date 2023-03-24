@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## GetCalendarById
 
-> MovieResource GetCalendarById(ctx, id).Execute()
+> EpisodeResource GetCalendarById(ctx, id).Execute()
 
 
 
@@ -37,7 +37,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `CalendarApi.GetCalendarById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetCalendarById`: MovieResource
+    // response from `GetCalendarById`: EpisodeResource
     fmt.Fprintf(os.Stdout, "Response from `CalendarApi.GetCalendarById`: %v\n", resp)
 }
 ```
@@ -61,16 +61,16 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MovieResource**](MovieResource.md)
+[**EpisodeResource**](EpisodeResource.md)
 
 ### Authorization
 
-[X-Api-Key](../README.md#X-Api-Key), [apikey](../README.md#apikey)
+[apikey](../README.md#apikey), [X-Api-Key](../README.md#X-Api-Key)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 ## ListCalendar
 
-> []MovieResource ListCalendar(ctx).Start(start).End(end).Unmonitored(unmonitored).IncludeArtist(includeArtist).Execute()
+> []EpisodeResource ListCalendar(ctx).Start(start).End(end).Unmonitored(unmonitored).IncludeSeries(includeSeries).IncludeEpisodeFile(includeEpisodeFile).IncludeEpisodeImages(includeEpisodeImages).Execute()
 
 
 
@@ -100,16 +100,18 @@ func main() {
     start := time.Now() // time.Time |  (optional)
     end := time.Now() // time.Time |  (optional)
     unmonitored := true // bool |  (optional) (default to false)
-    includeArtist := true // bool |  (optional) (default to false)
+    includeSeries := true // bool |  (optional) (default to false)
+    includeEpisodeFile := true // bool |  (optional) (default to false)
+    includeEpisodeImages := true // bool |  (optional) (default to false)
 
     configuration := whisparrClient.NewConfiguration()
     apiClient := whisparrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CalendarApi.ListCalendar(context.Background()).Start(start).End(end).Unmonitored(unmonitored).IncludeArtist(includeArtist).Execute()
+    resp, r, err := apiClient.CalendarApi.ListCalendar(context.Background()).Start(start).End(end).Unmonitored(unmonitored).IncludeSeries(includeSeries).IncludeEpisodeFile(includeEpisodeFile).IncludeEpisodeImages(includeEpisodeImages).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CalendarApi.ListCalendar``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ListCalendar`: []MovieResource
+    // response from `ListCalendar`: []EpisodeResource
     fmt.Fprintf(os.Stdout, "Response from `CalendarApi.ListCalendar`: %v\n", resp)
 }
 ```
@@ -128,20 +130,22 @@ Name | Type | Description  | Notes
  **start** | **time.Time** |  | 
  **end** | **time.Time** |  | 
  **unmonitored** | **bool** |  | [default to false]
- **includeArtist** | **bool** |  | [default to false]
+ **includeSeries** | **bool** |  | [default to false]
+ **includeEpisodeFile** | **bool** |  | [default to false]
+ **includeEpisodeImages** | **bool** |  | [default to false]
 
 ### Return type
 
-[**[]MovieResource**](MovieResource.md)
+[**[]EpisodeResource**](EpisodeResource.md)
 
 ### Authorization
 
-[X-Api-Key](../README.md#X-Api-Key), [apikey](../README.md#apikey)
+[apikey](../README.md#apikey), [X-Api-Key](../README.md#X-Api-Key)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

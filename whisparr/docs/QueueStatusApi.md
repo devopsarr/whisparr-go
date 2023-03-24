@@ -56,12 +56,12 @@ Other parameters are passed through a pointer to a apiGetQueueStatusRequest stru
 
 ### Authorization
 
-[X-Api-Key](../README.md#X-Api-Key), [apikey](../README.md#apikey)
+[apikey](../README.md#apikey), [X-Api-Key](../README.md#X-Api-Key)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -124,12 +124,12 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[X-Api-Key](../README.md#X-Api-Key), [apikey](../README.md#apikey)
+[apikey](../README.md#apikey), [X-Api-Key](../README.md#X-Api-Key)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

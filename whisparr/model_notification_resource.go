@@ -31,18 +31,18 @@ type NotificationResource struct {
 	OnDownload *bool `json:"onDownload,omitempty"`
 	OnUpgrade *bool `json:"onUpgrade,omitempty"`
 	OnRename *bool `json:"onRename,omitempty"`
-	OnMovieDelete *bool `json:"onMovieDelete,omitempty"`
-	OnMovieFileDelete *bool `json:"onMovieFileDelete,omitempty"`
-	OnMovieFileDeleteForUpgrade *bool `json:"onMovieFileDeleteForUpgrade,omitempty"`
+	OnSeriesDelete *bool `json:"onSeriesDelete,omitempty"`
+	OnEpisodeFileDelete *bool `json:"onEpisodeFileDelete,omitempty"`
+	OnEpisodeFileDeleteForUpgrade *bool `json:"onEpisodeFileDeleteForUpgrade,omitempty"`
 	OnHealthIssue *bool `json:"onHealthIssue,omitempty"`
 	OnApplicationUpdate *bool `json:"onApplicationUpdate,omitempty"`
 	SupportsOnGrab *bool `json:"supportsOnGrab,omitempty"`
 	SupportsOnDownload *bool `json:"supportsOnDownload,omitempty"`
 	SupportsOnUpgrade *bool `json:"supportsOnUpgrade,omitempty"`
 	SupportsOnRename *bool `json:"supportsOnRename,omitempty"`
-	SupportsOnMovieDelete *bool `json:"supportsOnMovieDelete,omitempty"`
-	SupportsOnMovieFileDelete *bool `json:"supportsOnMovieFileDelete,omitempty"`
-	SupportsOnMovieFileDeleteForUpgrade *bool `json:"supportsOnMovieFileDeleteForUpgrade,omitempty"`
+	SupportsOnSeriesDelete *bool `json:"supportsOnSeriesDelete,omitempty"`
+	SupportsOnEpisodeFileDelete *bool `json:"supportsOnEpisodeFileDelete,omitempty"`
+	SupportsOnEpisodeFileDeleteForUpgrade *bool `json:"supportsOnEpisodeFileDeleteForUpgrade,omitempty"`
 	SupportsOnHealthIssue *bool `json:"supportsOnHealthIssue,omitempty"`
 	SupportsOnApplicationUpdate *bool `json:"supportsOnApplicationUpdate,omitempty"`
 	IncludeHealthWarnings *bool `json:"includeHealthWarnings,omitempty"`
@@ -609,100 +609,100 @@ func (o *NotificationResource) SetOnRename(v bool) {
 	o.OnRename = &v
 }
 
-// GetOnMovieDelete returns the OnMovieDelete field value if set, zero value otherwise.
-func (o *NotificationResource) GetOnMovieDelete() bool {
-	if o == nil || isNil(o.OnMovieDelete) {
+// GetOnSeriesDelete returns the OnSeriesDelete field value if set, zero value otherwise.
+func (o *NotificationResource) GetOnSeriesDelete() bool {
+	if o == nil || isNil(o.OnSeriesDelete) {
 		var ret bool
 		return ret
 	}
-	return *o.OnMovieDelete
+	return *o.OnSeriesDelete
 }
 
-// GetOnMovieDeleteOk returns a tuple with the OnMovieDelete field value if set, nil otherwise
+// GetOnSeriesDeleteOk returns a tuple with the OnSeriesDelete field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *NotificationResource) GetOnMovieDeleteOk() (*bool, bool) {
-	if o == nil || isNil(o.OnMovieDelete) {
+func (o *NotificationResource) GetOnSeriesDeleteOk() (*bool, bool) {
+	if o == nil || isNil(o.OnSeriesDelete) {
     return nil, false
 	}
-	return o.OnMovieDelete, true
+	return o.OnSeriesDelete, true
 }
 
-// HasOnMovieDelete returns a boolean if a field has been set.
-func (o *NotificationResource) HasOnMovieDelete() bool {
-	if o != nil && !isNil(o.OnMovieDelete) {
+// HasOnSeriesDelete returns a boolean if a field has been set.
+func (o *NotificationResource) HasOnSeriesDelete() bool {
+	if o != nil && !isNil(o.OnSeriesDelete) {
 		return true
 	}
 
 	return false
 }
 
-// SetOnMovieDelete gets a reference to the given bool and assigns it to the OnMovieDelete field.
-func (o *NotificationResource) SetOnMovieDelete(v bool) {
-	o.OnMovieDelete = &v
+// SetOnSeriesDelete gets a reference to the given bool and assigns it to the OnSeriesDelete field.
+func (o *NotificationResource) SetOnSeriesDelete(v bool) {
+	o.OnSeriesDelete = &v
 }
 
-// GetOnMovieFileDelete returns the OnMovieFileDelete field value if set, zero value otherwise.
-func (o *NotificationResource) GetOnMovieFileDelete() bool {
-	if o == nil || isNil(o.OnMovieFileDelete) {
+// GetOnEpisodeFileDelete returns the OnEpisodeFileDelete field value if set, zero value otherwise.
+func (o *NotificationResource) GetOnEpisodeFileDelete() bool {
+	if o == nil || isNil(o.OnEpisodeFileDelete) {
 		var ret bool
 		return ret
 	}
-	return *o.OnMovieFileDelete
+	return *o.OnEpisodeFileDelete
 }
 
-// GetOnMovieFileDeleteOk returns a tuple with the OnMovieFileDelete field value if set, nil otherwise
+// GetOnEpisodeFileDeleteOk returns a tuple with the OnEpisodeFileDelete field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *NotificationResource) GetOnMovieFileDeleteOk() (*bool, bool) {
-	if o == nil || isNil(o.OnMovieFileDelete) {
+func (o *NotificationResource) GetOnEpisodeFileDeleteOk() (*bool, bool) {
+	if o == nil || isNil(o.OnEpisodeFileDelete) {
     return nil, false
 	}
-	return o.OnMovieFileDelete, true
+	return o.OnEpisodeFileDelete, true
 }
 
-// HasOnMovieFileDelete returns a boolean if a field has been set.
-func (o *NotificationResource) HasOnMovieFileDelete() bool {
-	if o != nil && !isNil(o.OnMovieFileDelete) {
+// HasOnEpisodeFileDelete returns a boolean if a field has been set.
+func (o *NotificationResource) HasOnEpisodeFileDelete() bool {
+	if o != nil && !isNil(o.OnEpisodeFileDelete) {
 		return true
 	}
 
 	return false
 }
 
-// SetOnMovieFileDelete gets a reference to the given bool and assigns it to the OnMovieFileDelete field.
-func (o *NotificationResource) SetOnMovieFileDelete(v bool) {
-	o.OnMovieFileDelete = &v
+// SetOnEpisodeFileDelete gets a reference to the given bool and assigns it to the OnEpisodeFileDelete field.
+func (o *NotificationResource) SetOnEpisodeFileDelete(v bool) {
+	o.OnEpisodeFileDelete = &v
 }
 
-// GetOnMovieFileDeleteForUpgrade returns the OnMovieFileDeleteForUpgrade field value if set, zero value otherwise.
-func (o *NotificationResource) GetOnMovieFileDeleteForUpgrade() bool {
-	if o == nil || isNil(o.OnMovieFileDeleteForUpgrade) {
+// GetOnEpisodeFileDeleteForUpgrade returns the OnEpisodeFileDeleteForUpgrade field value if set, zero value otherwise.
+func (o *NotificationResource) GetOnEpisodeFileDeleteForUpgrade() bool {
+	if o == nil || isNil(o.OnEpisodeFileDeleteForUpgrade) {
 		var ret bool
 		return ret
 	}
-	return *o.OnMovieFileDeleteForUpgrade
+	return *o.OnEpisodeFileDeleteForUpgrade
 }
 
-// GetOnMovieFileDeleteForUpgradeOk returns a tuple with the OnMovieFileDeleteForUpgrade field value if set, nil otherwise
+// GetOnEpisodeFileDeleteForUpgradeOk returns a tuple with the OnEpisodeFileDeleteForUpgrade field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *NotificationResource) GetOnMovieFileDeleteForUpgradeOk() (*bool, bool) {
-	if o == nil || isNil(o.OnMovieFileDeleteForUpgrade) {
+func (o *NotificationResource) GetOnEpisodeFileDeleteForUpgradeOk() (*bool, bool) {
+	if o == nil || isNil(o.OnEpisodeFileDeleteForUpgrade) {
     return nil, false
 	}
-	return o.OnMovieFileDeleteForUpgrade, true
+	return o.OnEpisodeFileDeleteForUpgrade, true
 }
 
-// HasOnMovieFileDeleteForUpgrade returns a boolean if a field has been set.
-func (o *NotificationResource) HasOnMovieFileDeleteForUpgrade() bool {
-	if o != nil && !isNil(o.OnMovieFileDeleteForUpgrade) {
+// HasOnEpisodeFileDeleteForUpgrade returns a boolean if a field has been set.
+func (o *NotificationResource) HasOnEpisodeFileDeleteForUpgrade() bool {
+	if o != nil && !isNil(o.OnEpisodeFileDeleteForUpgrade) {
 		return true
 	}
 
 	return false
 }
 
-// SetOnMovieFileDeleteForUpgrade gets a reference to the given bool and assigns it to the OnMovieFileDeleteForUpgrade field.
-func (o *NotificationResource) SetOnMovieFileDeleteForUpgrade(v bool) {
-	o.OnMovieFileDeleteForUpgrade = &v
+// SetOnEpisodeFileDeleteForUpgrade gets a reference to the given bool and assigns it to the OnEpisodeFileDeleteForUpgrade field.
+func (o *NotificationResource) SetOnEpisodeFileDeleteForUpgrade(v bool) {
+	o.OnEpisodeFileDeleteForUpgrade = &v
 }
 
 // GetOnHealthIssue returns the OnHealthIssue field value if set, zero value otherwise.
@@ -897,100 +897,100 @@ func (o *NotificationResource) SetSupportsOnRename(v bool) {
 	o.SupportsOnRename = &v
 }
 
-// GetSupportsOnMovieDelete returns the SupportsOnMovieDelete field value if set, zero value otherwise.
-func (o *NotificationResource) GetSupportsOnMovieDelete() bool {
-	if o == nil || isNil(o.SupportsOnMovieDelete) {
+// GetSupportsOnSeriesDelete returns the SupportsOnSeriesDelete field value if set, zero value otherwise.
+func (o *NotificationResource) GetSupportsOnSeriesDelete() bool {
+	if o == nil || isNil(o.SupportsOnSeriesDelete) {
 		var ret bool
 		return ret
 	}
-	return *o.SupportsOnMovieDelete
+	return *o.SupportsOnSeriesDelete
 }
 
-// GetSupportsOnMovieDeleteOk returns a tuple with the SupportsOnMovieDelete field value if set, nil otherwise
+// GetSupportsOnSeriesDeleteOk returns a tuple with the SupportsOnSeriesDelete field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *NotificationResource) GetSupportsOnMovieDeleteOk() (*bool, bool) {
-	if o == nil || isNil(o.SupportsOnMovieDelete) {
+func (o *NotificationResource) GetSupportsOnSeriesDeleteOk() (*bool, bool) {
+	if o == nil || isNil(o.SupportsOnSeriesDelete) {
     return nil, false
 	}
-	return o.SupportsOnMovieDelete, true
+	return o.SupportsOnSeriesDelete, true
 }
 
-// HasSupportsOnMovieDelete returns a boolean if a field has been set.
-func (o *NotificationResource) HasSupportsOnMovieDelete() bool {
-	if o != nil && !isNil(o.SupportsOnMovieDelete) {
+// HasSupportsOnSeriesDelete returns a boolean if a field has been set.
+func (o *NotificationResource) HasSupportsOnSeriesDelete() bool {
+	if o != nil && !isNil(o.SupportsOnSeriesDelete) {
 		return true
 	}
 
 	return false
 }
 
-// SetSupportsOnMovieDelete gets a reference to the given bool and assigns it to the SupportsOnMovieDelete field.
-func (o *NotificationResource) SetSupportsOnMovieDelete(v bool) {
-	o.SupportsOnMovieDelete = &v
+// SetSupportsOnSeriesDelete gets a reference to the given bool and assigns it to the SupportsOnSeriesDelete field.
+func (o *NotificationResource) SetSupportsOnSeriesDelete(v bool) {
+	o.SupportsOnSeriesDelete = &v
 }
 
-// GetSupportsOnMovieFileDelete returns the SupportsOnMovieFileDelete field value if set, zero value otherwise.
-func (o *NotificationResource) GetSupportsOnMovieFileDelete() bool {
-	if o == nil || isNil(o.SupportsOnMovieFileDelete) {
+// GetSupportsOnEpisodeFileDelete returns the SupportsOnEpisodeFileDelete field value if set, zero value otherwise.
+func (o *NotificationResource) GetSupportsOnEpisodeFileDelete() bool {
+	if o == nil || isNil(o.SupportsOnEpisodeFileDelete) {
 		var ret bool
 		return ret
 	}
-	return *o.SupportsOnMovieFileDelete
+	return *o.SupportsOnEpisodeFileDelete
 }
 
-// GetSupportsOnMovieFileDeleteOk returns a tuple with the SupportsOnMovieFileDelete field value if set, nil otherwise
+// GetSupportsOnEpisodeFileDeleteOk returns a tuple with the SupportsOnEpisodeFileDelete field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *NotificationResource) GetSupportsOnMovieFileDeleteOk() (*bool, bool) {
-	if o == nil || isNil(o.SupportsOnMovieFileDelete) {
+func (o *NotificationResource) GetSupportsOnEpisodeFileDeleteOk() (*bool, bool) {
+	if o == nil || isNil(o.SupportsOnEpisodeFileDelete) {
     return nil, false
 	}
-	return o.SupportsOnMovieFileDelete, true
+	return o.SupportsOnEpisodeFileDelete, true
 }
 
-// HasSupportsOnMovieFileDelete returns a boolean if a field has been set.
-func (o *NotificationResource) HasSupportsOnMovieFileDelete() bool {
-	if o != nil && !isNil(o.SupportsOnMovieFileDelete) {
+// HasSupportsOnEpisodeFileDelete returns a boolean if a field has been set.
+func (o *NotificationResource) HasSupportsOnEpisodeFileDelete() bool {
+	if o != nil && !isNil(o.SupportsOnEpisodeFileDelete) {
 		return true
 	}
 
 	return false
 }
 
-// SetSupportsOnMovieFileDelete gets a reference to the given bool and assigns it to the SupportsOnMovieFileDelete field.
-func (o *NotificationResource) SetSupportsOnMovieFileDelete(v bool) {
-	o.SupportsOnMovieFileDelete = &v
+// SetSupportsOnEpisodeFileDelete gets a reference to the given bool and assigns it to the SupportsOnEpisodeFileDelete field.
+func (o *NotificationResource) SetSupportsOnEpisodeFileDelete(v bool) {
+	o.SupportsOnEpisodeFileDelete = &v
 }
 
-// GetSupportsOnMovieFileDeleteForUpgrade returns the SupportsOnMovieFileDeleteForUpgrade field value if set, zero value otherwise.
-func (o *NotificationResource) GetSupportsOnMovieFileDeleteForUpgrade() bool {
-	if o == nil || isNil(o.SupportsOnMovieFileDeleteForUpgrade) {
+// GetSupportsOnEpisodeFileDeleteForUpgrade returns the SupportsOnEpisodeFileDeleteForUpgrade field value if set, zero value otherwise.
+func (o *NotificationResource) GetSupportsOnEpisodeFileDeleteForUpgrade() bool {
+	if o == nil || isNil(o.SupportsOnEpisodeFileDeleteForUpgrade) {
 		var ret bool
 		return ret
 	}
-	return *o.SupportsOnMovieFileDeleteForUpgrade
+	return *o.SupportsOnEpisodeFileDeleteForUpgrade
 }
 
-// GetSupportsOnMovieFileDeleteForUpgradeOk returns a tuple with the SupportsOnMovieFileDeleteForUpgrade field value if set, nil otherwise
+// GetSupportsOnEpisodeFileDeleteForUpgradeOk returns a tuple with the SupportsOnEpisodeFileDeleteForUpgrade field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *NotificationResource) GetSupportsOnMovieFileDeleteForUpgradeOk() (*bool, bool) {
-	if o == nil || isNil(o.SupportsOnMovieFileDeleteForUpgrade) {
+func (o *NotificationResource) GetSupportsOnEpisodeFileDeleteForUpgradeOk() (*bool, bool) {
+	if o == nil || isNil(o.SupportsOnEpisodeFileDeleteForUpgrade) {
     return nil, false
 	}
-	return o.SupportsOnMovieFileDeleteForUpgrade, true
+	return o.SupportsOnEpisodeFileDeleteForUpgrade, true
 }
 
-// HasSupportsOnMovieFileDeleteForUpgrade returns a boolean if a field has been set.
-func (o *NotificationResource) HasSupportsOnMovieFileDeleteForUpgrade() bool {
-	if o != nil && !isNil(o.SupportsOnMovieFileDeleteForUpgrade) {
+// HasSupportsOnEpisodeFileDeleteForUpgrade returns a boolean if a field has been set.
+func (o *NotificationResource) HasSupportsOnEpisodeFileDeleteForUpgrade() bool {
+	if o != nil && !isNil(o.SupportsOnEpisodeFileDeleteForUpgrade) {
 		return true
 	}
 
 	return false
 }
 
-// SetSupportsOnMovieFileDeleteForUpgrade gets a reference to the given bool and assigns it to the SupportsOnMovieFileDeleteForUpgrade field.
-func (o *NotificationResource) SetSupportsOnMovieFileDeleteForUpgrade(v bool) {
-	o.SupportsOnMovieFileDeleteForUpgrade = &v
+// SetSupportsOnEpisodeFileDeleteForUpgrade gets a reference to the given bool and assigns it to the SupportsOnEpisodeFileDeleteForUpgrade field.
+func (o *NotificationResource) SetSupportsOnEpisodeFileDeleteForUpgrade(v bool) {
+	o.SupportsOnEpisodeFileDeleteForUpgrade = &v
 }
 
 // GetSupportsOnHealthIssue returns the SupportsOnHealthIssue field value if set, zero value otherwise.
@@ -1178,14 +1178,14 @@ func (o NotificationResource) MarshalJSON() ([]byte, error) {
 	if !isNil(o.OnRename) {
 		toSerialize["onRename"] = o.OnRename
 	}
-	if !isNil(o.OnMovieDelete) {
-		toSerialize["onMovieDelete"] = o.OnMovieDelete
+	if !isNil(o.OnSeriesDelete) {
+		toSerialize["onSeriesDelete"] = o.OnSeriesDelete
 	}
-	if !isNil(o.OnMovieFileDelete) {
-		toSerialize["onMovieFileDelete"] = o.OnMovieFileDelete
+	if !isNil(o.OnEpisodeFileDelete) {
+		toSerialize["onEpisodeFileDelete"] = o.OnEpisodeFileDelete
 	}
-	if !isNil(o.OnMovieFileDeleteForUpgrade) {
-		toSerialize["onMovieFileDeleteForUpgrade"] = o.OnMovieFileDeleteForUpgrade
+	if !isNil(o.OnEpisodeFileDeleteForUpgrade) {
+		toSerialize["onEpisodeFileDeleteForUpgrade"] = o.OnEpisodeFileDeleteForUpgrade
 	}
 	if !isNil(o.OnHealthIssue) {
 		toSerialize["onHealthIssue"] = o.OnHealthIssue
@@ -1205,14 +1205,14 @@ func (o NotificationResource) MarshalJSON() ([]byte, error) {
 	if !isNil(o.SupportsOnRename) {
 		toSerialize["supportsOnRename"] = o.SupportsOnRename
 	}
-	if !isNil(o.SupportsOnMovieDelete) {
-		toSerialize["supportsOnMovieDelete"] = o.SupportsOnMovieDelete
+	if !isNil(o.SupportsOnSeriesDelete) {
+		toSerialize["supportsOnSeriesDelete"] = o.SupportsOnSeriesDelete
 	}
-	if !isNil(o.SupportsOnMovieFileDelete) {
-		toSerialize["supportsOnMovieFileDelete"] = o.SupportsOnMovieFileDelete
+	if !isNil(o.SupportsOnEpisodeFileDelete) {
+		toSerialize["supportsOnEpisodeFileDelete"] = o.SupportsOnEpisodeFileDelete
 	}
-	if !isNil(o.SupportsOnMovieFileDeleteForUpgrade) {
-		toSerialize["supportsOnMovieFileDeleteForUpgrade"] = o.SupportsOnMovieFileDeleteForUpgrade
+	if !isNil(o.SupportsOnEpisodeFileDeleteForUpgrade) {
+		toSerialize["supportsOnEpisodeFileDeleteForUpgrade"] = o.SupportsOnEpisodeFileDeleteForUpgrade
 	}
 	if !isNil(o.SupportsOnHealthIssue) {
 		toSerialize["supportsOnHealthIssue"] = o.SupportsOnHealthIssue

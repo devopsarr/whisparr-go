@@ -6,9 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **int32** |  | [optional] 
 **Name** | Pointer to **NullableString** |  | [optional] 
-**Source** | Pointer to [**Source**](Source.md) |  | [optional] 
+**Source** | Pointer to [**QualitySource**](QualitySource.md) |  | [optional] 
 **Resolution** | Pointer to **int32** |  | [optional] 
-**Modifier** | Pointer to [**Modifier**](Modifier.md) |  | [optional] 
 
 ## Methods
 
@@ -91,20 +90,20 @@ HasName returns a boolean if a field has been set.
 UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetSource
 
-`func (o *Quality) GetSource() Source`
+`func (o *Quality) GetSource() QualitySource`
 
 GetSource returns the Source field if non-nil, zero value otherwise.
 
 ### GetSourceOk
 
-`func (o *Quality) GetSourceOk() (*Source, bool)`
+`func (o *Quality) GetSourceOk() (*QualitySource, bool)`
 
 GetSourceOk returns a tuple with the Source field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSource
 
-`func (o *Quality) SetSource(v Source)`
+`func (o *Quality) SetSource(v QualitySource)`
 
 SetSource sets Source field to given value.
 
@@ -138,31 +137,6 @@ SetResolution sets Resolution field to given value.
 `func (o *Quality) HasResolution() bool`
 
 HasResolution returns a boolean if a field has been set.
-
-### GetModifier
-
-`func (o *Quality) GetModifier() Modifier`
-
-GetModifier returns the Modifier field if non-nil, zero value otherwise.
-
-### GetModifierOk
-
-`func (o *Quality) GetModifierOk() (*Modifier, bool)`
-
-GetModifierOk returns a tuple with the Modifier field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetModifier
-
-`func (o *Quality) SetModifier(v Modifier)`
-
-SetModifier sets Modifier field to given value.
-
-### HasModifier
-
-`func (o *Quality) HasModifier() bool`
-
-HasModifier returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

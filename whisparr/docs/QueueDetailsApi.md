@@ -65,12 +65,12 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[X-Api-Key](../README.md#X-Api-Key), [apikey](../README.md#apikey)
+[apikey](../README.md#apikey), [X-Api-Key](../README.md#X-Api-Key)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 ## ListQueueDetails
 
-> []QueueResource ListQueueDetails(ctx).MovieId(movieId).IncludeMovie(includeMovie).Execute()
+> []QueueResource ListQueueDetails(ctx).SeriesId(seriesId).EpisodeIds(episodeIds).IncludeSeries(includeSeries).IncludeEpisode(includeEpisode).Execute()
 
 
 
@@ -96,12 +96,14 @@ import (
 )
 
 func main() {
-    movieId := int32(56) // int32 |  (optional)
-    includeMovie := true // bool |  (optional) (default to false)
+    seriesId := int32(56) // int32 |  (optional)
+    episodeIds := []int32{int32(123)} // []int32 |  (optional)
+    includeSeries := true // bool |  (optional) (default to false)
+    includeEpisode := true // bool |  (optional) (default to false)
 
     configuration := whisparrClient.NewConfiguration()
     apiClient := whisparrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.QueueDetailsApi.ListQueueDetails(context.Background()).MovieId(movieId).IncludeMovie(includeMovie).Execute()
+    resp, r, err := apiClient.QueueDetailsApi.ListQueueDetails(context.Background()).SeriesId(seriesId).EpisodeIds(episodeIds).IncludeSeries(includeSeries).IncludeEpisode(includeEpisode).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `QueueDetailsApi.ListQueueDetails``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -122,8 +124,10 @@ Other parameters are passed through a pointer to a apiListQueueDetailsRequest st
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **movieId** | **int32** |  | 
- **includeMovie** | **bool** |  | [default to false]
+ **seriesId** | **int32** |  | 
+ **episodeIds** | **[]int32** |  | 
+ **includeSeries** | **bool** |  | [default to false]
+ **includeEpisode** | **bool** |  | [default to false]
 
 ### Return type
 
@@ -131,12 +135,12 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[X-Api-Key](../README.md#X-Api-Key), [apikey](../README.md#apikey)
+[apikey](../README.md#apikey), [X-Api-Key](../README.md#X-Api-Key)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

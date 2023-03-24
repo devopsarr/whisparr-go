@@ -5,7 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **int32** |  | [optional] 
-**MovieId** | Pointer to **int32** |  | [optional] 
+**EpisodeId** | Pointer to **int32** |  | [optional] 
+**SeriesId** | Pointer to **int32** |  | [optional] 
 **SourceTitle** | Pointer to **NullableString** |  | [optional] 
 **Languages** | Pointer to [**[]Language**](Language.md) |  | [optional] 
 **Quality** | Pointer to [**QualityModel**](QualityModel.md) |  | [optional] 
@@ -13,9 +14,10 @@ Name | Type | Description | Notes
 **QualityCutoffNotMet** | Pointer to **bool** |  | [optional] 
 **Date** | Pointer to **time.Time** |  | [optional] 
 **DownloadId** | Pointer to **NullableString** |  | [optional] 
-**EventType** | Pointer to [**MovieHistoryEventType**](MovieHistoryEventType.md) |  | [optional] 
+**EventType** | Pointer to [**EpisodeHistoryEventType**](EpisodeHistoryEventType.md) |  | [optional] 
 **Data** | Pointer to **map[string]string** |  | [optional] 
-**Movie** | Pointer to [**MovieResource**](MovieResource.md) |  | [optional] 
+**Episode** | Pointer to [**EpisodeResource**](EpisodeResource.md) |  | [optional] 
+**Series** | Pointer to [**SeriesResource**](SeriesResource.md) |  | [optional] 
 
 ## Methods
 
@@ -61,30 +63,55 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
-### GetMovieId
+### GetEpisodeId
 
-`func (o *HistoryResource) GetMovieId() int32`
+`func (o *HistoryResource) GetEpisodeId() int32`
 
-GetMovieId returns the MovieId field if non-nil, zero value otherwise.
+GetEpisodeId returns the EpisodeId field if non-nil, zero value otherwise.
 
-### GetMovieIdOk
+### GetEpisodeIdOk
 
-`func (o *HistoryResource) GetMovieIdOk() (*int32, bool)`
+`func (o *HistoryResource) GetEpisodeIdOk() (*int32, bool)`
 
-GetMovieIdOk returns a tuple with the MovieId field if it's non-nil, zero value otherwise
+GetEpisodeIdOk returns a tuple with the EpisodeId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetMovieId
+### SetEpisodeId
 
-`func (o *HistoryResource) SetMovieId(v int32)`
+`func (o *HistoryResource) SetEpisodeId(v int32)`
 
-SetMovieId sets MovieId field to given value.
+SetEpisodeId sets EpisodeId field to given value.
 
-### HasMovieId
+### HasEpisodeId
 
-`func (o *HistoryResource) HasMovieId() bool`
+`func (o *HistoryResource) HasEpisodeId() bool`
 
-HasMovieId returns a boolean if a field has been set.
+HasEpisodeId returns a boolean if a field has been set.
+
+### GetSeriesId
+
+`func (o *HistoryResource) GetSeriesId() int32`
+
+GetSeriesId returns the SeriesId field if non-nil, zero value otherwise.
+
+### GetSeriesIdOk
+
+`func (o *HistoryResource) GetSeriesIdOk() (*int32, bool)`
+
+GetSeriesIdOk returns a tuple with the SeriesId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSeriesId
+
+`func (o *HistoryResource) SetSeriesId(v int32)`
+
+SetSeriesId sets SeriesId field to given value.
+
+### HasSeriesId
+
+`func (o *HistoryResource) HasSeriesId() bool`
+
+HasSeriesId returns a boolean if a field has been set.
 
 ### GetSourceTitle
 
@@ -303,20 +330,20 @@ HasDownloadId returns a boolean if a field has been set.
 UnsetDownloadId ensures that no value is present for DownloadId, not even an explicit nil
 ### GetEventType
 
-`func (o *HistoryResource) GetEventType() MovieHistoryEventType`
+`func (o *HistoryResource) GetEventType() EpisodeHistoryEventType`
 
 GetEventType returns the EventType field if non-nil, zero value otherwise.
 
 ### GetEventTypeOk
 
-`func (o *HistoryResource) GetEventTypeOk() (*MovieHistoryEventType, bool)`
+`func (o *HistoryResource) GetEventTypeOk() (*EpisodeHistoryEventType, bool)`
 
 GetEventTypeOk returns a tuple with the EventType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEventType
 
-`func (o *HistoryResource) SetEventType(v MovieHistoryEventType)`
+`func (o *HistoryResource) SetEventType(v EpisodeHistoryEventType)`
 
 SetEventType sets EventType field to given value.
 
@@ -361,30 +388,55 @@ HasData returns a boolean if a field has been set.
 `func (o *HistoryResource) UnsetData()`
 
 UnsetData ensures that no value is present for Data, not even an explicit nil
-### GetMovie
+### GetEpisode
 
-`func (o *HistoryResource) GetMovie() MovieResource`
+`func (o *HistoryResource) GetEpisode() EpisodeResource`
 
-GetMovie returns the Movie field if non-nil, zero value otherwise.
+GetEpisode returns the Episode field if non-nil, zero value otherwise.
 
-### GetMovieOk
+### GetEpisodeOk
 
-`func (o *HistoryResource) GetMovieOk() (*MovieResource, bool)`
+`func (o *HistoryResource) GetEpisodeOk() (*EpisodeResource, bool)`
 
-GetMovieOk returns a tuple with the Movie field if it's non-nil, zero value otherwise
+GetEpisodeOk returns a tuple with the Episode field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetMovie
+### SetEpisode
 
-`func (o *HistoryResource) SetMovie(v MovieResource)`
+`func (o *HistoryResource) SetEpisode(v EpisodeResource)`
 
-SetMovie sets Movie field to given value.
+SetEpisode sets Episode field to given value.
 
-### HasMovie
+### HasEpisode
 
-`func (o *HistoryResource) HasMovie() bool`
+`func (o *HistoryResource) HasEpisode() bool`
 
-HasMovie returns a boolean if a field has been set.
+HasEpisode returns a boolean if a field has been set.
+
+### GetSeries
+
+`func (o *HistoryResource) GetSeries() SeriesResource`
+
+GetSeries returns the Series field if non-nil, zero value otherwise.
+
+### GetSeriesOk
+
+`func (o *HistoryResource) GetSeriesOk() (*SeriesResource, bool)`
+
+GetSeriesOk returns a tuple with the Series field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSeries
+
+`func (o *HistoryResource) SetSeries(v SeriesResource)`
+
+SetSeries sets Series field to given value.
+
+### HasSeries
+
+`func (o *HistoryResource) HasSeries() bool`
+
+HasSeries returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
