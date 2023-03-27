@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/devopsarr/whisparr-go/compare/v0.2.0...v0.2.1) (2023-03-27)
+
+
+### Bug Fixes
+
+* **devopsarr/sonarr-py#6:** remove timespan validator ([39cc399](https://github.com/devopsarr/whisparr-go/commit/39cc3995f05c40af5c5cd7c41b812d6fb9c6d4e2))
+
 ## [0.2.0](https://github.com/devopsarr/whisparr-go/compare/v0.1.1...v0.2.0) (2023-03-24)
 
 
