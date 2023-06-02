@@ -128,9 +128,11 @@ Class | Method | HTTP request | Description
 *DownloadClientApi* | [**CreateDownloadClient**](whisparr/docs/DownloadClientApi.md#createdownloadclient) | **Post** /api/v3/downloadclient | 
 *DownloadClientApi* | [**CreateDownloadClientActionByName**](whisparr/docs/DownloadClientApi.md#createdownloadclientactionbyname) | **Post** /api/v3/downloadclient/action/{name} | 
 *DownloadClientApi* | [**DeleteDownloadClient**](whisparr/docs/DownloadClientApi.md#deletedownloadclient) | **Delete** /api/v3/downloadclient/{id} | 
+*DownloadClientApi* | [**DeleteDownloadClientBulk**](whisparr/docs/DownloadClientApi.md#deletedownloadclientbulk) | **Delete** /api/v3/downloadclient/bulk | 
 *DownloadClientApi* | [**GetDownloadClientById**](whisparr/docs/DownloadClientApi.md#getdownloadclientbyid) | **Get** /api/v3/downloadclient/{id} | 
 *DownloadClientApi* | [**ListDownloadClient**](whisparr/docs/DownloadClientApi.md#listdownloadclient) | **Get** /api/v3/downloadclient | 
 *DownloadClientApi* | [**ListDownloadClientSchema**](whisparr/docs/DownloadClientApi.md#listdownloadclientschema) | **Get** /api/v3/downloadclient/schema | 
+*DownloadClientApi* | [**PutDownloadClientBulk**](whisparr/docs/DownloadClientApi.md#putdownloadclientbulk) | **Put** /api/v3/downloadclient/bulk | 
 *DownloadClientApi* | [**TestDownloadClient**](whisparr/docs/DownloadClientApi.md#testdownloadclient) | **Post** /api/v3/downloadclient/test | 
 *DownloadClientApi* | [**TestallDownloadClient**](whisparr/docs/DownloadClientApi.md#testalldownloadclient) | **Post** /api/v3/downloadclient/testall | 
 *DownloadClientApi* | [**UpdateDownloadClient**](whisparr/docs/DownloadClientApi.md#updatedownloadclient) | **Put** /api/v3/downloadclient/{id} | 
@@ -159,9 +161,11 @@ Class | Method | HTTP request | Description
 *ImportListApi* | [**CreateImportList**](whisparr/docs/ImportListApi.md#createimportlist) | **Post** /api/v3/importlist | 
 *ImportListApi* | [**CreateImportListActionByName**](whisparr/docs/ImportListApi.md#createimportlistactionbyname) | **Post** /api/v3/importlist/action/{name} | 
 *ImportListApi* | [**DeleteImportList**](whisparr/docs/ImportListApi.md#deleteimportlist) | **Delete** /api/v3/importlist/{id} | 
+*ImportListApi* | [**DeleteImportListBulk**](whisparr/docs/ImportListApi.md#deleteimportlistbulk) | **Delete** /api/v3/importlist/bulk | 
 *ImportListApi* | [**GetImportListById**](whisparr/docs/ImportListApi.md#getimportlistbyid) | **Get** /api/v3/importlist/{id} | 
 *ImportListApi* | [**ListImportList**](whisparr/docs/ImportListApi.md#listimportlist) | **Get** /api/v3/importlist | 
 *ImportListApi* | [**ListImportListSchema**](whisparr/docs/ImportListApi.md#listimportlistschema) | **Get** /api/v3/importlist/schema | 
+*ImportListApi* | [**PutImportListBulk**](whisparr/docs/ImportListApi.md#putimportlistbulk) | **Put** /api/v3/importlist/bulk | 
 *ImportListApi* | [**TestImportList**](whisparr/docs/ImportListApi.md#testimportlist) | **Post** /api/v3/importlist/test | 
 *ImportListApi* | [**TestallImportList**](whisparr/docs/ImportListApi.md#testallimportlist) | **Post** /api/v3/importlist/testall | 
 *ImportListApi* | [**UpdateImportList**](whisparr/docs/ImportListApi.md#updateimportlist) | **Put** /api/v3/importlist/{id} | 
@@ -173,9 +177,11 @@ Class | Method | HTTP request | Description
 *IndexerApi* | [**CreateIndexer**](whisparr/docs/IndexerApi.md#createindexer) | **Post** /api/v3/indexer | 
 *IndexerApi* | [**CreateIndexerActionByName**](whisparr/docs/IndexerApi.md#createindexeractionbyname) | **Post** /api/v3/indexer/action/{name} | 
 *IndexerApi* | [**DeleteIndexer**](whisparr/docs/IndexerApi.md#deleteindexer) | **Delete** /api/v3/indexer/{id} | 
+*IndexerApi* | [**DeleteIndexerBulk**](whisparr/docs/IndexerApi.md#deleteindexerbulk) | **Delete** /api/v3/indexer/bulk | 
 *IndexerApi* | [**GetIndexerById**](whisparr/docs/IndexerApi.md#getindexerbyid) | **Get** /api/v3/indexer/{id} | 
 *IndexerApi* | [**ListIndexer**](whisparr/docs/IndexerApi.md#listindexer) | **Get** /api/v3/indexer | 
 *IndexerApi* | [**ListIndexerSchema**](whisparr/docs/IndexerApi.md#listindexerschema) | **Get** /api/v3/indexer/schema | 
+*IndexerApi* | [**PutIndexerBulk**](whisparr/docs/IndexerApi.md#putindexerbulk) | **Put** /api/v3/indexer/bulk | 
 *IndexerApi* | [**TestIndexer**](whisparr/docs/IndexerApi.md#testindexer) | **Post** /api/v3/indexer/test | 
 *IndexerApi* | [**TestallIndexer**](whisparr/docs/IndexerApi.md#testallindexer) | **Post** /api/v3/indexer/testall | 
 *IndexerApi* | [**UpdateIndexer**](whisparr/docs/IndexerApi.md#updateindexer) | **Put** /api/v3/indexer/{id} | 
@@ -199,9 +205,11 @@ Class | Method | HTTP request | Description
 *MetadataApi* | [**CreateMetadata**](whisparr/docs/MetadataApi.md#createmetadata) | **Post** /api/v3/metadata | 
 *MetadataApi* | [**CreateMetadataActionByName**](whisparr/docs/MetadataApi.md#createmetadataactionbyname) | **Post** /api/v3/metadata/action/{name} | 
 *MetadataApi* | [**DeleteMetadata**](whisparr/docs/MetadataApi.md#deletemetadata) | **Delete** /api/v3/metadata/{id} | 
+*MetadataApi* | [**DeleteMetadataBulk**](whisparr/docs/MetadataApi.md#deletemetadatabulk) | **Delete** /api/v3/metadata/bulk | 
 *MetadataApi* | [**GetMetadataById**](whisparr/docs/MetadataApi.md#getmetadatabyid) | **Get** /api/v3/metadata/{id} | 
 *MetadataApi* | [**ListMetadata**](whisparr/docs/MetadataApi.md#listmetadata) | **Get** /api/v3/metadata | 
 *MetadataApi* | [**ListMetadataSchema**](whisparr/docs/MetadataApi.md#listmetadataschema) | **Get** /api/v3/metadata/schema | 
+*MetadataApi* | [**PutMetadataBulk**](whisparr/docs/MetadataApi.md#putmetadatabulk) | **Put** /api/v3/metadata/bulk | 
 *MetadataApi* | [**TestMetadata**](whisparr/docs/MetadataApi.md#testmetadata) | **Post** /api/v3/metadata/test | 
 *MetadataApi* | [**TestallMetadata**](whisparr/docs/MetadataApi.md#testallmetadata) | **Post** /api/v3/metadata/testall | 
 *MetadataApi* | [**UpdateMetadata**](whisparr/docs/MetadataApi.md#updatemetadata) | **Put** /api/v3/metadata/{id} | 
@@ -234,9 +242,11 @@ Class | Method | HTTP request | Description
 *NotificationApi* | [**CreateNotification**](whisparr/docs/NotificationApi.md#createnotification) | **Post** /api/v3/notification | 
 *NotificationApi* | [**CreateNotificationActionByName**](whisparr/docs/NotificationApi.md#createnotificationactionbyname) | **Post** /api/v3/notification/action/{name} | 
 *NotificationApi* | [**DeleteNotification**](whisparr/docs/NotificationApi.md#deletenotification) | **Delete** /api/v3/notification/{id} | 
+*NotificationApi* | [**DeleteNotificationBulk**](whisparr/docs/NotificationApi.md#deletenotificationbulk) | **Delete** /api/v3/notification/bulk | 
 *NotificationApi* | [**GetNotificationById**](whisparr/docs/NotificationApi.md#getnotificationbyid) | **Get** /api/v3/notification/{id} | 
 *NotificationApi* | [**ListNotification**](whisparr/docs/NotificationApi.md#listnotification) | **Get** /api/v3/notification | 
 *NotificationApi* | [**ListNotificationSchema**](whisparr/docs/NotificationApi.md#listnotificationschema) | **Get** /api/v3/notification/schema | 
+*NotificationApi* | [**PutNotificationBulk**](whisparr/docs/NotificationApi.md#putnotificationbulk) | **Put** /api/v3/notification/bulk | 
 *NotificationApi* | [**TestNotification**](whisparr/docs/NotificationApi.md#testnotification) | **Post** /api/v3/notification/test | 
 *NotificationApi* | [**TestallNotification**](whisparr/docs/NotificationApi.md#testallnotification) | **Post** /api/v3/notification/testall | 
 *NotificationApi* | [**UpdateNotification**](whisparr/docs/NotificationApi.md#updatenotification) | **Put** /api/v3/notification/{id} | 
@@ -341,6 +351,7 @@ Class | Method | HTTP request | Description
  - [DatabaseType](docs/DatabaseType.md)
  - [DelayProfileResource](docs/DelayProfileResource.md)
  - [DiskSpaceResource](docs/DiskSpaceResource.md)
+ - [DownloadClientBulkResource](docs/DownloadClientBulkResource.md)
  - [DownloadClientConfigResource](docs/DownloadClientConfigResource.md)
  - [DownloadClientResource](docs/DownloadClientResource.md)
  - [DownloadProtocol](docs/DownloadProtocol.md)
@@ -354,9 +365,11 @@ Class | Method | HTTP request | Description
  - [HistoryResourcePagingResource](docs/HistoryResourcePagingResource.md)
  - [HostConfigResource](docs/HostConfigResource.md)
  - [ImportExclusionsResource](docs/ImportExclusionsResource.md)
+ - [ImportListBulkResource](docs/ImportListBulkResource.md)
  - [ImportListConfigResource](docs/ImportListConfigResource.md)
  - [ImportListResource](docs/ImportListResource.md)
  - [ImportListType](docs/ImportListType.md)
+ - [IndexerBulkResource](docs/IndexerBulkResource.md)
  - [IndexerConfigResource](docs/IndexerConfigResource.md)
  - [IndexerFlagResource](docs/IndexerFlagResource.md)
  - [IndexerResource](docs/IndexerResource.md)
@@ -371,6 +384,7 @@ Class | Method | HTTP request | Description
  - [MediaCoverTypes](docs/MediaCoverTypes.md)
  - [MediaInfoResource](docs/MediaInfoResource.md)
  - [MediaManagementConfigResource](docs/MediaManagementConfigResource.md)
+ - [MetadataBulkResource](docs/MetadataBulkResource.md)
  - [MetadataConfigResource](docs/MetadataConfigResource.md)
  - [MetadataResource](docs/MetadataResource.md)
  - [Modifier](docs/Modifier.md)
@@ -386,6 +400,7 @@ Class | Method | HTTP request | Description
  - [MovieStatusType](docs/MovieStatusType.md)
  - [MovieTranslation](docs/MovieTranslation.md)
  - [NamingConfigResource](docs/NamingConfigResource.md)
+ - [NotificationBulkResource](docs/NotificationBulkResource.md)
  - [NotificationResource](docs/NotificationResource.md)
  - [PagingResourceFilter](docs/PagingResourceFilter.md)
  - [ParseResource](docs/ParseResource.md)
