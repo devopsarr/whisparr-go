@@ -205,11 +205,9 @@ Class | Method | HTTP request | Description
 *MetadataApi* | [**CreateMetadata**](whisparr/docs/MetadataApi.md#createmetadata) | **Post** /api/v3/metadata | 
 *MetadataApi* | [**CreateMetadataActionByName**](whisparr/docs/MetadataApi.md#createmetadataactionbyname) | **Post** /api/v3/metadata/action/{name} | 
 *MetadataApi* | [**DeleteMetadata**](whisparr/docs/MetadataApi.md#deletemetadata) | **Delete** /api/v3/metadata/{id} | 
-*MetadataApi* | [**DeleteMetadataBulk**](whisparr/docs/MetadataApi.md#deletemetadatabulk) | **Delete** /api/v3/metadata/bulk | 
 *MetadataApi* | [**GetMetadataById**](whisparr/docs/MetadataApi.md#getmetadatabyid) | **Get** /api/v3/metadata/{id} | 
 *MetadataApi* | [**ListMetadata**](whisparr/docs/MetadataApi.md#listmetadata) | **Get** /api/v3/metadata | 
 *MetadataApi* | [**ListMetadataSchema**](whisparr/docs/MetadataApi.md#listmetadataschema) | **Get** /api/v3/metadata/schema | 
-*MetadataApi* | [**PutMetadataBulk**](whisparr/docs/MetadataApi.md#putmetadatabulk) | **Put** /api/v3/metadata/bulk | 
 *MetadataApi* | [**TestMetadata**](whisparr/docs/MetadataApi.md#testmetadata) | **Post** /api/v3/metadata/test | 
 *MetadataApi* | [**TestallMetadata**](whisparr/docs/MetadataApi.md#testallmetadata) | **Post** /api/v3/metadata/testall | 
 *MetadataApi* | [**UpdateMetadata**](whisparr/docs/MetadataApi.md#updatemetadata) | **Put** /api/v3/metadata/{id} | 
@@ -242,11 +240,9 @@ Class | Method | HTTP request | Description
 *NotificationApi* | [**CreateNotification**](whisparr/docs/NotificationApi.md#createnotification) | **Post** /api/v3/notification | 
 *NotificationApi* | [**CreateNotificationActionByName**](whisparr/docs/NotificationApi.md#createnotificationactionbyname) | **Post** /api/v3/notification/action/{name} | 
 *NotificationApi* | [**DeleteNotification**](whisparr/docs/NotificationApi.md#deletenotification) | **Delete** /api/v3/notification/{id} | 
-*NotificationApi* | [**DeleteNotificationBulk**](whisparr/docs/NotificationApi.md#deletenotificationbulk) | **Delete** /api/v3/notification/bulk | 
 *NotificationApi* | [**GetNotificationById**](whisparr/docs/NotificationApi.md#getnotificationbyid) | **Get** /api/v3/notification/{id} | 
 *NotificationApi* | [**ListNotification**](whisparr/docs/NotificationApi.md#listnotification) | **Get** /api/v3/notification | 
 *NotificationApi* | [**ListNotificationSchema**](whisparr/docs/NotificationApi.md#listnotificationschema) | **Get** /api/v3/notification/schema | 
-*NotificationApi* | [**PutNotificationBulk**](whisparr/docs/NotificationApi.md#putnotificationbulk) | **Put** /api/v3/notification/bulk | 
 *NotificationApi* | [**TestNotification**](whisparr/docs/NotificationApi.md#testnotification) | **Post** /api/v3/notification/test | 
 *NotificationApi* | [**TestallNotification**](whisparr/docs/NotificationApi.md#testallnotification) | **Post** /api/v3/notification/testall | 
 *NotificationApi* | [**UpdateNotification**](whisparr/docs/NotificationApi.md#updatenotification) | **Put** /api/v3/notification/{id} | 
@@ -384,7 +380,6 @@ Class | Method | HTTP request | Description
  - [MediaCoverTypes](docs/MediaCoverTypes.md)
  - [MediaInfoResource](docs/MediaInfoResource.md)
  - [MediaManagementConfigResource](docs/MediaManagementConfigResource.md)
- - [MetadataBulkResource](docs/MetadataBulkResource.md)
  - [MetadataConfigResource](docs/MetadataConfigResource.md)
  - [MetadataResource](docs/MetadataResource.md)
  - [Modifier](docs/Modifier.md)
@@ -400,7 +395,6 @@ Class | Method | HTTP request | Description
  - [MovieStatusType](docs/MovieStatusType.md)
  - [MovieTranslation](docs/MovieTranslation.md)
  - [NamingConfigResource](docs/NamingConfigResource.md)
- - [NotificationBulkResource](docs/NotificationBulkResource.md)
  - [NotificationResource](docs/NotificationResource.md)
  - [PagingResourceFilter](docs/PagingResourceFilter.md)
  - [ParseResource](docs/ParseResource.md)
