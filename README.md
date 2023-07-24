@@ -189,7 +189,6 @@ Class | Method | HTTP request | Description
 *IndexerConfigApi* | [**GetIndexerConfigById**](whisparr/docs/IndexerConfigApi.md#getindexerconfigbyid) | **Get** /api/v3/config/indexer/{id} | 
 *IndexerConfigApi* | [**UpdateIndexerConfig**](whisparr/docs/IndexerConfigApi.md#updateindexerconfig) | **Put** /api/v3/config/indexer/{id} | 
 *IndexerFlagApi* | [**ListIndexerFlag**](whisparr/docs/IndexerFlagApi.md#listindexerflag) | **Get** /api/v3/indexerflag | 
-*InitializeJsApi* | [**GetInitializeJs**](whisparr/docs/InitializeJsApi.md#getinitializejs) | **Get** /initialize.js | 
 *LanguageApi* | [**GetLanguageById**](whisparr/docs/LanguageApi.md#getlanguagebyid) | **Get** /api/v3/language/{id} | 
 *LanguageApi* | [**ListLanguage**](whisparr/docs/LanguageApi.md#listlanguage) | **Get** /api/v3/language | 
 *LocalizationApi* | [**GetLocalization**](whisparr/docs/LocalizationApi.md#getlocalization) | **Get** /api/v3/localization | 
