@@ -87,6 +87,12 @@ Class | Method | HTTP request | Description
 *ApiInfoApi* | [**GetApi**](whisparr/docs/ApiInfoApi.md#getapi) | **Get** /api | 
 *AuthenticationApi* | [**CreateLogin**](whisparr/docs/AuthenticationApi.md#createlogin) | **Post** /login | 
 *AuthenticationApi* | [**GetLogout**](whisparr/docs/AuthenticationApi.md#getlogout) | **Get** /logout | 
+*AutoTaggingApi* | [**CreateAutoTagging**](whisparr/docs/AutoTaggingApi.md#createautotagging) | **Post** /api/v3/autotagging | 
+*AutoTaggingApi* | [**DeleteAutoTagging**](whisparr/docs/AutoTaggingApi.md#deleteautotagging) | **Delete** /api/v3/autotagging/{id} | 
+*AutoTaggingApi* | [**GetAutoTaggingById**](whisparr/docs/AutoTaggingApi.md#getautotaggingbyid) | **Get** /api/v3/autotagging/{id} | 
+*AutoTaggingApi* | [**GetAutoTaggingSchema**](whisparr/docs/AutoTaggingApi.md#getautotaggingschema) | **Get** /api/v3/autotagging/schema | 
+*AutoTaggingApi* | [**ListAutoTagging**](whisparr/docs/AutoTaggingApi.md#listautotagging) | **Get** /api/v3/autotagging | 
+*AutoTaggingApi* | [**UpdateAutoTagging**](whisparr/docs/AutoTaggingApi.md#updateautotagging) | **Put** /api/v3/autotagging/{id} | 
 *BackupApi* | [**CreateSystemBackupRestoreById**](whisparr/docs/BackupApi.md#createsystembackuprestorebyid) | **Post** /api/v3/system/backup/restore/{id} | 
 *BackupApi* | [**CreateSystemBackupRestoreUpload**](whisparr/docs/BackupApi.md#createsystembackuprestoreupload) | **Post** /api/v3/system/backup/restore/upload | 
 *BackupApi* | [**DeleteSystemBackup**](whisparr/docs/BackupApi.md#deletesystembackup) | **Delete** /api/v3/system/backup/{id} | 
@@ -322,6 +328,8 @@ Class | Method | HTTP request | Description
  - [ApiInfoResource](docs/ApiInfoResource.md)
  - [ApplyTags](docs/ApplyTags.md)
  - [AuthenticationType](docs/AuthenticationType.md)
+ - [AutoTaggingResource](docs/AutoTaggingResource.md)
+ - [AutoTaggingSpecificationSchema](docs/AutoTaggingSpecificationSchema.md)
  - [BackupResource](docs/BackupResource.md)
  - [BackupType](docs/BackupType.md)
  - [BlocklistBulkResource](docs/BlocklistBulkResource.md)
