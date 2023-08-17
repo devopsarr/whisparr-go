@@ -276,6 +276,11 @@ Class | Method | HTTP request | Description
 *ReleaseApi* | [**CreateRelease**](whisparr/docs/ReleaseApi.md#createrelease) | **Post** /api/v3/release | 
 *ReleaseApi* | [**GetReleaseById**](whisparr/docs/ReleaseApi.md#getreleasebyid) | **Get** /api/v3/release/{id} | 
 *ReleaseApi* | [**ListRelease**](whisparr/docs/ReleaseApi.md#listrelease) | **Get** /api/v3/release | 
+*ReleaseProfileApi* | [**CreateReleaseProfile**](whisparr/docs/ReleaseProfileApi.md#createreleaseprofile) | **Post** /api/v3/releaseprofile | 
+*ReleaseProfileApi* | [**DeleteReleaseProfile**](whisparr/docs/ReleaseProfileApi.md#deletereleaseprofile) | **Delete** /api/v3/releaseprofile/{id} | 
+*ReleaseProfileApi* | [**GetReleaseProfileById**](whisparr/docs/ReleaseProfileApi.md#getreleaseprofilebyid) | **Get** /api/v3/releaseprofile/{id} | 
+*ReleaseProfileApi* | [**ListReleaseProfile**](whisparr/docs/ReleaseProfileApi.md#listreleaseprofile) | **Get** /api/v3/releaseprofile | 
+*ReleaseProfileApi* | [**UpdateReleaseProfile**](whisparr/docs/ReleaseProfileApi.md#updatereleaseprofile) | **Put** /api/v3/releaseprofile/{id} | 
 *ReleasePushApi* | [**CreateReleasePush**](whisparr/docs/ReleasePushApi.md#createreleasepush) | **Post** /api/v3/release/push | 
 *ReleasePushApi* | [**GetReleasePushById**](whisparr/docs/ReleasePushApi.md#getreleasepushbyid) | **Get** /api/v3/release/push/{id} | 
 *RemotePathMappingApi* | [**CreateRemotePathMapping**](whisparr/docs/RemotePathMappingApi.md#createremotepathmapping) | **Post** /api/v3/remotepathmapping | 
@@ -284,11 +289,6 @@ Class | Method | HTTP request | Description
 *RemotePathMappingApi* | [**ListRemotePathMapping**](whisparr/docs/RemotePathMappingApi.md#listremotepathmapping) | **Get** /api/v3/remotepathmapping | 
 *RemotePathMappingApi* | [**UpdateRemotePathMapping**](whisparr/docs/RemotePathMappingApi.md#updateremotepathmapping) | **Put** /api/v3/remotepathmapping/{id} | 
 *RenameMovieApi* | [**ListRename**](whisparr/docs/RenameMovieApi.md#listrename) | **Get** /api/v3/rename | 
-*RestrictionApi* | [**CreateRestriction**](whisparr/docs/RestrictionApi.md#createrestriction) | **Post** /api/v3/restriction | 
-*RestrictionApi* | [**DeleteRestriction**](whisparr/docs/RestrictionApi.md#deleterestriction) | **Delete** /api/v3/restriction/{id} | 
-*RestrictionApi* | [**GetRestrictionById**](whisparr/docs/RestrictionApi.md#getrestrictionbyid) | **Get** /api/v3/restriction/{id} | 
-*RestrictionApi* | [**ListRestriction**](whisparr/docs/RestrictionApi.md#listrestriction) | **Get** /api/v3/restriction | 
-*RestrictionApi* | [**UpdateRestriction**](whisparr/docs/RestrictionApi.md#updaterestriction) | **Put** /api/v3/restriction/{id} | 
 *RootFolderApi* | [**CreateRootFolder**](whisparr/docs/RootFolderApi.md#createrootfolder) | **Post** /api/v3/rootfolder | 
 *RootFolderApi* | [**DeleteRootFolder**](whisparr/docs/RootFolderApi.md#deleterootfolder) | **Delete** /api/v3/rootfolder/{id} | 
 *RootFolderApi* | [**GetRootFolderById**](whisparr/docs/RootFolderApi.md#getrootfolderbyid) | **Get** /api/v3/rootfolder/{id} | 
@@ -327,6 +327,7 @@ Class | Method | HTTP request | Description
  - [AlternativeTitleResource](docs/AlternativeTitleResource.md)
  - [ApiInfoResource](docs/ApiInfoResource.md)
  - [ApplyTags](docs/ApplyTags.md)
+ - [AuthenticationRequiredType](docs/AuthenticationRequiredType.md)
  - [AuthenticationType](docs/AuthenticationType.md)
  - [AutoTaggingResource](docs/AutoTaggingResource.md)
  - [AutoTaggingSpecificationSchema](docs/AutoTaggingSpecificationSchema.md)
@@ -407,6 +408,7 @@ Class | Method | HTTP request | Description
  - [ParseResource](docs/ParseResource.md)
  - [ParsedMovieInfo](docs/ParsedMovieInfo.md)
  - [PingResource](docs/PingResource.md)
+ - [PrivacyLevel](docs/PrivacyLevel.md)
  - [ProfileFormatItemResource](docs/ProfileFormatItemResource.md)
  - [ProperDownloadTypes](docs/ProperDownloadTypes.md)
  - [ProviderMessage](docs/ProviderMessage.md)
@@ -426,11 +428,11 @@ Class | Method | HTTP request | Description
  - [Ratings](docs/Ratings.md)
  - [Rejection](docs/Rejection.md)
  - [RejectionType](docs/RejectionType.md)
+ - [ReleaseProfileResource](docs/ReleaseProfileResource.md)
  - [ReleaseResource](docs/ReleaseResource.md)
  - [RemotePathMappingResource](docs/RemotePathMappingResource.md)
  - [RenameMovieResource](docs/RenameMovieResource.md)
  - [RescanAfterRefreshType](docs/RescanAfterRefreshType.md)
- - [RestrictionResource](docs/RestrictionResource.md)
  - [Revision](docs/Revision.md)
  - [RootFolderResource](docs/RootFolderResource.md)
  - [RuntimeMode](docs/RuntimeMode.md)
