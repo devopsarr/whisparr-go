@@ -112,8 +112,8 @@ Class | Method | HTTP request | Description
 *CommandApi* | [**DeleteCommand**](whisparr/docs/CommandApi.md#deletecommand) | **Delete** /api/v3/command/{id} | 
 *CommandApi* | [**GetCommandById**](whisparr/docs/CommandApi.md#getcommandbyid) | **Get** /api/v3/command/{id} | 
 *CommandApi* | [**ListCommand**](whisparr/docs/CommandApi.md#listcommand) | **Get** /api/v3/command | 
+*CreditApi* | [**GetCredit**](whisparr/docs/CreditApi.md#getcredit) | **Get** /api/v3/credit | 
 *CreditApi* | [**GetCreditById**](whisparr/docs/CreditApi.md#getcreditbyid) | **Get** /api/v3/credit/{id} | 
-*CreditApi* | [**ListCredit**](whisparr/docs/CreditApi.md#listcredit) | **Get** /api/v3/credit | 
 *CustomFilterApi* | [**CreateCustomFilter**](whisparr/docs/CustomFilterApi.md#createcustomfilter) | **Post** /api/v3/customfilter | 
 *CustomFilterApi* | [**DeleteCustomFilter**](whisparr/docs/CustomFilterApi.md#deletecustomfilter) | **Delete** /api/v3/customfilter/{id} | 
 *CustomFilterApi* | [**GetCustomFilterById**](whisparr/docs/CustomFilterApi.md#getcustomfilterbyid) | **Get** /api/v3/customfilter/{id} | 
