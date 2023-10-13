@@ -204,7 +204,7 @@ Class | Method | HTTP request | Description
 *LogFileApi* | [**ListLogFile**](whisparr/docs/LogFileApi.md#listlogfile) | **Get** /api/v3/log/file | 
 *ManualImportApi* | [**CreateManualImport**](whisparr/docs/ManualImportApi.md#createmanualimport) | **Post** /api/v3/manualimport | 
 *ManualImportApi* | [**ListManualImport**](whisparr/docs/ManualImportApi.md#listmanualimport) | **Get** /api/v3/manualimport | 
-*MediaCoverApi* | [**GetMediaCovermovieIdByFilename**](whisparr/docs/MediaCoverApi.md#getmediacovermovieidbyfilename) | **Get** /api/v3/mediacover/{movieId}/{filename} | 
+*MediaCoverApi* | [**GetMediaCoverByFilename**](whisparr/docs/MediaCoverApi.md#getmediacoverbyfilename) | **Get** /api/v3/mediacover/{movieId}/{filename} | 
 *MediaManagementConfigApi* | [**GetMediaManagementConfig**](whisparr/docs/MediaManagementConfigApi.md#getmediamanagementconfig) | **Get** /api/v3/config/mediamanagement | 
 *MediaManagementConfigApi* | [**GetMediaManagementConfigById**](whisparr/docs/MediaManagementConfigApi.md#getmediamanagementconfigbyid) | **Get** /api/v3/config/mediamanagement/{id} | 
 *MediaManagementConfigApi* | [**UpdateMediaManagementConfig**](whisparr/docs/MediaManagementConfigApi.md#updatemediamanagementconfig) | **Put** /api/v3/config/mediamanagement/{id} | 
