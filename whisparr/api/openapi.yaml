@@ -6605,6 +6605,12 @@ components:
             monitor: null
             addMethod: null
           status: null
+          statistics:
+            releaseGroups:
+            - releaseGroups
+            - releaseGroups
+            movieFileCount: 0
+            sizeOnDisk: 7
         customFormats:
         - name: name
           includeCustomFormatWhenRenaming: true
@@ -7345,6 +7351,12 @@ components:
               monitor: null
               addMethod: null
             status: null
+            statistics:
+              releaseGroups:
+              - releaseGroups
+              - releaseGroups
+              movieFileCount: 0
+              sizeOnDisk: 7
           customFormats:
           - name: name
             includeCustomFormatWhenRenaming: true
@@ -8042,6 +8054,12 @@ components:
               monitor: null
               addMethod: null
             status: null
+            statistics:
+              releaseGroups:
+              - releaseGroups
+              - releaseGroups
+              movieFileCount: 0
+              sizeOnDisk: 7
           customFormats:
           - name: name
             includeCustomFormatWhenRenaming: true
@@ -9994,6 +10012,12 @@ components:
             monitor: null
             addMethod: null
           status: null
+          statistics:
+            releaseGroups:
+            - releaseGroups
+            - releaseGroups
+            movieFileCount: 0
+            sizeOnDisk: 7
         customFormats:
         - name: name
           includeCustomFormatWhenRenaming: true
@@ -10745,6 +10769,12 @@ components:
               monitor: null
               addMethod: null
             status: null
+            statistics:
+              releaseGroups:
+              - releaseGroups
+              - releaseGroups
+              movieFileCount: 0
+              sizeOnDisk: 7
           customFormats:
           - name: name
             includeCustomFormatWhenRenaming: true
@@ -11445,6 +11475,12 @@ components:
               monitor: null
               addMethod: null
             status: null
+            statistics:
+              releaseGroups:
+              - releaseGroups
+              - releaseGroups
+              movieFileCount: 0
+              sizeOnDisk: 7
           customFormats:
           - name: name
             includeCustomFormatWhenRenaming: true
@@ -13037,6 +13073,12 @@ components:
             monitor: null
             addMethod: null
           status: null
+          statistics:
+            releaseGroups:
+            - releaseGroups
+            - releaseGroups
+            movieFileCount: 0
+            sizeOnDisk: 7
         languages:
         - name: name
           id: 2
@@ -13779,6 +13821,12 @@ components:
             monitor: null
             addMethod: null
           status: null
+          statistics:
+            releaseGroups:
+            - releaseGroups
+            - releaseGroups
+            movieFileCount: 0
+            sizeOnDisk: 7
         languages:
         - name: name
           id: 2
@@ -15349,6 +15397,12 @@ components:
           monitor: null
           addMethod: null
         status: null
+        statistics:
+          releaseGroups:
+          - releaseGroups
+          - releaseGroups
+          movieFileCount: 0
+          sizeOnDisk: 7
       properties:
         id:
           format: int32
@@ -15414,8 +15468,6 @@ components:
         year:
           format: int32
           type: integer
-        hasFile:
-          type: boolean
         youTubeTrailerId:
           nullable: true
           type: string
@@ -15428,6 +15480,8 @@ components:
         qualityProfileId:
           format: int32
           type: integer
+        hasFile:
+          type: boolean
         monitored:
           type: boolean
         minimumAvailability:
@@ -15487,12 +15541,35 @@ components:
         popularity:
           format: float
           type: number
+        statistics:
+          $ref: '#/components/schemas/MovieStatisticsResource'
       type: object
     MovieRuntimeFormatType:
       enum:
       - hoursMinutes
       - minutes
       type: string
+    MovieStatisticsResource:
+      additionalProperties: false
+      example:
+        releaseGroups:
+        - releaseGroups
+        - releaseGroups
+        movieFileCount: 0
+        sizeOnDisk: 7
+      properties:
+        movieFileCount:
+          format: int32
+          type: integer
+        sizeOnDisk:
+          format: int64
+          type: integer
+        releaseGroups:
+          items:
+            type: string
+          nullable: true
+          type: array
+      type: object
     MovieStatusType:
       enum:
       - tba
@@ -16176,6 +16253,12 @@ components:
             monitor: null
             addMethod: null
           status: null
+          statistics:
+            releaseGroups:
+            - releaseGroups
+            - releaseGroups
+            movieFileCount: 0
+            sizeOnDisk: 7
         languages:
         - name: name
           id: 2
@@ -17257,6 +17340,12 @@ components:
             monitor: null
             addMethod: null
           status: null
+          statistics:
+            releaseGroups:
+            - releaseGroups
+            - releaseGroups
+            movieFileCount: 0
+            sizeOnDisk: 7
         languages:
         - name: name
           id: 2
@@ -18050,6 +18139,12 @@ components:
               monitor: null
               addMethod: null
             status: null
+            statistics:
+              releaseGroups:
+              - releaseGroups
+              - releaseGroups
+              movieFileCount: 0
+              sizeOnDisk: 7
           languages:
           - name: name
             id: 2
@@ -18766,6 +18861,12 @@ components:
               monitor: null
               addMethod: null
             status: null
+            statistics:
+              releaseGroups:
+              - releaseGroups
+              - releaseGroups
+              movieFileCount: 0
+              sizeOnDisk: 7
           languages:
           - name: name
             id: 2
