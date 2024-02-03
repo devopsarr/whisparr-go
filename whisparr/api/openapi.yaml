@@ -8629,6 +8629,7 @@ components:
         - 0
         qualityProfileId: 6
         minimumAvailability: null
+        searchOnAdd: true
         monitored: true
       properties:
         collectionIds:
@@ -8641,6 +8642,9 @@ components:
           nullable: true
           type: boolean
         monitorMovies:
+          nullable: true
+          type: boolean
+        searchOnAdd:
           nullable: true
           type: boolean
         qualityProfileId:
@@ -19913,8 +19917,10 @@ components:
         freeSpace: 6
         unmappedFolders:
         - path: path
+          relativePath: relativePath
           name: name
         - path: path
+          relativePath: relativePath
           name: name
         id: 0
       properties:
@@ -20330,12 +20336,16 @@ components:
       additionalProperties: false
       example:
         path: path
+        relativePath: relativePath
         name: name
       properties:
         name:
           nullable: true
           type: string
         path:
+          nullable: true
+          type: string
+        relativePath:
           nullable: true
           type: string
       type: object
