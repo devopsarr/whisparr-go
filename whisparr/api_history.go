@@ -24,6 +24,7 @@ import (
 
 // HistoryAPIService HistoryAPI service
 type HistoryAPIService service
+
 type ApiCreateHistoryFailedByIdRequest struct {
 	ctx context.Context
 	ApiService *HistoryAPIService
@@ -63,7 +64,7 @@ func (a *HistoryAPIService) CreateHistoryFailedByIdExecute(r ApiCreateHistoryFai
 	}
 
 	localVarPath := localBasePath + "/api/v3/history/failed/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -141,6 +142,7 @@ func (a *HistoryAPIService) CreateHistoryFailedByIdExecute(r ApiCreateHistoryFai
 
 	return localVarHTTPResponse, nil
 }
+
 type ApiGetHistoryRequest struct {
 	ctx context.Context
 	ApiService *HistoryAPIService
@@ -245,43 +247,49 @@ func (a *HistoryAPIService) GetHistoryExecute(r ApiGetHistoryRequest) (*HistoryR
 	localVarFormParams := url.Values{}
 
 	if r.page != nil {
-		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
+	} else {
+		var defaultValue int32 = 1
+		r.page = &defaultValue
 	}
 	if r.pageSize != nil {
-		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pageSize", r.pageSize, "")
+	} else {
+		var defaultValue int32 = 10
+		r.pageSize = &defaultValue
 	}
 	if r.sortKey != nil {
-		localVarQueryParams.Add("sortKey", parameterToString(*r.sortKey, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sortKey", r.sortKey, "")
 	}
 	if r.sortDirection != nil {
-		localVarQueryParams.Add("sortDirection", parameterToString(*r.sortDirection, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sortDirection", r.sortDirection, "")
 	}
 	if r.includeMovie != nil {
-		localVarQueryParams.Add("includeMovie", parameterToString(*r.includeMovie, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "includeMovie", r.includeMovie, "")
 	}
 	if r.eventType != nil {
 		t := *r.eventType
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				localVarQueryParams.Add("eventType", parameterToString(s.Index(i), "multi"))
+				parameterAddToHeaderOrQuery(localVarQueryParams, "eventType", s.Index(i).Interface(), "multi")
 			}
 		} else {
-			localVarQueryParams.Add("eventType", parameterToString(t, "multi"))
+			parameterAddToHeaderOrQuery(localVarQueryParams, "eventType", t, "multi")
 		}
 	}
 	if r.downloadId != nil {
-		localVarQueryParams.Add("downloadId", parameterToString(*r.downloadId, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "downloadId", r.downloadId, "")
 	}
 	if r.movieIds != nil {
 		t := *r.movieIds
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				localVarQueryParams.Add("movieIds", parameterToString(s.Index(i), "multi"))
+				parameterAddToHeaderOrQuery(localVarQueryParams, "movieIds", s.Index(i).Interface(), "multi")
 			}
 		} else {
-			localVarQueryParams.Add("movieIds", parameterToString(t, "multi"))
+			parameterAddToHeaderOrQuery(localVarQueryParams, "movieIds", t, "multi")
 		}
 	}
 	if r.languages != nil {
@@ -289,10 +297,10 @@ func (a *HistoryAPIService) GetHistoryExecute(r ApiGetHistoryRequest) (*HistoryR
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				localVarQueryParams.Add("languages", parameterToString(s.Index(i), "multi"))
+				parameterAddToHeaderOrQuery(localVarQueryParams, "languages", s.Index(i).Interface(), "multi")
 			}
 		} else {
-			localVarQueryParams.Add("languages", parameterToString(t, "multi"))
+			parameterAddToHeaderOrQuery(localVarQueryParams, "languages", t, "multi")
 		}
 	}
 	if r.quality != nil {
@@ -300,10 +308,10 @@ func (a *HistoryAPIService) GetHistoryExecute(r ApiGetHistoryRequest) (*HistoryR
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				localVarQueryParams.Add("quality", parameterToString(s.Index(i), "multi"))
+				parameterAddToHeaderOrQuery(localVarQueryParams, "quality", s.Index(i).Interface(), "multi")
 			}
 		} else {
-			localVarQueryParams.Add("quality", parameterToString(t, "multi"))
+			parameterAddToHeaderOrQuery(localVarQueryParams, "quality", t, "multi")
 		}
 	}
 	// to determine the Content-Type header
@@ -387,6 +395,7 @@ func (a *HistoryAPIService) GetHistoryExecute(r ApiGetHistoryRequest) (*HistoryR
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiListHistoryMovieRequest struct {
 	ctx context.Context
 	ApiService *HistoryAPIService
@@ -410,7 +419,7 @@ func (r ApiListHistoryMovieRequest) IncludeMovie(includeMovie bool) ApiListHisto
 	return r
 }
 
-func (r ApiListHistoryMovieRequest) Execute() ([]*HistoryResource, *http.Response, error) {
+func (r ApiListHistoryMovieRequest) Execute() ([]HistoryResource, *http.Response, error) {
 	return r.ApiService.ListHistoryMovieExecute(r)
 }
 
@@ -429,12 +438,12 @@ func (a *HistoryAPIService) ListHistoryMovie(ctx context.Context) ApiListHistory
 
 // Execute executes the request
 //  @return []HistoryResource
-func (a *HistoryAPIService) ListHistoryMovieExecute(r ApiListHistoryMovieRequest) ([]*HistoryResource, *http.Response, error) {
+func (a *HistoryAPIService) ListHistoryMovieExecute(r ApiListHistoryMovieRequest) ([]HistoryResource, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []*HistoryResource
+		localVarReturnValue  []HistoryResource
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HistoryAPIService.ListHistoryMovie")
@@ -449,13 +458,16 @@ func (a *HistoryAPIService) ListHistoryMovieExecute(r ApiListHistoryMovieRequest
 	localVarFormParams := url.Values{}
 
 	if r.movieId != nil {
-		localVarQueryParams.Add("movieId", parameterToString(*r.movieId, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "movieId", r.movieId, "")
 	}
 	if r.eventType != nil {
-		localVarQueryParams.Add("eventType", parameterToString(*r.eventType, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "eventType", r.eventType, "")
 	}
 	if r.includeMovie != nil {
-		localVarQueryParams.Add("includeMovie", parameterToString(*r.includeMovie, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "includeMovie", r.includeMovie, "")
+	} else {
+		var defaultValue bool = false
+		r.includeMovie = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -538,6 +550,7 @@ func (a *HistoryAPIService) ListHistoryMovieExecute(r ApiListHistoryMovieRequest
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiListHistorySinceRequest struct {
 	ctx context.Context
 	ApiService *HistoryAPIService
@@ -561,7 +574,7 @@ func (r ApiListHistorySinceRequest) IncludeMovie(includeMovie bool) ApiListHisto
 	return r
 }
 
-func (r ApiListHistorySinceRequest) Execute() ([]*HistoryResource, *http.Response, error) {
+func (r ApiListHistorySinceRequest) Execute() ([]HistoryResource, *http.Response, error) {
 	return r.ApiService.ListHistorySinceExecute(r)
 }
 
@@ -580,12 +593,12 @@ func (a *HistoryAPIService) ListHistorySince(ctx context.Context) ApiListHistory
 
 // Execute executes the request
 //  @return []HistoryResource
-func (a *HistoryAPIService) ListHistorySinceExecute(r ApiListHistorySinceRequest) ([]*HistoryResource, *http.Response, error) {
+func (a *HistoryAPIService) ListHistorySinceExecute(r ApiListHistorySinceRequest) ([]HistoryResource, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []*HistoryResource
+		localVarReturnValue  []HistoryResource
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HistoryAPIService.ListHistorySince")
@@ -600,13 +613,16 @@ func (a *HistoryAPIService) ListHistorySinceExecute(r ApiListHistorySinceRequest
 	localVarFormParams := url.Values{}
 
 	if r.date != nil {
-		localVarQueryParams.Add("date", parameterToString(*r.date, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "date", r.date, "")
 	}
 	if r.eventType != nil {
-		localVarQueryParams.Add("eventType", parameterToString(*r.eventType, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "eventType", r.eventType, "")
 	}
 	if r.includeMovie != nil {
-		localVarQueryParams.Add("includeMovie", parameterToString(*r.includeMovie, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "includeMovie", r.includeMovie, "")
+	} else {
+		var defaultValue bool = false
+		r.includeMovie = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

@@ -14,11 +14,14 @@ import (
 	"encoding/json"
 )
 
+// checks if the MovieStatisticsResource type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &MovieStatisticsResource{}
+
 // MovieStatisticsResource struct for MovieStatisticsResource
 type MovieStatisticsResource struct {
 	MovieFileCount *int32 `json:"movieFileCount,omitempty"`
 	SizeOnDisk *int64 `json:"sizeOnDisk,omitempty"`
-	ReleaseGroups []*string `json:"releaseGroups,omitempty"`
+	ReleaseGroups []string `json:"releaseGroups,omitempty"`
 }
 
 // NewMovieStatisticsResource instantiates a new MovieStatisticsResource object
@@ -40,7 +43,7 @@ func NewMovieStatisticsResourceWithDefaults() *MovieStatisticsResource {
 
 // GetMovieFileCount returns the MovieFileCount field value if set, zero value otherwise.
 func (o *MovieStatisticsResource) GetMovieFileCount() int32 {
-	if o == nil || isNil(o.MovieFileCount) {
+	if o == nil || IsNil(o.MovieFileCount) {
 		var ret int32
 		return ret
 	}
@@ -50,15 +53,15 @@ func (o *MovieStatisticsResource) GetMovieFileCount() int32 {
 // GetMovieFileCountOk returns a tuple with the MovieFileCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MovieStatisticsResource) GetMovieFileCountOk() (*int32, bool) {
-	if o == nil || isNil(o.MovieFileCount) {
-    return nil, false
+	if o == nil || IsNil(o.MovieFileCount) {
+		return nil, false
 	}
 	return o.MovieFileCount, true
 }
 
 // HasMovieFileCount returns a boolean if a field has been set.
 func (o *MovieStatisticsResource) HasMovieFileCount() bool {
-	if o != nil && !isNil(o.MovieFileCount) {
+	if o != nil && !IsNil(o.MovieFileCount) {
 		return true
 	}
 
@@ -72,7 +75,7 @@ func (o *MovieStatisticsResource) SetMovieFileCount(v int32) {
 
 // GetSizeOnDisk returns the SizeOnDisk field value if set, zero value otherwise.
 func (o *MovieStatisticsResource) GetSizeOnDisk() int64 {
-	if o == nil || isNil(o.SizeOnDisk) {
+	if o == nil || IsNil(o.SizeOnDisk) {
 		var ret int64
 		return ret
 	}
@@ -82,15 +85,15 @@ func (o *MovieStatisticsResource) GetSizeOnDisk() int64 {
 // GetSizeOnDiskOk returns a tuple with the SizeOnDisk field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MovieStatisticsResource) GetSizeOnDiskOk() (*int64, bool) {
-	if o == nil || isNil(o.SizeOnDisk) {
-    return nil, false
+	if o == nil || IsNil(o.SizeOnDisk) {
+		return nil, false
 	}
 	return o.SizeOnDisk, true
 }
 
 // HasSizeOnDisk returns a boolean if a field has been set.
 func (o *MovieStatisticsResource) HasSizeOnDisk() bool {
-	if o != nil && !isNil(o.SizeOnDisk) {
+	if o != nil && !IsNil(o.SizeOnDisk) {
 		return true
 	}
 
@@ -103,9 +106,9 @@ func (o *MovieStatisticsResource) SetSizeOnDisk(v int64) {
 }
 
 // GetReleaseGroups returns the ReleaseGroups field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *MovieStatisticsResource) GetReleaseGroups() []*string {
+func (o *MovieStatisticsResource) GetReleaseGroups() []string {
 	if o == nil {
-		var ret []*string
+		var ret []string
 		return ret
 	}
 	return o.ReleaseGroups
@@ -114,16 +117,16 @@ func (o *MovieStatisticsResource) GetReleaseGroups() []*string {
 // GetReleaseGroupsOk returns a tuple with the ReleaseGroups field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *MovieStatisticsResource) GetReleaseGroupsOk() ([]*string, bool) {
-	if o == nil || isNil(o.ReleaseGroups) {
-    return nil, false
+func (o *MovieStatisticsResource) GetReleaseGroupsOk() ([]string, bool) {
+	if o == nil || IsNil(o.ReleaseGroups) {
+		return nil, false
 	}
 	return o.ReleaseGroups, true
 }
 
 // HasReleaseGroups returns a boolean if a field has been set.
 func (o *MovieStatisticsResource) HasReleaseGroups() bool {
-	if o != nil && isNil(o.ReleaseGroups) {
+	if o != nil && IsNil(o.ReleaseGroups) {
 		return true
 	}
 
@@ -131,22 +134,30 @@ func (o *MovieStatisticsResource) HasReleaseGroups() bool {
 }
 
 // SetReleaseGroups gets a reference to the given []string and assigns it to the ReleaseGroups field.
-func (o *MovieStatisticsResource) SetReleaseGroups(v []*string) {
+func (o *MovieStatisticsResource) SetReleaseGroups(v []string) {
 	o.ReleaseGroups = v
 }
 
 func (o MovieStatisticsResource) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o MovieStatisticsResource) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.MovieFileCount) {
+	if !IsNil(o.MovieFileCount) {
 		toSerialize["movieFileCount"] = o.MovieFileCount
 	}
-	if !isNil(o.SizeOnDisk) {
+	if !IsNil(o.SizeOnDisk) {
 		toSerialize["sizeOnDisk"] = o.SizeOnDisk
 	}
 	if o.ReleaseGroups != nil {
 		toSerialize["releaseGroups"] = o.ReleaseGroups
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableMovieStatisticsResource struct {
