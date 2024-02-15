@@ -23,6 +23,7 @@ import (
 
 // QueueAPIService QueueAPI service
 type QueueAPIService service
+
 type ApiDeleteQueueRequest struct {
 	ctx context.Context
 	ApiService *QueueAPIService
@@ -86,23 +87,35 @@ func (a *QueueAPIService) DeleteQueueExecute(r ApiDeleteQueueRequest) (*http.Res
 	}
 
 	localVarPath := localBasePath + "/api/v3/queue/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
 	if r.removeFromClient != nil {
-		localVarQueryParams.Add("removeFromClient", parameterToString(*r.removeFromClient, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "removeFromClient", r.removeFromClient, "")
+	} else {
+		var defaultValue bool = true
+		r.removeFromClient = &defaultValue
 	}
 	if r.blocklist != nil {
-		localVarQueryParams.Add("blocklist", parameterToString(*r.blocklist, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "blocklist", r.blocklist, "")
+	} else {
+		var defaultValue bool = false
+		r.blocklist = &defaultValue
 	}
 	if r.skipRedownload != nil {
-		localVarQueryParams.Add("skipRedownload", parameterToString(*r.skipRedownload, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "skipRedownload", r.skipRedownload, "")
+	} else {
+		var defaultValue bool = false
+		r.skipRedownload = &defaultValue
 	}
 	if r.changeCategory != nil {
-		localVarQueryParams.Add("changeCategory", parameterToString(*r.changeCategory, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "changeCategory", r.changeCategory, "")
+	} else {
+		var defaultValue bool = false
+		r.changeCategory = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -176,6 +189,7 @@ func (a *QueueAPIService) DeleteQueueExecute(r ApiDeleteQueueRequest) (*http.Res
 
 	return localVarHTTPResponse, nil
 }
+
 type ApiDeleteQueueBulkRequest struct {
 	ctx context.Context
 	ApiService *QueueAPIService
@@ -248,16 +262,28 @@ func (a *QueueAPIService) DeleteQueueBulkExecute(r ApiDeleteQueueBulkRequest) (*
 	localVarFormParams := url.Values{}
 
 	if r.removeFromClient != nil {
-		localVarQueryParams.Add("removeFromClient", parameterToString(*r.removeFromClient, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "removeFromClient", r.removeFromClient, "")
+	} else {
+		var defaultValue bool = true
+		r.removeFromClient = &defaultValue
 	}
 	if r.blocklist != nil {
-		localVarQueryParams.Add("blocklist", parameterToString(*r.blocklist, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "blocklist", r.blocklist, "")
+	} else {
+		var defaultValue bool = false
+		r.blocklist = &defaultValue
 	}
 	if r.skipRedownload != nil {
-		localVarQueryParams.Add("skipRedownload", parameterToString(*r.skipRedownload, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "skipRedownload", r.skipRedownload, "")
+	} else {
+		var defaultValue bool = false
+		r.skipRedownload = &defaultValue
 	}
 	if r.changeCategory != nil {
-		localVarQueryParams.Add("changeCategory", parameterToString(*r.changeCategory, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "changeCategory", r.changeCategory, "")
+	} else {
+		var defaultValue bool = false
+		r.changeCategory = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json", "text/json", "application/*+json"}
@@ -333,6 +359,7 @@ func (a *QueueAPIService) DeleteQueueBulkExecute(r ApiDeleteQueueBulkRequest) (*
 
 	return localVarHTTPResponse, nil
 }
+
 type ApiGetQueueRequest struct {
 	ctx context.Context
 	ApiService *QueueAPIService
@@ -437,50 +464,62 @@ func (a *QueueAPIService) GetQueueExecute(r ApiGetQueueRequest) (*QueueResourceP
 	localVarFormParams := url.Values{}
 
 	if r.page != nil {
-		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
+	} else {
+		var defaultValue int32 = 1
+		r.page = &defaultValue
 	}
 	if r.pageSize != nil {
-		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pageSize", r.pageSize, "")
+	} else {
+		var defaultValue int32 = 10
+		r.pageSize = &defaultValue
 	}
 	if r.sortKey != nil {
-		localVarQueryParams.Add("sortKey", parameterToString(*r.sortKey, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sortKey", r.sortKey, "")
 	}
 	if r.sortDirection != nil {
-		localVarQueryParams.Add("sortDirection", parameterToString(*r.sortDirection, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sortDirection", r.sortDirection, "")
 	}
 	if r.includeUnknownMovieItems != nil {
-		localVarQueryParams.Add("includeUnknownMovieItems", parameterToString(*r.includeUnknownMovieItems, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "includeUnknownMovieItems", r.includeUnknownMovieItems, "")
+	} else {
+		var defaultValue bool = false
+		r.includeUnknownMovieItems = &defaultValue
 	}
 	if r.includeMovie != nil {
-		localVarQueryParams.Add("includeMovie", parameterToString(*r.includeMovie, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "includeMovie", r.includeMovie, "")
+	} else {
+		var defaultValue bool = false
+		r.includeMovie = &defaultValue
 	}
 	if r.movieIds != nil {
 		t := *r.movieIds
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				localVarQueryParams.Add("movieIds", parameterToString(s.Index(i), "multi"))
+				parameterAddToHeaderOrQuery(localVarQueryParams, "movieIds", s.Index(i).Interface(), "multi")
 			}
 		} else {
-			localVarQueryParams.Add("movieIds", parameterToString(t, "multi"))
+			parameterAddToHeaderOrQuery(localVarQueryParams, "movieIds", t, "multi")
 		}
 	}
 	if r.protocol != nil {
-		localVarQueryParams.Add("protocol", parameterToString(*r.protocol, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "protocol", r.protocol, "")
 	}
 	if r.languages != nil {
 		t := *r.languages
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				localVarQueryParams.Add("languages", parameterToString(s.Index(i), "multi"))
+				parameterAddToHeaderOrQuery(localVarQueryParams, "languages", s.Index(i).Interface(), "multi")
 			}
 		} else {
-			localVarQueryParams.Add("languages", parameterToString(t, "multi"))
+			parameterAddToHeaderOrQuery(localVarQueryParams, "languages", t, "multi")
 		}
 	}
 	if r.quality != nil {
-		localVarQueryParams.Add("quality", parameterToString(*r.quality, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "quality", r.quality, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -563,6 +602,7 @@ func (a *QueueAPIService) GetQueueExecute(r ApiGetQueueRequest) (*QueueResourceP
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetQueueByIdRequest struct {
 	ctx context.Context
 	ApiService *QueueAPIService
@@ -604,7 +644,7 @@ func (a *QueueAPIService) GetQueueByIdExecute(r ApiGetQueueByIdRequest) (*QueueR
 	}
 
 	localVarPath := localBasePath + "/api/v3/queue/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

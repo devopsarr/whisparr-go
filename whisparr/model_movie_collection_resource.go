@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the MovieCollectionResource type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &MovieCollectionResource{}
+
 // MovieCollectionResource struct for MovieCollectionResource
 type MovieCollectionResource struct {
 	Title NullableString `json:"title,omitempty"`
@@ -39,7 +42,7 @@ func NewMovieCollectionResourceWithDefaults() *MovieCollectionResource {
 
 // GetTitle returns the Title field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *MovieCollectionResource) GetTitle() string {
-	if o == nil || isNil(o.Title.Get()) {
+	if o == nil || IsNil(o.Title.Get()) {
 		var ret string
 		return ret
 	}
@@ -51,7 +54,7 @@ func (o *MovieCollectionResource) GetTitle() string {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MovieCollectionResource) GetTitleOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.Title.Get(), o.Title.IsSet()
 }
@@ -81,7 +84,7 @@ func (o *MovieCollectionResource) UnsetTitle() {
 
 // GetTmdbId returns the TmdbId field value if set, zero value otherwise.
 func (o *MovieCollectionResource) GetTmdbId() int32 {
-	if o == nil || isNil(o.TmdbId) {
+	if o == nil || IsNil(o.TmdbId) {
 		var ret int32
 		return ret
 	}
@@ -91,15 +94,15 @@ func (o *MovieCollectionResource) GetTmdbId() int32 {
 // GetTmdbIdOk returns a tuple with the TmdbId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MovieCollectionResource) GetTmdbIdOk() (*int32, bool) {
-	if o == nil || isNil(o.TmdbId) {
-    return nil, false
+	if o == nil || IsNil(o.TmdbId) {
+		return nil, false
 	}
 	return o.TmdbId, true
 }
 
 // HasTmdbId returns a boolean if a field has been set.
 func (o *MovieCollectionResource) HasTmdbId() bool {
-	if o != nil && !isNil(o.TmdbId) {
+	if o != nil && !IsNil(o.TmdbId) {
 		return true
 	}
 
@@ -112,14 +115,22 @@ func (o *MovieCollectionResource) SetTmdbId(v int32) {
 }
 
 func (o MovieCollectionResource) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o MovieCollectionResource) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Title.IsSet() {
 		toSerialize["title"] = o.Title.Get()
 	}
-	if !isNil(o.TmdbId) {
+	if !IsNil(o.TmdbId) {
 		toSerialize["tmdbId"] = o.TmdbId
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableMovieCollectionResource struct {
