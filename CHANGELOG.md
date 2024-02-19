@@ -1,5 +1,25 @@
 # Changelog
 
+## [1.0.0](https://github.com/devopsarr/whisparr-go/compare/v0.2.1...v1.0.0) (2024-02-15)
+
+
+### ⚠ BREAKING CHANGES
+
+* **devopsarr/prowlarr-py#39:** update sdk generator to use pydantic 2.x
+
+### Features
+
+* align to go sdk ([91bcefa](https://github.com/devopsarr/whisparr-go/commit/91bcefabdf2ef9a02949f04898536571bc407596))
+* **devopsarr/prowlarr-py#39:** update sdk generator to use pydantic 2.x ([971681a](https://github.com/devopsarr/whisparr-go/commit/971681ac92b9b7e7dd95724ba3348a73a13a599b))
+* inject api version into readme ([4848e82](https://github.com/devopsarr/whisparr-go/commit/4848e8225236b30f61f70860d695955203ee8ca1))
+* pin openapi version and add version management ([03f6c26](https://github.com/devopsarr/whisparr-go/commit/03f6c26bcc84d6d822d548374aef6b8acffba1cc))
+
+
+### Bug Fixes
+
+* release please commented lines ([3c3726b](https://github.com/devopsarr/whisparr-go/commit/3c3726bf81e775d185ba4da07b697ec049edf671))
+* remove middle elements from method name ([c119f7f](https://github.com/devopsarr/whisparr-go/commit/c119f7fefec5c86700b38c7f762e9676797e8d7a))
+
 ## [0.2.1](https://github.com/devopsarr/whisparr-go/compare/v0.2.0...v0.2.1) (2023-03-27)
 
 
