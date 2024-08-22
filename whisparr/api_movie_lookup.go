@@ -71,7 +71,7 @@ func (a *MovieLookupAPIService) GetMovieLookupExecute(r ApiGetMovieLookupRequest
 	localVarFormParams := url.Values{}
 
 	if r.term != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "term", r.term, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "term", r.term, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -323,7 +323,7 @@ func (a *MovieLookupAPIService) GetMovieLookupImdbExecute(r ApiGetMovieLookupImd
 	localVarFormParams := url.Values{}
 
 	if r.imdbId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "imdbId", r.imdbId, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "imdbId", r.imdbId, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -446,7 +446,7 @@ func (a *MovieLookupAPIService) GetMovieLookupTmdbExecute(r ApiGetMovieLookupTmd
 	localVarFormParams := url.Values{}
 
 	if r.tmdbId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "tmdbId", r.tmdbId, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "tmdbId", r.tmdbId, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
