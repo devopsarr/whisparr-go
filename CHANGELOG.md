@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/devopsarr/whisparr-go/compare/v1.0.0...v1.0.1) (2024-10-08)
+
+
+### Bug Fixes
+
+* **deps:** update openapitools/openapi-generator-cli docker tag to v7.9.0 ([2757b84](https://github.com/devopsarr/whisparr-go/commit/2757b84b7adc5b29da431e3adf77bd16645985da))
+
 ## [1.0.0](https://github.com/devopsarr/whisparr-go/compare/v0.2.1...v1.0.0) (2024-02-15)
 
 
