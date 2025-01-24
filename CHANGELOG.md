@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.1.0](https://github.com/devopsarr/whisparr-go/compare/v1.0.0...v1.1.0) (2025-01-20)
+
+
+### Features
+
+* remove broken root api path ([0888d8e](https://github.com/devopsarr/whisparr-go/commit/0888d8e8169b307c788220136273715858765ca7))
+
+
+### Bug Fixes
+
+* **deps:** update openapitools/openapi-generator-cli docker tag to v7.10.0 ([ed7ee30](https://github.com/devopsarr/whisparr-go/commit/ed7ee303a82e16f38474bf48a99927aec06aa70d))
+* **deps:** update openapitools/openapi-generator-cli docker tag to v7.11.0 ([d17d1d9](https://github.com/devopsarr/whisparr-go/commit/d17d1d9833ed90bf135aded41862d45ae624dd3f))
+* **deps:** update openapitools/openapi-generator-cli docker tag to v7.9.0 ([2757b84](https://github.com/devopsarr/whisparr-go/commit/2757b84b7adc5b29da431e3adf77bd16645985da))
+
 ## [1.0.0](https://github.com/devopsarr/whisparr-go/compare/v0.2.1...v1.0.0) (2024-02-15)
 
 
