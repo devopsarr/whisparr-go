@@ -216,16 +216,16 @@ func (a *MovieAPIService) DeleteMovieExecute(r ApiDeleteMovieRequest) (*http.Res
 	if r.deleteFiles != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "deleteFiles", r.deleteFiles, "form", "")
 	} else {
-        var defaultValue bool = false
-        parameterAddToHeaderOrQuery(localVarQueryParams, "deleteFiles", defaultValue, "form", "")
-        r.deleteFiles = &defaultValue
+		var defaultValue bool = false
+		parameterAddToHeaderOrQuery(localVarQueryParams, "deleteFiles", defaultValue, "form", "")
+		r.deleteFiles = &defaultValue
 	}
 	if r.addImportExclusion != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "addImportExclusion", r.addImportExclusion, "form", "")
 	} else {
-        var defaultValue bool = false
-        parameterAddToHeaderOrQuery(localVarQueryParams, "addImportExclusion", defaultValue, "form", "")
-        r.addImportExclusion = &defaultValue
+		var defaultValue bool = false
+		parameterAddToHeaderOrQuery(localVarQueryParams, "addImportExclusion", defaultValue, "form", "")
+		r.addImportExclusion = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -490,9 +490,9 @@ func (a *MovieAPIService) ListMovieExecute(r ApiListMovieRequest) ([]MovieResour
 	if r.excludeLocalCovers != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "excludeLocalCovers", r.excludeLocalCovers, "form", "")
 	} else {
-        var defaultValue bool = false
-        parameterAddToHeaderOrQuery(localVarQueryParams, "excludeLocalCovers", defaultValue, "form", "")
-        r.excludeLocalCovers = &defaultValue
+		var defaultValue bool = false
+		parameterAddToHeaderOrQuery(localVarQueryParams, "excludeLocalCovers", defaultValue, "form", "")
+		r.excludeLocalCovers = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -638,9 +638,9 @@ func (a *MovieAPIService) UpdateMovieExecute(r ApiUpdateMovieRequest) (*MovieRes
 	if r.moveFiles != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "moveFiles", r.moveFiles, "form", "")
 	} else {
-        var defaultValue bool = false
-        parameterAddToHeaderOrQuery(localVarQueryParams, "moveFiles", defaultValue, "form", "")
-        r.moveFiles = &defaultValue
+		var defaultValue bool = false
+		parameterAddToHeaderOrQuery(localVarQueryParams, "moveFiles", defaultValue, "form", "")
+		r.moveFiles = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json", "text/json", "application/*+json"}
