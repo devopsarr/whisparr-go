@@ -1,5 +1,31 @@
 # Changelog
 
+## [1.1.2](https://github.com/devopsarr/whisparr-go/compare/v1.1.1...v1.1.2) (2026-08-25)
+
+
+### Bug Fixes
+
+* add .goreleaser.yml template and update Makefile for Go release ([90d6715](https://github.com/devopsarr/whisparr-go/commit/90d67155a6d93d129a4530290fc20300f05c84f6))
+* add .goreleaser.yml template and update Makefile for Go release ([e061d0b](https://github.com/devopsarr/whisparr-go/commit/e061d0be751e33cc2a3c8d052d4a398ade4c1a6c))
+* **deps:** update openapitools/openapi-generator-cli docker tag to v7.16.0 ([ab6cccc](https://github.com/devopsarr/whisparr-go/commit/ab6ccccb83abf134138d1920667b0ac7f8288384))
+* **deps:** update openapitools/openapi-generator-cli docker tag to v7.17.0 ([f98676c](https://github.com/devopsarr/whisparr-go/commit/f98676c880204cb13ecad7a43b242541aa8935a5))
+* **deps:** update openapitools/openapi-generator-cli docker tag to v7.18.0 ([6737722](https://github.com/devopsarr/whisparr-go/commit/67377226b214e89514c1a47786a5f31446a11b3d))
+* **deps:** update openapitools/openapi-generator-cli docker tag to v7.18.0 ([4f5869f](https://github.com/devopsarr/whisparr-go/commit/4f5869f4c7ef2dfef1d46654a1173d734d464d62))
+* **deps:** update openapitools/openapi-generator-cli docker tag to v7.19.0 ([b56842f](https://github.com/devopsarr/whisparr-go/commit/b56842f0109ad00af4635c3a8d913ac79317ee17))
+* **deps:** update openapitools/openapi-generator-cli docker tag to v7.19.0 ([347b075](https://github.com/devopsarr/whisparr-go/commit/347b075bc7badcf24cb7245f9dccba17e1e7b558))
+* **deps:** update openapitools/openapi-generator-cli docker tag to v7.20.0 ([468d1e3](https://github.com/devopsarr/whisparr-go/commit/468d1e3a6d15ffae5aa254eb21bab8e37cfa1ce8))
+* **deps:** update openapitools/openapi-generator-cli docker tag to v7.20.0 ([610f88c](https://github.com/devopsarr/whisparr-go/commit/610f88c4df9b3a8a39c69a59a81048e98af492c4))
+* **deps:** update openapitools/openapi-generator-cli docker tag to v7.21.0 ([85a6a22](https://github.com/devopsarr/whisparr-go/commit/85a6a222e499e7ecc1fd4b25d1e0bcca76ce8d96))
+* **deps:** update openapitools/openapi-generator-cli docker tag to v7.21.0 ([5a61843](https://github.com/devopsarr/whisparr-go/commit/5a61843969a1075c88faea285e1a73560c44190f))
+* **deps:** update openapitools/openapi-generator-cli docker tag to v7.22.0 ([131ee58](https://github.com/devopsarr/whisparr-go/commit/131ee582d445bd9785d3ae55423be7d19f36bf7c))
+* **deps:** update openapitools/openapi-generator-cli docker tag to v7.22.0 ([66a18e2](https://github.com/devopsarr/whisparr-go/commit/66a18e286ea9b75655a415e80de96ed1521a2bf7))
+* **deps:** update openapitools/openapi-generator-cli docker tag to v7.23.0 ([e8b6364](https://github.com/devopsarr/whisparr-go/commit/e8b6364ad4501b7b6c5c25e2fce28940abb0382f))
+* **deps:** update openapitools/openapi-generator-cli docker tag to v7.23.0 ([b3cd0dd](https://github.com/devopsarr/whisparr-go/commit/b3cd0ddf43a0f6b356314636e280f666b9b63db2))
+* **deps:** update openapitools/openapi-generator-cli docker tag to v7.24.0 ([720a407](https://github.com/devopsarr/whisparr-go/commit/720a40724d8e115874f0e38385e23e48dca59ef0))
+* **deps:** update openapitools/openapi-generator-cli docker tag to v7.24.0 ([cfdcebf](https://github.com/devopsarr/whisparr-go/commit/cfdcebfd7fc480fef008b2ce51c9f0e9fd430c30))
+* **deps:** update openapitools/openapi-generator-cli docker tag to v7.25.0 ([4934842](https://github.com/devopsarr/whisparr-go/commit/49348428080e7ce9afac5467d1d2eecc607f6f99))
+* **deps:** update openapitools/openapi-generator-cli docker tag to v7.25.0 ([51be603](https://github.com/devopsarr/whisparr-go/commit/51be603987143019e1169308638a0aa6a4d9493f))
+
 ## [1.1.1](https://github.com/devopsarr/whisparr-go/compare/v1.1.0...v1.1.1) (2025-09-02)
 
 
