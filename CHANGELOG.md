@@ -1,5 +1,28 @@
 # Changelog
 
+## 1.1.2 (2026-11-27)
+
+## What's Changed
+* fix(deps): update openapitools/openapi-generator-cli docker tag to v7.16.0 by @devopsarr[bot] in https://github.com/devopsarr/whisparr-go/pull/67
+* fix(deps): update openapitools/openapi-generator-cli docker tag to v7.18.0 by @devopsarr[bot] in https://github.com/devopsarr/whisparr-go/pull/69
+* fix(deps): update openapitools/openapi-generator-cli docker tag to v7.19.0 by @devopsarr[bot] in https://github.com/devopsarr/whisparr-go/pull/70
+* fix(deps): update openapitools/openapi-generator-cli docker tag to v7.20.0 by @devopsarr[bot] in https://github.com/devopsarr/whisparr-go/pull/71
+* chore: add files for relase please v4 migration by @devopsarr[bot] in https://github.com/devopsarr/whisparr-go/pull/72
+* fix(deps): update openapitools/openapi-generator-cli docker tag to v7.21.0 by @devopsarr[bot] in https://github.com/devopsarr/whisparr-go/pull/73
+* fix(deps): update openapitools/openapi-generator-cli docker tag to v7.22.0 by @devopsarr[bot] in https://github.com/devopsarr/whisparr-go/pull/74
+* fix(deps): update openapitools/openapi-generator-cli docker tag to v7.23.0 by @devopsarr[bot] in https://github.com/devopsarr/whisparr-go/pull/75
+* fix: add .goreleaser.yml template and update Makefile for Go release by @devopsarr[bot] in https://github.com/devopsarr/whisparr-go/pull/76
+* fix(deps): update openapitools/openapi-generator-cli docker tag to v7.24.0 by @devopsarr[bot] in https://github.com/devopsarr/whisparr-go/pull/77
+* fix(deps): update openapitools/openapi-generator-cli docker tag to v7.25.0 by @devopsarr[bot] in https://github.com/devopsarr/whisparr-go/pull/78
+* fix(deps): update openapitools/openapi-generator-cli docker tag to v7.26.0 by @devopsarr[bot] in https://github.com/devopsarr/whisparr-go/pull/79
+* fix(deps): update openapitools/openapi-generator-cli docker tag to v7.27.0 by @devopsarr[bot] in https://github.com/devopsarr/whisparr-go/pull/80
+* fix: add go releaser file version by @devopsarr[bot] in https://github.com/devopsarr/whisparr-go/pull/81
+* chore: edit changelog type to github by @devopsarr[bot] in https://github.com/devopsarr/whisparr-go/pull/82
+* fix(deps): update openapitools/openapi-generator-cli docker tag to v7.28.0 by @devopsarr[bot] in https://github.com/devopsarr/whisparr-go/pull/83
+
+
+**Full Changelog**: https://github.com/devopsarr/whisparr-go/compare/v1.1.1...v1.1.2
+
 ## [1.1.1](https://github.com/devopsarr/whisparr-go/compare/v1.1.0...v1.1.1) (2025-09-02)
 
 
